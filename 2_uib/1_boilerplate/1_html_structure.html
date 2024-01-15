@@ -1,0 +1,60 @@
+<!-- 
+    KOMMENTARE sind code zeilen, die im browser nicht angezeigt werden, und dem entwickler helfen, sich im code zurechtzufinden.
+
+    in HTML werden kommentare mit einem pfeil nach links, einem ausrufezeichen und zwei bindestrichen gestartet. Geschlossen werden sie mit zwei bindestrichen und einem pfeil nach rechts. Die für den pfeil genutzt taste sollte sich in den meisten fällen links neben der taste Y (oder Z bei einer QWERTY tastatur befinden).
+
+    Wenn wir einfach text schreiben, und in der zeile dann STRG gedrückt halten, dann K und dann C drücken, wird der text automatisch zu einem kommentar
+-->
+
+<!-- 
+    Um schnell eine HTML grundstruktur in der HTML datei zu erstellen, die in jeder HTML datei benötigt wird, schreiben wir ! und drücken dann TAB
+ -->
+
+<!-- 
+    Jetzt sehen wir schon ein paar elemente, die jeweils durch pfeile links und rechts definiert werden.
+
+    Wichtig ist, wie wir hier schon sehen, das einige HTML elemente weitere elemente als inhalt haben, wie zum beispiel <head> oder <body>. Diese elemente müssen wir, wenn wir sie mit weiteren kind-elementen füllen, am ende schließen, indem wir den namen, mit einem / davor noch einmal angeben.
+ -->
+
+<!-- Das DOCTYPE element definiert den dokumententyp und die HTML version, da wir mit HTML5 arbeiten, genügt hier die angabe "html" -->
+<!DOCTYPE html>
+
+<!-- 
+    Das html element umschließt den gesammten HTML inhalt, hier geben wir in einem sogenannten attribut auch am. welche sprache unsere datei hauptsächlich beinhalten wird.
+
+    Nehmen wir das konstrukt einmal ausseinander:
+
+    das <html> element wird geöffnet, es beinhaltet ein attribut namens "lang", kurz für "Language", also "Sprache" und die buchstaben "en" in anführungszeichen, dies steht für "english".
+
+    dazwischen befindet sich ein gleichzeichen, dies ist dafür da, das attribut mit seiner option, also der einstellung die es beinhalten soll, zu verbinden.
+
+    wir definieren also:
+    lang ist "en" > die sprache ist english.
+-->
+<html lang="en">
+
+    <!-- Der obere bereich einer HTML datei, genannt "HEAD", enthält meta informationen und den seitentitel, diese informationen sind auf der webseite unsichtbar -->
+    <head>
+        <!-- Der zeichensatz, oder (Character set) für das dokument, ist für die korrekte darstellung der schrift zuständig, der zeichensatz "UTF-8" steht für "Unicode Transformation Format - 8 Bit" und ist in den meisten fällen standard -->
+        <meta charset="UTF-8">
+
+        <!-- Die viewport einstellung für die darstellung auf verschiedenen geräten, hier kann man angeben, wie die darstellung der seite aussehen soll. Dies ist vor allem für Mobilgeräte wichtig, da wir hier sagen können, wie der bildschirm durch unsere seite genutzt wird -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Der seitentitel, wie er im browser-tab angezeigt wird -->
+        <title>Test</title>
+
+        <!-- unter den titel kommen meist noch andere inhalte, wie zum beispiel verlinkungen, zu für das design benötigten styling datein -->
+
+        <!-- in der nächsten zeile sagen wir dem browser, das die head sektion der datei beendet wird, indem wir das das element "schließen" -->
+    </head>
+
+    <!-- Der body enthält den sichtbaren inhalt der HTML datei -->
+    <body>
+        
+        <!-- Hier können verschiedene HTML elemente eingefügt werden, wie überschriften, absätze, bilder, usw. -->
+
+    </body>
+
+<!-- wir schließen das html element und beenden damit den code -->
+</html>
