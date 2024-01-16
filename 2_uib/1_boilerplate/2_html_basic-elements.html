@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Wenn wir
+    einen text in einer HTML datei
+    einfach so schreiben,
+    hat dieser weder zeilenumbrüche,
+    noch irgend eine art von Formatierung.
+
+    <!-- Deswegen haben wir in HTML eine sammlung von elementen, die wir nutzen können um unseren inhalt zu formatieren. Die meisten kennen wir, zumindest von ihrem ergebnis her, schon aus markdown, da dies, zb auf GitHub zum anzeigen in HTML umgewandelt wird. -->
+
+    <!-- 1. Header -->
+
+    <h1>Header 1</h1>
+    <!-- IN MARKDOWN: # Header 1 -->
+    <!-- Hauptüberschrift, sollte sparsam verwendet werden, um den hauptfokus der seite anzuzeigen. -->
+
+    <h2>Header 2</h2>
+    <!-- IN MARKDOWN: ## Header 2 -->
+    <!-- Sekundäre überschrift, ideal für abschnitte oder hauptthemen innerhalb des hauptteils der seite -->
+
+    <h3>Header 3</h3>
+    <!-- IN MARKDOWN: ### Header 3 -->
+    <!-- Unterüberschrift, geeignet für unterthemen oder detaillierte abschnitte unter einem Header 2 -->
+
+    <h4>Header 4</h4>
+    <!-- IN MARKDOWN: #### Header 4 -->
+    <!-- Weitere untergliederung, kann für unterthemen unter einem Header 3 oder detaillierte abschnitte verwendet werden -->
+
+    <h5>Header 5</h5>
+    <!-- IN MARKDOWN: ##### Header 5 -->
+    <!-- Spezielle überschrift, in der regel für nebeninformationen oder weniger wichtige abschnitte verwendet -->
+
+    <h6>Header 6</h6>
+    <!-- IN MARKDOWN: ###### Header 6 -->
+    <!-- Kleinste überschrift, sollte für randinformationen oder fußnoten verwendet werden -->
+
+    <!-- 2. Listen -->
+
+    <!-- 
+        Es gibt 2 verschiedene arten von listen, um zusammengehörige inhalte anzuzeigen.
+
+        <ul> = "unordered list" die einträge sind nicht nummeriert
+        <ol> = "ordered list" die einträge sind nummeriert
+
+        Beide listen beinhalten für die jeweiligen einträge das element <li> für "list item".
+     -->
+
+    <!-- Nicht geordnete liste (IN MARKDOWN: - ) -->
+
+    <ul>
+        <li>Erster Eintrag</li>
+        <li>Zweiter Eintrag</li>
+        <li>Dritter Eintrag</li>
+    </ul>
+
+    <!-- Wir können listen auch ineinander verschachteln -->
+    <ul>
+        <li>Erster Eintrag</li>
+        <li>Zweiter Eintrag</li>
+        <ul><!-- Verschachtelte liste -->
+            <li>Erster Untertrag</li>
+            <li>Zweiter Untertrag</li>
+        </ul>
+    </ul>
+
+    <!-- Geordnete liste (IN MARKDOWN: 1. 2. ...) -->
+    <ol>
+        <li>Erster Eintrag</li>
+        <li>Zweiter Eintrag</li>
+        <ol><!-- Verschachtelte liste -->
+            <li>Erster Untereintrag</li>
+            <li>Zweiter Untereintrag</li>
+        </ol>
+        <!-- Der browser ist schlau genug um die nummerierung der elternliste weiterzuführen,und nicht wieder bei 1 zu starten -->
+        <li>Dritter Eintrag</li>
+    </ol>
+
+    <!-- Bei geordneten listen gibt es verschiedene arten von aufzählungszeichen. Diese kann man durch attribute definieren -->
+
+    <!-- Für zahlen nutzen wir den type "1" (Der standardwert) -->
+    <ol type="1">
+        <li>Erster Eintag</li>
+        <li>Zweiter Eintrag</li>
+        <li>Dritter Eintrag</li>
+    </ol>
+
+    <!-- Für großbuchstaben nutzen wir den type "A" -->
+    <ol type="A">
+        <li>Erster Eintrag</li>
+        <li>Zweiter Eintrag</li>
+        <li>Dritter Eintrag</li>
+    </ol>
+
+    <!-- Für kleinbuchstaben nutzen wir den type "a" -->
+    <ol type="a">
+        <li>Erster Eintrag</li>
+        <li>Zweiter Eintrag</li>
+        <li>Dritter Eintrag</li>
+    </ol>
+
+    <!-- Für römische zahlen nutzen wir den type "I" -->
+    <ol type="I">
+        <li>Erster Eintrag</li>
+        <li>Zweiter Eintrag</li>
+        <li>Dritter Eintrag</li>
+    </ol>
+
+    <!-- Für kleine römische zahlen nutzen wir den type "i" -->
+    <ol type="i">
+        <li>Erster Eintrag</li>
+        <li>Zweiter Eintrag</li>
+        <li>Dritter Eintrag</li>
+    </ol>
+
+    <!-- Die ungerordnete liste hat auch verschiedene arten von aufzählungszeichen, diese definiert man allerdinga anders, weswegen wir das erst später durchnehmen. -->
+
+    <!-- 3. Trennstrich (Horizontal Rule) -->
+    <hr /><!-- IN MARKDOWN: --- oder *** -->
+
+    <!-- 4. Textabschnitt (Paragraph) -->
+
+    <!-- Um texte in unsere datei zu schreiben nutzen wir das <p> element, dieses steht für "paragraph" -->
+
+    <p>Hallo, ich bin ein paragraph</p>
+    <p>Hallo, ich bin noch ein paragraph</p>
+
+    <!-- Für etwas beispieltext, dem sogenannten "lorem ipsum" text, können wir in vscode einfach das wort "lorem" schreiben und TAB drücken. -->
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi at rerum fugit debitis recusandae labore a quae, fugiat facilis fuga omnis corporis nemo, aperiam corrupti nam, eaque distinctio quaerat vero.
+    </p>
+
+    <!-- Wie wir sehen, ist der text der verschiedene paragraphen jetzt visuell durch einen absatz getrennt. -->
+
+    <!--
+        Paragraphen können wir rudimentär auch formatieren, dafür gibt es folgende elemente:
+    
+        <q> = Quote, zitat
+        <b> oder <strong> = Bold, fetter text
+        <u> = Underscore, unterstrichen
+        <del> = Deleted, durchgestrichen
+        <i> = Italic, kursiv
+        <small> = Small, klein geschrieben
+
+        fügen wir, zum test, diese elemente mal in einen beispieltext ein
+    -->
+
+    <p>
+        Lorem <i>ipsum</i> dolor sit <q>amet</q> consectetur, <del>adipisicing</del> elit. Fugiat itaque <b>maiores</b> autem repellat sequi <q>ipsum</q> officiis <b>sunt</b> illum corrupti <u>cumque</u> delectus voluptatum, provident eum. Nemo minima dolor aliquid sit <u>recusandae</u>?
+    </p>
+
+    <!-- es ist auch möglich mehrere dieser formatierungselemente zu kombinieren -->
+    <p>
+        Hallo, <b><u>ich</u> bin ein <i>beispiel</i>.</b>
+    </p>
+
+    <!-- 6. Zeilenumbrüche (Line Break) -->
+
+    <!-- Um mehrere zeilen platz zu schaffen, nicht nur eine, wie automatisch bei dem <p> element, gibt es das <br/> element. dies steht für "line break" -->
+
+    <p>
+        Wir können das element <br /> innerhalb eines <br /> elements benutzen
+    </p>
+
+    <br />
+
+    <p>Aber auch, um elemente vertikal</p>
+
+    <br />
+    <br />
+
+    <p>zu trennen</p>
+
+    <!-- 7. Zitat (Blockquote) -->
+    <!-- Um ein zitat in HTML zu erstellen nutzen wir das <blockquote> element, dieses rückt den text etwas ein um ihn visuell hervorzuheben -->
+
+    <blockquote>
+        <p>Hallo, ich bin ein Zitat</p>
+        <!-- Innerhalb des blockquote elementes können wir pragraphen nutzen um text anzugeben. -->
+        <!-- das <cite> element, als kind von blockquote ist dafür da, anzugeben, von wem oder woher das zitat ist -->
+        <cite>- Der Browser</cite>
+    </blockquote>
+
+    <!-- 8. Div-Element -->
+
+    <!-- Das div element steht für division und wird häufig verwendet um HTML dokumente in abschnitte zu unterteilen -->
+
+    <div>
+        <h2>Dies ist ein DIV element</h2>
+        <p>
+            Das div-element ist ein container, der dazu verwendet wird, andere HTML elemente zu gruppieren und zu organisieren.
+            Es hat keine besondere semantische bedeutung, wird jedoch oft für das strukturieren und layouten von inhalten verwendet.
+        </p>
+    </div>
+
+    <div>
+        <h2>Dies ist ein weiteres DIV element</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, blanditiis perspiciatis. Magnam quam quos voluptates eos pariatur earum commodi tenetur iusto nobis? Repudiandae modi recusandae alias, rerum reiciendis autem. Reprehenderit.
+        </p>
+    </div>
+
+    <!-- 9. Span-Element -->
+
+    <!-- Das span element wird oft verwendet, um einen kleinen abschnitt eines textes zu formatieren oder zu stylen -->
+
+    <p>
+        Dieser Text enhält ein span element, dieses element wird oft für INLINE-STYLING oder das hervorheben eines teiles des texts ohne auswirkungen auf den textfluss verwendet. Zum beispiel kann der Text <span style="color: blue;">blau gefärbt</span> sein.
+    </p>
+
+</body>
+</html>
