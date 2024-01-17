@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>CSS Farben</h1>
+
+    <p>
+        Der hauptteil des stylings von webseiten besten, neben dem bestimmen von abständen oder größen verschiedener elemente vor allem darin, zu definieren, welche farben die verschiedenen elemente haben, um zusammen dem benutzer (der user) der seite eine professionelle, angenehme und ansehnliche erfahrung zu gewährleisten.
+    </p>
+
+    <h2>Farbarten in CSS</h2>
+
+    <p>
+        In CSS gibt es verschiende arten von Farbwerten, die definieren wie eine farbe zusammengestellt wird, darunter benannte fatben, hexidezimalfarben (hexcolors) und RGB/RGBA. Jede dieser arten bietet unterschiedliche möglichkeiten, farben zu definieren und anzuwenden.
+    </p>
+
+    <h3>Benannte Farben</h3>
+
+    <p>
+        Benannte farben sind vordefinierte farbwerte, die leicht durch ihren englischen namen aufgerufen werden können. Zum beispiel: <span style="color: red;">rot</span>, <span style="color: green;">grün</span> und <span style="color: blue;">blau</span>.
+    </p>
+
+    <p>
+        <a href="https://www.w3schools.com/cssref/css_colors.php">eine liste</a> mit allen 140 farbnamen die moderne browser unterstützen
+    </p>
+
+    <h3>RGB und RGBA</h3>
+
+    <p>
+        RGB (Rot, Grün und Blau) und RGBA (Rot, Grün, Blau mit dem sogennanten alpha kanal, für transparenz) werte bieten eine detaillierte kontrolle über farben. Zum beispiel: <span style="color: rgba(0, 128, 255, 0.5)">ein helles blau</span>
+    </p>
+
+    <p>
+        Der wert für jede farbe geht von 0 für "nichts" bis 255 für "voll". So kann man farben fantastisch mischen und anteile verschidener farben miteinander kombinieren.
+    </p>
+
+    <b>Beispiele für RGB</b>
+
+    <ul>
+        <li style="color: rgba(0, 0, 0, 1)">Schwarz</li>
+        <li style="color: rgba(255, 0, 0, 1)">Rot</li>
+        <li style="color: rgba(0, 0, 255, 1)">Blau</li>
+        <li style="color: rgba(100, 20, 80, 1)">Beere</li>
+        <li style="color: rgba(70, 200, 255, 1)">Türkis</li>
+    </ul>
+
+    <p>
+        Durch das mischen von 255*255*255 farben ergibt sich eine gesamtmenge an von 16.7 millionen möglichen farben.
+    </p>
+
+    <h3>Hexadezimalfarben</h3>
+
+    <p>
+        In CSS werden farben meist durch hexadezimalwerte dargestellt. Das hexadezimalsystem basiert auf 16 zeichen, von 0 bis 9 und von A bis F.
+        <br>
+        Diese werden in einer kombination von 6 zeichen verwendet, wobei jeweils zwei für die Rot-, Grün- und Blauanteile stehn. Zum beispiel:
+        <span style="color: #ff0000">#ff0000</span> repräsentiert rot.
+    </p>
+
+    <p>
+        Jedes zeichen repräsentiert 4 bits, daher besteht ein hexadezimalwert aus einer kombination von zwei zeichen, was 8 bit oder ein byte ergibt.
+    </p>
+
+    <b>Aufbau eines Hexadezimalwerts</b>
+
+    <p>
+        Wie oben erwähnt besteht ein hexadezimalwert für eine farbe aus sechs bis acht zeichen. Diese zeichen sind in gruppen unterteilt:
+    </p>
+
+    <ul>
+        <li>Erstes Zeichenpaar: Der rotanteil der farbe</li>
+        <li>Zweites Zeichenpaar: Der grünanteil der farbe</li>
+        <li>Drittes Zeichenpaar: Der blauanteil der farbe</li>
+        <li>(OPTIONAL) Viertes Zeichenpaar: Der transparenzanzeil der farbe</li>
+    </ul>
+
+    <p>Jedes paar dieser zeichen repräsentiert einen wert zwischen 00 und FF im hexadezimalsystem, was auch hier einen bereich von garnicht, bis absolut (0 bis 100%) entspricht. Hier sind einige beispiele:</p>
+
+    <ul>
+        <li style="color: #ff0000">#FF0000: Vollständige farbe rot (255, 0, 0 in RGB)</li>
+        <li style="color: #00FF00">#00FF00: Vollständige farbe grün (0, 255, 0 in RGB)</li>
+        <li style="color: #0000FF">#0000FF: Volständige farbe blau (0, 0, 255 in RGB)</li>
+        <li style="color: #FFFFFF">#FFFFFF: Vollständige weiße farbe (255, 255, 255 in RGB)</li>
+        <li style="color: #000000">#000000: Vollständiges Schwarz (0, 0, 0 in RGB)</li>
+        <li style="color: #3CAFE2">#3CAFE2: Kaffeeblau (60, 175, 226 in RGB)</li>
+    </ul>
+
+    <p>
+        Eine kurzschreibweise für farbwerte, in denen sich die jeweiligen zeichen in der gruppe wiederholen kan verwendet werden indem man jeweils nur das erste zeichen der gruppe nutzt. Aus #AADDAACC wird dann zum beispiel #ADAC.
+    </p>
+
+    <h2>Anwendung von Farben in CSS</h2>
+
+    <p>
+        Gründsätzlich gibt es 2 verschiedene farbebenen mit denen wir arbeiten können. Die textfarbe und die hintergrundfarbe.
+    </p>
+
+    <h3>Textfarbe (color)</h3>
+
+    <p>Mit der textfarbe können wir definieren, welche farbe ein bestimmter text haben soll, wie schon mehrfach in den vorherigen zeilen gesehen, nutzen wir dafür die eigentschaft "color" und übergeben ihr benannte, hex oder rgb farben. Ein beispiel:</p>
+
+    <p style="color: red;">
+        Lorem ipsum, dolor sit <span style="color: rgb(0, 255, 0);">amet</span> consectetur adipisicing elit. <span style="color: #3CAFE2;">Enim</span> magnam rerum, vel repudiandae quas temporibus atque placeat vero <span style="color: darkorange;">illum</span> amet ipsum aut, libero aperiam laboriosam quasi voluptate quia soluta quos.
+    </p>
+
+    <h3>Hintergrundfarbe (background-color oder background)</h3>
+
+    <p>
+        Mit der hintergrundfarbe können wir definieren welche farbe der hintergrund eines elements haben soll. Hierfür nutzen wir die eigenschaft "background-color", oder die kurzform (die sogenannte shorthand property) "background".
+    </p>
+
+    <div style="background: orange;">
+        <p>Mein style wurde mit "background" definiert!</p>
+    </div>
+
+    <div style="background-color: #3CAFE2;">
+        <p>Mein style wurde mit "background-color" definiert!</p>
+    </div>
+
+    <p>
+        Verschachtelte elemente können verschiedene hintergrundfarben haben:
+    </p>
+
+    <ul style="background: tomato;">
+        <li style="background: yellow;">Erster Eintrag</li>
+        <li style="color: blue;">Zweiter Eintrag</li>
+        <ul style="background: purple;">
+            <li>Erster Untereintrag</li>
+            <li style="background: orange; color: white;">Zweiter Untereintrag</li>
+        </ul>
+    </ul>
+
+    <p>Die kombination von hintergrundfarbe und textfarbe kann im design einer webseite sehr viel ausmachen.</p>
+    
+</body>
+</html>
