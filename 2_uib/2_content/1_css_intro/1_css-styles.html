@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>CSS Intro (Styles)</h1>
+    
+    <p>
+        Um webseiten ein design zu geben, nutzt man CSS, was für Cascading Style Sheet steht, also Gestufte Stilvorlagen. Kaskadierend bedeutet, das ein dokument nicht nur von einem einzelne stylesheet formatiert werden kann, sondern von einer vielzahl von styles, die aus verschiedenen quellen stammen können und aufeinander aufbauen können.
+    </p>
+
+    <p>
+        Mit CSS können wir farben, abstände, animationen und positionen für einzelne, oder mehrere elemente definieren und so ein stimmiges, zusammenpassendes und professionelles aussehen oder design für eine seite erschaffen.
+    </p>
+
+    <h2>Stylesheets</h2>
+
+    <p>
+        CSS befehle definieren wir in sogenannten stylesheets, das sind sammlung von selektoren und befehlen, die aussagen wie der style von verschiedenen elementen auf der webseite aussehen soll.
+    </p>
+
+    <p>
+        Es gibt grundsätzlich 3 verschiedene arten (oder positionen) wie man CSS inhalte definiert.
+    </p>
+
+    <ul>
+        <li>Inline Styles: hier schreiben wir die CSS styles direkt in das element</li>
+        <li>Internal Styles: hier schreiben wir die css styles in den header .html datei</li>
+        <li>External Stylesheet: hier schreiben wir unsere css styles in eine externe .css datei, und verlinken diese in unserer html datei</li>
+    </ul>
+
+    <h3>Inline Styles</h3>
+
+    <p>
+        Inline styles können wir nutzen um schnell und direkt einzelne elemente zu stylen. Der nachteil ist, das wir für jedes element einzeln css styles festlegen müssen, und sie nicht dynamisch wiederverwenden können. DIese technik lernen als erstes, um uns mit css vertraut zu machen.
+    </p>
+
+    <h3>Internal Styles</h3>
+
+    <p>
+        Bei dieser art des stylings wird im head der HTML datei ein "style" element erstellt, in das man die CSS inhalte hineinschreibt, man es sehr dynamisch verwenden und hat den vorteil, das sich alle inhalte die mit em layout er seite zutun haben, also sowohl css wie auch html in einer datei befinden. Der nachteil ist, das, wenn wir mehrere html dateien haben, wir auf den style nicht in einer anderen datei zugreifen können.
+    </p>
+
+    <h3>External Stylesheets</h3>
+
+    <p>
+        Eine etwas ordentlichere herangehensweise ist das externe stylesheet, hier wird eine einzelne oder mehrere dateien des types .css angelegt, in der die CSS stylings hinterlegt wurden. Dies ist in produktion beliebt. da man so bestimmte inhalte und elemente in einzelnen dateien getrennt pflegen kann, und eine strikte trennung von inhalt und design hat. Außerdem können wir die jeweiligen stylesheets miteinander verknüpfen, und in jeder .html datei die wir nutzen anwenden.
+    </p>
+
+    <a href="https://blogs.halodoc.io/best-practices-that-we-follow-to-avoid-specificity-issues/">Regeln der wichtigkeit der reihenfolge. (CSS Specificity)</a>
+
+    <h2>Aufbau eines CSS Befehls</h2>
+
+    <p>
+        Ein CSS befehl besteht aus einem selektor, und mehreren deklarationen. Der selektor wählt das element aus, das gestyled werden soll, während die deklaration die stileingeschaft und ihre werte festlegt. Ein Beispiel
+    </p>
+
+    <code>
+        p {
+            color: red;
+            font-size: 16px;
+        }
+    </code>
+
+    <p>
+        Das beispiel zeigt das typische aussehen eines CSS befehls
+    </p>
+
+    <ul>
+        <li>Wir sagen "was wir ansprechen", hier das "p" element</li>
+        <li>Wir öffnen den befehl mit einer geschwungenen klammer (ALT GR + 7)</li>
+        <li>Wir fügen die gewünschten optionen ein, bei der wir jede mit einem ; abschließen</li>
+        <li>Am ende schließen wir unseren befehl wieder mit einer geschwungenen klammer (ALT GR + 0)</li>
+    </ul>
+
+    <p>In unserem code beispiel sagen wir, das alle "p" elemente folgendes styling haben sollen:</p>
+
+    <ul>
+        <li>color (farbe): red (rot)</li>
+        <li>font-size (schriftgröße): 16px (16 pixel)</li>
+    </ul>
+
+    <p>
+        Bei inline styles benötigen wir keinen selektor, weil wir direkt auf dem jeweiligen element unsere styles hinzufügen, indem wir das attribut "style" verwenden.
+    </p>
+
+    <p style="color: red; font-size: 32px">Hallo Welt</p>
+
+    <p style="color: green;">
+        Lorem ipsum dolor sit amet <span style="color: purple;">consectetur</span> adipisicing elit. Corporis quidem, laboriosam magni cum consequuntur aut placeat dolorum magnam sit sapiente <span style="color: orange; font-size: 32px;">exercitationem</span>, possimus debitis ab porro ratione aliquid repellat, molestiae natus.
+    </p>
+
+</body>
+</html>
