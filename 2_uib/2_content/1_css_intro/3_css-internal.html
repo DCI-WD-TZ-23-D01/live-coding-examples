@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* hier können wir jetzt unsere styles mithilfe von selektoren anwenden. */
+
+        /* Selektiert: ELEMENT */
+        p {
+            color: tomato;
+            background: lightblue;
+        }
+
+        /* Selektiert: #hallo-1 */
+        #hallo-1
+        {
+            color: purple;
+        }
+
+        /* Selektiert: #hallo-2 */
+        #hallo-2
+        {
+            color: #CCFF00;
+        }
+
+        /* Selektiert: #hallo-3 */
+        #hallo-3 {
+            font-size: 32px;
+        }
+
+        /* Selektiert: .class-1 */
+        .class-1
+        {
+            color: green;
+        }
+
+        /* Selektiert: .class-2 */
+        .class-2
+        {
+            background: blue;
+        }
+
+        /* Selektiert: .class-3 */
+        .class-3
+        {
+            color: white;
+            background: orange;
+        }
+
+        /* Bei css ist es wichtig zu bedenken, das der code vom browser von oben nach unten gelesen wird, code der weiter unten im text steht und etwas referenziert, das im code darüber schon mal definiert wurde, wird also überschrieben */
+        p
+        {
+            color: black;
+        }
+
+        .class-1 {
+            color: crimson;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Interne Styles</h1>
+
+    <p>
+        Um ein stylesheet innerhalb der HTML datei zu definieren müssen wir das element "style" im head der HTML datei nutzen.
+    </p>
+
+    <h2>Alle elemente eines typs verändern</h2>
+
+    <p>Wenn wir in CSS elemente spezifisch selektieren, werden alle elemente des elementtyps angesprochen</p>
+
+    <p>Hallo Welt 1</p>
+    <p>Hallo Welt 2</p>
+    <p>Hallo Welt 3</p>
+
+    <h2>Spezifische elemente verändern</h2>
+
+    <p>
+        Wenn wir einzelne, nur einmal vorkommende elemente stylen wollen, können wir ID's verwenden, wir sprechen sie mit einer # vor dem namen in CSS an.
+    </p>
+
+    <p id="hallo-1">Hallo Welt</p>
+    <p id="hallo-2">Hallo Welt</p>
+    <p id="hallo-3">Hallo Welt</p>
+
+    <p>Wie wir sehen, ist jetzt nur das jeweilige element selektiert, das die ID beinhaltet.</p>
+
+    <h2>Spezifische gruppen von elementen verändern</h2>
+
+    <p>
+        Eine weitere art der selektion ist die klasse. Eine klasse beinhaltet einen deklarierten namen, der im gegensatz zu id's mehrfach verwendet werden kann, und so mehrere elemente mit den gleichen eigenschaften versehen kann.
+    </p>
+
+    <p>Eine klasse wird definiert, indem die jeweiligen elemente das attribut "class" bekommen. In CSS werden klassen mit einem . von dem namen angesprochen</p>
+
+    <p class="class-1">Hallo Welt 1</p>
+    <p class="class-1 class-2">Hallo Welt 2</p>
+    <p class="class-2">Hallo Welt 3</p>
+    <p class="class-2">Hallo Welt 4</p>
+    <p class="class-3">Hallo Welt 5</p>
+
+    <h2>IDs und Klassen mixen</h2>
+
+    <p>Man kann id's und klassen auch gemeinsam verwenden, so würden sie jeweils die styles von den id's übernehmen, und mit den klassen angepasst werden</p>
+
+    <p id="test-1" class="class-1">Hallo Welt 1</p>
+    <p id="test-2" class="class-1">Hallo Welt 1</p>
+    
+</body>
+</html>
