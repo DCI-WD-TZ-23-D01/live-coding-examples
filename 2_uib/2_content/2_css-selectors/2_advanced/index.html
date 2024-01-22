@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Selektoren</h1>
+
+    <p>
+        Der :nth-child() selektor hat noch ein paar weitere eigenschaften die wir durchsprechen sollten. Er kann benutzt werden um jedes beliebige kindelement innerhalb einer sammlung von kindelementen anzusprechen
+    </p>
+
+    <a href="https://css-tricks.com/useful-nth-child-recipies/">Ein paar infos zu nth-child</a>
+
+    <h2>Das erste element in einer liste stylen</h2>
+    
+    <p>
+        Mit dem selektor :first-child können wir das erste element in einer liste, oder das erste kindelement eines elternelementes selektieren.
+    </p>
+
+    <ul id="liste-1">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>
+    </ul>
+
+    <style>
+        /* wir selektieren das erste kind des elemententypes li */
+        #liste-1 li:first-child {
+            color: tomato;
+        }
+    </style>
+
+    <h2>Das letzte element selektieren</h2>
+
+    <p>
+        Mit dem selektor :last-child können wir das letzte element selektieren.
+    </p>
+
+    <ul id="liste-2">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>
+    </ul>
+
+    <style>
+        /* wir selektieren das letzte kind des element types li */
+        #liste-2 li:last-child {
+            color: tomato;
+        }
+    </style>
+
+    <h2>Gerade und ungerade elemente styles</h2>
+    
+    <p>
+        Gerade und ungerade kinder, also jeweils das 0, 2, 4, ... oder das 1, 3, 5, ... kind element eines eltern-elementes lassen sich mit :nth-child(); mit hilfe der werte "even" oder "odd" selektieren.
+    </p>
+
+    <h3>Gerade elemente stylen</h3>
+
+    <p>Mit :nth-child(even) {} können wir die GERADEN kinder eines elementes stylen</p>
+
+    <ul id="liste-4">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>
+    </ul>
+
+    <style>
+        /* wir können gerade inhalte selektieren */
+        #liste-4 li:nth-child(even) {
+            color: tomato;
+        }
+    </style>
+
+    <h3>Ungerade elemente stylen</h3>
+
+    <p>Mit :nth-child(odd) {} können wir die UNGERADEN kinder eines elementes stylen</p>
+
+    <ul id="liste-5">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>
+    </ul>
+
+    <style>
+        /* wir können ungerade inhalte selektieren */
+        #liste-5 li:nth-child(odd) {
+            color: tomato;
+        }
+    </style>
+
+    <h2>Vom letzten kind aus rückwärts selektieren</h2>
+
+    <p>Mit :nth-last-child() {} können wir von hinten gezählt spezifische elemente selektieren</p>
+
+    <ul id="liste-6">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>
+    </ul>
+
+    <style>
+        /* wir selektieren das vorletzte kind */
+        #liste-6 li:nth-last-child(2) {
+            color: tomato;
+        }
+    </style>
+
+    <h2>Ab einem bestimmten eintrag selektieren</h2>
+
+    <p>Mit :nth-child(n+[nummer]) können wir alle folgenden elemente stylen</p>
+
+    <ul id="liste-7">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>
+    </ul>
+
+    <style>
+        /* Wir selektieren ALLE (n) einträge AB (+) dem 3. */
+        #liste-7 li:nth-child(n+3) {
+            color: tomato;
+        }
+    </style>
+
+    <h2>Vom ersten bis einschließelich einem bestimmten eintrag stylen</h2>
+
+    <p>
+        Wenn wir vor das n ein minus setzen, können wir die selektionsreihenfolge umdrehen, und sagen wir wollen BIS EINSCHLIEßLICH einem bestimmten eintrag selektieren
+    </p>
+
+    <ul id="liste-8">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>
+    </ul>
+
+    <style>
+        /* wir selektieren alle einträge bis einschließlich dem dritten */
+        #liste-8 li:nth-child(-n+3) {
+            color: tomato;
+        }
+    </style>
+
+    <h2>Jeden Xten eintrag selektieren</h2>
+
+    <p>Wenn wir vor das n eine zahl schreiben, selektieren wir jeden von der zahl definierten Xten eintrag</p>
+
+    <ul id="liste-9">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>        
+        <li>Eintrag 6</li>
+        <li>Eintrag 7</li>
+        <li>Eintrag 8</li>
+        <li>Eintrag 9</li>
+        <li>Eintrag 10</li>
+    </ul>
+
+    <style>
+        /* wir selektieren jeden 4. eintrag ab dem 1. */
+        #liste-9 li:nth-child(4n+1) {
+            color: tomato;
+        }
+
+        /* wenn wir das +1 weglassen, fangen wir bei 0 an */
+        #liste-9 li:nth-child(4n) {
+            color: green;
+        }
+
+        /* wenn wir nicht ins plus, sondern ins minus gehen wollen, fangen wir bei negativen zahlen an zu zählen */
+        #liste-9 li:nth-child(4n-2) {
+            color: purple;
+        }
+    </style>
+
+    <h2>Eine spezifische anzahl von einträgen selektieren</h2>
+
+    <p>
+        Wenn wir 2 :nth-child() selektoren nutzen, dessen erster wert sich im plus, und dessen zweiter wert sich im minus befindet, können wir von einem eintrag BIS zu einem anderen eintrag selektieren.
+    </p>
+
+    <ul id="liste-10">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+        <li>Eintrag 4</li>
+        <li>Eintrag 5</li>
+        <li>Eintrag 6</li>
+        <li>Eintrag 7</li>
+        <li>Eintrag 8</li>
+        <li>Eintrag 9</li>
+        <li>Eintrag 10</li>
+    </ul>
+
+    <style>
+        /* wir selektieren den 5 bis einschließlich den 7 eintrag */
+        #liste-10 li:nth-child(n+5):nth-child(-n+7) {
+            color: tomato;
+        }
+    </style>
+    
+</body>
+</html>
