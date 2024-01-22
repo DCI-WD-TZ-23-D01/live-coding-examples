@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Selektoren</h1>
+
+    <p>
+        Wir können mit hilfe erweiterter selektoren noch sehr viel spezifischer elemente ansprechen, als durch klassen oder id's. Wir können uns durch sie in verschiedene richtungen bewegen um genau das element zu selektieren, das wir stylen/ansprechen wollen.
+    </p>
+
+    <h2>Nachfahrenselektoren</h2>
+
+    <p>
+        Wenn wir keinen spezifischen selektor angeben, selektieren wir immer alle elemente des ausgewählten types oder der ausgewählten spezifikation innerhalb unseres elternelementes.
+    </p>
+
+    <div class="elternElement-1">
+        <p>Erster Text</p>
+
+        <div class="kindElement-1">
+            <p>Zweiter Text</p>
+            <p>Dritter Text</p>
+
+            <div class="kindElement-2">
+                <p>Vierter Text</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* wir selektieren ALLE p elemente innerhalb der klasse .elternElement-1 */
+        .elternElement-1 p {
+            color: lime;
+        }
+
+        /* wir selektieren ALLE p elemente innerhalb der klasse .elternElement-1 und .kindElement-1 */
+        .elternElement-1 .kindElement-1 p
+        {
+            color: blue;
+        }
+    </style>
+
+    <h2>Kindselektoren</h2>
+
+    <p>
+        Der sogenannte kindselektor wählt alle kindelemente eines elternelements aus. Er wird dargestellt durch einen pfeil nach rechts zwischen dem elternelement und dem kindelement.
+    </p>
+
+    <div class="elternElement-2">
+        <p>Erster Text</p>
+
+        <div class="kindElement-1">
+            <p>Zweiter Text</p>
+            <p>Dritter Text</p>
+
+            <div class="kindElement-2">
+                <p>Vierter Text</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* wir selektieren NUR die p elemente, die innerhalb von .elternElement-2 sind */
+        .elternElement-2 > p
+        {
+            color: lime;
+        }
+
+        /* wir selektieren nur die p elemente die innerhalb von .elternElement-2 und .kindEle,ent-2 sind. */
+        .elternElement-2 .kindElement-2 > p
+        {
+            color: tomato;
+        }
+    </style>
+
+    <h2>Nachbarselektoren</h2>
+
+    <p>
+        Der nachbarselektor wählt das nachbar element aus, wenn er dem auswahlelement direkt folgt.
+    </p>
+
+    <div class="elternElement-3">
+        <p>Erster Text</p>
+
+        <div class="kindElement-1">
+            <p>Zweiter Text</p>
+            <p>Dritter Text</p><!-- hier ist das p element, dem der link direkt folgt -->
+
+            <a href="#">Ich bin ein Link</a>
+
+            <h3>Hallo Welt</h3>
+
+            <a href="#">Ich bin ein Link</a>
+
+            <div class="kindElement-2">
+                <p>Vierter Text</p>
+
+                <ul>
+                    <li>Erster Eintrag</li>
+                    <li id="position">Zweiter Eintrag</li>
+                    <li>Dritter Eintrag</li>
+                    <li>Vierter Eintrag</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* wir wollen jedes a element auswählen, das direkt nach einem p element in .kindElement-1 kommt. */
+        .elternElement-3 .kindElement-1 p + a {
+            color: lime;
+        }
+
+        /* wir wollen jedes li element selektieren, das direkt nach dem li element id "position" kommt */
+        .elternElement-3 .kindElement-2 ul #position + li {
+            color: lime;
+        }
+    </style>
+
+    <h2>Geschwisterselektoren</h2>
+
+    <p>
+        Der Geschwisterselektor spricht alle nachfolgenden geschwister an, die auf der gleichen ebene sind.
+    </p>
+
+    <div class="elternElement-4">
+        <p>Erster Text</p>
+
+        <div class="kindElement-1">
+            <a href="#">Hallo Welt</a>
+
+            <p>Zweiter Text</p>
+            <p>Dritter Text</p><!-- das p element das a geschwister hat-->
+
+            <b>Hallo Welt</b>
+
+            <br>
+
+            <a href="#">Hallo Welt 1</a>
+            <br>
+            <a href="#">Hallo Welt 2</a>
+
+            <p>Test</p>
+
+            <a href="#">Hallo Welt 3</a>
+
+            <div class="kindElement-2">
+                <p>Vierter Text</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Wir selektieren alle a elemente, die auf der selben ebene wie ein p element innerhalb von .elternElement-4 .kindElement-1 dem p element folgen, egal was dazwischen ist. */
+        .elternElement-4 .kindElement-1 p ~ a {
+            color: lime;
+        }
+
+        /* das ~ finden wir auf den meisten tastaturen, indem wir ALT GR und + drücken. */
+    </style>
+
+    <h2>Spezifisches kind auswählen</h2>
+
+    <p>
+        mit ":nth-child([position])" können wir spezifische elemente selektieren, basierend auf ihrer position.
+    </p>
+
+    <div class="elternElement-5">
+        <p class="paragraph">Erster Text</p>
+        <p class="paragraph">Zweiter Text</p>
+        <p class="paragraph">Dritter Text</p>
+        <p class="paragraph">Vierter Text</p>
+        <p class="paragraph">Fünfter Text</p>
+        <p class="paragraph">Sechster Text</p>
+    </div>
+
+    <style>
+        /* wir selektieren NUR das element, dass das dritte kindelement von .elternElement-5 und dessen inhalt ist. */
+        .elternElement-5 .paragraph:nth-child(3) {
+            color: lime;
+        }
+
+        .elternElement-5 p:nth-child(2) {
+            color: orange;
+        }
+
+        /* wir können mit :not() auch selektionen umdrehen, und zum beispiele ALLE kindelemente von .elternElement-5 auswählen die NICHT auf die selektion zutreffen, indem wir die gewünschte selektion innerhalb der klammern "not()" angeben. */
+        .elternElement-5 .paragraph:not(:nth-child(2)) {
+            background: purple;
+        }
+    </style>
+
+</body>
+</html>
