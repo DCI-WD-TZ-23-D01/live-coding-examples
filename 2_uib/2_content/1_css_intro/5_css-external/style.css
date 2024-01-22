@@ -1,0 +1,10 @@
+/* Innerhalb der CSS datei nutzen wir CSS genauso wie beim internen stylesheet */
+
+h1 {
+    background: orange;
+}
+
+h2 {
+    background: purple;
+    color: white;
+}

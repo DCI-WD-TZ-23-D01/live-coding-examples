@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Hier platzieren wir den link zu einem oder mehreren externen stylesheets -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- TIPP: um mit emmet automatisch die style.css datei zu verlinken, können wir im head "link:css" schreiben und TAB drücken -->
+
+    <!-- Das link element läd eine referenzierte datei ein, die sich an einer bestimmten stelle der festplate oder im internet befindet. Das "rel" attribut teilt dem browser mit, das es sich bei der datei um ein stylesheet handelt -->
+
+</head>
+<body>
+    
+    <h1>Typische benennung von Dateien</h1>
+
+    <b>HTML</b>
+
+    <p>
+        Die haupt HTML datei eines projektes heißt immer "index.html". Eine index datei wird in linux systemen immer direkt anstelle des ordner-inhaltes aufgerufen, das bedeutet, wenn wir beispielsweise an folgender stelle auf der festplatte eine index-datei hätten: ./test/seite/index.html und wir bewegen uns nach ./test/seite im browser, würde automatisch die index.html aufgerufen werden.
+    </p>
+
+    <b>CSS</b>
+
+    <p>
+        Die haupt CSS dateo, in der entweder alle styles liegen, oder in der die verschiedenen styles zusammengeführt werden heißt immer style.css. Wenn verschiedene dateien zusammengefügt werden, können wir sie auch index.css nennen, das ist aber eher in SASS der fall.
+    </p>
+
+    <h1>Das Externe stylesheet</h1>
+
+    <p>
+        Ein externes stylesheet bietete mehrere vorteile und gilt oft als die beste möglichkeit des stylings im vergleich zu internen (internal styles) und inline-styles.
+    </p>
+
+    <h2>Vorteile eines Externen Stylesheets</h2>
+
+    <h3>Trennung von Inhalt und Darstellung</h3>
+
+    <p>
+        Externe stylesheets trennen den HTML-Code von den styles, was die klare unterscheidung von Inhalt und Darstellung ermögicht und somit die wartung und lesbartkeit des codes verbessert. Im gegensatz dazu sind interne und inline styles direkt im HTML dokument enthalten, was zu einer unübersichtlichen und schwer wartbaren codebasis führen kann, besonders bei großen projekten.
+    </p>
+
+    <h3>Wiederverwendbarkeit</h3>
+
+    <p>
+        Die verwendung eines externne stylesheets ermöglicht die wiederverwendung von CSS-inhalten auf mehreren dateien. Wodurch eine konsistente gestaltung im gesammten projekt erreicht wird. Im gegensatz dazu gelten interne und inhline styles nur für die jeweilige seite oder das spezifische element, was die wiederverwendung erschwert, und bei mehreren dateien tatsächlich unmöglich macht.
+    </p>
+
+    <h3>Cache-Nutzung</h3>
+
+    <p>
+        Dee nutzung eines externen stylesheets ermöglicht es Browsern, die dazugehörigen CSS-Dateien zwischenzuspeichern (cachen), was die ladezeit verbessert, da die datei bei wiederholten besuchen oder wiederholter verwendung nicht erneut heruntergeladen werden muss. 
+    </p>
+
+    <h2>Nutzung des Stylesheets</h2>
+
+    <p>
+        Zu allererst erstellen wir eine datei namens style.css und schreiben dort ein paar css definitionen hinein, damit wir die änderungen gleich sehen können, sobald wir den link zur CSS datei in der HTML datei hinterlegt haben.
+    </p>
+
+    <p>
+        Um das externe stylesheet in unserer HTML datei zu nutzen, müssen wir sie im HEAD der html datei verlinken. Dafür haben wir das element "link", das wir im head platzieren können.
+    </p>
+
+</body>
+</html>

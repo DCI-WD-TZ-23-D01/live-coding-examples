@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Selektoren</h1>
+
+    <p>
+        In CSS nutzen wir selektoren um das element, das wir stylen/ansprechen wollen auszuwählen. Ein CSS kommando ist wie folgt aufgebaut:
+    </p>
+
+    <ul>
+        <li>[element/name/klasse/id] { = der selektor</li>
+        <li>[eigenschaft]: [wert]; = die option</li>
+        <li>} = das ende des selektors</li>
+    </ul>
+
+    <!-- Zu testzwecken können wir das style element auch direkt in das HTML schreiben. Dies erleichtert uns das coding in beispielen wie diesem, aber ist in produktion nicht erwünscht, da es bei mehr sehr schwierig zu pflegen ist -->
+
+    <style>
+        /* In CSS sieht das dann so aus: */
+        #beispiel-element {
+            color: red;
+        }
+    </style>
+
+    <p>
+        Mit komma getrennt, können wir mehrere selektoren auswählen und ihnen die selben optionen geben.
+    </p>
+
+    <i id="test-text-1">Hallo Welt, test 1</i>
+
+    <b id="test-text-2">Hallo Welt, test 2</b>
+
+    <style>
+        #test-text-1 {
+            color: tomato;
+        }
+
+        #test-text-1,
+        #test-text-2 {
+            background: lime;
+        }
+    </style>
+
+    <p>
+        Mit sternchen (Universalselektor) können wir alles selektieren:
+    </p>
+
+    <style>
+        ul * {
+            background: red;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</body>
+</html>
