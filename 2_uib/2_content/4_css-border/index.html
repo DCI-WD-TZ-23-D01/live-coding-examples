@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* zur visuellen vereinfachung stylen wir eine box die wir innerhalb unseres codes wiederverwenden können */
+        .box {
+            width: 150px;
+            height: 150px;
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>CSS Rahmen</h1>
+
+    <p>
+        Der "border" in CSS ist der Rahmen um ein HTML-element, der diesem eine klare abgrenzung und definition verleiht. Obweohl er auf den ersten blick einfach erscheinen mag, ist er ein vielseitiges werkzeug, das zahlreiche gestaltungsmöglichkeiten bietet. Er kann mit jedem element verwendet werden und dadurch Rahmen um bilder, divs, absätze und andere elemente erstellen oder sie voneinander trennen.
+    </p>
+
+    <h2>Die verschiedenen border befehle</h2>
+
+    <p>
+        border: ; hat einige befehle, die einzeln die unterschiedlichen optionen liefern, die immer verwendet sind. Dies sind die border-breite, der border style und die border farbe.
+    </p>
+
+    <p>Diese werden mit den folgenden befehlen definiert:</p>
+
+    <ul>
+        <li>border-width: ; = die breite des borders</li>
+        <li>border-style: ; = der stil des borders</li>
+        <li>border-color: ; = die farbe des borders</li>
+    </ul>
+
+    <h3>border-style: ;</h3>
+
+    <p>
+        Mit border-style: ; geben wir an, welchen style typ wir für den border nutzen wollen, wie also der border dargestellt wird. Der standardwert ist "solid", was einen geraden, ununterbrocheenn strich darstellt.
+    </p>
+
+    <style>
+        /* damit wir uns um den style kümmern können, machen wir eine vordefinition der beiden anderen benötigten werte, und passen dieser erst wieder an, wenn wir mit ihnen arbeiten. */
+        .box {
+            border-width: 10px;
+            border-color: tomato;
+        }
+    </style>
+
+    <p>
+        <b>border-style: solid;</b>
+        erschafft einen soliden, durchgängigen strich.
+    </p>
+
+    <div class="box" id="style-solid"></div>
+
+    <style>
+        /* wir erschaffen einen 5pixel breiten soliden, tomatenfarbigen border */
+        #style-solid {
+            border-style: solid;
+        }
+    </style>
+
+    <p>
+        <b>border-style: dotted;</b>
+        erschafft einen gepunkteten strich
+    </p>
+
+    <div class="box" id="style-dotted"></div>
+
+    <style>
+        #style-dotted {
+            border-style: dotted;
+        }
+    </style>
+
+    <p>
+        <b>border-style: dashed;</b>
+        erschafft eine gestrichelte linie
+    </p>
+
+    <div class="box" id="style-dashed"></div>
+
+    <style>
+        #style-dashed {
+            border-style: dashed;
+        }
+    </style>
+
+    <p>
+        <b>border-style: double;</b>
+        erschafft eine doppelte linie
+    </p>
+
+    <div class="box" id="style-double"></div>
+
+    <style>
+        #style-double {
+            border-style: double;
+        }
+    </style>
+
+    <p>
+        <b>border-style: groove;</b>
+        erschafft einen border der aussieht, als wenn er in den bildschirm gekratzt ist.
+    </p>
+
+    <div class="box" id="style-groove"></div>
+
+    <style>
+        #style-groove {
+            border-style: groove;
+        }
+    </style>
+
+    <p>
+        <b>border-style: ridge;</b>
+        erschafft einen nach oben zulaufenden border
+    </p>
+
+    <div class="box" id="style-ridge"></div>
+
+    <style>
+        #style-ridge {
+            border-style: ridge;
+        }
+    </style>
+
+    <p>
+        <b>border-style: inset;</b>
+        erschafft einen border, der aussieht als wre die box in die seite eingelassen
+    </p>
+
+    <div class="box" id="style-inset"></div>
+
+    <style>
+        #style-inset {
+            border-style: inset;
+        }
+    </style>
+
+    <p>
+        <b>border-style: outset;</b>
+        erschafft einen border, der aussieht als wäre das element auf sie seite draufgelegt.
+    </p>
+
+    <div class="box" id="style-outset"></div>
+
+    <style>
+        #style-outset {
+            border-style: outset;
+        }
+    </style>
+
+    <p>
+        <b>border-style: hidden;</b> oder <b>border-style: none;</b>
+        erstellt einen unsichtbaren border.
+    </p>
+
+    <div class="box" id="style-hidden"></div>
+
+    <style>
+        #style-hidden {
+            background: lightblue;
+            border-style: hidden;
+        }
+        #style-hidden:hover {
+            border-style: solid;
+        }
+    </style>
+
+    <h3>Spezifische seiten stylen</h3>
+
+    <p>Wenn wir die seite angeben, auf der wir stylen wollen, können wir dieser eine option unserer wahl zuweisen</p>
+
+    <p>
+        mit border-top: ;, border-right: ;, border-bottom: ; und border-left: ; können wir optionen direkt für die jeweilige seite angeben und so unsere border-styles mixen, oder nur bestimmte seiten einblenden.
+    </p>
+
+    <div class="box" id="style-specific"></div>
+
+    <style>
+        #style-specific {
+            border-top-style: solid;
+            border-right-style: dotted;
+            border-bottom-style: dashed;
+            border-left-style: groove;
+        }
+    </style>
+
+    <h3>border styles shortcode</h3>
+
+    <p>
+        wir können auch mehrere border-arten an einem element direkt angeben, indem wir die werte für die seiten nacheinander schreiben
+    </p>
+
+    <div class="box" id="style-shortcode"></div>
+    
+    <style>
+        #style-shortcode {
+            /*            oben   rechts unten links */
+            border-style: dotted dashed solid none;
+        }
+    </style>
+
+    <h3>border-width: ;</h3>
+
+    <p>
+        wir können größen für unseren border angeben, um ihm einen interessanten look zu verpassen, der standardwert (default) ist 3px.
+    </p>
+
+    <p>
+        mit dem befehl border-width: ; geben wir an, wie breit der border sein soll.
+    </p>
+
+    <style>
+        /* wir setzen für die folgenden beispiele den border-style auf solid */
+        .box {
+            border-style: solid;
+        }
+    </style>
+
+    <div class="box" id="width"></div>
+
+    <style>
+        #width {
+            border-width: 20px;
+        }
+    </style>
+
+    <p>
+        wenn wir die spezifische seiten angeben, auf der wir die breite ändern wollen, können wir sehr interessante border erstellen.
+    </p>
+
+    <div class="box" id="width-specific"></div>
+
+    <style>
+        #width-specific {
+            border-top-width: 50px;
+            border-right-width: 20px;
+            border-bottom-width: 5px;
+            border-left-width: 250px;
+        }
+    </style>
+
+    <h3>border-width mixen</h3>
+
+    <p>
+        wir können mehrere border-größen an einem element nutzen.
+    </p>
+
+    <p>wenn wir bei pixelangaben 0 angeben, brauchen wir kein px dahinter.</p>
+
+    <div class="box" id="width-shortcode"></div>
+
+    <style>
+        #width-shortcode {
+            border-width: 50px 25px 5px 0;
+        }
+    </style>
+
+    <p>wenn wir auf jedweils den gegenüberliegenden seiten die gleichen werte haben, reicht es wenn wir nur 2 werte angeben, für top/bottom (horizontal) und left/right (vertikal)</p>
+
+    <div class="box" id="width-shortcode-2"></div>
+
+    <style>
+        #width-shortcode-2 {
+            /*            top/bottom left/right */
+            border-width: 5px 20px;
+        }
+    </style>
+
+    <h3>border-color: ;</h3>
+
+    <p>
+        mit border-color: ; können wir unserem border eine farbe geben
+    </p>
+
+    <div class="box" id="color-single"></div>
+
+    <style>
+        #color-single {
+            border-color: lime;
+        }
+    </style>
+
+    <h3>color specific</h3>
+
+    <p>wir können auch nur eine einzelne seite verändern, indem wir die seite mit angeben, die wir ansprechen wollen, und vorher alle anderen seiten definieren</p>
+
+    <div class="box" id="color-specific"></div>
+
+    <style>
+        #color-specific {
+            border-color: transparent;
+            border-left-color: orange;
+        }
+    </style>
+
+    <h3>color shortcode</h3>
+
+    <p>wir können farben auch als shortcode hintereiander schrieben</p>
+
+    <div class="box" id="color-shortcode"></div>
+
+    <style>
+        #color-shortcode {
+            border-color: lime transparent cyan orange;
+        }
+    </style>
+
+    <h2>border shortcode/shorthand</h2>
+
+    <p>
+        wenn wir auf allen seiten die selben optionen brauchen, können wir die sogenannte shorthand benutzen, also den abkürzenden befehl, alle border seiten anzusprechen. Dieser befehl, einfach border: ; wird in den meisten fällen genutzt um einen border zu stylen.
+    </p>
+
+    <div class="box" id="shortcode-default"></div>
+
+    <style>
+        #shortcode-default {
+            /*      breite style farbe */
+            border: 5px dashed orange;
+        }
+    </style>
+
+    <p>
+        Wenn wir nicht überall die selbe option haben wollen, können wir auch die shorthand benutzen und einzelne optionen danach überschreiben
+    </p>
+
+    <div class="box" id="shortcode-mixed"></div>
+
+    <style>
+        #shortcode-mixed {
+            /* wir geben dem border einen style ... */
+            border: 10px solid orange;
+            /* ... und passen die einzelnen optionen spezifischer seiten nachträglich an */
+            border-left-color: purple;
+            border-right-width: 50px;
+        }
+    </style>
+
+    <p>diese abkürzungen funktionieren auch seitenspezifisch</p>
+
+    <div class="box" id="shortcode-specific"></div>
+
+    <style>
+        #shortcode-specific {
+            border-top: 20px solid lime;
+            border-left: 10px dashed tomato;
+            /* das komplette verstecken einer borderseite geht mit "none" */
+            border-right: none;
+        }
+    </style>
+
+    <h2>Tipp</h2>
+
+    <p>
+        Der border lässt sich fantastisch für die entwicklung nutzen, da wir ihn anzeigen lassen können um die maße all unserer elemente, oder spezifischer elemente zu sehen. So können wir auch unsichtbare elemente finden, oder genau sehen wie die abstände zwischen verschiedenen elementen sind. Wir nennen das den "debug border".
+    </p>
+
+    <p>
+        meist nutzen wir dafür den "1px solid red" auf dem * selektor, man kann ihn aber natürlich auch auf jedes gewünschte element anwenden.
+    </p>
+
+    <style>
+        * {
+            border: 1px solid red;
+        }
+    </style>
+
+</body>
+</html>

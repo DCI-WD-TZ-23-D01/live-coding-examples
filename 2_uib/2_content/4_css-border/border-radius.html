@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            background: tomato;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Border</h1>
+
+    <h2>border-radius: ;</h2>
+
+    <p>
+        Mit border-radius: ; können wir elemente am rand abrunden, das gibt ihnen einen professionellen look, und bringt uns vollkommen neue möglichkeiten, um designs anzupassen.
+    </p>
+
+    <p>die border-radius: ; ecken werden mit top/bottom-left/right benannt.</p>
+
+    <p>wenn wir also nur eine, oder mehrere seiten einen radius geben wollen, können wir das tun, indem wir die seite spezifisch angeben</p>
+
+    <div class="box" id="radius-specific"></div>
+
+    <style>
+        #radius-specific {
+            border-top-left-radius: 100px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 50px;
+            border-bottom-left-radius: 10px;
+        }
+    </style>
+
+    <p>
+        wir können auch hier eine abkürzung verwenden, um alle angaben in eine zeile zu schreiben
+    </p>
+
+    <div class="box" id="radius-shortcode-1"></div>
+
+    <style>
+        #radius-shortcode-1 {
+            /*             t/l  t/r  b/r   b/l*/
+            border-radius: 50px 10px 100px 200px;
+        }
+    </style>
+
+    <p>
+        wollen wir allen seiten den gleichen wert geben, können wir dies auch mit dem befehl border-radius: ; machen.
+    </p>
+
+    <div class="box" id="radius-shortcode-2"></div>
+
+    <style>
+        #radius-shortcode-2 {
+            border-radius: 25px;
+        }
+    </style>
+
+    <p>
+        wir können damit auch kreise oder ellipsen erschaffen, indem wir die größe des border-radiusses auf 50% setzen.
+    </p>
+
+    <div id="border-radius-box"></div>
+
+    <style>
+        #border-radius-box {
+            width: 200px;
+            height: 200px;
+            background: lime;
+            /* ein radius von 50% auf allen seiten erschafft einen kreis */
+            border-radius: 50%;
+        }
+    </style>
+
+    <p>
+        wenn wir mit 100% auf einer seite arbeiten, schneiden wir die kante praktsich abgerundet ab.
+    </p>
+
+    <div id="border-radius-rundschnitt"></div>
+
+    <style>
+        #border-radius-rundschnitt {
+            width: 400px;
+            height: 100px;
+            background: lime;
+            border-top-right-radius: 100%;
+        }
+    </style>
+
+</body>
+</html>
