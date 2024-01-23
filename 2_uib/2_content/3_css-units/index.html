@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Größeneinheiten</h1>
+
+    <p>
+        Um elemente auf einer webseite eine größe zu geben, egal ob höhe oder breite nutzen wir den platz den wir im browserfenster zur verfügung haben so gut wie möglich aus. Um dies zu tun haben wir verschiedene möglichkeiten größen zu definieren.
+    </p>
+
+    <p>
+        Als grundwert für die größeneinheiten nutzen wir den sogenannten Pixel, der durch die bildschirmauflösung des anzeigegerätes, wie zum beispiel dem Monitor oder dem smartphone display angegeben wird. Es gibt aber abgesehen von der reinen pixel-angabe noch andere werte, die sich relativ zur pixelauflösung verhalten.
+    </p>
+
+    <h2>Pixel (px)</h2>
+
+    <p>
+        Der Pixel (px) ist eine absolute größeneinheit und definiert die größe eines elements in festen pixelwerten. Zum beispiel ist dieser text standardmäßig 16 pixel groß. Das bedeutet das er auf jedem monitor die selbe pixelgröße hat, bei verschiedenen auflösungen ist er für den benutzer also verschieden groß.
+    </p>
+
+    <div id="pixel-beispiel-1"></div>
+
+    <style>
+        #pixel-beispiel-1 {
+            background: tomato;
+            /* mit width: ; und height: ; geben wir die breite oder die höhe eines elementes an. */
+            width: 100px; /* breite */
+            height: 100px; /* höhe */
+        }
+    </style>
+
+    <br>
+
+    <div id="pixel-beispiel-2"></div>
+
+    <style>
+        #pixel-beispiel-2 {
+            background: tomato;
+            height: 100px;
+            /* mindestens 300 pixel breit. */
+            min-width: 300px; 
+        }
+    </style>
+
+    <br>
+
+    <div id="pixel-beispiel-3"></div>
+
+    <style>
+        #pixel-beispiel-3 {
+            background: tomato;
+            height: 100px;
+            /* maximal 500px breit */
+            max-width: 500px; /* das element ist 100% breit, bis das browser-fenster über 500 pixel breit ist, dann wird es nicht größer */
+        }
+    </style>
+
+    <p id="pixel-text-beispiel">Hallo ich bin text</p>
+
+    <style>
+        #pixel-text-beispiel {
+            /* mit dem befehl font-size: ; geben wir an, wie groß die FONT, englisch für schrift, dargestellt werden soll, das bezieht sich auf die horizontale größe */
+            font-size: 32px;
+            /* wir setzen die schrift auf 32px, also doppelt so groß wie der normale text */
+        }
+    </style>
+
+    <h2>em</h2>
+
+    <p>
+        em ist eine relative größeneinheit, die die größe basierend auf em elternelement verändert. Das bedeutet, wenn das elternelement in der größe verändert wird, ändert sich relativ dazu auch die größe des kind elementes.
+    </p>
+
+    <div class="em-parent">
+        Elternelement
+        <div class="em-child-small">
+            Erstes Kind
+            <div class="em-child-small">
+                Zweites Kind
+                <div class="em-child-small">
+                    Drittes Kind
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .em-parent {
+            font-size: 32px;
+        }
+
+        .em-child-small {
+            font-size: 1.25em;
+            /* wir sagen die schrift soll 1.25 mal so groß sein wie im elternelement, wie wir sehen wird es jetzt für jedes element um den faktor 1.25 größer. */
+        }
+    </style>
+
+    <h2>rem</h2>
+
+    <p>
+        rem ist eine relative größeneinheit, die die größe relativ zum Root-Element (html) verändert, das bedeutet, wenn wir die größe von REM dokumentenweit anpassen, wird basierend darauf alles was in rem angegeben wurde, abhängig von diesen angaben verändert.
+    </p>
+
+    <ul>
+        <li>1rem = 16px (wenn nicht anders definiert)</li>
+        <li>2rem = 32px</li>
+        <li>0.5rem = 8px</li>
+    </ul>
+
+    <div class="rem-parent">
+        Elternelement
+        <div class="rem-child">
+            Erstes Kind
+            <div class="rem-child">
+                Zweites Kind
+                <div class="rem-child">
+                    Drittes Kind
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* wir verdoppeln die größe der font des eltern elements */
+        .rem-parent {
+            font-size: 2rem;
+        }
+
+        /* wir sagen die font ist 1.5 mal so groß wie 16px */
+        .rem-child {
+            font-size: 1.5rem;
+        }
+
+        /* das root element (das grundelement auf dem alle anderen elemente plaziert sind) */
+        /* :root {
+            font-size: 32px; 
+        } */
+        /* wenn wir hier einen anderen wert als 16px angeben, verändern wir die relative größen aller fonts auf der seite */
+    </style>
+
+    <h2>% (Prozent)</h2>
+
+    <p>
+        Prozent (%) definiert die größe eines elements in prozent des elternelements. Auch hier gilt die basis der schrift als 16px;
+    </p>
+
+    <p>Ein element das direkt im HTML body liegt orientier sich an 100% seitenhöhe und 100% seitenbreite</p>
+
+    <div class="pro-parent">
+        Elterneelement
+        <div class="pro-child">
+            Erstes Kind
+            <div class="pro-child">
+                Zweites kind
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* wir setzen das elternelement auf 80% seitenbreite */
+        .pro-parent {
+            background: lime;
+            width: 80%
+        }
+
+        /* wir setzen das kind element auf 70% seitenbreite */
+        .pro-child {
+            background: tomato;
+            width: 90%;
+        }
+    </style>
+    
+    <h2>vw und vh (view-width und view-height)</h2>
+
+    <p>vw und vh definieren die größe eines elements relativ zur dokumentenbreite und dokumentenhöhe des browsers</p>
+
+    <p id="vw-1">view width</p>
+    <p id="vw-2">view width</p>
+    <p id="vh-1">view height</p>
+    <p id="vh-2">view height</p>
+
+    <style>
+        #vw-1 {
+            background: tomato;
+            height: 50px;
+            width: 25vw;
+        }
+        #vw-2 {
+            background: tomato;
+            height: 50px;
+            width: 60vw;
+        }
+
+        #vh-1 {
+            background: tomato;
+            width: 100px;
+            height: 5vh;
+        }
+        #vh-2 {
+            background: tomato;
+            width: 100px;
+            height: 10vh;
+        }
+    </style>
+
+    <p>
+        Wir können die verschiedenen größeneinheiten beliebig mischen. Wenn wir vh nutzen und dort drin zum beispiel prozent nutzen, ist die größe des elements abhängig von der fenstergröße und den jeweiligen angegebenen prozenten
+    </p>
+
+    <div id="test-box-aussen">
+        <div id="test-box-innen"></div>
+    </div>
+
+    <style>
+        #test-box-aussen {
+            background: tomato;
+            width: 50vw;
+            height: 50vh;
+        }
+        #test-box-innen {
+            background: lime;
+            width: 100px;
+            height: 50%;
+        }
+    </style>
+
+</body>
+</html>
