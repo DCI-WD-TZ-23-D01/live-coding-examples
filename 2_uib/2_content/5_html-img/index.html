@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Image - das img element</h1>
+
+    <p>
+        Wenn wir auf webseiten bilder einfügen wollen, kommen wir um das img element nicht herum. Es ist eines der grundlegendsten und am häufigsten verwendeten elemente in HTML, das uns die einbettung von bildern in webseiten ermöglicht. Bilder sind ein wesentlicher bestandteil der visuellen gestalktung von webseiten und tragen dazu bei, informationen zu vermitteln, ästhetik hinzuzufügen und benutzererlebnisse zu verbessern.
+    </p>
+
+    <h2>Die verschiedenen Attribute</h2>
+
+    <p>
+        Das img element verfügt über folgende attribute:
+    </p>
+
+    <ul>
+        <li>src = der pfad/link zum bild</li>
+        <li>alt = eine textbeschreibung des bildes</li>
+        <li>width = die breite des bildes in pixel</li>
+        <li>height = die höhe des bildes in pixel</li>
+    </ul>
+
+    <h3>Die Quelle (src)</h3>
+
+    <p>
+        Dieses attribut definiert die url oder den pfad zum bild, das in die webseite eingebettet werden soll. Es ist das einzige erforderliche attribut und gibt an, wo das bild gefunden werden kann.
+    </p>
+
+    <h3>Der Alternativtext (alt)</h3>
+
+    <p>
+        Das alt attribut ermöglicht die bereitstellung eines alternativen textes, der angezeigt wird, wenn das bild aus irgendeinem grund nicht geladen werden kann. DIes ist wichtig für die barrierefreiheit und suchmaschinenoptimierung, da diese beiden arten eine webseite zu lesen bilder nicht anzeigen können, und so durch die beschreibung klargestellt wird, was auf dem bild zu sehen ist. Wenn wir ein bild auf einer webseite hinzufügen, sollten wir uns immer gedanken machen, was wir als alt-text angeben.
+    </p>
+
+    <h3>Breite und Höhe (width/height)</h3>
+
+    <p>
+        Diese attribute legen die breite und höhe des bildes in pixeln fest. Sie könne verwendet werden um die größe des bildes auf der webseite anzupassen.
+    </p>
+
+    <p>
+        Die mit width oder height definierten größen unterscheiden sich zu den in CSS definierten größen, da sie schon während des seitenaufbaus festgelegt werden. Dies kann dazu breitragen, das layout der seite zu stabilieren, und verhindern das sich die seite während des ladens verschiebt, wenn bilder geladen werden. Der benötigte platz für die bilder wird sozusagen auf der seite reserviert.
+    </p>
+
+    <h2>Das verwenden des img elements</h2>
+
+    <p>
+        Um ein img element zu verwenden müssen wir angeben, wo sich das jeweilige bild befindet, egal ob es online oder lokal gespeichert ist. Wenn der angegeben link nicht funktioniert wird automatisch der hinhalt des alt attributes angezeigt. Dieses sollten wir immer angeben - damit dem user trotzdem klar ist, was wir in unserem bild anzeigen wollen.
+    </p>
+
+    <img src="käse.jpg" alt="Bild von Käse">
+
+    <p>
+        Wie wir sehen, bekommen wir das browsertypische "broken image" icon, gefolgt von dem text, den wir im "alt" attribut angegeben haben.
+    </p>
+
+    <p>Wir das bild erfolgreich geladen, wird es, wenn nicht anders definiert, in seiner vollen größe angezeigt.</p>
+
+    <img src="kaese.jpg" alt="Bild von Käse">
+
+    <b>Ein bild kann sich sowohl lokal auf der festplatte befinden:</b>
+
+    <br>
+
+    <img src="testbild.png" alt="Klassisches Fernsehtestbild">
+
+    <b>Es kann aber auch aus dem internet geladen werden:</b>
+
+    <br>
+
+    <img src="https://www.burosch.de/images/tv-testbild-butp4/tv-testbild-testzonen-sharpness.png" alt="Anderes Testbild">
+
+    <h2>Bildformate</h2>
+
+    <p>
+        Das img element kann jegliche vom browser unterstützten bildformate anzeigen, einige typische formate sind: PNG, APNG, GIF, ICO, JPG, JPEG, WEBP und SVG. IN der heutigen zeit nutzen wir meist PNG (Ein sehr verlustfreies format, transparenz, 16.7m farben) oder SVG (vektorgrafik, verpixelt nicht beim skalieren)
+    </p>
+
+    <h3>Größe eines bildes definieren</h3>
+
+    <p>
+        mit den attributen "width" und "height" können wir die grlße unserer bilder spezifisch in pixeln anpassen. Es wird dann auf die von uns definierte größe gestaucht - bedeutet, wenn die breite und höhe des bildes nicht einem faktor der originalgröße entsprechen, wird es verzerrt dargestellt, weil wir es sozusagen in den von uns definierten platz hineinstopfen.
+    </p>
+
+    <img src="testbild.png" alt="Klassisches Fernsehtestbild" width="300" height="100">
+
+    <p>Wir können dieses problem umgehen, indem wir nur einen der beiden werte, also höhe oder breite des bildes angeben, so wird der andere wert des bildes basierend auf seiner originalgröße heruntergerechnet und das bild wird nicht gestreckt</p>
+
+    <img src="testbild.png" alt="Klassisches Fernsehtestbild" width="450">
+
+    <p>
+        Wir können die größe auch in CSS angeben, diese wird dann erst eingestellt, wenn die css datei geladen wurde, ansonsten verhält sich die größendefinierung gleich.
+    </p>
+
+    <img src="testbild.png" alt="Klassisches Fernsehtestbild" id="image-1">
+
+    <style>
+        #image-1 {
+            height: 100px;
+        }
+    </style>
+
+    <p>Auch wenn wir in CSS beide größen angeben, wird das bild verzerrt</p>
+
+    <img src="testbild.png" alt="Klassisches Fernsehtestbild" id="image-2">
+
+    <style>
+        #image-2 {
+            height: 100px;
+            width: 400px;
+        }
+    </style>
+
+    <h3>Verschachteln von Bildern</h3>
+
+    <p>
+        Wir können bilder auch mit anderen elementen verschachteln, dafür setzen wir die breite des bildes auf 100% und definieren dann über das elternelement die größe des bildes, das den inhalt dann komplett ausfüllt. So können wir elemente erschaffen die platz für bilder reservieren.
+    </p>
+
+    <div id="schachtel">
+        <img src="testbild.png" alt="Klassisches Fernsehtestbild" id="schachtel-image">
+    </div>
+
+    <style>
+        /* wir erstellen ein elternelement das eine definierte größe hat und eine hintergrundfarbe */
+        #schachtel {
+            background: tomato;
+            width: 400px;
+            height: 400px;
+        }
+
+        #schachtel #schachtel-image {
+            width: 100%;
+        }
+    </style>
+
+    <p>In ein anchor element gesteckt, können wir bilder auch als link benutzen</p>
+
+    <a href="https://google.de">
+        <img src="testbild.png" alt="Klassisches Fernsehtestbild" id="image-3">
+    </a>
+
+    <style>
+        #image-3 {
+            width: 200px;
+        }
+    </style>
+
+    <h2>Anmerkungen</h2>
+
+    <h3>Bildoptimierung</h3>
+
+    <p>
+        Bildoptimierung ist ein entscheidender aspekt der webentwicklung, der die leistung einer webseite erheblich beeinflusst. Hier geht es darum, die qualität und größe von bildern so zu optimieren, dass sie schnell geladen werden können, ohne die bildqualität erheblich zu beeinträchtigen.
+    </p>
+
+    <h3>Rechte und Lizenzen</h3>
+
+    <p>
+        Das thema rechte und lizenzen ist von eintscheidener bedeutung, wenn es um die verwendung von bildern auf einer webseite geht. Es bezieht sich auf die rechtliche genehmligung und nutzung von bildern. Um sicherzustellen, dass keine urheberrechtsverletzungen oder rechtliche probleme auftreten.
+    </p>
+
+    <a href="https://picsum.photos/">Kostenlose platzhalterfotos</a>
+
+</body>
+</html>
