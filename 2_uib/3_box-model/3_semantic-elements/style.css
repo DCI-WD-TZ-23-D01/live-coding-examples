@@ -1,0 +1,52 @@
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #333;
+}
+nav ul li {
+    float: left;
+}
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+}
+nav ul li a:hover {
+    background: #111;
+}
+nav ul li a.active {
+    background: red;
+}
+nav ul li.right {
+    float: right;
+}
+
+header {
+    background: white;
+    color: black;
+    text-align: center;
+}
+
+.container {
+    background: darkslategray;
+    /* mit max-width: ; stellen wir ein, wie breit die seite maximal sein darf */
+    max-width: 720px;
+    /* mit margin: 0 auto; stellen wir ein, dass das element horizontal zentriert ist */
+    margin: 0 auto;
+}
+
+section {
+    margin-top: 20px;
+}
+
+aside {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer {
+    padding: 10px;
+}

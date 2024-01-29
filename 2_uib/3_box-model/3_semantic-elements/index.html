@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Für den typischen seitenaufbau einer webseite gibt es ein paar elemente, die wir noch nicht gelernt haben. Diese nennt man semnatische elemente, denn sie sind dafür da die seite strukturierter zu gestalten, den code lesbarer zu machen und die seite für suchmaschinen besser interpretierbar zu machen. -->
+
+    <!-- <nav/> repräsentiert ein element innerhalb der HTML seite, das eine navigation beinhaltet -->
+    <nav>
+        <ul>
+            <li><a href="#">Startseite</a></li>
+            <li><a href="#" class="active">Blog</a></li>
+            <li><a href="#">Über uns</a></li>
+            <li class="right"><a href="#">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- <header/> befindet sich an der oberseite einer webseite, oder innerhalb eines sektionselements, und beschreibt meist die "unterseite" oder "den inhalt" auf den sich der folgende inhalt bezieht -->
+
+    <header>
+        <h1>Blog</h1>
+        <p>Willkommen auf unserem schönen Blog</p>
+    </header>
+
+    <!-- <main/> beinhaltet den hauptinhalt (content) der webseite, meist gibt man dem main element noch die klasse "container" -->
+
+    <main class="container">
+        
+        <!-- <section/> repräsentiert eine alleinstehende inhaltssektion (content section) einer seite -->
+
+        <section>
+
+            <!-- <article/> beinhaltet meist in sich geschlossene text-elemente (zum beispiel blogeinträge) -->
+
+            <article>
+                <h2>Blogpost #1</h2>
+
+                <section>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi hic dolore sit. Cupiditate nemo sunt laudantium, inventore quod maiores dolor tenetur nesciunt, nam dignissimos excepturi eaque iure vero, nobis a.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat rem dolor ducimus dolorum eius quibusdam cumque dolorem, molestiae deleniti, odit beatae nesciunt quasi debitis sunt exercitationem rerum expedita commodi!
+                        Eos quis fugit ullam? Eveniet similique voluptatibus dignissimos. Excepturi repellat consequatur esse dolorum, impedit consectetur? Velit, iure perspiciatis! Pariatur iure earum nihil exercitationem tempore. Est nulla explicabo sit dolore quaerat?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ipsam amet. Magni, accusamus nam! Optio minus perferendis voluptas eaque veniam numquam at saepe aliquid. Quisquam consectetur impedit placeat officiis asperiores?
+                    </p>
+                </section>
+
+                <section>
+                    <b>Author: F. Rick Reich</b>
+                </section>
+            </article>
+
+            <article>
+                <h2>Blogpost #2</h2>
+
+                <section>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero corporis dolorum, inventore deleniti in nobis aperiam eligendi debitis fugiat, quasi ab harum blanditiis mollitia nesciunt officia quo? Culpa, voluptas aperiam.</p>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ipsam vitae porro illum saepe repudiandae deleniti. Modi minima id quas atque illo accusamus tempore perferendis odio. Neque cum sed rem.
+                        Officiis in consequuntur error a nam id expedita eligendi praesentium labore animi qui nostrum ipsa voluptatem vel quisquam, laborum molestiae magnam earum. Veritatis dolor eveniet, voluptates consequatur ipsum nemo repellat!
+                    </p>
+                </section>
+
+                <section>
+                    <b>F. Rick Reich</b>
+                </section>
+            </article>
+        </section>
+
+        <!-- <aside/> beinhaltet meist dinge wie werbung (ads) oder inhalte die nicht direkt mit dem hauptinhalt der aktuellen seite zutun hat -->
+        <aside>
+            Hier könnten einige interessante werbeanzeigen stehen
+        </aside>
+    </main>
+
+    <!-- <footer/> beinhaltet meist links oder copyright informationne die mit dem ersteller oder inhalt der seite zutun haben, und befindet sich am unteren rand des inhaltes oder der seite, oder des main contents -->
+    <footer>
+        Copyright, Impressum, und anderes...
+    </footer>
+
+</body>
+</html>
