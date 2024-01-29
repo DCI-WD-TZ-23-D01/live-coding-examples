@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Floats in CSS</h1>
+
+    <p>
+        Floats sind ein wichtiges konzept in der welt des webdesigns und spielen eine entscheidene rolle bei der positionierung von elementen auf einer HTML seite. Sie ermöglichen es, elemente fließend und flexibel zu platzieren, um die gewünschte layoutstruktur zu erreichen.
+    </p>
+
+    <p>
+        Wenn wir einem html element in css den wert "float" zuweisen, bewegt es sich aus seinem normalen fluss im dokument und kann neben anderen elementen platziert werden. Es wird also nicht länger als block element behandelt. Das bedeutet, es nimmt keinen reservierten platz mehr im normalen fluss der seite ein. Dadurch können andere elemente "über" oder "um" das gefloatete element herumfließen, je nachdem wie es positioniert ist, wodurch interessante layouts und designs erstellt werden können.
+    </p>
+
+    <p>
+        Obwohl floats in der vergangenheit häufig verwendet wurden, um komplexe layouts zu erstellen, gibt es heute modernere techniken wie flexbox und grid, die oft eher empfohlen werden. Dennoch sind floats immernoch nützlich und haben ihren platz in bestimmten anwendungsfällen, insbesondere wenn es darum geht, text um bilder oder andere inline-elemente wie bei einer zeitung fließen zu lassen
+    </p>
+
+    <h2>Float-optionen</h2>
+
+    <p>
+        Die float optionen in css sind äußerst nützlich, um die positionierung von html elementen auf einer webseite zu steuern.
+    </p>
+
+    <ul>
+        <li><b>float: left;</b> Mit dieser einstellung wird as element nach links gefloatet. Das bedeutet, dass es sich am linken rand seines übergeordneten containers befindet. Dies ist besonders praktisch, wenn man elemente so anordnen möchte, dass sie sich neben anderen elementen auf der rechten seite befinden.</li>
+        <li><b>float: right;</b> Hier wird das element nach rechts gefloatet, so das es sich am rechten rand seines übergeordneten containers befindet.</li>
+        <li><b>float: none;</b> Dies ist die defaulteinstellung und bewirkt, dass as element keine spezielle float-platzierung hat. Es nimmt den normalen fluss im dokument ein und wird nicht neben andere elemente gefloatet.</li>
+    </ul>
+
+    <h2>Floats anwenden</h2>
+
+    <p>
+        um uns anzuschauen wie elemente sich mit float-optionen verhalten, erstellen wir 3 boxen, diesen geben wir verschiedene hintergrundfarben und testen die verschiedenen floats aus.
+    </p>
+
+    <div>
+        <div class="box" id="left"></div>
+        <div class="box" id="left-2"></div>
+        <div class="box" id="right"></div>
+    </div>
+
+    <style>
+        .box {
+            background: tomato;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        #left {
+            background: rgb(0, 255, 0);
+            float: left;
+        }
+
+        #left-2 {
+            background: cyan;
+            float: left;
+        }
+
+        #right {
+            background: purple;
+            float: right;
+        }
+    </style>
+
+    <!-- Damit wir jetzt kein platzproblem kriegen, setzen wir hier ein paar <br> ein. -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p>
+        Wie wir sehen, befinden sich jetzt die ersten beiden boxen links am bildschirmrand, und die letzte box rechts
+    </p>
+
+    <b>Bilder können in text, mit float, fließend platziert werden</b>
+
+    <div>
+        <img src="testbild.png" alt="Unser Testbild" id="testbild">
+        <p id="testtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit hic, necessitatibus, numquam reprehenderit excepturi omnis tempore illo accusamus quam totam sed quos ratione, consectetur distinctio ullam reiciendis! Maiores, corporis ratione.
+        Libero, obcaecati ab voluptatum esse voluptate animi sunt corporis, illo ipsa modi nemo quisquam suscipit eaque. Cumque ex exercitationem debitis modi nostrum eligendi, enim ea aliquid officiis, eius molestias explicabo.
+        Eius ex accusamus blanditiis cumque hic sint amet ipsam nulla possimus neque quas perferendis nesciunt sit non corrupti molestias, explicabo impedit minima incidunt mollitia. Neque, sunt ipsam? Laudantium, quae sed.
+        Incidunt esse laborum expedita, aut, ullam consequuntur iusto corrupti fugit minus dolore sunt ex adipisci delectus accusantium. Saepe ipsam, dolorum neque repellat, asperiores excepturi autem, aut quibusdam consequatur numquam delectus!
+        Sunt, cupiditate. Ea quam mollitia itaque repellendus corrupti voluptas sunt laborum, accusamus labore non aut culpa sapiente eligendi magni esse consectetur veniam sed tempore, delectus possimus perspiciatis. Quae, voluptate illum!
+        Voluptatum doloribus consequuntur ut tempora obcaecati minus qui recusandae magni. Veritatis delectus quos dicta nesciunt, fugiat sit sint nobis numquam ea, unde porro eius consectetur! Natus suscipit nisi in non?</p>
+    </div>
+
+    <style>
+        #testbild {
+            width: 200px;
+            float: right;
+            margin-left: 20px;
+            /* ein abstand nach links */
+        }
+
+        #testtext {
+            /* kleiner tipp um den text zu blocktext zu ändern */
+            text-align: justify;
+        }
+    </style>
+
+    <h2>Webseiten Layouts</h2>
+
+    <p>
+        Mit floats können wir auch seiten designen, so hat man es bis flexbox in css hinzugefügt wurde auch in den meisten fällen in produktion gemacht. Heute wird es nicht mehr so angewandt, da die neueren techniken sehr viel dynamischer sind und sich nicht so "provisorisch" anfühlen.
+    </p>
+
+    <p>
+        Dafür erstellen wir einen container, und spalten, die wir für inhalte nutzen können.
+    </p>
+
+    <div class="container">
+        <div class="column">left</div>
+        <div class="column">center</div>
+        <div class="column">right</div>
+    </div>
+
+    <div class="container">
+        <div class="column-2">left</div>
+        <div class="column-2">center</div>
+        <div class="column-3">center</div>
+        <div class="column-4">right</div>
+    </div>
+
+    <style>
+        .container .column {
+            float: left;
+            width: 33%;
+            height: 100px;
+            background: grey;
+            border: 1px solid black;
+        }
+
+        .container .column-2 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            background: Tomato;
+            border: 1px solid black;
+        }
+
+        .container .column-3 {
+            float: left;
+            width: 40%;
+            height: 100px;
+            background: cyan;
+            border: 1px solid black
+        }
+        
+        .container .column-4 {
+            float: left;
+            width: 8.75%;
+            height: 100px;
+            background: lime;
+            border: 1px solid black;
+        }
+    </style>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <p>
+        Wie wir sehen, sind float-optionen besonders hilfreich, um text um bilder oder andere inline elemente herumfließen zu lassen und komplexe layouts zu erstellen. Wir sollten jedoch beachten, dass floats auch einige herausforderungen mit sich bringen könnne, wie das clearing von floats oder die nicht-einnahme von platz auf der seite, deshalb ist es wichtig, sie sorgfältig und bewusst einzusetzen.
+    </p>
+
+</body>
+</html>
