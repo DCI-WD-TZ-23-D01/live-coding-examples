@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Früher hat man Eric Meyers reset.css dafür benutzt, die standard css einstellungen des browsers komplett zurückzusetzen, so das inhalte auf jedem browser gleich aussehen. Diese art des resets ist nicht mehr aktuell, denn hier müssen wir alle styles nach dem angleichen neu einstellen. -->
+
+    <!-- <link rel="stylesheet" href="reset.css"> -->
+
+    <!-- Einfacher geht dies mit normalize.css, normalize.css macht eine vordefinierte anpassung der css styles im browser, und sorgt dafür das unsere seite auf jedem browser gleich aussieht, und wir von hier aus anfangen können, unsere styles anzupassen. -->
+
+    <!-- https://necolas.github.io/normalize.css/ -->
+
+    <!-- wir besorgen uns die normalize datei entweder aus dem internet, und verlinken diese, oder fügen sie manuell unseren projekten hinzu -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Von heute an werden wir das IMMER machen, wenn wir in diesem kurs eine HTML datei erstellen, da es uns erleichtert unsere styles vordefiniert zu haben. -->
+
+    <!-- ab hier können wir unsere eigenen styles nutzen, entweder per <style/> oder <link/> -->
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* um alle elemente im padding und margin zu resetten kann man auch die sogenannte "holzhammermethode", den padding und margin reset, nutzen */
+        /* * {
+            padding: 0;
+            margin: 0;
+        } */
+        .container {
+            background: red;
+        }
+
+        /* wir löschen den oberen abstand vom ersten element im container */
+        ul {
+            margin-top: 0;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <ul>
+            <li>Startseite</li>
+            <li>Blog</li>
+            <li>Portfolio</li>
+            <li>Kontakt</li>
+        </ul>
+
+        <div>
+            <h1>Seiteninhalt</h1>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptatem, nulla aliquid excepturi tempora consequatur consequuntur quaerat ratione commodi qui. Et voluptate deleniti voluptatum ducimus vel labore asperiores, minima sint!
+                Soluta recusandae temporibus corporis sequi quia. Quae ipsam minus sequi deserunt nemo fugit repudiandae deleniti, repellat libero veritatis, molestias saepe error atque labore perferendis rem consequatur quam illo quis necessitatibus.
+            </p>
+        </div>
+    </div>
+    
+</body>
+</html>
