@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Spezifizität (Wichtigkeit) wiederholung</h1>
+
+    <p>
+        um die Spezifizität von klassen, ids und elementen zu testen bauen wir einen ontainer mit inhalt.
+    </p>
+
+    <hr>
+
+    <div class="container">
+        <p>Ein normaler absatz</p>
+        <p class="text">Ein absatz mit einer klasse</p>
+        <p class="text" id="spezifischer-absatz">Ein absatz mit einer klasse und einer id</p>
+        <div class="text zweite-klasse">Ein absatz mit 2 klassen</div>
+    </div>
+
+    <style>
+        /* Beginnen wir mit einem einfachen element selektor p, ein allgemeiner selektor, der alle elemente des types p selektiert */
+        p {
+            color: tomato;
+        }
+
+        /* wir sehen, das alle p elemente rot gefärbt sind */
+
+        /* als nächstes schauen wir uns den klassenselektor an, er selektiert alle elemente die die angegeben klasse beinhalten, egal welches element es ist */
+        .text {
+            color: blue;
+        }
+
+        /* wir sehen, das der inhalt der elemente mit der klasse .text sich verändert hat. Da klassen spezifischer sind als allgemeine p element selektoren, hat es die definitionen von p überschrieben. */
+
+        /* schauen wir uns jetzt mal an was wir mit id's machen, und wählen einen spezifischen absatz aus */
+        #spezifischer-absatz {
+            color: lime;
+        }
+
+        /* wir wir sehen, ist der text des absatzes jetzt grün. Die ID ist "unique", also "einzigartig" und damit spezifisch wichtiger als alles andere */
+
+        /* als nächstes sehen wir uns den absatz mit 2 klassen an */
+        .text.zweite-klasse {
+            color: orange;
+        }
+
+        /* wir sehen, dass die zweite klassendeklaration die erste überschreibt */
+    </style>
+
+    <style>
+        /* egal wie wir die selektoren durchmischen, unser styling bleibt immer gleich, obwohl der code von oben nach unten gelesen wird. */
+
+        /* wir verschieben p ganz nach unten */
+
+        .text {
+            color: blue;
+        }
+        #spezifischer-absatz {
+            color: lime;
+        }
+        .text.zweite-klasse {
+            color: orange;
+        }
+        p {
+            color: tomato;
+        }
+
+        /* wir verschieben .text ganz nach unten */
+
+        #spezifischer-absatz {
+            color: lime;
+        }
+        .text.zweite-klasse {
+            color: orange;
+        }
+        p {
+            color: tomato;
+        }
+        .text {
+            color: blue;
+        }
+    </style>
+
+    <style>
+        /* die einzige möglichkeit spezifizitäten zu umgehen ist das !important kommando, dieses setzen wir hinter eine option, die wir überschreiben möchten */
+        p {
+            color: purple !important;
+        }
+
+        /* wie wir sehen, ist jetzt der komplette text wieder rot. */
+
+        /* !important lässt sich nach aktivierung nur in lesereihenfolge wieder überschreiben, setzen wir darunter also noch eine redifinition überschreibt sich die aktuelle */
+        p {
+            color: lime !important;
+        }
+    </style>
+
+</body>
+</html>

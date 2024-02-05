@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Vererbung (Inheritance) von eigenschaften</h1>
+
+    <p>
+        wenn wir mit css arbeiten müssen wir beachten, das kind elemente die styles von elternelementen erben können, die styles also weitergeben können.
+    </p>
+
+    <p>
+        zur veranschaulichung erstellen wir eine div mit einem kindelement
+    </p>
+
+    <div class="container">
+        Elternelement
+        <div class="child">Kindelement</div>
+    </div>
+
+    <style>
+        .container {
+            /* wir geben dem container einen border */
+            border: 3px solid tomato;
+            padding: 20px;
+        }
+
+        /* wie wir sehen, hat das elternelement einen border, das kind element allerdings nicht */
+
+        .child {
+            /* um einer css property die werte des elternelements zu vererben, geben wir als wert "inherit" an */
+            border: inherit;
+        }
+
+        /* wir sehen jetzt das kindelement mit dem border des elternelements */
+        .child {
+            /* da die option jetzt die werte des eltern elementes hat, können wir die sub-werte davon trotzdem anpassen */
+            border-color: lime;
+            border-style: dashed;
+        }
+
+        /* wie wir sehen, hat der border die styles des elternelementes übernommen, aber darauf basierend unsere anpassungen hinzugefügt */
+    </style>
+
+    <p>
+        Es gibt einige optionen die automatisch vererben, und einige die es nicht tun, wir können dies herausfinden, indem wir mit verschiedenen css eigenschaften herumspielen und schauen ob die option im kind element übernommen wird.
+    </p>
+
+    <p>Weitere informationen zu inheritance finden wir <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Inheritance">hier</a>.</p>
+
+    <h2>Beispiele</h2>
+
+    <h3>Vererbend</h3>
+
+    <p>
+        Ein gutes beispiel sind font-family: ; und color: ;, die beide vererben, was viel schreibarbeit sparen kann. So ist es normal, das wir in eine übergeordneten element einstellugen geben die mehrere unterelement mit der schrift größe, farbe, art ansprechen sollen.
+    </p>
+
+    <div class="container beispiel1">
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, facere ea nostrum distinctio labore quasi ratione id blanditiis eligendi nemo vero recusandae, ut magnam enim commodi non. Saepe, quisquam ducimus!
+        </p>
+
+        <div class="weitere-ebene">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatum sit aspernatur itaque alias ipsa dignissimos natus commodi animi harum odit ipsam ut excepturi doloribus pariatur, magnam optio aut fugiat?
+            </p>
+        </div>
+    </div>
+
+    <style>
+        .container.beispiel1 {
+            color: orange;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+    <h3>Nicht vererbend</h3>
+
+    <p>
+        Ein gutes beispiel ist background-color, es vererbt nicht. Dies ist aber schwer zu beweisen wenn elemente mit einer hintergrundfarbe übereinander liegen.
+    </p>
+
+    <div class="container beispiel2">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa maiores reprehenderit animi, saepe rem quaerat corporis libero voluptate, perferendis blanditiis alias a ipsa possimus iure quibusdam praesentium nostrum error officia.
+        </p>
+
+        <div class="ebene2">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam provident quisquam numquam facilis ratione deleniti eveniet omnis possimus, vero repellat non ad, ut incidunt mollitia eius nesciunt officia, illo accusantium.
+            </p>
+        </div>
+    </div>
+
+    <style>
+        /* wir verschieben den container ein wenig, um ihn sichtbarer zu machen */
+        .ebene2 {
+            position: absolute;
+            top: 10px;
+            border: 3px solid lime;
+            width: 200px;
+        }
+
+        .container.beispiel2 {
+            position: relative;
+            background: orange;
+        }
+    </style>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* wir erstellen wieder eine box, damit wir beobachten können, wie die verschiedenen display optionen sich verhalten */
+        .box {
+            border: 3px solid black;
+            margin: 10px;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Display wiederholung</h1>
+
+    <h2>display: block;</h2>
+
+    <p>
+        Die einstellung display: block; macht elemente zu einem block-element, was bedeutet, das es sich über die gesamte verfügbare breite erstreckt. Das div element hat diese einstellung als defaultwert.
+    </p>
+
+    <div class="container">
+        <div class="box block">Box 1</div>
+        <div class="box block">Box 2</div>
+        <div class="box block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi repellendus inventore nemo recusandae ratione aliquid, saepe debitis eum ea earum est tempora facere, cumque repudiandae quis eligendi nam eveniet. Fugiat.</div>
+    </div>
+
+    <style>
+        .box.block {
+            display: block;
+        }
+    </style>
+
+    <b>Wir sehen, das jede box sich über die gesamte breite des containers erstreckt und die boxen damit untereinander liegen</b>
+
+    <h2>display: inline;</h2>
+
+    <p>Bei dieser einstellung fließen die elemente nebeneinander, ähnlich wie wörter in einem text</p>
+
+    <div class="container">
+        <div class="box inline">Box 1</div>
+        <div class="box inline">Box 2</div>
+        <div class="box inline">Box 3</div>
+    </div>
+
+    <style>
+        .box.inline {
+            display: inline;
+        }
+    </style>
+
+    <b>Wir sehen, das die boxen nebeneinander fließen, aber auch das sich das padding/margin anders verhält- Dies passiert, da sich die elemente bei "inline" in einem textfluss befinden, und sich am textinhalt der boxen orientieren, jetzt also eine zeile text wegnehmen</b>
+
+    <h2>display: inline-block;</h2>
+
+    <p>
+        inline-block kombiniert merkmale von block und inline. Die elemente fließen also zwar nebeneinander, behalten aber die eigenschaften von blockelementen bei.
+    </p>
+
+    <div class="container">
+        <div class="box inline-block">Box 1</div>
+        <div class="box inline-block">Box 2</div>
+        <div class="box inline-block">Box 3</div>
+    </div>
+
+    <style>
+        .box.inline-block {
+            display: inline-block;
+        }
+    </style>
+
+    <b>
+        Wir sehen, dass die boxen jetzt den platz einnehmen, den sie als elemente auf der seite einnehmen sollten, aber trotzdem nebeneinander fließen.
+    </b>
+    
+</body>
+</html>
