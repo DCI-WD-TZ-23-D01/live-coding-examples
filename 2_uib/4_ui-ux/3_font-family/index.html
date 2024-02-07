@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Font-Family</h1>
+
+    <h2>Schriftarten</h2>
+
+    <p>
+        In der welt des webdesigns und der webentwicklung spielt die auswahl der richtigen schriftart eine entscheidene rolle für die ästhetik und benutzerfreundlichkeit einer webseite. Dabei stößt man häufig auf begriffe wie serifenschrift (serif), sans-serifenschrift (sans-serif) und monospace. Jede dieser schriftarten hat ihre eigene geschichte, charakteristische merkale und einsatzgebiete, die für webentwickler für großer bedeutung sind.
+    </p>
+
+    <h3>Serifenschrift</h3>
+
+    <p>
+        Entstanden in der antike, wurden serifen ursprünglich in steine gemeißelt, um lesbarkeit zu verbessern. Heute werden sie häufig in gedruckten büchern und formalen dokumenten eingesetzt, wo sie eleganz und tradition vermitteln.
+    </p>
+
+    <p>
+        Ideal für lange texte und inhalte, die tradition und eleganz vermitteln sollen, wie in akademischen oder juristischen webseiten.
+    </p>
+
+    <b>Beispiele: Times New Roman, Georgia, Courier</b>
+
+    <ul class="serif">
+        <li>Times New Roman: Lorem ipsum dolor sit amet consectetur.</li>
+        <li>Georgia: Lorem ipsum dolor sit amet consectetur.</li>
+        <li>Courier: Lorem ipsum dolor sit amet consectetur.</li>
+    </ul>
+
+    <style>
+        .serif li:first-child {
+            /* wir definieren die schrift mit dem befehl font-family: ; */
+            font-family: "Times New Roman", serif;
+            /* dies ist die standardeinstellung des browsers */
+
+            /* eine schriftfamilienangabe kann mehrere schriften, mit komma getrennt beinhalten. So wird von vorne nach hinten geschaut ob die schrift auf dem system verfügbar ist, und dann gegebenenefalles mit der nächsten in der reihe ersetzt. Gibt man nur den stil an, also hier "serif" wird die standardmäßig verfügbare schrift dieses stils auf dem system genutzt. */
+        }
+        .serif li:nth-child(2) {
+            font-family: "Georgia", serif;
+        }
+        .serif li:last-child {
+            font-family: "Courier", serif;
+        }
+    </style>
+
+    <h3>Sans-Serifenschrift</h3>
+
+    <p>
+        Im 19. Jahrhundert als reaktion auf die industrielle revolution entwickelt, steht diese schriftart für modernität und schlichtheit. Sie ist besonders beliebt auf digitalen bildschirmen, wo ihre klare linienführung die lesbarkeit bei kleineren schriftgrößen verbessert.
+    </p>
+
+    <p>
+        Bevorzugt für benutzeroberflächen und kurze texte auf modernen, benutzerfreundlichen webseites, insbesondere im technologie oder designbereich.
+    </p>
+
+    <b>Beispiele: Arial, Helvetica, Verdana</b>
+
+    <ul class="sans-serif">
+        <li>Arial: Lorem ipsum dolor sit amet consectetur.</li>
+        <li>Helvetica: Lorem ipsum dolor sit amet consectetur.</li>
+        <li>Verdana: Lorem ipsum dolor sit amet consectetur.</li>
+    </ul>
+
+    <style>
+        .sans-serif li:first-child {
+            font-family: "Arial", sans-serif;
+        }
+        .sans-serif li:nth-child(2) {
+            font-family: "Helvetica", sans-serif;
+        }
+        .sans-serif li:last-child {
+            font-family: "Verdana", sans-serif;
+        }
+    </style>
+
+    <h3>Monospace</h3>
+
+    <p>
+        Inspiriert von der ära der mechanischen schreibmaschinen, hat jeder charakter/letter/figur in Monospace-schriftarten die selbe breite. Diese eigenschaft macht sie ideal für die darstellung von computercode, da sie eine gleichmäßige und leicht lesbare textstruktur hat.
+    </p>
+
+    <p>
+        Hauptsächlich genutzt für die darstellung von code, oder für einen speziellen retro-stil in technikorientierten webprojekten.
+    </p>
+
+    <b>Beispiele: Courier New, Lucida Console, Monaco</b>
+
+    <ul class="monospace">
+        <li>Courier New: Lorem ipsum dolor sit amet consectetur.</li>
+        <li>Lucida Console: Lorem ipsum dolor sit amet consectetur.</li>
+        <li>Monaco: Lorem ipsum dolor sit amet consectetur.</li>
+    </ul>
+
+    <style>
+        .monospace li:first-child {
+            font-family: "Courier New", monospace;
+        }
+        .monospace li:nth-child(2) {
+            font-family: "Lucida Console", monospace;
+        }
+        .monospace li:last-child {
+            font-family: "Monaco", monospace;
+        }
+    </style>
+
+    <h2>Tipps</h2>
+
+    <p>Wenn wir nur font-family: in unser css eingeben, schlägt uns vs-code schon einige sehr gute familien vor.</p>
+
+    <style>
+        p {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+
+    <p>
+        Eine aktuell sehr beliebte schriftart in der webentwicklung ist "Better Helvetica", es ist eine helvetica einstellung von chris coyier, die darauf abzielt, der sowieso schon sehr beliebten schrift helvetica, eine hohe kompatiblität und eine angenehme lesbarkeit zu geben.
+    </p>
+
+    <style>
+        p {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+        }
+    </style>
+
+    <p>
+        Der font-family stack von better helvetica beinhaltet mehrere versionen von helvetica neue, ein fallback zu lucida grande und im notfall eine sans-serif font. So ist sie mit allen systemen kompatibel, auch wenn die schrift nicht vorhanden ist, und ist durch ihr gewicht von 300 sehr angenehm zu lesen.
+    </p>
+
+</body>
+</html>

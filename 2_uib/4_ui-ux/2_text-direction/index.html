@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .example {
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Textfluss</h1>
+
+    <p>
+        In CSS haben wir die möglichkeit selbst zu wählen, in welche, oder aus welcher richtung text fließen soll, wir könne dafür sorgen das der text links, mittig oder rechtsbündig ist, er unabhängig vom inhalt die ganze zeile einnimmt, oder anstelle von links nach rechts, von rechts nach links geschrieben wird, was für arabische sprachen beispielsweise sehr wichtig ist.
+    </p>
+
+    <h2>Textausrichtung</h2>
+
+    <p>
+        um zu definieren ob der text linksbündig, rechtsbündig oder zentriert ist, nutzen wir das kommando text-align: ;, dessen standardeinstellung left, also links ist.
+    </p>
+
+    <p class="example text-left">Ich bin linksbündig</p>
+
+    <style>
+        .text-left {
+            text-align: left;
+        }
+    </style>
+
+    <p>
+        Wollen wir, das unser text rechts auf der seite angezeigt wird, nutzen wir text-align: right;
+    </p>
+
+    <p class="example text-right">Ich bin rechtsbündig</p>
+
+    <style>
+        .text-right {
+            text-align: right;
+        }
+    </style>
+
+    <p>In die mitte stellen wir den text mit text-align: center;</p>
+
+    <p class="example text-center">Ich bin immer genau in der mitte!</p>
+
+    <style>
+        .text-center {
+            text-align: center;
+        }
+    </style>
+
+    <p>
+        Wollen wir das unser text die ganze breite einnimmt, nutzen wir text-align: justify;, vorraussetzung dafür ist, das der text lang genug ist, um die breite des elternelementes auszufüllen.
+    </p>
+
+    <p class="example text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum hic recusandae modi fuga esse adipisci, eius sequi quas voluptatibus debitis unde id fugit earum harum alias eos laudantium! Suscipit, officia.</p>
+
+    <style>
+        .text-justify {
+            width: 50%;
+            text-align: justify;
+        }
+    </style>
+
+    <h2>Text leserichtung</h2>
+
+    <p>
+        Auch die leserichtung können wir in css einstellen, so ist text mit lateinischen buchstanden grundsätzlich von links nach rechts zu lesen, was der standardeinstellung in css entspricht. Arabische schrift aber, wird von rechts nach links gelesen, dies können wir einstellen, um in der lage zu sein unseren kompletten lesefluss umzustellen.
+    </p>
+
+    <p>
+        Die umstellung erreichen wir mit dem kommando direction: ;, das wir auf "rtl", also "right to left" einstellen.
+    </p>
+
+    <p class="example rtl">Es ist ein schöner tag</p>
+    <p class="example rtl">إنه يوم جميل</p>
+
+    <style>
+        .rtl {
+            unicode-bidi: bidi-override;
+            /* dieser befehl erlaubt bidirektionalem text, umgeschrieben zu werden */
+            direction: rtl;
+        }
+    </style>
+
+    <h2>Text vertikal schreiben</h2>
+
+    <p>
+        Um text vertikal zu schreiben, also zum beispiel bei asiatischen schriften, nutzen wir den befehl writing-mode: ;
+    </p>
+
+    <p class="example writing-mode">Hallo Welt</p>
+
+    <style>
+        .writing-mode {
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+            transform: rotate(-180deg);
+        }
+    </style>
+
+</body>
+</html>

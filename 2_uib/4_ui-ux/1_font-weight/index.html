@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .example {
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Font-Weight (schrift dicke)</h1>
+
+    <p>
+        Um text auf webseiten hervorzuheben gibt es verschiedene möglichkeiten. Eine dieser möglichkeiten ist es, den text dicker erscheinen zu lassen, für die definition dieser dicke, nutzt man beim web design den begriff "gewicht" oder "weight". Das gewicht gibt an, wie viel aufmerksamkeit ein text auf sich ziehen soll.
+    </p>
+
+    <h2>HTML elemente</h2>
+
+    <p>
+        obwohl man jedem html element die fähigkeit geben kann fetten text zu beinhalten, gibt es grundsätzlich 2 semantische html elemente, die für das "fettschreiben" von text zuständig sind. Sie sind derivate von "span", und sind somit also inline elemente. Diese elemente kann man für verschiedene zwecke nutzen.
+    </p>
+
+    <p>
+        Beide elemente "strong" und "b", dessen name die abkürzung für "bold", also "fett" ist, haben die selben einstellungen, werden aber aus semantischen gründen für verschiedene zwecke benutzt.
+    </p>
+
+    <h3>das b element</h3>
+
+    <p>
+        das "b" element wird hauptsächlich genutzt um inhalte innerhalb eines paragraphen fett darzustellen. Wie im folgenden text:
+    </p>
+
+    <p class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime itaque molestias esse, optio ipsam <b>unde</b> enim dolor similique alias necessitatibus cum? Similique dolores eligendi <b>officiis</b> sed, reiciendis adipisci alias excepturi!</p>
+    
+    <h3>das strong element</h3>
+
+    <p>
+        Das strong element wird im gegensatz zum b element dafür benutzt, ganze text passagen, wie zum beispiel warnhinweise, fett anzuzeigen, etwa so:
+    </p>
+
+    <strong class="example">Dies ist ein wichtiger hinweis!</strong>
+
+    <h2>Der CSS befehl font-weight: ;</h2>
+
+    <p>
+        Durch CSS haben wir die möglichkeit, jegliche elemente die fähigkeit zu geben, fetten text zu beinhalten. Wir haben ausserdem im gegensatz zu den semantischen elementen, hier die möglichkeit anzugeben, wie fett ein text sein soll.
+    </p>
+
+    <p>
+        Der defaultwert für font-weight: ; ist "normal", dies stellt den text in einer normalen, gut lesbaren dicke dar.
+    </p>
+
+    <p class="example normal">Ein normaler text</p>
+
+    <style>
+        .normal {
+            font-weight: normal;
+        }
+    </style>
+
+    <p>
+        Wenn wir font-weight: ; auf "bold" setzen, bekommen wir die gleiche einstellung wie bei b und strong.
+    </p>
+
+    <p class="example bold">Ein fetter text</p>
+
+    <style>
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+    
+    <p>
+        Um spezifische anpassungen zu machen, haben wir die möglichkeit mit zahlenwerten das gewicht anzugeben. Die möglichen zahlen gehen von 1 bis 1000, wobei 400 dem normalwert entspricht, und man in 100er schritten arbeitet. Sollte man ein gewicht haben, das die gewählte schriftart nicht unterstützt, sucht der browser automaitsch die nächst unterstützte dicke selbst aus.
+    </p>
+
+    <p>
+        Da grundsätzlich immer diese 100er schritte benutzt werden, haben sie eigene namen:
+    </p>
+
+    <p class="example weight-100">100 (thin)</p>
+    <p class="example weight-200">200 (extra light)</p>
+    <p class="example weight-300">300 (light)</p>
+    <p class="example weight-400">400 (normal/regular)</p>
+    <p class="example weight-500">500 (medium)</p>
+    <p class="example weight-600">600 (semi bold)</p>
+    <p class="example weight-700">700 (bold)</p>
+    <p class="example weight-800">800 (extra bold)</p>
+    <p class="example weight-900">900 (black/heavy)</p>
+    <p class="example weight-950">950 (ultra black)</p>
+
+    <style>
+        .weight-100 {
+            font-weight: 100;
+        }
+        .weight-200 {
+            font-weight: 200;
+        }
+        .weight-300 {
+            font-weight: 300;
+        }
+        .weight-400 {
+            font-weight: 400;
+        }
+        .weight-500 {
+            font-weight: 500;
+        }
+        .weight-600 {
+            font-weight: 600;
+        }
+        .weight-700 {
+            font-weight: 700;
+        }
+        .weight-800 {
+            font-weight: 800;
+        }
+        .weight-900 {
+            font-weight: 900;
+        }
+        .weight-950 {
+            font-weight: 950;
+        }
+    </style>
+
+    <p>
+        Wenn man also mal hört "setze die font auf medium", bedeutet dies, ein font-weight: ; von 500.
+    </p>
+
+    <h3>Das schnelle dicker oder dünner machen von textinhalten</h3>
+
+    <p>
+        Wenn ein element über eine gewichtseinstellung verfügt, und man aber innerhalb des elementes etwas text braucht der vielleicht dicker oder dünner ist, als der angegebene, kann man ihn, da das gewicht vererbt wird, schnell anpassen.
+    </p>
+
+    <style>
+        .container {
+            font-weight: 600;
+        }
+    </style>
+
+    <div class="container">
+        <p class="example">test</p>
+        <p class="example lighter">ein dünnerer text</p>
+        <p class="example bolder">ein dickerer text</p>
+    </div>
+
+    <p>
+        Wir sind in der lage den text dünner zu machen, als der vordefinierte normalwert, indem wir font-weight: ; auf "lighter" setzen. Das gegenteil, also dickeren text erhalten wir, wenn wir font-weight: ; auf "bolder" setzen.
+    </p>
+
+    <style>
+        .lighter {
+            font-weight: lighter;
+        }
+        .bolder {
+            font-weight: bolder;
+        }
+    </style>
+
+</body>
+</html>

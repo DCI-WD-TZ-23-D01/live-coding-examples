@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>font-family</h1>
+
+    <h2>Google Fonts</h2>
+
+    <p>
+        Google Fonts ist eine beliebte wahl für webdesigner und entwickler, dank seiner umfangreichen auswahl an hochwertigen schriftarten und der einfachen integration in webseiten. Google fonts bietet eine schnelle und effiziente möglichkeit, das aussehen einer webseite zu verbessern, ohne sich um die technischen aspekte der schriftverwaltung kümmern zu müssen. Die optimierung für eine schnelle ladegeschwindigkeit und plattformübergreifende konsistenz macht google fonts besonders attraktiv.
+    </p>
+
+    <p>
+        Auf der anderen seite stehen jedoch datenschutzbedenken im zusammenhang mit der DSGVO, da die verwendung von goolge fonts eine übertragung von nutzerdaten, wie ip adressen an google beinhaltet. Dies kann ein risiko für die privatsphäre der nutzer darstellen, insbesondere wenn diese daten außerhalb der EU verarbeitet werden. Eine lösung für dieses problem ist das lokale hosting der schriftarten, wodurch die einhaltung der DSGVO gewährleistet und die kontrolle über die nutzerdaten behalten wird. Dies erfordert jedoch einen höheren technischen aufwand. Insgesamt müssen webdesigner und entwickler die vorteile von google fonts gegenüber den potentiellen datenschutzrisiken sorgfältig abwägen.
+    </p>
+
+    <h2>Verwendung von google fonts</h2>
+
+    <p>
+        um google fonts zu verwenden müssen wir auf die webseite <a href="https://fonts.google.com/">fonts.google.com</a> gehen. Dort können wir uns allle schriftarten anschauen, die google zur verfügung stellt. Haben wir eine schriftart gefunden die uns gefällt, können wir sie anklicken.
+    </p>
+
+    <p>
+        Auf der selektierten font haben wir die möglichkeit die font zu testen, aber auch verschiedene beispiele zu betrachten. Sind wir zufrieden, selekteren wir die schrift-dicken die wir haben wollen.
+    </p>
+
+    <p>
+        Google fonts stellt uns dann den code zur verfügung, den wir benötigen um die font zu nutzen.
+    </p>
+
+    <style>
+        /* mit @import können wir innerhalb von css andere css dateien importieren, dies ist der typische weg, wie man google fonts benutzt. */
+
+        /* wir kopieren die komplette @import deklaration von der google fonts webseite */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap');
+
+        /* wie wir sehen, wenn wir uns den link genauer anschauen, importieren wir die font-familie, inklusive verschiedener dicken */
+    </style>
+
+    <p>Jetzt können wir die google font nutzen, indem wir sie mit der auf der webseite angegebenen font-family: ; deklaration in css ansprechen</p>
+
+    <style>
+        .google-font {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+        }
+    </style>
+
+    <p class="google-font">Ich bin eine google font!</p>
+
+</body>
+</html>
