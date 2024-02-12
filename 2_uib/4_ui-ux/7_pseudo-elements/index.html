@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Pseudo Elemente</h1>
+
+    <p>
+        Mit pseudo-elementen können wir inhalte vor und hinter unsere elemente setzen, ohne das HTML direkt zu verändern. Dies ermöglicht es, das design und layout unserer webseiten dynamisch zu verändern.
+    </p>
+
+    <h2>Anwendung von pseudo-elementen</h2>
+
+    <h3>::before</h3>
+
+    <p>
+        Das pseudo element "::before" fügt inhalte vor dem inhalt eines ausgewählten elements ein. Es ist besonders nützlich für dekorative zwecke, wie das hinzufügen von symbolen oder initialen vor textblöcken. Im folgenden bespiel sehen wir ein rotes ausrufezeichen in kursiver schrfit, vor unserem text.
+    </p>
+
+    <p class="pseudo-before">Hallo Welt</p>
+
+    <style>
+        .pseudo-before::before {
+            content: "!";
+            color: red;
+            font-size: 2rem;
+            font-style: italic;
+        }
+    </style>
+
+    <h3>::after</h3>
+
+    <p>
+        Das pseudo-element "::after" funktioniert ähnlich wie "::before", nur dass es inhalte nach dem eigentlichen inhalt eines elementes einfügt. Im folgenden beispiel fügen wir ein pfeilsymbol nach einem link ein, was häufig genutzt wird, um externe links zu kennzeichnen.
+    </p>
+
+    <p>Hallo, hier ist ein <a href="#" class="pseudo-after">Link</a>.</p>
+
+    <style>
+        .pseudo-after::after {
+            content: " ↗";
+            color: tomato;
+        }
+    </style>
+
+    <h2>Beispiele</h2>
+
+    <h3>Breadcrmumbs</h3>
+
+    <p>
+        Breadcrumbs sind eine navigationshilfe in webanwendungen und webseiten, die den benutzern hilft, ihre position innerhalb der seitenherarchie zu verstehen und zu nutzen. Mit ::after können wir trennzeichen zwischen den breadcrumb-links einfügen, was die lesbarkein verbessert.
+    </p>
+
+    <div class="breadcrumb">
+        <a href="#">Startseite</a>
+        <a href="#">Kategorien</a>
+        <a href="#">Auto</a>
+    </div>
+
+    <style>
+        .breadcrumb a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+
+        .breadcrumb a:last-child {
+            color: darkgray;
+        }
+
+        .breadcrumb a::after {
+            content: " > "
+        }
+
+        .breadcrumb a:last-child::after {
+            content: "";
+        }
+    </style>
+
+    <h3>Mehrfache boxen</h3>
+
+    <p>
+        Durch die kombination von "::before" und "::after" mit der position: absolute; eigenschaft können wir interessante überlagerunseffekte erzeugen, wie zum beispiel gestapelte boxen. Dies gibt uns die möglichkeit einer div, 3 komplett anpassbare boxen zu verpassen.
+    </p>
+
+    <div class="box">Box</div>
+
+    <style>
+        .box {
+            margin: 2rem;
+            width: 100px;
+            height: 100px;
+            background: lime;
+            position: relative;
+        }
+
+        .box::before {
+            content: "davor";
+            width: 100px;
+            height: 100px;
+            background: tomato;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+        .box::after {
+            content: "dahinter";
+            width: 200px;
+            height: 100px;
+            background: cyan;
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            z-index: -1;
+        }
+    </style>
+
+    <h2>Hover effekt für links</h2>
+
+    <p>
+        Wir können einen kreativen hover-effekt erzeugen, um die interaktivität zu erhöhen.
+    </p>
+
+    <p>
+        Da wir einen border nicht wie gewünscht animieren können, nutzen wir eine 2px hohe box.
+    </p>
+
+    <p>Schauen sie sich <a href="#" class="hover-link">diesen Link</a> für mehr informationen an.</p>
+
+    <style>
+        .hover-link {
+            text-decoration: none;
+            position: relative;
+            color: #555555;
+        }
+
+        .hover-link::after {
+            /* wenn wir ein pseudo-element setzen wollen, das keinen "content" hat, müssen wir trotzdem leeren content angeben */
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background: #000000;
+            /* wir nutzen transistion um den hover zu animieren */
+            transition: all 0.3s;
+        }
+        .hover-link:hover::after {
+            /* bei hover wird die box 100% des textes breit */
+            width: 100%;
+        }
+    </style>
+    
+    <div class="border-box"></div>
+
+    <style>
+        .border-box {
+            width: 200px;
+            height: 200px;
+            background: tomato;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            position: relative;
+        }
+        .border-box::before {
+            content: "";
+            width: 40px;
+            height: 40px;
+            background: white;
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            border-radius: 50%;
+        }
+        .border-box::after {
+            content: "";
+            width: 40px;
+            height: 40px;
+            background: white;
+            position: absolute;
+            left: -20px;
+            bottom: -20px;
+            border-radius: 50%;
+        }
+    </style>
+    
+</body>
+</html>
