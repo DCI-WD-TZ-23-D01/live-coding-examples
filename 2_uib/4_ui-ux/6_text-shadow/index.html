@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .example {
+            background: lightgray;
+            display: inline-block;
+            padding: 1rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Text</h1>
+
+    <h2>text-shadow: ;</h2>
+
+    <p>
+        Die css eigenschaft text-shadow: ; bietet entwicklern und designern die möglichkeit, texten auf webseiten und in anwendungen schatteneffekte hinzuzufügen, wordurch diese visuell hervorgehoben und deren lesbarkeit auf komplexen hintergründen verbessert werden kann.
+        Ursprünglich konzipiert um textelementen mehr tiefe zu geben, hat sich text-shadow: ; zu einem essentiellen werkzeug für die kreation von kreativen und stilistischen texteffekten wie 3d-looks und weichen leuchteffekten entwickelt. Diese erweiterung der visuellen gestaltungsmöglichkeiten trägt signifikant zur attraktivität und zum visuellen interesse moderner webseiten bei.
+    </p>
+
+    <h2>Einfacher schatten</h2>
+
+    <p>
+        Ein einfacher schatteneffekt kann durch angabe von horizontaler und vertikaler versciebung sowie schattenfarbe erzeugt werden, dies verleiht dem text mehr tiefe.
+    </p>
+
+    <p class="example simple-shadow">Dieser text hat einen einfachen schatten</p>
+
+    <style>
+        .simple-shadow {
+            /*
+                um schatten zu definieren, geben wir die folgenden informationen an:
+                - horizontale position vom inhalt aus
+                - vertikale position vom inhalt aus
+                - schärfe des schatten
+                - farbe des schattens (am besten in rgba, um die duchsichtigkeit zu steuern) 
+             */
+             font-size: 5rem;
+            text-shadow: 3px 3px 2px rgba(0, 0, 0, 1);
+        }
+    </style>
+
+    <p>
+        Wir wir sehen macht der schattenefekt den text auffälliger und verbessert die visuelle trennung vom hintergrund.
+    </p>
+
+    <h3>Mehrfache schatten</h3>
+
+    <p>
+        mit text-shadow: ; können auch mehrere schatten kombiniert werden, um komplexere effekte wie 3d-text oder leuchteffekte zu erzielen.
+    </p>
+
+    <p class="example multiple-shadows">Dieser text kombiniert mehrere schatten.</p>
+
+    <style>
+        .multiple-shadows {
+            text-shadow:
+                -5px -5px 0 rgba(255, 0, 0, 1), /* oben links */
+                5px 5px 0 rgba(255, 128, 0, 1) /* unten rechts */
+            ;
+        }
+    </style>
+
+    <h3>Gestaltete schatten</h3>
+
+    <p>
+        Die flexibilität von text-shadow: ; ermöglicht es, farbe, unschärfe, und mehrfachschaten zu nutzen, um kreative und auffällige texteffekte zu gestalten.
+    </p>
+
+    <p class="example styled-shadow">Dieser text zeigt einen schatten</p>
+
+    <style>
+        .styled-shadow {
+            font-size: 3rem;
+            text-shadow: 
+                -5px 2px 2px rgba(255, 0, 0, 1),
+                5px 3px 1px rgba(0, 0, 255, 1),
+                10px 0 5px rgba(0, 192, 200, 1),
+                10px 10px 5px rgba(128, 0, 128, 1)
+            ;
+        }
+    </style>
+
+    <h3>Text-schatten generatoren</h3>
+
+    <p>
+        Für die gestaltung komplexer textschatten effekte können online generatoren eine zeitsparende alternative zum manuellen schreiben des css codes sein. Diese tools bieten eine intuitive benutzeroberfläche zur steuerung der schattenparameter, einschließlich versatz, unschärfe und farbe, und generieren den entsprechenden css code.
+    </p>
+
+    <p>
+        die nutzung solcher generatoren ist besonders hilfreich um schenll und effizient professionell aussehende textschatten zu erstellen.
+    </p>
+
+    <p>
+        Ein beispiel für einen solchen generator ist <a href="https://html-css-js.com/css/generator/text-shadow/" target="_blank">https://html-css-js.com/css/generator/text-shadow/</a>.
+    </p>
+
+    <b>Beispiel</b>
+
+    <p class="demo">Lorem, ipsum.</p>
+
+    <style>
+        .demo {
+            background: black;
+            font-size: 4rem;
+            text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+            color: #131313;
+        }
+    </style>
+
+</body>
+</html>
