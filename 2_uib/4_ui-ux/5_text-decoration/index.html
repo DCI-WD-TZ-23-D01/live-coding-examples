@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .example {
+            background: lightgray;
+            display: inline-block;
+            padding: 1rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Text</h1>
+
+    <h2>text-decoration: ;</h2>
+
+    <p>
+        Die css eigenschaft text-decoration: ; ermöglicht webentwicklern, texte zu unterstreichen, durchzustreichen oder auch einen strich über den text zu setzen, was sowohl die ästhetik als auch die usability von webseiten verbessert.
+    </p>
+
+    <p>
+        Durch text-decoration: ; ist es möglich webseiten ohne aufwendige grafiken oder scripte visuell ansprechend zu gestalten.
+    </p>
+
+    <h3>Kein strich</h3>
+
+    <p>
+        Der standardwert von text-decoration: ; ist "none", es wird also kein strich angezeigt. So wird der text einfach dargestellt und fällt nicht weiter auf.
+    </p>
+
+    <p class="example none">Dieser text hat keinen strich</p>
+
+    <style>
+        .none {
+            text-decoration: none;
+        }
+    </style>
+
+    <h2>Unterstrichener text</h2>
+
+    <p>
+        Die meist benutzte einstellung für text-decoration: ; ist text-decoration: underline;. Bei dieser einstellung bekommt der text einen strich unterhalb seines textinhaltes. Dies ist zum beispiel der standardwert bei einem "a" element.
+    </p>
+
+    <p class="example underline">Dieser text ist unterstrichen</p>
+
+    <style>
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+
+    <p>
+        Wie wir sehen ist der text jetzt auffälliger, er zieht unsere blicke direkt auf sich.
+    </p>
+
+    <p>
+        Wir können jedem element text-decoration: ; geben, die option wird dann auf text innerhalb des elementes angewandt, ist also vererbbar.
+    </p>
+
+    <ul class="example underline">
+        <li>Eintrag 1</li>
+        <li>Eintrag 2</li>
+        <li>Eintrag 3</li>
+    </ul>
+
+    <h3>Überstrichener text</h3>
+
+    <p>
+        Bei der einstellung "overline" platzieren wir den strich über dem inhalt.
+    </p>
+
+    <p class="example overline">Dieser text hat eine oberlinie</p>
+
+    <style>
+        .overline {
+            text-decoration: overline;
+        }
+    </style>
+
+    <h3>Durchgestrichener Text</h3>
+
+    <p>
+        Eine gern benutzte einstellung ist "line-through", hier wird der text durchgestrichen, was zum beispiel gut ist um gelöschte inhalte oder vergriffene artikel darzustellen.
+    </p>
+
+    <p class="example line-through">Dieser text ist durchgestrichen</p>
+
+    <style>
+        .line-through {
+            text-decoration: line-through;
+        }
+    </style>
+
+    <h3>text-decoration befehle kombinieren</h3>
+
+    <p>
+        Das interessante am text-decoration: ; property ist, das es möglich ist, mehrere angaben miteinander zu kombinieren. So sind wir in der lage, einem text zum beispiel einen oberstrich und einen unterstrich zur gleichen zeit zu geben.
+    </p>
+
+    <p class="example combined">Dieser text kombiniert alle dekorationen</p>
+
+    <style>
+        .combined {
+            /* um mehrere einstellungen anzugeben, schrieben wir sie einfach hintereinander */
+            text-decoration: underline overline;
+        }
+    </style>
+
+    <h3>Anpassung des striches</h3>
+
+    <p>
+        text-decoration: ; besteht aus mehreren untereigenschaften, mit denen sich das aussehen des striches einstellen lässt. Diese optionen erlauben uns, fortgeschrittene visuelle effekte zu erzielen, indem wir farbe, dicke und stil des striches anpassen.
+    </p>
+
+    <p>Es gibt folgende unteroptionen</p>
+
+    <ul>
+        <li><b>text-decoration-line: ;</b> = gibt an, welchen strich wir haben wollen</li>
+        <li><b>text-decoration-style: ;</b> = gibt an welche art strich wir wollen, hier gelten die optionen: solid, double, dotted, dashed und wavy</li>
+        <li><b>text-decoration-color: ;</b> = gibt an welche farbe der strich haben soll</li>
+        <li><b>text-decoration-thickness: ;</b> = gibt an wie dick der strich sein soll</li>
+    </ul>
+
+    <p>
+        Durch diese optionen können wir den strich stylen wie wir wollen, zum beispiel können wir den strich nachbilden, den schreibprogramme darstellen, wenn sie ein wort nicht erkennen.
+    </p>
+
+    <p class="example">Dieser <span class="custom">terxt</span> sieht aus wie ein schreibfehler</p>
+
+    <style>
+        .custom {
+            text-decoration-line: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: red;
+            text-decoration-thickness: 2px;
+        }
+    </style>
+
+    <h3>shorthand code</h3>
+
+    <p>
+        text-decoration: ; besitzt auch die möglichkeit alle angaben hintereinander zu setzen.
+    </p>
+
+    <p class="example shortcode">Dieser text sieht aus wie ein schreibfehler</p>
+
+    <style>
+        .shortcode {
+            /* hier sehen wir den selben code wie oben, nur als einzeiler */
+            text-decoration: 2px underline wavy red;
+        }
+    </style>
+
+</body>
+</html>
