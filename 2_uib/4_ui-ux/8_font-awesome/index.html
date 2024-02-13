@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- wir binden FontAwesome per css ein -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <h1>Font-Icons</h1>
+
+    <p>
+        Font-icons sind spezielle schriftarten, die statt traditioneller buchstaben und ziffern eine reihe von grafischen symbolen erhalten. Diese technik ermöglicht es, icons als textzeichen zu behandeln, was eine problemlose skalierung und einfache anpassung mittels css ermöglicht, ohne das dabei ein qualitätsverlust auftritt. Dies steht im gegensatz zu herkömmlichen bild-icons, die bei größenanpassungen ihre schärfe verlieren können.
+    </p>
+
+    <p>
+        Die einführung von FontAwesome im jahr 2012 revolutionierte die nutzung von icons im web, indem es eine umfangreiche bibliothek mit leicht anpassbaren icons bereitstellte. Diese entwicklung führte zu einer deutlichen verbesserung der webseitenperformance und ästhetik, da icons nun ohne qualitätsverlust oder erhöhte ladezeiten skaliert werden konnten.
+    </p>
+
+    <p>
+        FontAwesome bietet eine einfache integration in webprojekte und ermöglicht es, icons mit css anzupassen. Diese flexibilität und einfachheit der anwendung haben font-icons zu einem standard in der modernen webentwicklung gemacht.
+    </p>
+
+    <h2>Einbindung von FontAwesome</h2>
+
+    <p>
+        Um FontAwesome icons zu nutzen, binden wir zuerst die FontAwesome bibliothek per css in unser projekt ein. Um diesen lin zu bekommen besuchen wir die offizielle FontAwesome webseite oder ein CDN.
+    </p>
+    
+    <p>Font-awesome Webseite: <a href="https://fontawesome.com/">FontAwesome</a></p>
+
+    <p>
+        Font-awesome CDN link: 
+        <a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">CDNJS</a>
+    </p>
+
+    <p>Wir schauen uns die seite an, und holen uns den link</p>
+
+    <p>Sobald wir die bibliothek eingebunden haben, können wir die icons verwenden, indem wir die entsprechenden klassen in ein element einfügen. Um dies zu vereinfachen bietet uns die webseite nicht nur eine liste mit allen icons, sondern auch direkt den code, um das jeweilige icon einzubinden.</p>
+
+    <h2>Nutzung</h2>
+
+    <p>
+        FontAwesome icons ermöglichen eine flexible und einfache methode, um grafische symbole in webprojekte zu integrieren.
+    </p>
+
+    <h3>Icons und deren optionen</h3>
+
+    <p>
+        Icons haben immer den klassensatz fa, was für font-awesome steht, gefolgt von optionen, wie zum beispiel dem namen des icons.
+    </p>
+
+    <p>einfache icon:
+        <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-truck"></i>
+        <i class="fa-brands fa-html5"></i>
+    </p>
+
+    <p>
+        Icons können wir, da es fonts sind, sowohl per font-size, wie auch mit vorgefertigten klassen in der größe verrändern
+    </p>
+
+    <p>
+        Ein doppelt so großes icon: <i class="fa-solid fa-house fa-2x"></i>
+    </p>
+
+    <p>
+        Ein 4 mal so großes icon: <i class="fa-solid fa-camera fa-4x"></i>
+    </p>
+
+    <p>
+        Man kann noch viele andere dinge voreinstellen, eine komplette liste mit einstellungen gibt es in der <a href="https://fontawesome.com/docs/web/">Dokumentation</a>.</p> 
+    </p>
+
+    <h3>Gestaltete Icons</h3>
+
+    <p>
+        FOntAwesome icons können wir leicht mit CSS anpassen, um verschiedene visuelle effekte zu erzielen.
+    </p>
+
+    <p><i class="fa-solid fa-heart custom-icon"></i>Ein herz icon mit hover effekt</p>
+
+    <style>
+        .custom-icon {
+            font-size: 32px;
+            color: red;
+            transition: all 0.3s ease-in-out;
+        }
+        .custom-icon:hover {
+            /* mit transform: scale(); können wir ein element skalieren */
+            transform: scale(1.5);
+        }
+    </style>
+
+    <h2>Beispiele</h2>
+
+    <h3>Icon mit Zusatztext</h3>
+
+    <p>Icon können auch gut zusammen mit text verwendet werden, um informationen hervorzuheben, oder navigationselemente zu gestalten</p>
+
+    <p>
+        <i class="fa-solid fa-phone-alt phone"></i><span class="icon-text">+123 345 7890</span>
+    </p>
+
+    <style>
+        .phone {
+            margin-right: 8px;
+        }
+    </style>
+
+    <h3>Navbar</h3>
+    
+    <p>
+        Icons kommen oft bei navigationselementen zum einsatz, zum beispiel social media links oder navigationsleisten. Die icons geben diesen elementen einen professionellen, modernen look
+    </p>
+
+    <div class="navbar">
+        <a href="#"><i class="fa-solid fa-home"></i>Home</a>
+        <a href="#"><i class="fa-solid fa-info-circle"></i>About</a>
+        <a href="#"><i class="fa-solid fa-envelope"></i>Contact</a>
+    </div>
+
+    <style>
+        .navbar {
+            background: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 1rem;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background: #ddd;
+            color: black;
+        }
+        .navbar i {
+            margin-right: 8px;
+        }
+    </style>
+
+    <h3>Bewertunssystem</h3>
+
+    <p>
+        Für bewertungssysteme können stern icons verwendet werden. Sie geben visuelles feedback über die bewertung eines produktes oder service ab.
+    </p>
+
+    <div class="rating">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-alt"></i>
+    </div>
+
+    <style>
+        .rating i {
+            color: gold;
+        }
+    </style>
+
+    <h3>Ladeindikator</h3>
+
+    <p>
+        Ladeindikatoren informieren den benutzer darüber, dass eine anfrage verarbeitet wird, FontAwesome bietet verschiedene, sogenannte spinner-icons, die als ladeindikatoren verwendet werden können.
+    </p>
+
+    <p>
+        Eine der optionen die man den icons übergeben kann, ist "fa-spin", was dafür sorgt, dass das icon sich dreht.
+    </p>
+
+    <div class="loading">
+        <i class="fa-solid fa-spinner fa-spin fa-lg"></i> Seite wird geladen...
+    </div>
+
+    <h3>Notification</h3>
+
+    <p>
+        Icons können auch verwendet werden um benachrichtigungen oder alarme auf benutzeroberflächen hervorzuheben und damit die aufmerksamkeit des benutzers auf wichtige ereignisse oder informationen zu lenken.
+    </p>
+
+    <div class="notification">
+        <i class="fa-solid fa-info-circle fa-2x"></i>
+        <h3>Neue Benachrichtigung</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro nobis ipsa sunt harum cupiditate dicta doloribus commodi! Earum quia, dolorum ea minima ex, nulla optio voluptates, odio totam repudiandae numquam.</p>
+    </div>
+
+    <style>
+        .notification {
+            background: #f2f2f2;
+            border: 1px solid #d5d5d5;
+            border-left: 5px solid #5b9bd5;
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        .notification i, 
+        .notification h3 {
+            color: #5b9bd5;
+        }
+        .notification p {
+            margin-bottom: 0;
+        }
+    </style>
+
+</body>
+</html>
