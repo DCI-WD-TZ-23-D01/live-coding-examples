@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>CSS Variablen</h1>
+
+    <p>
+        CSS variablen, offiziell auch als custom-properties bekannt, sind ein mächtiges feature in CSS. Sie ermöglichen es entwicklern, werte zu definieren, die an verschiedenen stellen innerhalb eines stylesheets wiederverwendet werden können.
+    </p>
+
+    <p>
+        Bevor CSS variablen verfügbar waren, benötigten entwickler zusätzliche werkzeuge um variablen in css zu integrieren, was einige zusätzliche schritte erforderte bis das css im browser verwendet werden konnte. CSS variablen bieten jedoch eine native browserunterstützung, die ihre nutzung schneller und einfacher macht.
+    </p>
+
+    <h2>Defininieren einer Basispalette</h2>
+
+    <p>
+        Der erste schritt in einem designprozess ist die festlegung einer basispalette. Eine basispalette definiert essentielle designvariablen wie haupt-, hintergrund- und textfarben sowie abstände, um ein konsistentes webdesign zu erschaffen. Sie erleichtert die pflege des codes und verbessert die nutzererfahrung durch einheitliches design, da wir die angegebenen werte immer wieder verwenden können.
+    </p>
+
+    <p>
+        Designvariablen werden mit der :root pseudo-klasse global definiert, die das html dokument wurzelelemnt repräsentiert. Dadurch sind variablen überall im stylesheet zugänglich, was die handhabung deutlich vereinfacht.
+    </p>
+
+    <style>
+        :root {
+            /* mit doppelten bindestrichen vor dem namen definieren wir variablen, dahinter schreiben wir den wert den wir wiederverwenden wollen. */
+            --hauptfarbe: #08708A;
+            --nebenfarbe: #56B1BF;
+            --textfarbe: #D0D3C5;
+            --fehlerfarbe: #D73A31;
+            --infofarbe: #032B2F;
+            --abstand: 10px;
+            --schrift: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+    <h2>Anwendung der Palette</h2>
+
+    <p>
+        Wir können unsere vorher definierten variablen an jeder stelle in unserem css code nutzen, um mit ihnen unsere elemente zu designen.
+    </p>
+
+    <div class="box">Ich bin eine Box!</div>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            /* um vairablen nutzen zu können, schreiben wir ihren namen in die property var(); */
+            background: var(--hauptfarbe);
+            padding: var(--abstand);
+            color: var(--textfarbe);
+            font-family: var(--schrift);
+        }
+    </style>
+
+    <h2>Wiederverwenden der Palette</h2>
+    
+    <p>
+        Wir haben jetzt gesehen das wir elementen die in den variablen angegebenen werte übergeben können. Wirkliche wiederverwendung tritt aber erst ein, wenn wir mehrere elemente dafür nutzen
+    </p>
+
+    <div class="test-box-1"></div>
+    <div class="test-box-2"></div>
+    <div class="test-box-3"></div>
+
+    <style>
+        /* Wir geben den 3 boxen die selben eigenschaften */
+        .test-box-1,
+        .test-box-2,
+        .test-box-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--hauptfarbe);
+            display: inline-block;
+            /* auch innerhalb von shortcodes können wir variablen setzen */
+            border: var(--abstand) solid var(--nebenfarbe);
+        }
+
+        .test-box-1,
+        .test-box-3 {
+            background: var(--fehlerfarbe);
+        }
+    </style>
+
+</body>
+</html>

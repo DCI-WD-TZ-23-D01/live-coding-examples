@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Ein Herz zum Valentinstag</h1>
+
+    <style>
+        h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+    <!-- das hert element -->
+    <div class="heart"></div>
+
+    <style>
+        /* wir deklarieren eine schöne rote farbe und eine vordefinierte größe für unser herz als variablen */
+        :root {
+            --heartColor: #c51104;
+            --heartSize: 200px;
+        }
+
+        /* wir erstellen einen container für das herz, den wir heart nennen */
+        .heart {
+            position: relative;
+            /* wir stellen die größe des hauptcontainers auf unsere größenvariable */
+            width: var(--heartSize);
+            height: var(--heartSize);
+            /* wir setzen die hintergrundfarbe des containers auf eine farbe die wir gut sehen können */
+            background: blue;
+            /* wir sorgen dafür, dass das herz zentriert ist, mit einem abstand nach unten */
+            margin: 200px auto;
+        }
+
+        /* wir nutzen ::before und ::after für unsere weiteren elemente */
+        .heart::before,
+        .heart::after {
+            /* wir setzen content auf leer */
+            content: "";
+            /* wir setzen die position auf absolut */
+            position: absolute;
+            /* wir nutzen eine andere hintergrundfarbe, um die ecken des herzens besser sehen zu können */
+            background: orange;
+            /* wir geben den pseudo elementen jetzt 100% der größe, des elternelementes */
+            width: 100%;
+            height: 100%;
+            /* wir geben den elementen jetzt 50% border radius um sie in einen kreis zu verwandeln */
+            border-radius: 50%;
+        }
+
+        /* seite 1 */
+        .heart::before {
+            /* wir schieben ::before jetzt nachträglich 50% nach links, um es auf der linken seite des elternelementes zu platzieren */
+            left: -50%;
+        }
+
+        /* seite 2 */
+        .heart::after {
+            /* wir schieben ::after nachträglich nach oben, um es an der oberen seite des elementes zu platzieren */
+            top: -50%;
+        }
+
+        /* wir selektieren jetzt wieder unser herz, um es um 45 grad zu drehen */
+        .heart {
+            /* wir nutzen transform: rotate(); um das element zu drehen */
+            transform: rotate(45deg);
+        }
+
+        /* zu guter letzt selektieren wir das element und die pseudo elemente um sie einzufärben */
+        .heart,
+        .heart::before,
+        .heart::after {
+            /* wir setzen unsere variable für die herzfarbe ein */
+            background: var(--heartColor);
+        }
+
+        /* unser herz ist jetzt komplett nach unseren wünschen skalierbar und die farbe anpassbar */
+
+    </style>
+
+</body>
+</html>
