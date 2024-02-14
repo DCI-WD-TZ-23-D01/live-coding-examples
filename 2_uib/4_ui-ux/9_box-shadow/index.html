@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .example {
+            background: #f0f0f0;
+            display: inline-block;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Box-Shadow</h1>
+
+    <p>
+        Die css eigenschaft box-shadow: ; erlaubt die anwendung von schatteneffekten rund um das element-box-modell, wodurch eine visuelle tiefe erzeugt wird, die die benutzeroberfläche verbessern kann. Ursprünglich dazu gedacht, elementen einen 3d look zu verleihen, wird box shadow: ; heute überall für ui/ux designs eingesetzt, um elemente wie buttons, panels und karten hervorzuheben.
+    </p>
+
+    <h2>Einfacher Schatten</h2>
+
+    <p>
+        Eine einfache anwendung von box-shadow: ; kann einem element visuelle tiefe verleiehen, ohne die notwendigkeit für zusätzliche elemente oder komplexe layouts.
+    </p>
+
+    <div class="example simple-box-shadow"></div>
+
+    <style>
+        .simple-box-shadow {
+            /*          horizontal vertikal verschwimmen vergrößern farbe */
+            /* box-shadow: 5px 10px 15px 20px rgba(0, 0, 0, 0.3); */
+            box-shadow: 
+                5px /*horizontal verschoben */ 
+                10px /* vertikal verschoben */
+                15px /* verschwimmen */
+                20px /* vergrößern (spread) - optional */
+                rgba(0, 0, 0, 0.5) /* farbe in rgba */
+            ;
+        }
+    </style>
+
+    <h2>Mehrfache Schatten</h2>
+
+    <p>
+        Auch box-shadow: ; unterstützt die definition von mehreren schatten durch komma-trennung, was komplexere und kreativere schatteneffekte ermöglicht.
+    </p>
+
+    <div class="example multiple-box-shadows"></div>
+
+    <style>
+        .multiple-box-shadows {
+            box-shadow:
+                5px 5px 15px rgba(0, 0, 0, 0.5),
+                -5px -5px 15px 5px rgba(255, 0, 0, 0.5)
+            ;
+        }
+    </style>
+
+    <h2>Innere schatten</h2>
+
+    <p>
+        Wenn wir der box-shadow: ; eigenschaft den zusatz "inset" geben, können wir schatten auch in unser element hineinfließen lassen, sozusagen den schatten umdrehen.
+    </p>
+
+    <div class="example inset-box-shadows"></div>
+
+    <style>
+        .inset-box-shadows {
+            /* wir fürgen "inset" in unseren box-shadow ein */
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+    <h2>Gestaltung von Schatten</h2>
+
+    <p>
+        Durch anpassung von farbe, unschärfe und versatz kann box-shadow: ; genutzt werden um einzigartige und auffällige effekte zu kreieren.
+    </p>
+
+    <div class="example styled-box-shadow"></div>
+
+    <style>
+        .styled-box-shadow {
+            box-shadow: 
+                10px 10px 20px rgba(0, 0, 255, 0.5),
+                -10px -10px 20px 5px rgba(255, 128, 0, 0.5),
+                inset -10px -10px 5px rgba(0, 255, 0, 0.5)
+            ;
+        }
+    </style>
+
+    <h2>Box-shadow Generatoren</h2>
+
+    <p>
+        Wie auch bei textschatten sind für die gestaltung komplexer box-schatteneffekte online generatoren eine praktische lösung.
+    </p>
+
+    <p>
+        Einen nützlichen Generator gibt <a href="https://html-css-js.com/css/generator/box-shadow/" target="_blank">hier</a> zu finden.
+    </p>
+
+    <h2>Beispiel</h2>
+
+    <p>
+        Um  zu zeigen wie mächtig box-schatten sind, hier ein beispiel anhand unserer notification.
+    </p>
+
+    <div class="notification">
+        <i class="fas fa-info-circle fa-2x"></i>
+        <h4>Neue Benachrichtigung</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quae quos vitae assumenda velit adipisci, earum maxime non laudantium impedit ex commodi, maiores facere dolorem incidunt odit, reprehenderit rem sed?.</p>
+    </div>
+
+    <style>
+        .notification {
+            background: #f2f4f8;
+            /* border: 1px solid #d5d5d5; */
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #5b9bd5;
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        .notification i,
+        .notification h4 {
+            color: #5b9bd5;
+        }
+        .notification p {
+            margin-bottom: 0;
+        }
+    </style>
+
+</body>
+</html>
