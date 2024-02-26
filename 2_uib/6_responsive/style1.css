@@ -1,0 +1,55 @@
+/* Standard-Styling steht oben ohne @media. Bei Mobile First ist es das Styling für kleine Auflösung. Bei Desktop First ist es das Styling für große Auflösung */
+
+body {
+  background-color: blue;
+}
+
+/* Die empfohlene Arbeitsweise ↓ */
+/* Mobile first. Man arbeitet mit min-width und geht von kleiner Auflösung in größere. */
+
+@media (min-width: 600px) {
+  body {
+    background-color: goldenrod;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    background-color: blueviolet;
+  }
+}
+
+@media (min-width: 1000px) {
+  body {
+    background-color: darkcyan;
+  }
+}
+
+/* Man kann die untere und obere Grenzen angeben. Aber wenn man einer der folgenden Strukturen folgt, braucht man nur eine Grenze anzugeben */
+/* @media (max-width: 1250px) and (min-width: 800px) {
+  body {
+    background-color: red;
+  }
+} */
+
+/* Desktop first. Man arbeitet mit max-width und geht von großer Auflösung in kleinere */
+/* @media (max-width: 1000px) and (min-width: 801px) { */
+/* 
+@media (max-width: 1000px){
+  body {
+    background-color: darkcyan;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    background-color: blueviolet;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    background-color: goldenrod;
+  }
+} */
+

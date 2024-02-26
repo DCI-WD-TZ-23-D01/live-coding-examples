@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+nav {
+  width: 90%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+nav a {
+  font-size: 2rem;
+  text-decoration: none;
+  display: block;
+}
+
+main {
+  width: 90%;
+  margin: 2rem auto;
+  border: 2px solid green;
+  padding: 0.5rem;
+}
+
+/* dieser Icon wird in kleiner Auflösung nicht angezeigt. In großer Auflösung wird er eingeblendet
+(Bei Hamburger-Menü würde man es umgekehrt machen)
+*/
+.icon {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  main {
+    font-size: 1.5rem;
+  }  
+}
+
+@media (min-width: 992px) {
+  nav {
+    text-align: right;
+  }
+  nav a {
+    display: inline;
+  }
+  /* Alle a in nav bekommen ein margin-right, außer dem last-child */
+  nav a:not(:last-child) {
+    margin-right: 2rem;
+  }
+  main {
+    min-height: 350px;
+  }
+  img {
+    float: left;
+    width: 400px;
+    margin-right: 1rem;
+  }
+  .icon {
+    display: inline;
+  }
+}
