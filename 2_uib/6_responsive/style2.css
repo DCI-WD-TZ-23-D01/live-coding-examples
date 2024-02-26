@@ -1,3 +1,8 @@
+/* 
+Wir arbeiten hier mobile first. Zuerst schreiben wir das Standard-Styling, das auf jeden Fall für kleine Auflösung gültig ist.
+Unten mit @media passen wir das Styling für größere Auflösungen an
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +39,7 @@ main {
   display: none;
 }
 
+/* Wenn möglich, benutzt die gleichen Selektor wie oben, so muss man keinen Gedanken wegen Spezifizität machen */
 @media (min-width: 576px) {
   main {
     font-size: 1.5rem;
