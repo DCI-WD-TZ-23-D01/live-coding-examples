@@ -1,0 +1,119 @@
+/* wir stellen box sizing auf border box */
+* {
+    box-sizing: border-box;
+}
+
+/* im mobile first design kümmern wir uns als erstes um das mobile design. */
+
+/* wir stylen den header: */
+.header {
+    background: black;
+    color: white;
+    height: 3rem;
+    text-align: center;
+}
+
+.header h1 {
+    /* wir stellen die texthöhe auf die header höhe ein, um den text vertikal zu zentrieren */
+    line-height: 3rem;
+    margin: 0;
+}
+
+/* wir stylen das menu: */
+.menu {
+    text-align: center;
+    background-color: lightgray;
+}
+
+.menu a {
+    padding: 1rem;
+    /* wir stellen die links auf inline-block um sie nebeneinander zu platzieren */
+    display: inline-block;
+    color: black;
+    width: 20%;
+}
+
+.menu a:hover {
+    background: gray;
+}
+
+/* wir stylen den hauptinhalt der seite */
+
+.page {
+    padding: 1rem;
+    width: 100%;
+}
+
+/* wir stylen die about sektion */
+.about {
+    background-color: lightgray;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 4rem;
+}
+
+/* wir stylen den footer */
+.footer {
+    background: black;
+    width: 100%;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    height: 4rem;
+    left: 0;
+    right: 0;
+}
+
+.footer p {
+    margin: 0;
+    line-height: 4rem;
+}
+
+/* jetzt kümmern wir uns um unser desktop layout: */
+
+@media only screen and (min-width: 769px) {
+    /* wir stellen den header auf position fixed und sagen ihm er soll 100vw breit sein */
+    .header {
+        position: fixed;
+        width: 100vw;
+    }
+
+    /* da der header eine spezifische größe hat, die wir über unseren inhalt legen, geben wir dem container ein padding-top mit der höhe des headers, damit die seite erst nach dem header anfängt */
+    .container {
+        padding-top: 3rem;
+    }
+
+    /* wir nutzen in unserem beispiel der einfacheit halber floats. */
+
+    /* wir geben dem menu eine breite von 20% und eine höhe von 100vh */
+    .menu {
+        float: left;
+        width: 20%;
+        height: 100vh;
+    }
+
+    /* wir ändern das design der menueinträge ein wenig ab */
+    .menu a {
+        padding: 1rem;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+
+    /* wir geben dem hauptinhalt eine breite von 60% */
+    .page {
+        float: left;
+        width: 60%;
+        padding: 0 1rem;
+    }
+
+    /* wir geben unserer about sektion eine breite von 20% */
+    .about {
+        position: static;
+        float: left;
+        width: 20%;
+        height: 100vh;
+    }
+}
