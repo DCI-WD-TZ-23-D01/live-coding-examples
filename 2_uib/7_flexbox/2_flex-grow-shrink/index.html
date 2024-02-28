@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .container {
+            border: 5px solid tomato;
+            display: flex;
+            min-height: 200px;
+        }
+
+        .box {
+            background: lime;
+            border: 5px solid black;
+        }
+    </style>
+
+    <h1>Flexbox</h1>
+
+    <h2>flex-grow: ;</h2>
+
+    <p>
+        mit flex-grow: ; können wir definieren, wieviel platz ein element innerhalb des elternelementes einnimt, ohne pixelangabe, oder ähnliche größenangabe, sondern in anteilen des platzes, den es hat.
+    </p>
+
+    <p>
+        der default wert von flex-grow: ; ist 0, das bedeutet, das die elemente nur soviel platz einnehmen, wie sie brauchen, um ihren inhalt anzuzeigen.
+    </p>
+
+    <h3>flex-grow: 0;</h3>
+
+    <div class="container">
+        <div class="box flex-grow-0">1</div>
+        <div class="box flex-grow-0">2</div>
+        <div class="box flex-grow-0">3</div>
+        <div class="box flex-grow-0">4</div>
+        <div class="box flex-grow-0">5</div>
+    </div>
+
+    <style>
+        .flex-grow-0 {
+            flex-grow: 0;
+        }
+    </style>
+
+    <h3>flex-grow: 1;</h3>
+
+    <div class="container">
+        <div class="box flex-grow-0">1</div>
+        <div class="box flex-grow-1">2</div>
+        <div class="box flex-grow-1">3</div>
+        <div class="box flex-grow-1">4</div>
+        <div class="box flex-grow-1">5</div>
+    </div>
+
+    <style>
+        .flex-grow-1 {
+            flex-grow: 1;
+        }
+    </style>
+
+    <h3>Beispiele:</h3>
+
+    <style>
+        /* für weitere beispiele fügen wir ein paar weitere grow nummern ein, also anteile des platzes */
+        .flex-grow-2 {
+            flex-grow: 2;
+        }
+
+        .flex-grow-3 {
+            flex-grow: 3;
+        }
+
+        .flex-grow-8 {
+            flex-grow: 8;
+        }
+    </style>
+
+    <div class="container">
+        <div class="box flex-grow-2">1</div>
+        <div class="box flex-grow-8">2</div>
+    </div>
+
+    <div class="container">
+        <div class="box flex-grow-0">1</div>
+        <div class="box flex-grow-0">2</div>
+        <div class="box flex-grow-1">3</div>
+        <div class="box flex-grow-1">4</div>
+        <div class="box flex-grow-0">5</div>
+    </div>
+
+    <div class="container">
+        <div class="box flex-grow-1">1</div>
+        <div class="box flex-grow-1">2</div>
+        <div class="box flex-grow-1">3</div>
+    </div>
+
+    <div class="container">
+        <div class="box flex-grow-1">1</div>
+        <div class="box flex-grow-2">2</div>
+        <div class="box flex-grow-2">3</div>
+        <div class="box flex-grow-1">4</div>
+    </div>
+
+    <div class="container">
+        <div class="box flex-grow-1">1</div>
+        <div class="box flex-grow-1">2</div>
+        <div class="box flex-grow-3">3</div>
+        <div class="box flex-grow-1">4</div>
+    </div>
+
+    <div class="container">
+        <div class="box flex-grow-1">1</div>
+        <div class="box flex-grow-8">2</div>
+        <div class="box flex-grow-1">3</div>
+        <div class="box flex-grow-2">4</div>
+    </div>
+
+    <style>
+        .box-width {
+            width: 100px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="box box-width">1</div>
+        <div class="box flex-grow-1">2</div>
+        <div class="box flex-grow-3">3</div>
+        <div class="box box-width">4</div>
+    </div>
+
+    <h2>flex-shrink: ;</h2>
+
+    <p>
+        im gegenteil zu flex-grow: ; können wir mit flex-shrink: ; definieren, wie sich ein element verhält, wenn es von der größe her nicht mehr in den container passen würde, und verkleinert werden müsste, um den vorgesehenen platz zu nutzen.
+    </p>
+
+    <b><i>WICHTIG: Der default wert von flex-shrink: ; ist 1, wodurch elemente immer nur so groß sind, das sie für das elternelement verkleinert werden.</i></b>
+
+    <style>
+        /* für unsere shrink tests erstellen wir eine neue box */
+        .box2 {
+            background: lime;
+            border: 5px solid black;
+            flex-grow: 0;
+            flex-shrink: 0;
+            /* flex-basis: ; definiert die ausgangsgröße eines elementes */
+            flex-basis: 150px;
+
+            /* 
+                shortcode/shorthand für flex befehle:
+
+                flex: { flex-grow } { flex-shrink } { flex-basis }
+                flex: 0             0               150px;
+
+                der standardwert für den flex shortcode/shortcode ist:
+                flex: 0 1 auto;
+            */
+        }
+    </style>
+    
+    <div class="container">
+        <div class="box2 shrink-box-1">1</div>
+        <div class="box2 shrink-box-1">2</div>
+        <div class="box2 shrink-box-2">3</div>
+        <div class="box2">4</div>
+        <div class="box2">5</div>
+    </div>
+
+    <style>
+        .shrink-box-1 {
+            flex-shrink: 1;
+        }
+        .shrink-box-2 {
+            flex-shrink: 2;
+        }
+    </style>
+    
+</body>
+</html>

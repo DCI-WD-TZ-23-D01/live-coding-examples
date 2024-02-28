@@ -290,7 +290,189 @@
         }
     </style>
 
-    
+    <h2>Wrap</h2>
+
+    <h3>flex-wrap: wrap;</h3>
+
+    <p>
+        mit flex-wrap: wrap; sorgen wir dafür das, in dem falle, das kindelemente nebeneinander platziert nicht mehr in die breite/höhe des elternelementes passen, sie in die nächste "zeile" geschoben werden.
+    </p>
+
+    <div class="container wrap">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">0</div>
+    </div>
+
+    <style>
+        .wrap .box {
+            /* wir verändern die breite der boxen, damit sie nicht mehr in den container passen */
+            width: 100px;
+        }
+
+        .wrap {
+            flex-wrap: wrap;
+            /* der default wert ist flex-wrap: no-wrap; wodurch die elemente nicht gewrapped werden */
+        }
+    </style>
+
+    <h3>flex-wrap: wrap-reverse;</h3>
+
+    <p>
+        mit flex-wrap: wrap-reverse; sorgen wir dafür, das die kindelemente umgekehrt gewrapped werden.
+    </p>
+
+    <div class="container wrap-reverse">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">0</div>
+    </div>
+
+    <style>
+        .wrap-reverse .box {
+            width: 100px;
+        }
+
+        .wrap-reverse {
+            flex-wrap: wrap-reverse;
+        }
+    </style>
+
+    <h2>flex-direction</h2>
+
+    <p>
+        flex-direction: ; gibt an in welche richtung die elemente angelegt werden, also ob sie horizontal, vertikal, oder horizontal/vertikal umkehrt dargestellt werden.
+    </p>
+
+    <h3>flex-direction: row; (default)</h3>
+
+    <p>
+        mit flex-direction: row; legen wir die elemente horizontal nebeneinander, startend von links.
+    </p>
+
+    <div class="container direction-row">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <style>
+        .direction-row {
+            flex-direction: row;
+        }
+    </style>
+
+    <h3>flex-direction: row-reverse;</h3>
+
+    <p>
+        mit flex-direction: row-reverse; legen wir die elemente umgekehrt nebeneinander also startend von rechts.
+    </p>
+
+    <div class="container direction-row-reverse">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <style>
+        .direction-row-reverse {
+            flex-direction: row-reverse;
+        }
+    </style>
+
+    <b><i>
+        WICHTIG: wenn wir flex-direction: row-reverse; nutzen, drehen wir den content um, womit justify-content: flex-start; dann auf der rechten, und justify-content: flex-end; auf der linken seite ist.
+    </i></b>
+
+    <h3>flex-direction: column;</h3>
+
+    <p>
+        mit flex-direction: column; legen wir die elemente vertikal an, also untereiannder in einer column, also einer spalte.
+    </p>
+
+    <div class="container direction-column">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <style>
+        .direction-column {
+            flex-direction: column;
+            /* align items: ; sorgt jetzt für die horizontale ausrichtung */
+            align-items: center;
+        }
+    </style>
+
+    <b><i>
+        WICHTIG: bei flex-direction: column; wird unser inhalt in der sortierung um 90 grad gekipt, dadurch ist align-items: ; und justify-content: ; in der bedeutung vertauscht.
+    </i></b>
+
+    <h3>flex-direction: column-reverse;</h3>
+
+    <p>
+        mit flex-direction: column-reverse; legen wir die elemente vertikal, also untereiander an, aber umkehrt sortiert.
+    </p>
+
+    <div class="container direction-column-reverse">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <style>
+        .direction-column-reverse {
+            flex-direction: column-reverse;
+        }
+    </style>
+
+    <h3>shortcode/shorthand für flex-ausrichtungsbefehle</h3>
+
+    <p>
+        mit flex-flow: ; können wir die befehle flex-direction: ; und flex-wrap: ; miteinander kombiniert verwenden.
+    </p>
+
+    <div class="container flex-flow">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">0</div>
+    </div>
+
+    <style>
+        .flex-flow {
+            /*         ausrichtung wrapping */
+            flex-flow: row-reverse wrap;
+        }
+    </style>
 
 </body>
 
