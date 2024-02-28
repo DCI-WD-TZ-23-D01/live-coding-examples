@@ -140,8 +140,6 @@
         im gegenteil zu flex-grow: ; können wir mit flex-shrink: ; definieren, wie sich ein element verhält, wenn es von der größe her nicht mehr in den container passen würde, und verkleinert werden müsste, um den vorgesehenen platz zu nutzen.
     </p>
 
-    <b><i>WICHTIG: Der default wert von flex-shrink: ; ist 1, wodurch elemente immer nur so groß sind, das sie für das elternelement verkleinert werden.</i></b>
-
     <style>
         /* für unsere shrink tests erstellen wir eine neue box */
         .box2 {
@@ -171,6 +169,8 @@
         <div class="box2">4</div>
         <div class="box2">5</div>
     </div>
+    
+    <b><i>WICHTIG: Der default wert von flex-shrink: ; ist 1, wodurch elemente immer nur so groß sind, das sie für das elternelement verkleinert werden.</i></b>
 
     <style>
         .shrink-box-1 {

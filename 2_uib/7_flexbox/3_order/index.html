@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .container {
+            border: 5px solid tomato;
+            display: flex;
+            width: 500px;
+            height: 100px;
+        }
+
+        .box {
+            flex-grow: 1;
+            background: lime;
+            border: 5px solid black;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+
+    <h1>Flexbox</h1>
+
+    <h2>order: ;</h2>
+
+    <p>
+        mit order: ; können wir die angezeigte reihenfolge von elementen verändern, egal wie sie im HTML code sortiert
+        sind. Dies ermöglicht uns in verschiedenen situationen elemente in einer anderen reihenfolge darzustellen, zum
+        beispiel wenn wir ein menu in der mobilansicht an einer anderen stelle haben wollen, oder wir wollen, das eine
+        werbeanzeige nicht mehr oben, sondern gegebenenfalles unten angezeigt wird.
+    </p>
+
+    <p>
+        der standardwert von order: ; ist 0, was bedeutet, das alle elemente in der im HTML code vorgegebenen
+        reihenfolge angezeigt werden. Um die reihenfolge zu testen erstellen wir ein paar boxen, und geben ihnen dann
+        verschiedene positionen in unserem CSS.
+    </p>
+
+    <div class="container">
+        <div class="box box-one">1 (1)</div>
+        <div class="box box-two">2 (2)</div>
+        <div class="box box-three">3 (3)</div>
+        <div class="box box-four">4 (4)</div>
+        <div class="box box-five">5 (5)</div>
+    </div>
+
+    <style>
+        .box-one {
+            order: 1;
+        }
+
+        .box-two {
+            order: 2;
+        }
+
+        .box-three {
+            order: 3;
+        }
+
+        .box-four {
+            order: 4;
+        }
+
+        .box-five {
+            order: 5;
+        }
+    </style>
+
+    <div class="container">
+        <div class="box box-four">1 (4)</div>
+        <div class="box box-one">2 (1)</div>
+        <div class="box box-five">3 (5)</div>
+        <div class="box box-two">4 (2)</div>
+        <div class="box box-three">5 (3)</div>
+    </div>
+
+    <div class="container">
+        <div class="box box-two">1 (2)</div>
+        <div class="box box-one">2 (1)</div>
+        <div class="box box-one">3 (1)</div>
+        <div class="box box-two">4 (2)</div>
+        <div class="box box-three">5 (3)</div>
+    </div>
+
+    <style>
+        .box-minus-1 {
+            order: -1;
+        }
+    </style>
+
+    <div class="container">
+        <div class="box">2 (0)</div>
+        <div class="box box-one">5 (1)</div>
+        <div class="box">3 (0)</div>
+        <div class="box box-minus-1">1 (-1)</div>
+        <div class="box">4 (0)</div>
+    </div>
+
+    <p>
+        Wenn elemente die gleiche order: ; haben, werden sie in der reihenfolge angezeigt, in der sie im HTML code stehen.
+    </p>
+
+    <div class="container">
+        <div class="box box-one">2 (1)</div>
+        <div class="box box-one">3 (1)</div>
+        <div class="box box-one">4 (1)</div>
+        <div class="box box-one">5 (1)</div>
+        <div class="box box-minus-1">1 (-1)</div>
+    </div>
+
+    <b><i>WICHTIG: wenn wir die ausrichtung/sortierung umdrehen, gilt die sortierung basierend auf der richtung die wir angeben.</i></b>
+
+</body>
+
+</html>
