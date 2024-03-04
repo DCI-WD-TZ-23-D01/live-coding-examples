@@ -1,0 +1,65 @@
+/* 
+    wir setzen den container auf 100vh um den ganzen bildschirm auszufüllen und stellen ihn auf display: flex;
+*/
+
+.container
+{
+    height: 100vh;
+    display: flex;
+    border: 5px solid purple;
+}
+
+/* wir setzen die vertikale positionierung auf horizontal */
+.vertical {
+    flex-direction: row;
+}
+
+/* damit wir das ganze etwas besser sehen könnne, stylen wir jetzt die beiden inhalts elemente damit wir sie anhand von größen  auseinander halten können. */
+
+.small {
+    flex-grow: 1;
+    flex-basis: 100px;
+}
+
+.big {
+    flex-grow: 1;
+    flex-basis: 500px;
+}
+
+/* wir geben den elementen verschiedene farben damit wir sie besser sehen können */
+.small {
+    background: plum;
+}
+
+.container.vertical {
+    background: tomato;
+    border: 5px solid blue;
+}
+
+.container.vertical .small {
+    background: lime;
+}
+
+/* bei der mobilen ansicht befinden sich die beiden elemente des horizontalen containers nebeneinander, im zweiten element befinden sich die beiden kindelemente nebeneinander. */
+
+/* in unserer zweiten ansicht sollen die beiden elemente des horizontalen containers immernoch nebeneiannder sein, aber die beiden kindelemente vertikal untereinander, dafür müssen wir nur die flex-direction der beiden container anpassen. */
+
+@media (min-width: 400px) {
+    .horizontal {
+        flex-direction: row;
+    }
+    .vertical {
+        flex-direction: column-reverse;
+    }
+}
+
+/* in unserer dritten ansicht sollen die beiden inhalte des horizontalen containers untereinander sein, die beiden kindelemente allerdings horizontal nebeneinander */
+
+@media (min-width: 600px) {
+    .horizontal {
+        flex-direction: column;
+    }
+    .vertical {
+        flex-direction: row;
+    }
+}

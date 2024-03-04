@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            border: 5px solid tomato;
+            height: 250px;
+            width: 500px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .box {
+            background: lime;
+            border: 5px solid black;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Flexbox</h1>
+
+    <h2>align-self: ;</h2>
+
+    <p>
+        Mit align-self: ; können wir den elementen innerhalb eines elternelementes SELBST sagen, wie sie vertikal ausgelegt sein sollen.
+    </p>
+
+    <p>
+        Die uns bekannten werte wie flex-start, center oder stretch können hier auf die elemente selber, und nicht nur auf den inhalt des elternelementes angewandt werden.
+    </p>
+
+    <h3>align-self: auto;</h3>
+
+    <p>
+        align-self: auto; ist der default wert, bei dem das element die einstellungen von align-items: ; des elternelementes übernimmt.
+    </p>
+
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box self-auto">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <style>
+        .self-auto {
+            background: orange;
+            align-self: auto;
+        }
+    </style>
+
+    <h3>align-self: stretch;</h3>
+
+    <p>
+        bei align-self: stretch; wird das angesteuerte element, das ein kind element eines flex-containers ist, die komplette höhe dieses containers ausfüllen.
+    </p>
+
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box self-stretch">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <style>
+        .self-stretch {
+            background: orange;
+            align-self: stretch;
+        }
+    </style>
+
+    <h3>align-self: ; zur steuerung vertikaler positionen</h3>
+
+    <p>
+        mit den werten align-self: flex-start;, align-self: center; und align-self: flex-end; können wir die vertikale position eines einzelnen elementes steuern.
+    </p>
+
+    <div class="container">
+        <div  id="naheeda-test" class="box self-center">1</div>
+        <div class="box self-start">2</div>
+        <div class="box self-end">3</div>
+    </div>
+
+    <style>
+        .self-center {
+            align-self: center;
+        }
+        .self-start {
+            align-self: flex-start;
+        }
+        .self-end {
+            align-self: flex-end;
+        }
+        #naheeda-test {
+            align-self: stretch;
+        }
+    </style>
+    
+</body>
+</html>

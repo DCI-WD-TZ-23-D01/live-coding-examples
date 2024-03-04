@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- 
+        flexbox gibt uns die möglichkeit durch verschachtlung mehrere richtungen innerhalb unseres layouts zu nutzen. Multidirectional bedeutet, das wir zum beispiel ein element haben, das 2 kind elemente beinhaltet, die horizontal ausgerichtet sind, und eines davon wiederrum elemente beinhaltet, die vertikal ausgerichtet sind.
+     -->
+
+    <!-- wir erstellen einen container für die horizontalen inhalte -->
+    <main class="container horizontal">
+        <!-- wir erstellen ein element für kleinere inhalte -->
+        <div class="small">1</div>
+        <!-- wir erstellen einen container für vertikale inhalte -->
+        <div class="big container vertical">
+            <!-- wir erstellen noch ein element für kleinere inhalte -->
+            <div class="small">2</div>
+            <!-- wir erstellen eine element für größere inhalte -->
+            <div class="big">3</div>
+        </div>
+    </main>
+    
+</body>
+</html>
