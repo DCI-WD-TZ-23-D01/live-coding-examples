@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            border: 5px solid tomato;
+            width: 500px;
+        }
+        
+        .box {
+            background: lime;
+            border: 5px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS-Grid</h1>
+
+    <p>
+        Um layouts besser gestalten zu können und eine präzise kontrolle über die anordnung von elementen auf webseiten zu ermöglichen, wurde 2017 von der W3C das fortschrittliche layout-system CSS-Grid entwickelt. Im vergleich zu älteren layout methoden bietet CSS-Grid eine zweidimensionale rasterstruktur, die es entwicklern erlaubt, elemente sowohl horizontal, wie auch vertikal genau zu positionieren. Von komplexen seitenlayouts wie magazinseiten, bis hin zu dashboards, tabellen oder bildergallerien bietet CSS-Grid eine vielzahl von anwendungsmöglichkeiten und ermöglicht eine verbesserte responsivität für verschiedene bildschirmgrößen.
+    </p>
+
+    <h2>Ohne CSS-Grid</h2>
+
+    <p>
+        ohne grid müssen wir, damit wir unsere elemente sinnvoll platzieren können eine mischung zwischen flex-direction, flex-basis, flex-wrap und anderen werten nutzen.
+    </p>
+
+    <div class="container beispiel-1">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+    </div>
+
+    <style>
+        .beispiel-1 {
+            display: flex !important;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+
+        .box:nth-child(1),
+        .box:nth-child(5),
+        .box:nth-child(8) {
+            flex-basis: 200px;
+        }
+        .box:nth-child(2),
+        .box:nth-child(3),
+        .box:nth-child(4) {
+            flex-basis: 100px;
+        }
+        .box:nth-child(9),
+        .box:nth-child(11) {
+            flex-basis: 50px;
+        }
+    </style>
+
+    <h2>Nutzung von CSS-Grid</h2>
+
+    <h3>Die fr Einheit</h3>
+
+    <p>
+        Um innerhalb eines grids verschiedene elementen dynamisch gleiche größen geben zu können, gibt es für grid elemente eine eigene größeneinheit, diese einheit nennt man "fr", für "fraction". Ein fr ist also ein definierter anteil (eine fraktion) des verfügbaren platzen.
+    </p>
+
+    <h3>display: grid;</h3>
+
+    <p>
+        mit display: grid; setzen wir den container in den grid modus, damit bekommen auch alle kinder die display option "grid".
+    </p>
+
+    <style>
+        /* wir setzen den container auf display: grid; um unsere beispiele mit grid zu nutzen. */
+        .container {
+            display: grid;
+        }
+    </style>
+
+    <p>
+        für unsere beispiele nutzen wir einen container mit 12 kindern, die wir durch css grid frei platzieren können.
+    </p>
+
+    <h3>Spalten</h3>
+
+    <p>
+        mit grid-template-columns: ; legen wir eine vorlage für die horzontalen spalten des grid netzen an.
+    </p>
+
+    <p>
+        im folgenden beispiel erstellen wir unseren 12 kinder container in dem die elemente so angelegt werden sollen, das automatisch die inhalte in 3 elemente pro zeile eingeteilt werden, und sich wiederholen, bis alle boxen platziert wurden.
+    </p>
+
+    <div class="container beispiel-2">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+    </div>
+
+    <style>
+        .beispiel-2 {
+            grid-template-columns: 1fr 1fr 1fr;
+            /* 3 spalten, mit jeweils einer fraktion des platzes */
+        }
+    </style>
+
+    <p>
+        Wie bei flex-grow: ; können wir auch hier verschiden große fraktionen für elemente angeben, diese wiederholen sich dann in jeder zeile.
+    </p>
+
+    <div class="container beispiel-3">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+    </div>
+
+    <style>
+        .beispiel-3 {
+            /* 4 spalten mit unterschiedlichen fraktionen: */
+            grid-template-columns: 1fr 2fr 3fr 1fr;
+        }
+    </style>
+
+    <p>
+        Wenn wir mehrere gleich große spalten anlegen wollen, wir sie aber nicht alle einzeln ausschreiben wollen, können wir den befehl repeat() benutzen, um eine größenangabe zu wiederholen. Dazu übergeben wir dem befehl erst die anzahl der wiederholungen, und dann die größe die wiederholt werden soll.
+    </p>
+
+    <div class="container beispiel-4">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+    </div>
+
+    <style>
+        .beispiel-4 {
+            /* 5 spalten mit gleich großen fraktionen: */
+            grid-template-columns: repeat(5, 1fr);
+
+            /* der obrige befehl ergibt:
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+             */
+        }
+    </style>
+
+    <h3>Werte mischen</h3>
+
+    <p>
+        CSS-Grids können nicht nur die fr einheit nutzen, sondern wir haben auch die möglichkeit andere größeneinheiten zu verwenden, oder eine mischung von pixeln und fr zu nutzen.
+    </p>
+
+    <div class="container beispiel-5">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+    </div>
+
+    <style>
+        .beispiel-5 {
+            grid-template-columns: 100px 200px 1fr 2fr 70px;
+        }
+    </style>
+
+    <h3>Zeilen</h3>
+
+    <p>
+        Abgesehen von der angabe der spaltengrößen können wir auch angeben, wie sich unsere zeilen verhalten, so sind wir in der lage zu sagen, wie sich eine zeile verhalten soll, wenn elemente durch die angabe von spalten in eine weitere zeile rutschen.
+    </p>
+
+    <div class="container beispiel-6">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+    </div>
+
+    <style>
+        .beispiel-6 {
+            /* wir definieren verschiedene höhen unserer rows */
+            grid-template-rows: 100px 150px 200px 80px;
+
+            /* zur besseren visualisierung einmal in zeilen sortiert:
+                zeile 1 = 100px
+                zeile 2 = 150px
+                zeile 3 = 200px
+                zeile 4 = 80px
+            */
+
+            /* wie wir sehen hat jedes element aktuell eine breite von 100% und verschieden höhen, wenn wir jetzt die spalten mit angeben, werden die spalten die jeweilig angegebene größe haben, und die höhe der zeilen dynamisch beibehalten */
+            grid-template-columns: 1fr 2fr 1fr;
+
+            /* damit haben wir folgenden grid erstellt:
+
+            | 1fr zu 100px | 2fr zu 100px | 1fr zu 100px |
+            | 1fr zu 150px | 2fr zu 150px | 1fr zu 150px |
+            | 1fr zu 200px | 2fr zu 200px | 1fr zu 200px |
+            | 1fr zu 80px  | 2fr zu 80px  | 1fr zu 80px  |
+            
+            */
+        }
+    </style>
+    
+</body>
+</html>
