@@ -1,0 +1,91 @@
+/* wir setzen html und body auf 100vh um die ganze seite auszufüllen */
+html,
+body {
+    height: 100vh;
+}
+
+/* wir definieren die boxen */
+.box {
+    background: #3cafe2;
+    border: 5px solid black;
+    padding: 1rem;
+}
+
+/* für die einzelnen boxen definieren wir jetzt noch die namen: */
+.box-header {
+    grid-area: header;
+}
+
+.box-nav {
+    grid-area: nav;
+}
+
+.box-content {
+    grid-area: content;
+}
+
+.box-sidebar {
+    grid-area: sidebar;
+}
+
+.box-footer {
+    grid-area: footer;
+}
+
+.box-jumbo {
+    grid-area: jumbo;
+}
+
+.box-adv {
+    grid-area: adv;
+}
+
+/* jetzt definieren wir den container, um die elemente darin auszurichten: */
+.container {
+    background: purple;
+
+    /* wir setzen die höhe auf 100% um den inhalt auszufüllen */
+    height: 100%;
+
+    /* jetzt kümmern wir uns um den grid */
+    display: grid;
+
+    /* wir geben den elementen ein angenehmen gap von 1rem */
+    gap: 1rem;
+
+    /* 
+        wir legen unsere grid areas an, und folgen dabei folgender logik:
+    
+        - wir nutzen 5 spalten und 5 zeilen:
+            - der header hat die komplette seitenbreite
+            - das jumbotron befindet sich links über dem hauptinhalt
+            - die sidebar befindet sich auf der rechten seite
+            - die navigation befindet sich unter dem jumbo, links neben dem hauptinhalt
+            - der hauptinhalt befindet sich in der mitte
+            - die werbung (adv) befindet sich unter der sidebar
+            - der footer nimmt am ende die ganze seitenbreite ein
+    */
+
+    grid-template-areas: 
+        "header    header    header    header    header"
+        "jumbo     jumbo     jumbo     jumbo     sidebar"
+        "nav       content   content   content   sidebar"
+        "nav       content   content   content   adv"
+        "footer    footer    footer    footer    footer"
+    ;
+
+    /* jetzt definieren wir die rows und dessen höhe */
+    grid-template-rows: 
+        100px /* header */
+        200px /* jumbo und stück vom sidebar */
+        auto  /* nav   und inhalt und sidebar */
+        100px /* nav, inhalt und ads */
+        50px  /* footer */
+    ;
+
+    /* jetzt definieren wir noch die columns, um anzugeben, wie breit die jeweiligen spalten sind */
+    grid-template-columns: 
+        /* nav  content  content content sidebar */
+        200px   1fr      1fr     1fr     150px
+    ;
+}

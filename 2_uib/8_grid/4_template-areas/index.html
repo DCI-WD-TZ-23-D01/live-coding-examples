@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            background: tomato;
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+
+            /* für bessere visualisierung setzen wir größen für column und rows fest */
+            grid-template-columns: 1fr 2fr 1fr 1fr 2fr;
+            grid-template-rows: 1fr 2fr 1fr 1fr 1fr;
+        }
+
+        .box {
+            background: lime;
+            border: 5px solid black;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS-Grid</h1>
+
+    <h2>Grid Template Areas (vordefinierte flächen)</h2>
+
+    <p>
+        der befehl grid-template-areas: ; ist eine erweiterte funktion des css-grid layouts, das es uns ermöglicht, komplexe layouts auf einfache und lesbare weise zu definieren. Durch die verwendung von benannten bereichen können wir den container in abschnitte unterteilen und diesen abschnitten dann spezifische namen zuweisen, um die platzierung von elementen im raster (grid) zu steuern. Diese namen werden dann verwendet, um die platzierung von grid elementen in css zu definieren, wodurch der code übersichtlicher und leichter zu warten ist.
+    </p>
+
+    <p>
+        wir erstellen einen grid mit 6 kindelementen um diese mit grid-template-areas: ; dynamisch zu platzieren.
+    </p>
+
+    <div class="container">
+        <div class="box box-1">1</div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
+        <div class="box box-4">4</div>
+        <div class="box box-5">5</div>
+        <div class="box box-6">6</div>
+    </div>
+
+    <style>
+        /* um die boen auf dem grid platzieren zu können, müssen wir ihnen spezifische namen geben, zu testzwecken nennen wir unsere boxen wie folgt:
+        - boxOne
+        - boxTwo
+        - boxThree
+        - boxFour
+        - boxFive
+        - boxSix
+        */
+
+        .box-1 {
+            background: cyan;
+            /* mit grid-area: ; können wir dem element einen namen geben, essentiell ist dies wie eine variable, auf die wir später zugreifen können. */
+            grid-area: boxOne;
+        }
+
+        .box-2 {
+            background: yellow;
+            grid-area: boxTwo;
+        }
+
+        .box-3 {
+            background: purple;
+            grid-area: boxThree;
+        }
+
+        .box-4 {
+            background: orange;
+            grid-area: boxFour;
+        }
+
+        .box-5 {
+            background: olive;
+            grid-area: boxFive;
+        }
+
+        .box-6 {
+            background: saddlebrown;
+            grid-area: boxSix;
+        }
+
+        /* wenn wir keine grid areas angeben, befinden sich ale elemente an der unteren rechten ecke, außerhalb des rasters. */
+
+        .container {
+            /* 
+                jetzt definieren wir die positionen der boxen im grid indem wir einen neuen string (also eine zeile text) für jede zeile erstellen und die namen dort an den stellen einsetzen, wo sie sich befinden sollen.
+
+                wenn wir anstelle des namens einen punkt setzen, steht dies für eine leere stelle im grid
+
+                hilfreich ist es, wenn wir mit leerzeichen und zeilen arbeiten, um die abstände logisch zu trennen.
+            */
+
+            /* wir schreiben den befehl grid-template-areas: ; und wollen as design auf unserem bild erstellen. Wichtig ist, das wir immer in rechtecken auf dem raster denken. */
+            grid-template-areas: 
+                "boxOne boxTwo boxThree .       boxFive"
+                "boxOne boxTwo boxFour  boxFour boxFive"
+                "boxSix boxSix boxSix   .       boxFive"
+                "boxSix boxSix boxSix   .       boxFive"
+                "boxSix boxSix boxSix   .       .      "
+            ;
+        }
+
+        @media screen and (min-width: 500px) {
+            .container {
+                grid-template-areas:
+                    "boxOne boxOne boxOne   boxOne   boxOne"
+                    "boxTwo boxTwo boxThree boxThree boxThree"
+                    "boxTwo boxTwo boxFour  boxFour  boxFive"
+                    "boxTwo boxTwo boxFour  boxFour  boxFive"
+                    "boxSix boxSix boxSix   boxSix   .      "
+                ;
+            }
+        }
+    </style>
+    
+</body>
+</html>
