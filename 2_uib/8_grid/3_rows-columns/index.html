@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            background: tomato;
+            display: grid;
+
+            /* ein abstand von 1rem zwischen den elementen */
+            grid-gap: 1rem;
+            padding: 1rem;
+
+            /*         spalten:    1    2   3     4*/
+            grid-template-columns: 100px 1fr 200px 50px;
+            
+            /*         zeilen:  1     2     3    4 */
+            grid-template-rows: 100px 50px 150px 200px;
+        }
+
+        .box {
+            background: lime;
+            border: 5px solid black;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS-Grid</h1>
+
+    <h2>Zeilen und Spalten flexibel nutzen</h2>
+
+    <p>
+        CSS-Grid ermöglicht nicht nur eine präzise positionierung von elementen innerhalb eines rasters. Es ist auch möglich, innherlab des CSS-Grid layout modells festzulegen, in welcher spalte oder zeile ein element anfängt oder wo es aufhört. Diese eigenschaft bietet uns die möglichkeit, die platzierung und größe von elementen in einem grid dynamisch zu steuern.
+    </p>
+
+    <p>
+        um uns anzuschauen wie wir diese technik anwenden, erstellen wir einen container mit ein paar boxen, um ihre position zu bestimmen.
+    </p>
+
+    <div class="container">
+        <div class="box box-1">1</div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
+        <div class="box box-4">4</div>
+        <div class="box box-5">5</div>
+        <div class="box box-6">6</div>
+    </div>
+
+    <style>
+        /* um die positionierung verschiedener elemente zu ändern, sprechen wir sie spezifisch an, und setzen ihre position und den platz über den sie sich erstrecken */
+        .box-2 {
+            background: cyan;
+
+            /* mit grid-column-start: ; setzen wir fest, an welcher spalte das element anfängt */
+            grid-column-start: 1;
+
+            /* mit grid-column-end: ; setzen wir fest bis zu welcher spalte das element geht */
+
+            grid-column-end: 4;
+
+            /* wir können dies immer gut mit hilfe der striche zwischen den spalten rechnen, 1 ist vor dem ersten element, 2 ist zwischen dem 1 und dem 2 element, 3 ist zwischen dem 2 und dem 3 element und so weiter */
+
+            /* der shortcode um sowohl den anfang, wie auch das ende anzusprechen ist grid-column: ;, in dem wir den anfangs und den end wert per schrägstrich trennen - das equivalent zu unserem code von oben ist also: */
+            grid-column: 1 / 4;
+            /*       start / end */
+        }
+
+        .box-1 {
+            background: yellow;
+
+            /* um zu definieren, wie sich elemente auf der jeweiligen zeile verhalten, könnnen wir die grid-row: ; equivalente zu grid-column: ; nutzen. */
+            grid-row-start: 1;
+            grid-row-end: 3;
+
+            /* shortcode: grid-row: 1 / 3; */
+
+            /* wie wir sehen, befindet sich, wenn wir NUR grid row befehle angeben, das element an der linken ecke. Um unser element also an die richtige stelle zu setzen, können wir es mit grid-column: ; befehlen an die richtige stelle setzen  */
+            grid-column-start: 4;
+        }
+
+        .box-3 {
+            background: rgba(221, 160, 221, 0.5);
+
+            /* durch eine kombination von grid-column: ; und grid-row: ; können wir also elemente frei auf unserem grid (raster) platzieren */
+
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 3;
+            grid-row-end: 5;
+        }
+
+        .box-4 {
+            background: purple;
+
+            /* wie oben angegeben können wir mit einem mix von columns und rows elemente spezifisch platzieren, was wir mit shortcode noch kürzer fassen können: */
+
+            grid-column: 2 / 4;
+            grid-row: 2 / 3;
+        }
+
+        .box-5 {
+            background: #3cafe2;
+
+            /* 
+                mit dem keyword "span" können wir angeben, über wieviele zeilen/spalten sich ein element erstrecken soll damit ändert sich der wert hinter dem schrägstrich, von der zielposition, in eine mengenangabe. Span vereinfacht die definierung von grid elementen, da wir nicht mehr rechnen müssen, von wo bis wo ein element geht, sondern nur, über wieviele spalten/zeilen sich das element erstrecken soll.
+            */
+
+            grid-row: 3 / span 2;
+            grid-column: 1 / span 2;
+            /* sowohl die row angabe, wie auch die column angabe erstreckt sich über 2 teile */
+        }
+
+        
+    </style>
+    
+</body>
+</html>

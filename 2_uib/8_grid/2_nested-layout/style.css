@@ -1,0 +1,38 @@
+.container {
+    background: lime;
+    padding: 10px;
+    height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: 1fr 2fr;
+    
+    row-gap: 10px;
+    column-gap: 1rem;
+}
+
+.box {
+    background: tomato;
+    padding: 10px;
+    border: 5px solid black;
+}
+
+.box-4 {
+    background: cyan;
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 2fr 100px;
+
+    /* abstände zwischen den grid elementen: */
+    gap: 1rem;
+
+    /* mit gap: ; können wir einen abstand zwischen den elementen definieren, damit sie nicht direkt aneinander platziert weden. 
+    
+    mit row-gap: ; können wir außerdem spezifizieren wie weit auseinander die zeilen sind, und mit column-gap: ; können wir spezifizieren wie weit auseinander die spalten sind.
+    
+    */
+
+}
