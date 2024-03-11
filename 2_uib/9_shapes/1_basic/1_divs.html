@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * { 
+            box-sizing: border-box;
+        }
+
+        div {
+            margin: 0 auto 25px;
+            background: #FC68FE;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Shapes</h1>
+
+    <h2>Leere DIVS</h2>
+
+    <h3>Rechteck</h3>
+
+    <div class="square"></div>
+
+    <style>
+        .square {
+            width: 200px;
+            /* height: 100px; */
+
+            /* mit aspect-ratio: ; können wir die diagonale im rechteck bestimmen. */
+            aspect-ratio: 2/1.5;
+        }
+    </style>
+
+    <h3>Kreis</h3>
+
+    <div class="circle"></div>
+
+    <style>
+        .circle {
+            width: 100px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+        }
+    </style>
+
+    <h3>Parallelogramm</h3>
+
+    <div class="parallelogramm"></div>
+
+    <style>
+        .parallelogramm {
+            width: 200px;
+            height: 100px;
+            transform: skew(-15deg);
+            /* die option transform: ; gibt uns die möglichkeit, ein element zu transformieren, in der größe oder ausrichtung. */
+            
+            /* mit dem befehl transform: skew(); können wir ein element kippen, und somit ein parallelogramm erstellen. */
+        }
+    </style>
+
+    <h3>Ring</h3>
+
+    <p>mit einem transparenten hintergrund und einem border. können wir, mithilfe des box-sizing: ; befehls dafür sorgen, das entweder der ring selbst vergrößert wird, oder wir nur die dicke des ringes definieren können.</p>
+
+    <div class="ring"></div>
+
+    <style>
+        .ring {
+            width: 150px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            border: 20px solid purple;
+            background: transparent;
+        }
+    </style>
+
+    <h3>Trapez</h3>
+
+    <p>
+        mithilfe von bordern können wir ein trapez erstellen, wichtig ist, das wir dafür die höhe des elementes auf 0 setzen, und den beiden seitlichen bordern die selben werte geben, mit hilfe des border-bottom: ; befehls, definieren wir die höhe des trapez.
+    </p>
+
+    <div class="trapez"></div>
+
+    <style>
+        .trapez {
+            width: 100px;
+            height: 0;
+            background: transparent;
+            border-top: 0px solid red;
+            border-bottom: 50px solid purple;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+        }
+    </style>
+
+    <h3>Ecken</h3>
+
+    <p>
+        Durch das nutzen von bordern der größe 0, und einem border mit den gleichen werten wie unsere sichtbaren border. aber transparenter hintergrundfarbe können wir ecken erstellen.
+    </p>
+
+    <div class="corner corner-1"></div>
+    <div class="corner corner-2"></div>
+    <div class="corner corner-3"></div>
+    <div class="corner corner-4"></div>
+
+    <style>
+        .corner {
+            width: 0;
+            height: 0;
+            background: transparent;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 0;
+            border-left: 0;
+        }
+
+        .corner-1 {
+            border-bottom: 100px solid purple;
+            border-left: 100px solid transparent;
+        }
+
+        .corner-2 {
+            border-bottom: 100px solid transparent;
+            border-right: 100px solid purple;
+        }
+
+        .corner-3 {
+            border-top: 100px solid transparent;
+            border-left: 100px solid purple;
+        }
+        
+        .corner-4 {
+            border-top: 100px solid purple;
+            border-right: 100px solid transparent;
+        }
+    </style>
+
+    <h3>Bunte ecken</h3>
+
+    <p>Durch das zusammenfügen von bordern, die jeweils halb so groß sind, wie das ziel element sein sollte, erstellen wir ein 4 farbiges quadrat</p>
+
+    <div class="quad"></div>
+
+    <style>
+        .quad {
+            width: 0;
+            height: 0;
+            border-top: 50px solid purple;
+            border-right: 50px solid lime;
+            border-bottom: 50px solid orange;
+            border-left: 50px solid plum;
+        }
+    </style>
+
+    <h3>Richtungspfeile</h3>
+
+    <div class="up"></div>
+    <div class="down"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+
+    <style>
+        .up,
+        .down,
+        .left,
+        .right {
+            width: 0;
+            height: 0;
+            background: transparent;
+        }
+
+        .up {
+            border-top: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-bottom: 100px solid purple;
+        }
+
+        .down {
+            border-bottom: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-top: 100px solid purple;
+        }
+
+        .left {
+            border-left: 0;
+            border-top: 75px solid transparent;
+            border-bottom: 75px solid transparent;
+            border-right: 100px solid purple;
+        }
+
+        .right {
+            border-right: 0;
+            border-top: 75px solid transparent;
+            border-bottom: 75px solid transparent;
+            border-left: 100px solid purple;
+        }
+    </style>
+
+    <h3>Pacman</h3>
+
+    <div class="pacman"></div>
+
+    <style>
+        .pacman {
+            width: 0;
+            height: 0;
+            background: transparent;
+            border: 50px solid orange;
+            border-radius: 50%;
+            border-right-color: transparent;
+        }
+        .pacman:hover {
+            
+            border-right-color: orange;
+        }
+    </style>
+
+    <h3>Caro</h3>
+
+    <div class="caro"></div>
+    
+    <style>
+        .caro {
+            background: purple;
+            width: 100px;
+            aspect-ratio: 1/1;
+            transform: rotate(45deg);
+        }
+    </style>
+
+    <br>
+
+</body>
+</html>

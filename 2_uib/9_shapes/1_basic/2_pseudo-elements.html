@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            margin: 0 auto 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Shapes</h1>
+
+    <h2>Pseudo Elemente</h2>
+
+    <h3>Herz</h3>
+
+    <div class="heart"></div>
+
+    <style>
+        .heart {
+            margin-top: 100px;
+            width: 100px;
+            aspect-ratio: 1/1;
+            transform: rotate(-45deg);
+            position: relative;
+            background: red;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 100px;
+            aspect-ratio: 1/1;
+            position: absolute;
+            background: orange;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -50px;
+        }
+        .heart::after {
+            left: 50px;
+        }
+        .heart,
+        .heart::before,
+        .heart::after {
+            background: darkred;
+        }
+    </style>
+
+    <h3>Diamant</h3>
+
+    <div class="diamond"></div>
+
+    <style>
+        .diamond {
+            margin-top: 50px;
+            width: 100px;
+            height: 0;
+            border-right: 50px solid transparent;
+            border-left: 50px solid transparent;
+            border-bottom: 50px solid cyan;
+            position: relative;
+        }
+        .diamond::after {
+            content: "";
+            position: absolute;
+            border-top: 125px solid cyan;
+            border-right: 100px solid transparent;
+            border-left: 100px solid transparent;
+            top: 50px;
+            left: -50px;
+        }
+    </style>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3>Briefumschlag</h3>
+
+    <div class="mail"></div>
+
+    <style>
+        .mail {
+            width: 100px;
+            height: 65px;
+            background: purple;
+            position: relative;
+        }
+        .mail::before,
+        .mail::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            background: transparent;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        .mail::before {
+            border-top: 30px solid white;
+        }
+        .mail::after {
+            border-top: 20px solid purple;
+        }
+    </style>
+
+    <h3>Buchstabe A</h3>
+
+    <div class="letterA"></div>
+
+    <br>
+    <br>
+    <br>
+
+    <style>
+        .letterA {
+            width: 60px;
+            height: 90px;
+            border-bottom: 14px solid purple;
+            transform: scale(0.75);
+            position: relative;
+        }
+        .letterA::before,
+        .letterA::after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 120px;
+            background: purple;
+            top: 20px;
+        }
+        .letterA::before {
+            transform: skew(20deg);
+            width: 25px;
+            left: 45px;
+        }
+        .letterA::after {
+            transform: skew(-20deg);
+        }
+    </style>
+
+</body>
+
+</html>
