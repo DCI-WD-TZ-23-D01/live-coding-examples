@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            background: purple;
+            width: 100px;
+            aspect-ratio: 1/1;
+            margin: 0 auto 40px;
+            text-align: center;
+            line-height: 100px;
+            border: 5px solid orange;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Shapes</h1>
+
+    <h2>Transformierungen</h2>
+
+    <p>
+        Um elemente zu transformieren, also zu verändern, nutzen wir den transform: ; befehl, dieser hat einige interessante funktionen.
+    </p>
+
+    <h3>Skalieren</h3>
+
+    <div class="scale-1">Scale 1</div>
+    <div class="scale-2">Scale 2</div>
+    <div class="scale-3">
+        <p>Scale 3</p>
+    </div>
+
+    <style>
+        .scale-1 {
+            /* horizontal und vertikal in einem befehl skalieren */
+            transform: scale(1.5); /* scale: 1.5 */
+        }
+        .scale-2 {
+            /* horizontal und vertikal voneinander getrennt skalieren */
+            transform: scale(1.5, 0.5);
+        }
+        .scale-3 {
+            /* es ist möglich bei transform, mehrere befehle aneinanderzureihen */
+            transform: scaleX(2) scaleY(1.5);
+        }
+        .scale-3 p {
+            transform: scaleX(0.5) scaleY(0.75);
+        }
+    </style>
+
+    <br>
+
+    <h3>Translate (Bewegen)</h3>
+
+    <div class="translate-1">Translate 1</div>
+    <div class="translate-2">Translate 2</div>
+    <div class="translate-3">Translate 3</div>
+
+    <style>
+        .translate-1 {
+            /* horizontale und vertikale bewegung */
+            transform: translate(50px, 20px);
+            /* bei nur einem wert, wird automatisch nur in der horizontalen bewegt */
+        }
+        .translate-2 {
+            transform: translateX(-120px);
+        }
+        .translate-3 {
+            /* durch das hintereinanderschreiben von befehlen können wir sie kombinieren */
+            transform: translateY(-20px) scaleX(2.0);
+        }
+    </style>
+
+    <h3>Rotate (drehen)</h3>
+
+    <div class="rotate-1">Rotate 1</div>
+    <div class="rotate-2">Rotate 2</div>
+    <div class="rotate-3">Rotate 3</div>
+
+    <style>
+        .rotate-1 {
+            /* bei rotate(); können wir die drehung in grad, also degree (deg) angeben. */
+            transform: rotate(25deg); /* rotate: 25deg; */
+        }
+        .rotate-2 {
+            /* mit "turn" können wir angeben, in wievielen drehungen sich das element drehen soll */
+            transform: rotate(0.25turn);
+        }
+        .rotate-3 {
+            transform: rotate(25deg) scale(0.75) translateY(-100px);
+            /* beim drehen des elementes wird auch die komplette positionierung gedreht, wenn wir also jetzt das element mit translate bewegen, bewegt es sich in die angewinkelte positionsrichtung */
+        }
+    </style>
+
+    <h3>Skew (kippen)</h3>
+
+    <div class="skew-1">
+        <p>Skew 1</p>
+    </div>
+    <div class="skew-2">Skew 2</div>
+    <div class="skew-3">Skew 3</div>
+
+    <style>
+        .skew-1 {
+            transform: skew(-20deg);
+        }
+        .skew-1 p {
+            transform: skew(20deg);
+        }
+        .skew-2 {
+            /* wir können auch horizontal und vertikal kippen */
+            transform: skew(30deg, 20deg);
+        }
+        .skew-3 {
+            transform: skewX(20deg) skewY(10deg) rotate(20deg);
+        }
+    </style>
+
+    <h3>Perspektive</h3>
+
+    <div class="perspective-1">Perspective 1</div>
+    <div class="perspective-2">Perspective 2</div>
+    <div class="perspective-3">
+        <img src="https://fastly.picsum.photos/id/22/367/267.jpg?hmac=YbcBwpRX0XOz9EWoQod59ulBNUEf18kkyqFq0Mikv6c"/>
+    </div>
+
+    <style>
+        .perspective-1 {
+            transform: rotateY(55deg);
+        }
+        .perspective-2 {
+            transform:
+            /* die entfernung der kamera zum element definieren wir mit perspective(); */
+                perspective(250px)
+                rotateY(55deg);
+        }
+        .perspective-3 {
+            transform: perspective(250px) rotateY(55deg) rotateX(20deg);
+        }
+    </style>
+    
+</body>
+</html>

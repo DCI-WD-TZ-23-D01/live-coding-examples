@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Shapes</h1>
+
+    <h2>Maskierungen</h2>
+
+    <p>
+        Um masken zu nutzen, müssen wir (aktuell) einen präprozessor anwenden, diesen können wir browserspezifisch ansprechen:
+    </p>
+
+    <ul>
+        <li>-webkit- = Chrome, Safari und Opera, sowie auch Brave</li>
+        <li>-moz- = Mozilla Firefox</li>
+        <li>-o- = Opera (vor version 15)</li>
+        <li>-ms- = Microsoft Edge/Internet Explorer ab version 10</li>
+    </ul>
+
+    <p>also z.b.: -webkit-mask-image: ;</p>
+
+    <p>
+        Wir können mit dem befehl mask-image: ; ein bild definieren, dessen weiße und schwarze (graustufen) farbe als maske dienen. Das dunkle wird dabei sichtbar, und das helle transparent. Wichtig ist, das bild sollte nur aus 2 farben bestehen.
+    </p>
+
+    <p>
+        Maskenbilder nennen sich im normalfall "alpha maps" oder "image masks", diese namen als google suche einzugeben, sollte ein paar ergebnisse bringen.
+    </p>
+
+    <p>
+        mit dem befehl mask-size: ; geben wir die horizontale und vertikal größe an, um die maske nicht zu strecken oder zu stauchen, sollten wir diese werte der größe der maske anpassen.
+    </p>
+
+    <p>
+        Wenn wir mask-repeat: ; nutzen, wird nur die sichtbare maske angesprochen, genau wie bei einem image.
+    </p>
+
+    <p>
+        Alle befehle funktionieren mit hoher warscheinlichkeit auch ohne den präprozessor sehr bald.
+    </p>
+
+    <img src="https://picsum.photos/id/1033/200/200" alt="beispiel" class="mask-1">
+    <img src="https://picsum.photos/id/1038/200/200" alt="beispiel" class="mask-2">
+    <img src="https://picsum.photos/id/1044/200/200" alt="beispiel" class="mask-3">
+    <img src="https://picsum.photos/id/1048/200/200" alt="beispiel" class="mask-4">
+    <img src="https://picsum.photos/id/1028/200/200" alt="beispiel" class="mask-5">
+
+    <style>
+        img {
+            display: block;
+            margin: 10px auto;
+        }
+
+        body {
+            background: tomato;
+        }
+
+        .mask-1 {
+            /* der pfad zum maskenbild wird mit dem befehl mask-image: ; definiert. */
+            -webkit-mask-image: url(https://d33wubrfki0l68.cloudfront.net/d319533ac3d22c3186498254e0caee871796a29e/d7ce9/images/css/masking/image-mask.png);
+
+            /* wir können die größe der maske mit dem befehl mask-size: ; definieren. */
+                       /* horizontal vertikal */
+            -webkit-mask-size: 400px 600px;
+        }
+        .mask-2 {
+            -webkit-mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/stampTiles.svg);
+            /* mit dem befehl mask-repeat: ; können wir sagen in welche richtung wir die maske wiederholen wollen */
+            -webkit-mask-repeat: repeat-y;
+            -webkit-mask-size: 100px;
+        }
+        .mask-3 {
+            -webkit-mask-image: url(https://codrops-1f606.kxcdn.com/codrops/wp-content/uploads/2014/10/mask-image.png?x87314);
+            -webkit-mask-size: 150px;
+            -webkit-mask-repeat: no-repeat;
+            /* mit mask-position: ; können wir definieren, wo sich die maske auf dem bild befindet. */
+            -webkit-mask-position: center center;
+        }
+        .mask-4 {
+            -webkit-mask-image: linear-gradient(
+                black,
+                transparent
+            );
+        }
+        .mask-5 {
+            -webkit-mask-image: radial-gradient(
+                transparent,
+                black
+            );
+        }
+    </style>
+
+</body>
+</html>

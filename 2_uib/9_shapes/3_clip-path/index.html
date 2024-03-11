@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        img {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Shapes</h1>
+
+    <h2>Clip-Path</h2>
+
+    <p>
+        mit dem befehl clip-path: ; können wir formen auf elemente setzen, die pfaden folgen, wir schneiden also praktisch mit einer scheere ein bild in einer form aus.
+    </p>
+
+    <a href="https://bennettfeely.com/clippy/">Clippy Tool</a>
+
+    <h3>Kreis</h3>
+
+    <p>
+        mit dem befehl clip-path: circle(); können wir einen kreis aus einem element ausschneiden, und auch definieren wo der kreis auf dem element sitzt.
+    </p>
+
+    <img src="https://picsum.photos/id/1015/200/200" alt="beispiel" class="circle-1">
+    <img src="https://picsum.photos/id/1015/200/200" alt="beispiel" class="circle-2">
+
+    <style>
+        .circle-1 {
+            /*         form   radius*/
+            clip-path: circle(110px);
+            border: 10px solid red;
+        }
+        .circle-2 {
+            /*                 durchmesser bei horizontal vertikal von oben links*/
+            clip-path: circle(70px at 50px 50px);
+            border: 10px solid red;
+            outline: 10px solid black;
+        }
+    </style>
+
+    <h3>Ellipse</h3>
+
+    <p>
+        mit dem befehl clip-path: ellipse(); können wir eine ellipse erstellen, und definieren, wie der horizontale und der verikale radius ist.
+    </p>
+
+    <img src="https://picsum.photos/id/1016/200/200" alt="beispiel" class="ellipse">
+
+    <style>
+        .ellipse {
+            /*            horizontal vertikal */
+            clip-path: ellipse(100px 50px at 100px 60px);
+        }
+    </style>
+
+    <h3>Polygone</h3>
+
+    <p>
+        Anhand von positionen auf dem element können wir formen erstellen.
+    </p>
+
+    <img src="https://picsum.photos/id/1024/200/200" alt="beispiel" class="polygon-1">
+    <img src="https://picsum.photos/id/1024/200/200" alt="beispiel" class="polygon-2">
+
+    <style>
+        .polygon-1 {
+            clip-path: polygon(
+                /*  horizontal  vertikal */
+                    50%         0%,
+                    0%          100%,
+                    100%        100%
+            );
+        }
+        .polygon-2 {
+            clip-path: polygon(
+                /*  horizontal  vertikal */
+                    50%         0%,
+                    0%          50%,
+                    50%         50%,
+                    100%        30%
+            );
+        }
+    </style>
+
+    <h3>Clippy</h3>
+
+    <p>
+        mit hilfe von clippy, können wir sehr aufwändige formen für clip-path: ; generieren.
+    </p>
+
+    <a href="https://bennettfeely.com/clippy/">Clippy</a>
+
+    <img src="https://picsum.photos/id/1025/200/200" alt="beispiel" class="clippy-1">
+    <img src="https://picsum.photos/id/1025/200/200" alt="beispiel" class="clippy-2">
+
+    <style>
+        .clippy-1 {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        .clippy-2 {
+            clip-path: polygon(23% 26%, 35% 13%, 68% 19%, 67% 48%, 92% 41%, 89% 24%, 95% 24%, 98% 49%, 76% 74%, 76% 99%, 55% 100%, 36% 92%, 12% 85%, 2% 67%, 27% 62%, 48% 71%, 47% 57%, 39% 46%, 28% 43%, 9% 41%);
+        }
+    </style>
+
+</body>
+</html>
