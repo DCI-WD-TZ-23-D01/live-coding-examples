@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: purple;
+            margin: 0 auto 25px;
+        }
+        .container:hover .box {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Animationen</h1>
+
+    <h2>Transitions</h2>
+
+    <h3>Eigenschaften</h3>
+
+    <ul>
+        <li>transition-property: ; = der befehl in css, den wir animieren lassen wollen.</li>
+        <li>transition-duration: ; = die zeit, die die transition in sekunden oder millisekunden benötigen soll, um durchzulaufen</li>
+        <li>transition-timing-function: ; = die easing funktion, der die animation folgen soll</li>
+    </ul>
+
+    <h3>Easing/timing funktion</h3>
+
+    <p>
+        Es gibt verschiedene easing-funktionen, die dafür sorgen, das die animation sich verschieden verhält.
+    </p>
+
+    <ul>
+        <li>linear: die animation bewegt sich konstant von anfang bis zum ende</li>
+        <li>ease: die animation startet langsam, wird zur mitte hin schneller und wird kurz vor dem ende wieder langsamer</li>
+        <li>ease-in: startet langsam und wird schneller</li>
+        <li>ease-out: die animation startet schnell und wird dann langsamer</li>
+        <li>ease-in-out: die animation startet schnell, wird dann zur mitte hin langsamer und wird am ende wieder schneller</li>
+    </ul>
+
+    <div class="container">
+        <div class="box box-linear">Linear</div>
+        <div class="box box-ease">Ease</div>
+        <div class="box box-ease-in">Ease-In</div>
+        <div class="box box-ease-out">Ease-Out</div>
+        <div class="box box-ease-in-out">Ease-In-Out</div>
+    </div>
+
+    <style>
+        .box-linear {
+            transition-property: width; /* der default wert von transition-property: ; ist "all", es wird also alles animiert, was definiert wird */
+            transition-duration: 2s;
+            transition-timing-function: linear;
+        }
+        .box-ease {
+            transition-property: width;
+            transition-duration: 2s;
+            transition-timing-function: ease;
+        }
+        .box-ease-in {
+            transition-property: width;
+            transition-duration: 2s;
+            transition-timing-function: ease-in;
+        }
+        .box-ease-out {
+            transition-property: width;
+            transition-duration: 2s;
+            transition-timing-function: ease-out;
+        }
+        .box-ease-in-out {
+            transition-property: width;
+            transition-duration: 2s;
+            transition-timing-function: ease-in-out;
+        }
+    </style>
+    
+</body>
+</html>
