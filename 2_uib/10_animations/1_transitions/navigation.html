@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+
+    <style>
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #777;
+        }
+        ul li {
+            float: left;
+        }
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            transition: 
+                background 0.25s ease-in, 
+                color 1s linear, 
+                border-color 0.5s linear;
+            border-bottom: 5px solid transparent;
+        }
+        ul li a:hover {
+            background: #111;
+            color: #777;
+            border-bottom-color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    
+</body>
+</html>

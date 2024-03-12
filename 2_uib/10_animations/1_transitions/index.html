@@ -12,6 +12,10 @@
             height: 100px;
             background: purple;
             margin: 0 auto 25px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-size: 2rem;
         }
         .container:hover .box {
             width: 300px;
@@ -81,6 +85,115 @@
             transition-timing-function: ease-in-out;
         }
     </style>
-    
+
+    <h3>Delay</h3>
+
+    <p>
+        mit dem befehl transition-delay: ; können wir eine verzögerung erstellen, nach der die animation/transition gestartet werden soll, wie auch bei transition-duration: ; können wir diese zeit in sekunden oder millisekunden definieren.
+    </p>
+
+    <div class="container">
+        <div class="box box-instant">Instant</div>
+        <box class="box box-delay-1">Delay 2s</box>
+        <div class="box box-delay-2">Delay 0.5s</div>
+    </div>
+
+    <style>
+        .box-instant {
+            transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+        }
+        .box-delay-1 {
+            transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            transition-delay: 2s;
+        }
+        .box-delay-2 {
+            transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            transition-delay: 0.5s;
+        }
+    </style>
+
+    <h3>Transition mixen</h3>
+
+    <p>
+        wenn wir mehrere eigenschaften per transition animieren wollen, können wir sie per komma getrennt angeben. die animationslänge können wir pro eigenschaft mit em komma trennen.
+    </p>
+
+    <p>
+        mit transition-property: all; animieren wir alle eigenschaften, die verändert wurden.
+    </p>
+
+    <div class="container">
+        <div class="box box-mix-1">A</div>
+        <div class="box box-mix-2">B</div>
+        <div class="box box-all">C</div>
+    </div>
+
+    <style>
+        .container:hover .box-mix-1,
+        .container:hover .box-mix-2,
+        .container:hover .box-all {
+            background: lime;
+            color: black;
+            border: 5px solid red;
+        }
+
+        .box-mix-1 {
+            transition-property: width, background;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+        }
+        .box-mix-2 {
+            transition-property: width, color;
+            transition-duration: 1s,    5s;
+            transition-timing-function: linear;
+        }
+        .box-all {
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+        }
+    </style>
+
+    <h3>Shortcode</h3>
+
+    <div class="box box-short-1"></div>
+    <div class="box box-short-multi"></div>
+   
+    <style>
+        .box-short-1:hover {
+            background: lime;
+        }
+        .box-short-1 {
+            /*          property duration function delay*/
+            transition: all      1s       linear   1s;
+        }
+
+        /* 
+            0s          1s          2s          3s
+            width------|
+                        background-|
+                                    b-r---|
+        */
+
+        .box-short-multi {
+            transition: 
+                width 1s linear,
+                background 1s ease-in 1s,
+                border-radius 0.5s linear 2s
+            ;
+        }
+
+        .box-short-multi:hover {
+            width: 150px;
+            background: lime;
+            border-radius: 50%;
+        }
+    </style>
 </body>
 </html>
