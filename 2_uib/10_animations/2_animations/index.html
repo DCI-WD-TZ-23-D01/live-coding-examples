@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            background: purple;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Animationen</h1>
+
+    <h2>Keyframes</h2>
+
+    <p>
+        Die inhalte einer animation schreiben wir in eine @keyframes query, dort können wir von-bis oder prozente für
+        die jeweilige keyframe position angeben.
+    </p>
+
+    <div class="box box-beispiel-1">Beispiel 1</div>
+
+    <style>
+        .box-beispiel-1 {
+            /* 
+                den namen der animation, die wir ausführen wollen, geben wir mit animation-name: ; an.
+            */
+            animation-name: beispiel;
+            /*
+                die zeit, die die animation benötigt um durchzulaufen, geben wir mit animation-duration: ; in sekunden oder millisekunden an. 
+            */
+            animation-duration: 2s;
+            /* 
+                die art, wie die animation abgespielt wird, geben wir in animation-timing-function: ; an.
+            */
+            animation-timing-function: linear;
+        }
+
+        /* der name der animation wird mit einer @keyframes query angegeben */
+        @keyframes beispiel {
+
+            /* animiere von (0%)... */
+            from {
+                background: tomato;
+            }
+
+            /* animiere zu (100%)... */
+            to {
+                background: lime;
+            }
+        }
+    </style>
+
+    <div class="box box-beispiel-2">Beispiel 2</div>
+
+    <style>
+        .box-beispiel-2 {
+            animation-name: beispiel;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            /* 
+                mit animation-iteration-count: ; können wir angeben, wie oft die animation durchlaufen soll
+            */
+            animation-iteration-count: 2;
+            /* 
+                mit animation-direction: ; können wir angeben, in welche richtung die animation laufen soll.
+
+                folgende richtungen sind möglich:
+                normal = die normale richtung (vorwärts)
+                reverse = rückwärts
+                alternate = von 0 - 100 - 0
+                alternate-reverse = von 100 - 0 - 100
+            */
+            animation-direction: normal;
+        }
+    </style>
+
+    <div class="box box-beispiel-3">Beispiel 3</div>
+
+    <style>
+        .box-beispiel-3 {
+            animation-name: beispiel;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            /* 
+                ein animation-iteration-count: ; von "infinite" wird unendlich oft wiederholt.
+            */
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+        }
+    </style>
+
+    <div class="box box-beispiel-4">Beispiel 4</div>
+
+    <style>
+        /* wir können animationen auch im :hover state nutzen, allerdings bricht die animation sofort ab, wenn wir den state verlassen. */
+        .box-beispiel-4:hover {
+            animation-name: beispiel;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: 5;
+        }
+    </style>
+
+    <div class="box box-beispiel-5">Beispiel 5</div>
+
+    <style>
+        .box-beispiel-5 {
+            animation-name: bewegung;
+            animation-duration: 5s;
+            /* 
+                wir können mit animation-delay: ; ein delay angeben, um den start der animation zu verzögern. wenn wir einen minuswert angeben, bedeutet dies, das die animation X sekunden/millisekunden innerhalb der animation anfängt.
+            */
+            /* animation-delay: 2s; */
+            animation-delay: -1s;
+            /*
+                mit animation-play-state: ; sagen wir der animation, in welchem abspielstatus sie sich befinden soll.
+            */
+            animation-play-state: paused;
+            /*animation startet pausiert */
+        }
+
+        .box-beispiel-5:hover {
+            animation-play-state: running;
+            /* animation wird fortgesetzt */
+        }
+
+        @keyframes bewegung {
+            from {
+                width: 100px;
+            }
+
+            to {
+                width: 400px;
+            }
+        }
+    </style>
+
+    <div class="box box-shortcode">Shortcode</div>
+
+    <style>
+        .box-shortcode {
+            /*         name     zeit      function          richtung     wiederholungen */
+            /*         -name    -duration -timing-function  -direction   -iteration-count */
+            animation: beispiel 2s ease-in alternate infinite;
+        }
+    </style>
+
+    <div class="box box-erweitert">
+        Erweitert
+    </div>
+
+    <style>
+        .box-erweitert {
+            /* animation: erweitert 10s ease-in-out normal infinite; */
+        }
+
+        @keyframes erweitert {
+            0% {
+                background: tomato;
+                width: 100px;
+                color: white;
+                padding: 1rem;
+            }
+
+            25% {
+                background: lime;
+                width: 200px;
+                color: blue;
+                padding: 1.5rem;
+            }
+
+            50% {
+                background: cyan;
+                width: 150px;
+                color: red;
+                padding: 30px;
+            }
+
+            72% {
+                background: orange;
+            }
+
+            73% {
+                background: green;
+            }
+
+            92% {
+                background: red;
+            }
+
+            93% {
+                background: yellow;
+                width: 150px;
+                color: blue;
+                padding: 30px;
+            }
+
+            100% {
+                width: 200px;
+                padding: 0;
+            }
+        }
+    </style>
+
+    <h3>Animista</h3>
+
+    <p>
+        Eine gute ressource für vorgelegte animationen, die wir frei nutzen können ist <a
+            href="https://animista.net/">animista</a>.
+    </p>
+
+    <div class="box box-animista-1">Animista</div>
+
+    <style>
+        .box-animista-1 {
+            animation: flip-horizontal-top 0.4s linear infinite alternate both;
+        }
+
+        @keyframes flip-horizontal-top {
+            0% {
+                transform: perspective(250px) rotateX(0);
+            }
+
+            100% {
+                transform: perspective(250px) rotateX(180deg);
+            }
+        }
+    </style>
+
+    <div class="box box-animista-2">Animista</div>
+
+    <style>
+        @keyframes roll-in-blurred-right {
+            0% {
+                transform: translateX(1000px) rotate(720deg);
+                filter: blur(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0) rotate(0deg);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        .box-animista-2 {
+            animation: roll-in-blurred-right 5s ease-in-out infinite both;
+        }
+
+        @keyframes roll-in-blurred-right {
+            0% {
+                transform: translateX(100px) rotate(720deg);
+                filter: blur(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0) rotate(0deg);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+</body>
+
+</html>
