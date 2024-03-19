@@ -1,0 +1,177 @@
+// Variablen
+
+// typisch in der entwicklung mit scss ist es, das man die vairablen mit den jeweiligen optionen benennt, um sie einfacher zu trennen, also zum beispiel "color", wenn es sich um einen color wert handelt.
+
+/*
+    KONZEPT: Variablenbenennung
+
+    Eine benennung wie "main" nutzt man, wenn es möglicherweise noch andere, ähnliche variablen gebn wird, wie zum beispiel "$background-header", oder "$background-container", hier würden wir anfangen, mit "$background-main"
+
+    Eine benennung wie "primary" nutzt man, wenn die anderen variablen von vorneherein klar definiert sind, also zum beispiel "$color-primary", "$color-secondary", "$color-success" oder ähnliches.
+
+    nutzt man variablen für spezifische inhalte, macht das angeben des jeweiligen inhaltes am anfang der variable sinn, zum beispiel:
+
+    "$button-background-success"
+    "$input-font-primary"
+*/
+
+
+$background-main: lightgray; // typischer name für den haupt-hintergrund
+$color-primary: #333333; // typischer name für die primäre textfarbe
+$color-secondary: #ff2255; // typischer name für die sekundäre textfarbe
+$box-size: 100px;
+
+.variables-test {
+    // background: $background-mai
+    // machen wir im code einen fehler, wird dieser automatisch im terminal angezeigt, aber auch am oberen rand unserer html datei im browser - womit wir sofort sehen, wo der fehler auftrat.
+    background: $background-main;
+}
+
+.variables-test-2 {
+    background: $background-main;
+    width: $box-size + 100px;
+    // wir können, wenn wir die selbe css einheit nutzen, mathematisch mit den werten umgehen.
+    height: $box-size - 50px;
+    color: $color-secondary;
+}
+
+// Verschachtelung
+
+.nesting-test {
+
+    width: $box-size * 2;
+    height: $box-size * 1.5;
+    background: $background-main;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    // leere selektoren werden vom compiler ignoriert.
+
+    // das element mit der klasse .content, das sich innerhalb der klasse .nesting-test befindet, sprechen wir an, indem wir es einfach direkt in der elerndeklaration platzieren.
+    .content {
+        border: 5px solid red;
+
+        // das verschachteln können wir immer weiter führen
+        ul {
+            background: darkred;
+
+            li {
+                color: white;
+            }
+        }
+    }
+
+    // das element .nesting-test-footer sprechen wir an, indem wir das & symbol davor setzen und den rest des namens angeben. & bedeutet, immer "den bisherigen namen + was danach kommt
+
+    &-footer {
+        border: 5px solid blue;
+
+        // wollen wir zum beispiel, dass das aktuelle element bei hover verändert wird, geben wir auch hier, also beim pseudo selektor ein und mit an.
+        &:hover {
+            background: red; 
+            cursor: pointer;
+        }
+    }
+}
+
+/*
+    KONZEPT: BEM
+
+    https://getbem.com
+
+    BEM, kurz für "Block Element Modifier" ist eine methode um css selektoren zu schreiben.
+
+    Bei BEM werden zusammenhängende elemente auf eine bestimmte art und weise zusammengefasst, so das es sehr hilfreich in zusammenarbeit mit SCSS ist, und auch sehr einfach zu warten ist.
+
+    Ein hauptelement (genannt block) wird mit seinem dazugehörigen namen angelegt.
+
+    <div class="container"></div>
+
+    .container {
+    
+    }
+
+    Ein element, das innerhlab von vorherigen elementen existiert, bekommt den namen des vorherigen elementes, und einen eigenen namen, getrennt mit 2 unterstrichen:
+
+    <div class="container">
+        <div class="container__inhalt">
+
+        </div>
+    </div>
+
+    .container {
+        &__inhalt {
+
+        }
+    }
+
+    Ein element, das eine änderung des normalen inhaltes bedeutet, zum beispiel, anstelle von rotem hintergrund, blauen hintergrund, nennt mann Modifier, dieser wird mit 2 bindestrichen getrennt. Modifiert werden meist genutzt, um zum beispiel eine statusveränderung anzugeben (button ist deaktiviert, informationen sind verändert, usw)
+
+    <div class="container">
+        <div class="container__inhalt"></div>
+        <div class="container__inhalt container__inhalt--inaktiv"></div>
+    </div>
+
+    .container {
+        &__inhalt {
+            &--inaktiv {
+
+            }
+        }
+    }
+*/
+
+.container {
+    width: 400px;
+    background: #FFCC00;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid black;
+        gap: 1rem;
+
+        &__logo {
+            padding: 0.5rem;
+
+            .image {
+                background: red;
+                width: 50px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+            }
+        }
+        &__title {
+            padding-right: 1rem;
+            font-size: 2rem;
+        }
+    }
+
+    &__content {
+        background: purple;
+        color: white;
+        padding: 1rem;
+    }
+
+    &__footer {
+        background: black;
+        padding: 1rem;
+
+        &__text {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.75rem;
+
+            &--red {
+                color: red;
+            }
+            &--blue {
+                color: blue;
+            }
+        }
+    }
+}

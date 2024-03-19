@@ -1,0 +1,26 @@
+$container-background: lightgray;
+
+@mixin Heading {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.container {
+    background: $container-background;
+
+    position: fixed;
+
+    h1 {
+        @include Heading;
+        padding: 1rem;
+    }
+
+    .content {
+        padding: (2 * 2rem) - 1rem; /* kalkuliert direkt im code */
+    }
+}
+
+h1 {
+    color: red;
+}

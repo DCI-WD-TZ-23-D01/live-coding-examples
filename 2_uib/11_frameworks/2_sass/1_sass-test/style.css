@@ -1,0 +1,19 @@
+.container {
+  background: lightgray;
+  position: fixed;
+}
+.container h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+.container .content {
+  padding: 3rem; /* kalkuliert direkt im code */
+}
+
+h1 {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

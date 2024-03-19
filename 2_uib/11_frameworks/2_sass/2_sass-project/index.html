@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- wir importieren die konvertierte css datei -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>SASS</h1>
+
+    <h2>Variablen</h2>
+
+    <p>
+        variablen werden in SASS im gegensatz zu css nicht in das :root element geschrieben, sondern können sich überall im code befinden. Der typische weg ist, sie am anfang einer scss datei zu deklarieren, oder in einer externen datei, aus der man sie dann importiert. Allgemein gilt bei SASS der ansatz, das man verschiedene arten von inhalten, in verschiedenen dateien trennt, um sie besser wartbar zu machen. Für unsere testzwecke schreiben wir allerdings fürs erste alles in eine datei.
+    </p>
+
+    <p>
+        Wir wechseln in unsere scss datei und legen ein paar variablen an.
+    </p>
+
+    <p>
+        jetzt erstellen wir ein wenig html zum testen und stylen es dann mithilfe unserer variablen.
+    </p>
+
+    <div class="variables-test">
+        <p>
+            Hallo Welt
+        </p>
+    </div>
+
+    <p>wenn wir das scss in css kompilieren (oder der watcher es automatisch macht) sehen wir in der css datei unser ergebnis, und im html preview, das die styles angewandt wurden.</p>
+
+    <p>
+        um uns die nutzung der variablen noch einmal anzuschauen, testen wir das ganze noch einmal.
+    </p>
+
+    <div class="variables-test-2">
+        <p>
+            Hallo Welt
+        </p>
+    </div>
+
+    <h2>Verschachteln von selektoren</h2>
+
+    <p>
+        in SASS haben wir die möglichkeit selektoren strukturierter und ordentlicher zu sortierne, indem wir zusammengehörende inhalte miteinander verschachteln. So können wir einen selektorenbaum ähnlich der HTML struktur der jeweiligen elemente anlegen, und weitere dinge wie hover, nth-child oder unterklassen direkt mit dem selektor zusammenfügen.
+    </p>
+
+    <p>
+        um dies zu testen erstellen wir wieder ein wenig html.
+    </p>
+
+    <div class="nesting-test">
+        <div class="content">
+            <ul>
+                <li>1. Eintrag</li>
+                <li>2. Eintrag</li>
+            </ul>
+        </div>
+        <div class="nesting-test-footer">
+            <p>Hallo Welt</p>
+        </div>
+    </div>
+
+    <p>
+        Durch die art und weise, wie das verschachteln der selektoren funktioniert, können wir mithilfe von "&" ganze bäume logisch zusammenstellen, dem DRY prinzip durch die unterbindung von wiederholungen folgen, und zusammenghörige selektoren gruppieren.
+    </p>
+
+    <p>
+        Wir testen verschachtelung noch einmal, aber nutzen dieses mal die sogenannte BEM methode.
+    </p>
+
+    <div class="container">
+        <div class="container__header">
+            <div class="container__header__logo">
+                <div class="container__header__logo image"></div>
+            </div>
+            <div class="container__header__title">Ein Titel</div>
+        </div>
+        <div class="container__content">
+            Hallo Welt
+        </div>
+        <div class="container__footer">
+            <div class="container__footer__text">Erster Text</div>
+            <div class="container__footer__text container__footer__text--red">Zweiter Text</div>
+            <div class="container__footer__text container__footer__text--blue">Dritter Text</div>
+        </div>
+    </div>
+
+</body>
+</html>

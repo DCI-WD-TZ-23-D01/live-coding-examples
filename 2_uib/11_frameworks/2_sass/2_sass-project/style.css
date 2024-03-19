@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/*
+    KONZEPT: Variablenbenennung
+
+    Eine benennung wie "main" nutzt man, wenn es möglicherweise noch andere, ähnliche variablen gebn wird, wie zum beispiel "$background-header", oder "$background-container", hier würden wir anfangen, mit "$background-main"
+
+    Eine benennung wie "primary" nutzt man, wenn die anderen variablen von vorneherein klar definiert sind, also zum beispiel "$color-primary", "$color-secondary", "$color-success" oder ähnliches.
+
+    nutzt man variablen für spezifische inhalte, macht das angeben des jeweiligen inhaltes am anfang der variable sinn, zum beispiel:
+
+    "$button-background-success"
+    "$input-font-primary"
+*/
+.variables-test {
+  background: lightgray;
+}
+
+.variables-test-2 {
+  background: lightgray;
+  width: 200px;
+  height: 50px;
+  color: #ff2255;
+}
+
+.nesting-test {
+  width: 200px;
+  height: 150px;
+  background: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.nesting-test .content {
+  border: 5px solid red;
+}
+.nesting-test .content ul {
+  background: darkred;
+}
+.nesting-test .content ul li {
+  color: white;
+}
+.nesting-test-footer {
+  border: 5px solid blue;
+}
+.nesting-test-footer:hover {
+  background: red;
+  cursor: pointer;
+}
+
+/*
+    KONZEPT: BEM
+
+    https://getbem.com
+
+    BEM, kurz für "Block Element Modifier" ist eine methode um css selektoren zu schreiben.
+
+    Bei BEM werden zusammenhängende elemente auf eine bestimmte art und weise zusammengefasst, so das es sehr hilfreich in zusammenarbeit mit SCSS ist, und auch sehr einfach zu warten ist.
+
+    Ein hauptelement (genannt block) wird mit seinem dazugehörigen namen angelegt.
+
+    <div class="container"></div>
+
+    .container {
+
+    }
+
+    Ein element, das innerhlab von vorherigen elementen existiert, bekommt den namen des vorherigen elementes, und einen eigenen namen, getrennt mit 2 unterstrichen:
+
+    <div class="container">
+        <div class="container__inhalt">
+
+        </div>
+    </div>
+
+    .container {
+        &__inhalt {
+
+        }
+    }
+
+    Ein element, das eine änderung des normalen inhaltes bedeutet, zum beispiel, anstelle von rotem hintergrund, blauen hintergrund, nennt mann Modifier, dieser wird mit 2 bindestrichen getrennt. Modifiert werden meist genutzt, um zum beispiel eine statusveränderung anzugeben (button ist deaktiviert, informationen sind verändert, usw)
+
+    <div class="container">
+        <div class="container__inhalt"></div>
+        <div class="container__inhalt container__inhalt--inaktiv"></div>
+    </div>
+
+    .container {
+        &__inhalt {
+            &--inaktiv {
+
+            }
+        }
+    }
+*/
+.container {
+  width: 400px;
+  background: #FFCC00;
+}
+.container__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  gap: 1rem;
+}
+.container__header__logo {
+  padding: 0.5rem;
+}
+.container__header__logo .image {
+  background: red;
+  width: 50px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.container__header__title {
+  padding-right: 1rem;
+  font-size: 2rem;
+}
+.container__content {
+  background: purple;
+  color: white;
+  padding: 1rem;
+}
+.container__footer {
+  background: black;
+  padding: 1rem;
+}
+.container__footer__text {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+.container__footer__text--red {
+  color: red;
+}
+.container__footer__text--blue {
+  color: blue;
+}
+
+/*# sourceMappingURL=style.css.map */
