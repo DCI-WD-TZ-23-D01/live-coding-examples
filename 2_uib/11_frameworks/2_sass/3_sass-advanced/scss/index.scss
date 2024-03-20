@@ -1,0 +1,68 @@
+// wir importieren die partials datei, indem wir die @import query nutzen. der import eines partials wird OHNE unterstrich angegeben.
+@import './variables';
+@import './selector';
+@import './mixins';
+
+// jetzt können wir unsere variablen verwenden, vs code zeigt diese (...manchmal...) sogar an, wenn wir css optionen angeben.
+body {
+    background-color: $background-main;
+    font-size: $font-size;
+}
+
+.box {
+    width: 100px;
+    aspect-ratio: 1/1;
+    display: block;
+    // wir fügen das mixin in unseren code ein, indem wir das @include query benutzen:
+    @include BoxStyle;
+}
+
+.box-2 {
+    width: 150px;
+    height: 50px;
+    display: block;
+    @include BoxStyle;
+    // nachdem das mixin geladen wurde, können wir importierte werte auch verändern.
+    background: orange;
+}
+
+.container-1 {
+    width: 100px;
+    aspect-ratio: 1/1;
+    display: block;
+    // wir fügen das mixin hier wieder ein, aber diesmal setzen wir die werte für background und border-radius manuell:
+    @include ContainerStyle(tomato, 2rem);
+}
+
+.container-2 {
+    width: 100px;
+    aspect-ratio: 1/1;
+    display: block;
+    @include ContainerStyle(grey, 0.5rem);
+}
+
+// eine extension starten wir mit einem % zeichen am anfang, eine typische konvention ist, der extension den zusatz "-shared" im namen zu geben, da man diese inhalte meist zwischen verschiedene selektoren teilt.
+
+%notification-shared {
+    padding: 1rem;
+    width: 200px;
+    border-radius: 0.5rem;
+}
+
+// jetzt können wir unsere extension in den verschiedenen elementen nutzen.
+.success {
+    background-color: lightgreen;
+    @extend %notification-shared;
+}
+
+.warning {
+    background-color: orange;
+    padding: 2rem;
+    // werte die in einem extend angegeben werden, werden in dem lokalen selektor IMMER überschrieben, da die gruppierung vorher definiert:
+    @extend %notification-shared;
+}
+
+.error {
+    background-color: darkred;
+    @extend %notification-shared;
+}

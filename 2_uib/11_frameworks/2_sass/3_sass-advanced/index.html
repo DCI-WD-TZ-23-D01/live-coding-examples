@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>SASS</h1>
+    
+    <h2>Erweiterte Konzepte</h2>
+    
+    <h3>SCSS in mehrere dateien aufspalten</h3>
+
+    <p>
+        um ordentlicher zu arbeiten, macht es sinn, wenn wir unsere variablen, elemente und andere inhalte in verschidene dateien trennen, so lässt sich der code einfacher Warten, und erscheint strukturierter.
+    </p>
+
+    <h3>Partials</h3>
+
+    <p>
+        SCSS nutzt für die organisation von getrennten inhalte n sogenannte partials, Partials sind teilstücke von code, die später zusammengefügt werden. Der vorteil daran ist, anstelle das wir später mehrere css dateien haben, die unseren kompilierten code beinhalten, dann alles in einer datei abgespeichert wird, was die performance verbessert und weniger unordentlich aussieht.
+    </p>
+
+    <p>
+        Die nutzung von partials fängt damit an, das wir eine index.scss in einem ordner erstellen, in dem wir unser scss getrennt von anderen inhalten platzieren können, nennen wir ihn mal scss.
+    </p>
+
+    <p>
+        in der index.scss wird unser hauptcode stehen, aber auch unsere imports, mit denen wir die anderen dateien einfügen.
+    </p>
+
+    <p>
+        Partials haben eine bestimmte namenskonvention, sie beginnen mit einem unterstrich, und ihr name sollte beinhalten, worum es sich bei den inhalten handelt. also zum beispiel "_variables.scss". - diese datei erstellen wir jetzt und schreiben dort ein paar variablen hinein.
+    </p>
+
+    <p>
+        nachdem wir die variablen import haben und  in der index.scss verwendet haben, sehen wir in unsere style.css, das zwar die variablen nicht angegeben sind, aber die werte korrekt angewandt wurden.
+    </p>
+
+    <p>
+        erstellen wir noch eine partials datei, und fügen dort einen selektor ein, und importieren die datei in unsere index.scss.
+    </p>
+
+    <p>
+        Wir sehen, das der selektor in die style.css geschrieben wurde.
+    </p>
+
+    <h3>Mixins</h3>
+
+    <p>
+        Ein weiteres konzept in scss sind die sogenannten mixins, dies sind ganze blöcke von css optionen, die in selektoren eingefügt werden können, um code-zeilen zu sparen und wiederholungen zu verhindern.
+    </p>
+
+    <p>
+        Wir erstellen noch eine partials datei namens "_mixins.scss", un die wir unsere mixins schreiben.
+    </p>
+
+    <p>
+        jetzt importieren wir die datei, erstellen das nötige scss und html um den code zu testen.
+    </p>
+
+    <div class="box">Box</div>
+
+    <p>
+        wir erstellen noch eine box, um zu sehen, das wir den code durch mixins mehrfach verwenden können.
+    </p>
+
+    <div class="box-2">Box</div>
+
+    <p>
+        Ein wichtiger aspect von mixins ist, das es und die möglichkeit gibt, bestimmte werte innerhalb eines mixins auf wunsch zu verändern.
+    </p>
+
+    <p>
+        um dies zu testen erstellen wir ein weiteres mixin und 2 elemente.
+    </p>
+
+    <div class="container-1">Container</div>
+    <div class="container-2">Container</div>
+
+    <h3>Inhalte vererben</h3>
+
+    <p>
+        Bei css kennen wir es, das wir mehrere elemente den selben inhalt geben, indem wir sie per komma trennen und ihnen dann die optionen gemeinsam zuweisen. Dies mann kan in SCSS zwar auch tun, aber es kann beim nutzen von tieferen verschachtelungen, sowie bei der nutzung von BEM zu problemen führen, und die sortierung kaputt machen. Deswegen gibt es in SCSS die sogenannten extensions. Mit extensiions können wir ähnlich wie mixins werte vorbereiten, und diese dann in den jeweiligen elementen verwenden. KOmpiliert wird das ganze dan zu komma getrennten selektoren.
+    </p>
+
+    <p>
+        Zum test erstellen wir 3 elemente und erstellen dafür eine extension in unserer index.scss
+    </p>
+
+    <div class="success">Hallo Welt</div>
+    <div class="warning">Hallo Welt</div>
+    <div class="error">Hallo Welt</div>
+
+</body>
+</html>

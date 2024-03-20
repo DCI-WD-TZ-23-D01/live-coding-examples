@@ -1,0 +1,17 @@
+// wir erstellen ein mixin, in dem wir eine schriftfarbe, eine hintergrundfarbe und einen border-radius angeben:
+
+// um ein mixin zu erstellen, nutzen wir die @mixin query. Die typische namenskonvention ist den namen eines mixins groß zu schreiben, und den namen auf den jeweiligen nutzen zuzuschneiden.
+
+@mixin BoxStyle {
+    color: white;
+    background: purple;
+    border-radius: 1rem;
+}
+
+// wir erstellen ein weiteres mixin, wir können hinter den namen klammern setzen, und dort lokale - also nur innerhalb des mixins verfügbare - variablen einfügen.
+@mixin ContainerStyle($background, $radius) {
+    background: $background;
+    border-radius: $radius;
+    color: white;
+    padding: 1rem;
+}

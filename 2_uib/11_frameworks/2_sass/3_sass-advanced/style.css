@@ -1,0 +1,68 @@
+p {
+  color: darkred;
+}
+
+body {
+  background-color: "lightgray";
+  font-size: 1.5rem;
+}
+
+.box {
+  width: 100px;
+  aspect-ratio: 1/1;
+  display: block;
+  color: white;
+  background: purple;
+  border-radius: 1rem;
+}
+
+.box-2 {
+  width: 150px;
+  height: 50px;
+  display: block;
+  color: white;
+  background: purple;
+  border-radius: 1rem;
+  background: orange;
+}
+
+.container-1 {
+  width: 100px;
+  aspect-ratio: 1/1;
+  display: block;
+  background: tomato;
+  border-radius: 2rem;
+  color: white;
+  padding: 1rem;
+}
+
+.container-2 {
+  width: 100px;
+  aspect-ratio: 1/1;
+  display: block;
+  background: grey;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 1rem;
+}
+
+.error, .warning, .success {
+  padding: 1rem;
+  width: 200px;
+  border-radius: 0.5rem;
+}
+
+.success {
+  background-color: lightgreen;
+}
+
+.warning {
+  background-color: orange;
+  padding: 2rem;
+}
+
+.error {
+  background-color: darkred;
+}
+
+/*# sourceMappingURL=style.css.map */
