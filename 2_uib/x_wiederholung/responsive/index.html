@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="beispiel">Hallo Div</div>
+
+    <style>
+        .beispiel {
+            background: red;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 500px) {
+            .beispiel {
+                padding: 20px;
+            }
+        }
+
+        @media (min-width: 700px) {
+            .beispiel {
+                max-width: 700px;
+            }
+        }
+    </style>
+    
+</body>
+</html>

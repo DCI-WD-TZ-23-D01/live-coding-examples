@@ -58,7 +58,7 @@ body {
 .warning {
     background-color: orange;
     padding: 2rem;
-    // werte die in einem extend angegeben werden, werden in dem lokalen selektor IMMER überschrieben, da die gruppierung vorher definiert:
+    // werte die in einem extend angegeben werden, werden in dem lokalen selektor IMMER überschrieben, da die gruppierung vorher definiert  wird (sollte):
     @extend %notification-shared;
 }
 

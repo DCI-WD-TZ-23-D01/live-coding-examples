@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="https://google.de">Hallo Google</a>
+    <a href="#">Hallo irgendwas</a>
+    <a href="https://example.com">Hallo Example</a>
+    <a href="https://heise.de">Hallo Heise</a>
+
+    <style>
+        /* alle elemente die href="https://google.de" haben */
+        a[href="https://google.de"] {
+            color: red;
+        }
+
+        /* alle elemente die in dem attribut href den wert ".de" am ende beinhalten */
+        a[href$=".de"] {
+            background: blue;
+        }
+    </style>
+
+    <br>
+    <br>
+
+    <input type="text">
+    <input type="number">
+
+    <style>
+        input[type="text"] {
+            background: blue;
+        }
+    </style>
+
+    <img src="https://picsum.photos/536/354" alt="">
+    <img src="https://picsum.photos/536/353" alt="testbild">
+
+    <style>
+        img[src="https://picsum.photos/536/354"] {
+            border-radius: 20px;
+        }
+        img[alt="testbild"] {
+            border: 10px solid red;
+        }
+    </style>
+
+    <br>
+    <br>
+
+    <a href="http://localhost">localhost</a>
+    <a href="http://irgendeineseite.org">irgendeineseite</a>
+    <a href="https://irgendwas">irgendwas</a>
+ 
+    <style>
+        /* mit eckigen klammern können wir selektieren, aber wir können auch noch spezifischer werden, wenn wir mehrere eckige klammern hintereianndersetzen */
+        a[href^="http://"][href$=".org"] {
+            color: green;
+        }
+    </style>
+
+    <br>
+    <br>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">Gute ressource zu attribut selektoren</a>
+
+    <br>
+    <br>
+</body>
+</html>

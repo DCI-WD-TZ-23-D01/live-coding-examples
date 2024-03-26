@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <div>
+            <h3>User Informations</h3>
+            <label for="username">Name</label>
+            <!-- die id, den namen für die daten, den typ des inhaltes -->
+            <input id="username" name="name" type="text" value="Ming">
+            <br>
+
+            <label for="email">E-Mail</label>
+            <input type="email">
+
+            <br>
+
+            <label for="usernotes">Notes</label>
+            <textarea name="notes" id="usernotes" cols="30" rows="5">HALLO</textarea>
+
+            <br>
+            <label for="favoriteCar">Favorite Car</label>
+
+            <!-- select boxen beinhalten mehrere optionen, mit dem attribut "multiple" können wir mehrere optionen selektieren lassen -->
+            <select name="car" id="favoriteCar">
+                <option value="mustang">Ford Mustang</option>
+                <option value="stringray">Corvette Stingray</option>
+            </select>
+
+            <br>
+            <label for="age">Age of user:</label>
+            <input type="range" name="age" id="" value="25">
+
+            <br>
+            <br>
+            <input type="radio" name="language" value="english">English
+            <br>
+            <input type="radio" name="language" value="german">German
+
+            <br>
+            <input type="checkbox" name="hasLicense" id=""> Has Drivers License
+            <br>
+            <input type="checkbox" name="ownsCar">Owns a Car
+
+        </div>
+
+        <br>
+        <div>
+            <h3>Do you agree?</h3>
+            <input type="checkbox" id="chbx" name="agree" value="Yes!" />
+            <label for="chbx">I agree</label>
+        </div>
+
+
+    </form>
+
+    <!-- schicke alles was der user EINGIBT innerhalb des FORMULARS an unseren SERVER -->
+
+    <!-- 
+        an den server wird gesendet: 
+        name="Ming"
+        notes="HALLO"
+        car="mustang"
+        age="25"
+        language="english"
+        hasLicense="true"
+        ownsCar="false"
+
+        oder in json:
+        {
+            name: "Ming",
+            notes: "HALLO",
+            car: "mustang",
+            age: 25,
+            language: "english",
+            hasLicense: true,
+            ownsCar: false
+        }
+     -->
+
+</body>
+</html>

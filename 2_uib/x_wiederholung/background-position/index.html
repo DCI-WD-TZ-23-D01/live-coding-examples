@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+
+    </div>
+
+    <style>
+        div {
+            /* für die oberen background-position: ; beispiele empfielt es sich, im lorem.picsum link, die beiden letzten werte zu vergrößern. */
+            background: url(https://picsum.photos/id/237/200/200);
+            height: 200px;
+            width: 200px;
+
+            /* wenn wir kein background-position angeben, sind wir immer oben links (leserichtungsanfang) */
+
+            /* wenn wir nur entweder einen horizontalen, oder einen vertikalen wert angeben, ist der andere wert automatisch auf "center", also mittig */
+            /* background-position: bottom; */
+
+            /* positionierungswerte können auch in prozent angegeben werden */
+            /* background-position: 50% 75%; */
+
+            /* geben wir positionierungswerte in pixeln an, ist ein positiver wert gegen die leserichtung, und ein negativer wert in leserichtung */
+            /* background-position: 50px -50px; */
+
+            /* mit der angabe der seite, von der wir positionieren wollen, können wir spezifisch angeben, von wo nach wo wir arbeiten wollen. */
+            /* background-position: bottom -20px left 20%; */
+
+            /* bei einem bild das so groß ist wie die div, müssen wir in pixeln arbeiten. */
+            background-position: top -80px left 40px;
+        }
+    </style>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">MDN link zu background-position: ;</a>
+
+</body>
+</html>
