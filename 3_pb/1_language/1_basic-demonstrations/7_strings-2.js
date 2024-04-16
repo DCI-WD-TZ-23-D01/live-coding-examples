@@ -107,3 +107,54 @@ console.log("===================================================================
     console.log('Ab der 5. stell abschneiden:', substringExample.substring(5));
 
     console.log(substringExample.substring(0, 8) + 'k' + substringExample.substring(8));
+
+    console.log("===============================================================================");
+
+    // multiline strings
+    console.log('Ich');
+    console.log('bin');
+    console.log('etwas');
+    console.log('text');
+
+    // mit \n können wir einen zeilenumbruch einfügen (newline)
+    const testString1 = 'Ich\nbin\netwas\ntext';
+    console.log('newline:', testString1);
+
+    // template literals
+    // template literals setzen wir in schrägen kommas (accent grave), (altgr + die taste links neben backspace)
+    const templateLiteralsExample = `Ich 
+bin
+etwas
+text`;
+    
+    console.log(templateLiteralsExample);
+
+    const username = 'Rick';
+
+    // 'Hallo' + ' ' + username + ', hier sind' + ' ' + (1 + 2) + ' ' + 'käsestücke';
+    const testStringLiteral = `Hallo ${ username }, hier sind ${ 1 + 2 } käsestücke`;
+    console.log(testStringLiteral);
+
+    // wenn wir daten an ein template-literal übergeben wollen, setzen wir diese in ${ } ein.
+
+    const name = 'Christian';
+    const tag = 'Mittwoch';
+    const laune = 'OK';
+
+    const brief = `
+        Mein Brief,
+
+        Hallo ${ name }, wie geht es dir?
+        Heute ist ${ tag }.
+        Mir geht es ${ laune }!
+
+        Ich wünsche dir eine schönen Tag,
+        Rick
+    `;
+
+    console.log(brief);
+
+    console.log('.repeat();');
+    // mit der methode .repeat(); können wir string inhalte X mal wiederholen
+
+    console.log("=".repeat(50));
