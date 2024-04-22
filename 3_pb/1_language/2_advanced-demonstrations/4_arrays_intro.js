@@ -41,8 +41,10 @@ console.log(names[0]); // Ausgabe 1. Element des Arrays
 const years = [1882, "2058", 3, 105, true];
 console.log(years);
 
+// Mit der Eigenschaft .length können wir uns die Anzahl der Elemente im Array ausgeben lassen
 console.log(years.length);
 
+// Mit Array.length - 1 hat man den Index vom letzten Element im Array
 console.log(years[years.length -1]); // Letzes Element im Array
 
 // ---------- ZUGRIFF/ÜBERSCHREIBEN VON ELEMENTEN IM ARRAY ----------
