@@ -78,6 +78,8 @@ console.log(keineLs);
 words[0] = "Tschüss";
 console.log(words);
 
+// -------- Umwandlung Array -> String --------
+
 // Ohne Angabe/Wert in join() wird automatisch "," als Verbindungszeichen benutzt
 const newString = words.join(); 
 console.log(newString);
