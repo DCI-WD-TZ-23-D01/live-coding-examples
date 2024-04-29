@@ -11,31 +11,37 @@
 
 // Grundsätzlich: Bahncard 25 - 75% Preis, Bahncard 50 - 50% Preis, Bahncard 100 - keine extra Kosten
 
-// if (bahncard25 === true) 
-// // ANFANG BLOCK
-// {
-//     const preis = fahrkarte * 0.75;
-//     // console.log("Deine Fahrkarte kostet:" , preis);
-// }
-// // ENDE BLOCK
-//  else 
-//  {
-//     const preis = fahrkarte;
-//     // console.log("Deine Fahrkarte kostet:" , preis);
-// }
+/*
+
+if (bahncard25 === true) 
+// ANFANG BLOCK
+{
+    const preis = fahrkarte * 0.75;
+    console.log("Deine Fahrkarte kostet:" , preis);
+}
+// ENDE BLOCK
+ else 
+// ANFANG BLOCK
+ {
+    const preis = fahrkarte;
+    console.log("Deine Fahrkarte kostet:" , preis);
+}
+// ENDE BLOCK
+
+*/
 
 // --------------------------------------------------
 // VERSUCH: Variable außerhalb ihres Blocks ausgeben
 
 console.clear();
 
-const name = "Julia";
+const name = "Julia"; // Variable im globalen scope / "Gültigkeitsbereich"
 
 if (true)
 // ANFANG BLOCK
 {
-    const message = "Hallo!";
-    console.log(message);
+    const message = "Hallo!"; // neue Variable
+    console.log(message); // Innerhalb des Block geht es
 }
 // ENDE BLOCK
 

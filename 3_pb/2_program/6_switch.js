@@ -2,15 +2,19 @@
 
 // Schreibweise mit if/else
 
-// const bahncard = 33;
+/*
 
-// if (bahncard === 25) {
-//     // ...
-// } else if (bahncard === 50) {
-//     // ...
-// } else {
-//     console.log("Keine Bahncard gefunden.")
-// }
+const bahncard = 25;
+
+if (bahncard === 25) {
+    // ...
+} else if (bahncard === 50) {
+    // ...
+} else {
+    console.log("Keine Bahncard gefunden.")
+}
+
+*/
 
 console.clear();
 
@@ -29,5 +33,6 @@ switch (bahncard) {
     case 100: 
         console.log("Bahncard 100");
         break; // Abbruch
-    default: console.log("Keine Bahncard gefunden.")
+    default: console.log("Keine Bahncard gefunden.") // "else"
+    // hier kein break notwendig, weil switch sowieso zu Ende
 }

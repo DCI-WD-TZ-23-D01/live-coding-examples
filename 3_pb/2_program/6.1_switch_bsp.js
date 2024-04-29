@@ -11,8 +11,8 @@ switch (bahncard) {
         console.log("Preis Fahrkarte:", kosten * 0.5);
         break;
     case 100:
-        console.log("Keine weiteren Kosten.");
+        console.log("Keine weiteren Kosten. Preis: 0 EUR.");
         break;
     default:
-        console.log("Preis Fahrkarte:", kosten);
+        console.log("Keine gültige Bahncard! Preis:", kosten);
 }
