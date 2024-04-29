@@ -1,6 +1,6 @@
 // Switch - andere Form des if/else
 
-// Schreibweise mit if/else
+// ---------- Schreibweise mit if/else ----------
 
 /*
 
@@ -18,7 +18,7 @@ if (bahncard === 25) {
 
 console.clear();
 
-// Schreibweise mit Switch
+// ---------- Schreibweise mit Switch ----------
 
 let bahncard;
 

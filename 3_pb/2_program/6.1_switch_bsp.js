@@ -1,5 +1,7 @@
 console.clear();
 
+// Beispiel Switch
+
 const bahncard = 100;
 const kosten = 50;
 
@@ -19,7 +21,7 @@ switch (bahncard) {
         console.log("Keine gültige Bahncard! Preis:", kosten);
 }
 
-// --------------------------------------------------
+// ---------- Switch + Block Scope ----------
 
 // Variablen anlegen innerhalb der unterschiedlichen Fälle erfordert einen neuen Block
 
