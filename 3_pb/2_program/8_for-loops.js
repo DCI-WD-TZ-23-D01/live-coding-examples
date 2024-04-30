@@ -100,5 +100,5 @@ for (let i = 0; i <= 50; i++) {
     } else {
         string = string + "~"; // ansonsten Wellen
     }
-    console.log(string);
 }
+console.log(string);
