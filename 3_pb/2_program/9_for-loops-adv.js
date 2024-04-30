@@ -20,7 +20,6 @@ for (let i = 0; i <= 3; i++) {
 console.log("----------------------");
 
 // BEISPIEL: Grafik im Terminal - Sternenhimmel
-// <-- Auskommentieren um Beispiel oben zu sehen
 
 // Äußere Schleife, zuständig für 10 Zeilen (Höhe)
 for (let i = 0; i <= 10; i++) {
@@ -44,9 +43,10 @@ console.log("----------------------");
 
 // ---------- Schleifen und Arrays ----------
 
+// Array für Produkte von einem Baumarkt
 const produkte = ["Holz", "Gartenzwerg", "Blumentopf", "Heckenschere", "Decke"];
 
-// Früher
+// Alle Produkte anzeigen - Früher
 console.log(produkte[0]);
 console.log(produkte[1]);
 console.log(produkte[2]);
@@ -55,13 +55,14 @@ console.log(produkte[4]);
 
 console.log("----------------------");
 
-// Mit Schleife
+// Alle Produkte anzeigen - Mit Schleife
 for (let i = 0; i <= 4; i++) {
     console.log(produkte[i]);
 }
 
 console.log("----------------------");
 
+// Alle Produkte anzeigen - Mit Schleife, unabhängig vom Inhalt (dynamisch)
 for (let i = 0; i < produkte.length; i++) {
     console.log(produkte[i]);
 }
@@ -75,7 +76,7 @@ console.log("Ursprüngliches Array:", wochentage);
 const wochentageKlein = []; // Datentyp: Array
 
 for (let i = 0; i < wochentage.length; i++) {
-    // console.log(wochentage[i].toLowerCase());
+    // console.log(wochentage[i].toLowerCase()); // console.log in Schleife, während Entwicklung zum Testen
     // Füge kleingeschriebenen Tag dem neuen Array hinzu
     wochentageKlein.push(wochentage[i].toLowerCase());
 }

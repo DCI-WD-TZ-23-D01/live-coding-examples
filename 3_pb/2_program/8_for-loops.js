@@ -66,14 +66,14 @@ for (let i = 10; i >= 1; i--) {
 // Tipp: Wenn Schleife endlos läuft, könnt ihr diese im Terminal
 // abbrechen mit: STRG + C
 
-// Praxisbeispiel (vorgegriffen):
+// Frage: Wofür brauchen wir das später? ... Praxisbeispiel (vorgegriffen):
 // HTML dynamisch aus einer sich ständig ändernden Datenquelle erzeugen
 
 const produkte = ["Holz", "Waschbecken", "Pflanze", "Stofftier", "Eis"];
 
 for (let i = 0; i < produkte.length; i++) {
     console.log(`<div><h2>${produkte[i]}</h2></div>`);
-    // Wir machen das später nicht mit console.log,
+    // Wir arbeiten später nicht mit console.log um HTML zu erstellen
     // hier nur zur Demonstration
 }
 
