@@ -2,35 +2,44 @@
 
 console.clear();
 
-// let besucher = 0;
-// console.log(besucher);
+// In Programmierung wird oft die gleiche Sache mehrmals
+// nacheinander ausgeführt, Bsp.: Besucher zählen
 
-// besucher++; // das gleiche wie: besucher = besucher + 1;
-// console.log(besucher);
+let besucher = 0; // Museum öffnet
+console.log(besucher);
 
-// besucher++; // das gleiche wie: besucher = besucher + 1;
-// console.log(besucher);
+besucher++; // das gleiche wie: besucher = besucher + 1;
+console.log(besucher);
 
-// besucher++; // das gleiche wie: besucher = besucher + 1;
-// console.log(besucher);
+besucher++;
+console.log(besucher);
 
-// besucher++; // das gleiche wie: besucher = besucher + 1;
-// console.log(besucher);
+besucher++;
+console.log(besucher);
 
-// besucher++; // das gleiche wie: besucher = besucher + 1;
-// console.log(besucher);
+besucher++;
+console.log(besucher);
+
+besucher++;
+console.log(besucher);
 
 // DRY - Don't Repeat Yourself - Wiederhole dich nicht!
 
-// Prinzip: START - ENDE - Während Schleife läuft: Führe X aus.
-// i - Iterator, i - "Zähler"
+// ---------- Lösung: Schleifen! ----------
+
+// Prinzip: von START -> bis ENDE
+// Während Schleife läuft: Führe X aus.
+// i - Iterator, i - "Zähler", falls er nur als Schleifenzähler
+// benutzt wird, andere Variablennamen sind auch möglich
 
 console.log("~~~~~~~~~~~~~~~~");
 
-// for (let i = 1; i <= 5; i++) {
-//     besucher++; // das gleiche wie: besucher = besucher + 1;
-//     console.log(besucher);
-// }
+for (let i = 1; i <= 5; i++) {
+    besucher++; // das gleiche wie: besucher = besucher + 1;
+    console.log(besucher);
+}
+
+// ---------- Weitere Beispiel-Schleifen: ----------
 
 // Schleife zählt von 1 bis 10, Schrittgröße: +1
 
@@ -58,12 +67,15 @@ for (let i = 10; i >= 1; i--) {
 // abbrechen mit: STRG + C
 
 // Praxisbeispiel (vorgegriffen):
+// HTML dynamisch aus einer sich ständig ändernden Datenquelle erzeugen
 
-// const produkte = ["Holz", "Waschbecken", "Pflanze", "Stofftier", "Eis"];
+const produkte = ["Holz", "Waschbecken", "Pflanze", "Stofftier", "Eis"];
 
-// for (let i = 0; i < produkte.length; i++) {
-//     console.log(`<div><h2>${produkte[i]}</h2></div>`);
-// }
+for (let i = 0; i < produkte.length; i++) {
+    console.log(`<div><h2>${produkte[i]}</h2></div>`);
+    // Wir machen das später nicht mit console.log,
+    // hier nur zur Demonstration
+}
 
 console.log("~~~~~~~~~~~~~~~~");
 
@@ -89,7 +101,8 @@ for (let i = 1; i <= 10; i++) {
 
 console.log("Ende Schleife 2:", sum); // Ausgabe
 
-// Strings mit Schleifen erzeugen
+// ---------- Strings mit Schleifen erzeugen ----------
+
 // Beispiel: String mit 50 Zeichen, jedes 10. anders
 
 let string = "";
@@ -102,3 +115,5 @@ for (let i = 0; i <= 50; i++) {
     }
 }
 console.log(string);
+
+// ---------- Schleifen in Schleifen (Doppelschleifen) ----------
