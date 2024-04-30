@@ -6,9 +6,11 @@ console.clear();
 
 // GRUNDPRINZIP
 
+// Äußere Schleife - läuft mit i
 for (let i = 0; i <= 3; i++) {
     console.log("Äußerer Durchlauf, i =", i);
     console.log("---");
+    // Innere Schleife - läuft mit j
     for (let j = 0; j <= 3; j++) {
         console.log("Innerer Durchlauf, j =", j);
     }
@@ -44,6 +46,7 @@ console.log("----------------------");
 
 const produkte = ["Holz", "Gartenzwerg", "Blumentopf", "Heckenschere", "Decke"];
 
+// Früher
 console.log(produkte[0]);
 console.log(produkte[1]);
 console.log(produkte[2]);
@@ -52,6 +55,7 @@ console.log(produkte[4]);
 
 console.log("----------------------");
 
+// Mit Schleife
 for (let i = 0; i <= 4; i++) {
     console.log(produkte[i]);
 }
