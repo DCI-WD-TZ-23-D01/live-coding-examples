@@ -43,6 +43,10 @@ const showName = (title, age, ...names) => {
     // names[0] ist jetzt aufrufbar als firstName;
     // names[1] ist jetzt aufrufbar als lastName;
 
+    // christians beispiel:
+    // const firstName = names[0];
+    // const secondName = names[1];
+
     console.log("firstName:", firstName);
     console.log('secondName:', secondName);
 }
@@ -64,15 +68,21 @@ const sumAusZahlen = (number1, ...rest) => {
 
     console.log(rest);
 
-    let sum = 0;
+    let sum = number1;
 
     for (let i = 0; i < rest.length; i++) {
         sum += rest[i];
     }
 
-    return sum + number1;
+    return sum;
 }
 
 console.log("summe aus egal wievielen zahlen:", sumAusZahlen(5, 10, 8, 22, 14, 7, 9));
 console.log("summe aus egal wievielen zahlen:", sumAusZahlen(5, 10));
 console.log("summe aus egal wievielen zahlen:", sumAusZahlen(5, 10, 8, 22, 14, 7, 9, 7, 8, 2, 2, 0, 19, 12, 2, 9));
+
+const testArray = ["rick", "christian"];
+
+const [teacher, assistant] = testArray;
+
+console.log(teacher);

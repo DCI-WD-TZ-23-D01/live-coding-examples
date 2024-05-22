@@ -65,6 +65,7 @@ divider('Arrow function parameters');
 // In einer arrow function können wir genau wie in einer normalen funktion werte übergeben:
 
 // Beispiel Normal:
+
 function showMessageNormal(userName) {
     console.log('Hallo, ' + userName);
 }
@@ -83,7 +84,7 @@ showMessageNormal("Max");
 //    funktionsname      parameter   code-block
 const showMessageArrow = userName => console.log('Hallo, ' + userName);
 // wir können das const auch weglassen:
-// showMessageArrow = username => console.log('Hallo, ' + userName);
+showMessageArrow = username => console.log('Hallo, ' + userName);
 
 showMessageArrow("Christian");
 
