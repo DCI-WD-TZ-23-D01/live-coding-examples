@@ -1,0 +1,14 @@
+{
+  "name": "x_projekt-1_todo-list",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon -q index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
