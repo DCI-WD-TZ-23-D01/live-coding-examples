@@ -114,3 +114,5 @@ console.log(testObject["hallo!"][0]);
 const allKeys = Object.keys(testObject);
 
 console.log(allKeys);
+
+
