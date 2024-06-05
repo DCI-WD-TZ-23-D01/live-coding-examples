@@ -180,22 +180,31 @@ for (let i = 0; i < users.length; i++) {
 
 divider('Das konfigurationsobjekt');
 
+// Bei deklarieren einer normalen funktion können wir die properties direkt in der klammer angeben, und auf diese direkt in der funktion zugreifen:
 const testFunction1 = (input, value, token) => {
    console.log(input, value, token);
 }
 
+// Beim aufrufen einer normalen funktion ist wichtig, das wir die reihenfolge der properties in der übergabe der argumente einhalten, und keine argumente (außer dem letzten, wenn nötig) auslassen.
 testFunction1("inputZeugs", 2, 'XXXX-XXXX-XXXX-XXXXXXXXX');
 
+// Beim deklarieren einer funktion mit konfigurationsobjekt schreiben wir die properties als objekt in die deklaration, und können dann auf die werte, wie in einer normalen funktion zugreifen.
 const testFunction2 = ({ input, value, token }) => {
    console.log(input, value, token);
 }
 
-testFunction2({ input: "bla", token: 359353542, value: 5 });
+// Beim aufrufen einer funktion mit konfigurationsobjekt haben wir einige vorteile:
+// 1. die reihenfolge der argumente ist egal
+// 2. das auslassen von argumenten ist egal
+// 3. man sieht direkt welche argumente man befüllen möchte
+testFunction2({ value: 5, input: "bla", token: 359353542 });
 
+// 4. da wir mit objekten arbeiten, können wir die konfiguration auch vorher anlegen...
 const konfigurationsObjekt = {
     input: "abc",
     token: 12345678,
     value: "x"
 };
 
+// ... und in unseren funktionsaufruf übergeben:
 testFunction2(konfigurationsObjekt);
