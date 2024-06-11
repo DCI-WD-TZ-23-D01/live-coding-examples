@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Higher Order Functions in Action</h1>
+  <form>
+    <h3>Preis:</h2>
+      <label for="min">Von:</label>
+      <input type="text" name="min" id="min" value="0">
+      <label for="max">Bis:</label>
+      <input type="text" name="max" id="max" value="1000">
+  </form>
+  <h2>Produkte</h2>
+  <ul></ul>
+  
+  <script>
+    // Meine Daten. In der Praxis werden sie z.B. von einem Server geladen
+    const shoppingCart = [
+      { id: 1, offer: true, product: 'Wireless Mouse', price: 25.0, quantity: 10 },
+      { id: 2, offer: false, product: 'Mechanical Keyboard', price: 85.0, quantity: 5 },
+      { id: 3, offer: true, product: 'Webcam', price: 45.0, quantity: 8 },
+      { id: 4, offer: false, product: 'External Hard Drive', price: 75.0, quantity: 3 },
+      { id: 5, offer: true, product: 'USB-C Hub', price: 30.0, quantity: 15 },
+      { id: 6, offer: false, product: 'Gaming Headset', price: 120.0, quantity: 4 },
+      { id: 7, offer: true, product: 'Portable SSD', price: 150.0, quantity: 7 },
+      { id: 8, offer: false, product: '27-inch Monitor', price: 300.0, quantity: 2 },
+      { id: 9, offer: true, product: 'Graphics Tablet', price: 250.0, quantity: 6 },
+      { id: 10, offer: false, product: 'Laser Printer', price: 200.0, quantity: 1 },
+      { id: 11, offer: true, product: 'Router', price: 50.0, quantity: 10 },
+      { id: 12, offer: false, product: 'Smartphone', price: 800.0, quantity: 3 },
+      { id: 13, offer: true, product: 'Laptop', price: 950.0, quantity: 5 },
+      { id: 14, offer: false, product: 'Tablet', price: 400.0, quantity: 4 },
+      { id: 15, offer: true, product: 'Bluetooth Speaker', price: 60.0, quantity: 9 }
+    ];
+    // Die zwei higher-order-function aus dem Unterricht
+    function convertArray(array, callback) {
+      const convertedArray = [];
+      for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        const result = callback(element);
+        convertedArray.push(result);
+      }
+      return convertedArray;
+    }
+    const filterArray = (array, callback) => {
+      const filteredArray = [];
+      for (let i = 0; i < array.length; i++) {
+        if (callback(array[i])) {
+          filteredArray.push(array[i]);
+        }
+      }
+      return filteredArray;
+    }
+    const form = document.querySelector('form');
+    const ul = document.querySelector('ul');
+    const fillList = () => {
+      ul.textContent = "";
+      const minPrice = form.min.value;
+      const maxPrice = form.max.value;
+      // Ich benutze filterArray, um nur diejenigen Produkte zu haben, die zwischen den angegebenen Min- und Maxpreisen sind.
+      const filteredProducts = filterArray(shoppingCart, product => product.price >= minPrice && product.price <= maxPrice);
+      // Ich benutze convertArray, um aus den Objekten Strings zu generieren, die ich dann auf der Seite zeige
+      const convertedStrings = convertArray(filteredProducts, product => `${product.product}. Preis: ${product.price}€. Ich möchte ${product.quantity} Stück davon kaufen. Der Gesamtpreis ist ${product.price * product.quantity}€`);
+      for (let i = 0; i < convertedStrings.length; i++) {
+        const li = document.createElement('li');
+        li.textContent = convertedStrings[i];
+        ul.append(li);
+      }
+    };
+    fillList();
+    // hier wird übrigens fillList als Callback übergeben
+    form.addEventListener('input', fillList);
+  </script>
+</body>
+
+</html>
