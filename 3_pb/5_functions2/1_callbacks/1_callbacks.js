@@ -135,7 +135,6 @@ console.log(ergebnis2);
 // { id: 1, offer: false, product: 'Oranges', price: 1.20, quantity: 2 } => false
 // { id: 3, offer: true, product: 'Bananas', price: 0.5, quantity: 3 } => true
 // Ich definiere die Callback-Funktion direkt beim Aufruf von convertArray als eine anonyme Arrow-Function
-console.clear();
 
 const ergebnis3 = convertArray(
   shoppingBasket,
@@ -152,3 +151,45 @@ Aufgabe: Ich möchte jetzt von einzelnen Produkten wissen, ob sie billig sind, d
 { id: 3, offer: true, product: 'Bananas', price: 0.5, quantity: 3 } => true
 Definiere die Callback direkt als anonyme Arrow-Function
 */
+const ergebnis5 = convertArray(
+  shoppingBasket,
+  (productObj) => productObj.price < 1
+);
+console.log(ergebnis5);
+
+const shoppingCart = [
+  { id: 5, offer: true, product: "Grapes", price: 2.0, quantity: 4 },
+  { id: 6, offer: false, product: "Milk", price: 1.5, quantity: 1 },
+  { id: 7, offer: true, product: "Bread", price: 1.1, quantity: 2 },
+  { id: 8, offer: false, product: "Eggs", price: 0.8, quantity: 12 },
+  { id: 9, offer: false, product: "Chicken breast", price: 3.5, quantity: 2 },
+  { id: 10, offer: true, product: "Spinach", price: 0.9, quantity: 3 },
+];
+// Die einzelnen Elemente aus dem Array werden an die callback-Funktion übergeben. Die Callback returnt ein Boolean (true/false). Wenn sie true returnt, kommt das Element in das neue Array, sonst nicht.
+const filterArray = (array, callback) => {
+  const filteredArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      filteredArray.push(array[i]);
+    }
+  }
+  return filteredArray;
+};
+// Ich möchte filterArray benutzen, um nur die billigen Produkte zu haben, die weniger als 1€ kosten
+const ergebnis6 = filterArray(
+  shoppingCart,
+  (productObj) => productObj.price < 1
+);
+console.log(ergebnis6);
+
+/* 
+Aufgabe: Ich möchte den Gesamtpreis prüfen. Ich möchte nur die Produkte haben, die insgesamt weniger als 5€ kosten
+{ id: 5, offer: true, product: 'Grapes', price: 2.0, quantity: 4 } Gesamtpreis ist 2.0 * 4 = 8.  => Zu teuer!
+{ id: 6, offer: false, product: 'Milk', price: 1.5, quantity: 1 }, Gesamtpreis ist 1.5 * 1 = 1.5 => Gut!
+*/
+const ergebnis7 = filterArray(
+  shoppingCart,
+  (productObj) => productObj.price * productObj.quantity < 5
+);
+console.clear();
+console.log(ergebnis7);
