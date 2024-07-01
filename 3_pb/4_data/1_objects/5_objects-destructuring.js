@@ -154,7 +154,7 @@ console.log('\nName:', consoleName);
 console.log('Brand:', consoleBrand);
 console.log('Year:', consoleYear);
 
-divider('Überschreiben von werten');
+divider('ausgeben von werten');
 
 const users = [
     {
