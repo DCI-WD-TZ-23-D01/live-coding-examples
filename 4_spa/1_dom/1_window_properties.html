@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- javascript dateien importieren wir im HEAD, und führen die inhalte im am ende des bodys aus. -->
+    <script src="test.js"></script>
+
+</head>
+<body>
+
+    <p>Hello World</p>
+
+    <!-- Wenn wir javascript im browser benutzen, schreiben wir scripts immer ans ende unseres bodies innerhalb eines <script> elements. Damit die komplette seite eingeladen ist, bevor das javascript ausgeführt wird. -->
+    <script>
+        // wenn wir in der DOM (Document Object Model) ausgaben in der konsole haben, sehen wir diese NICHT in VSCode oder im terminal, sondern in der konsole unseres browsers, diese können wir mit dem INSPECTOR öffnen, indem wir F12 drücken.
+
+        console.log("Hello World!");
+
+        // Die oberste ebene der DOM ist das window, das sich auf das browserfenster bezieht, hier sind wir in der lage daten zum browserfenster anzuzeigen und auszuwerten, oder dialogfenster zu öffnen. Alles was innerhalb des window objektes passiert, befindet sich außerhalb, also eine ebene höher. als das dokument selber.
+
+        /**
+         * window;
+         * 
+         * Das window objekt repräsentiert das Browserfesnter, dass das DOM enthält.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Window
+         */
+        console.log('window:', window);
+
+        /**
+         * window.innerWidth; & window.innerHeight;
+         * DIe properties .innerWidth; und .innerHeight; geben die höhe und breite des Browserfensters, inklusive der scrollbar in pixeln zurück.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth
+         * @returns { number }
+         */
+        console.log('Browserfenster breite:', window.innerWidth);
+        console.log('Browserfenster höhe:', window.innerHeight);
+
+        if(window.innerHeight > 600) {
+            console.log("Ich bin groß");
+        } else {
+            console.log('Ich bin klein');
+        }
+
+        /**
+         * window.location;
+         * Das property objekt .location(); gibt uns zurück, auf welchem pfad wir uns aktuell im browser befinden.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/location
+         * @retuns { object }
+         */
+        console.log('window.location:', window.location);
+        console.log('window.location.host:', window.location.host);
+        console.log('window.location.pathname:', window.location.pathname);
+
+        // console.log(testFunction());
+
+        /**
+         * window.alert();
+         * Die methode window.alert(); zeigt ein dialogfenster mit einem OK button im browser an.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/alert
+         * @param { string } message - Die angezeigte nachricht
+         */
+        // window.alert('Ich bin ein Alert fenster!');
+
+        /**
+         * window.confirm();
+         * window.confirm(); zeigt ein dialogfenster mit einem ok und einem cancel button an.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
+         * @param { string } message - Der text der im dialogfenster angezeigt wird
+         * @returns { boolean } true für ok, und false für cancel.
+         */
+        // const resultat = window.confirm('Wollen sie dieses dialogfenster sehen?');
+        // console.log('wollen wir das fenster sehen?', resultat);
+
+        /**
+         * window.prompt();
+         * Diese methode zeigt ein dialogfenster an, mit einem vom benutzer angegebenen return string.
+         * @param { string } message - Der text, der im Dialogfenster angezeigt wird.
+         * @param { string } default - ein text der in der texteingabe eingegeben wird. (optional)
+         * @returns { string } der eingegebene text
+         */
+        // ohne default:
+        // const eingabe = window.prompt('Hallo, wie geht es dir?');
+
+        // mit default:
+        const eingabe = window.prompt('Hallo, wie geht es dir?', 'mir geht es ganz gut');
+        console.log(eingabe);
+    </script>
+    
+</body>
+</html>
