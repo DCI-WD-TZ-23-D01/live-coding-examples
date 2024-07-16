@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul {
+            background: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Suche</h1>
+
+    <input type="text" id="searchInput" placeholder="Zeug hier eingeben...">
+
+    <ul id="results"></ul>
+
+    <script>
+        const books = [
+            {
+                title: 'Fourth Wings - Flammengeküsst',
+                author: 'Rebecca Yarros',
+                isbnNumber: 9783423284127,
+                price: 28,
+                publicationYear: 2023,
+                publisher: 'dtv',
+                pages: 768,
+                genre: 'Fantasie',
+                titleType: 'Pentalogie',
+                bookType: 'Hardcover',
+            },
+            {
+                title: 'Iron Flame - Flammengeküsst',
+                author: 'Rebecca Yarros',
+                isbnNumber: 9783423283939,
+                price: 28,
+                publicationYear: 2023,
+                publisher: 'dtv',
+                pages: 960,
+                genre: 'Fantasie',
+                titleType: 'Pentalogie',
+                bookType: 'Hardcover',
+            },
+            {
+                title: 'Die Flüsse von London - Peter Grant Story Band 1',
+                author: 'Ben Aaronovitch',
+                isbnNumber: 9783423213417,
+                price: 12,
+                publicationYear: 2012,
+                publisher: 'dtv',
+                pages: 480,
+                genre: 'Fantasie',
+                titleType: 'Ennealogie',
+                bookType: 'Taschenbuch',
+            },
+            {
+                title: 'Der schwarze Mond über Soho - Peter Grant Story Band 2',
+                author: 'Ben Aaronovitch',
+                isbnNumber: 9783423213806,
+                price: 11.95,
+                publicationYear: 2012,
+                publisher: 'dtv',
+                pages: 416,
+                genre: 'Fantasie',
+                titleType: 'Ennealogie',
+                bookType: 'Taschenbuch',
+            },
+            {
+                title:
+                    'Die schlafenden Geister des Lake Superior - Kimberley Reynolds Story',
+                author: 'Ben Aaronovitch',
+                isbnNumber: 9783423218771,
+                price: 11.95,
+                publicationYear: 2023,
+            },
+            {
+                title: 'Harry Potter und der Halbblutprinz',
+                author: 'J.K.Rowling',
+                isbnNumber: 9783551557452,
+                price: 26,
+                publicationYear: 2005,
+                publisher: 'Carlsen',
+                pages: 640,
+                genre: 'Fantasie',
+                titleType: 'Heptalogie',
+                bookType: 'Hardcover',
+            },
+            {
+                title: 'Harry Potter und die Heiligtümer des Todes',
+                author: 'J.K.Rowling',
+                isbnNumber: 9783551557476,
+                price: 28,
+                publicationYear: 2007,
+                publisher: 'Carlsen',
+                pages: 752,
+                genre: 'Fantasie',
+                titleType: 'Heptalogie',
+                bookType: 'Hardcover',
+            },
+            {
+                title: 'Warum Menschen töten - Eine Polizeipsychologin ermittelt',
+                author: 'Claudia Brockmann',
+                isbnNumber: 9783843705547,
+                price: 7.99,
+                publicationYear: 2013,
+                publisher: 'Ullstein Verlag',
+                pages: 208,
+                genre: 'Bericht',
+                titleType: 'Einzelband',
+                bookType: 'eBook',
+            },
+            {
+                title: 'Dunbridge Academy - Anywhere',
+                author: 'Sarah Sprinz',
+                isbnNumber: 9783736316553,
+                price: 14,
+                publicationYear: 2022,
+                publisher: 'LYX',
+                pages: 464,
+                genre: 'Young Adult',
+                titleType: 'Trilogie',
+                bookType: 'Taschenbuch',
+            },
+            {
+                title: 'Tycoon - Dein Herz so nah',
+                author: 'Katy Evans',
+                isbnNumber: 9783736308541,
+                price: 9.99,
+                publicationYear: 2019,
+                publisher: 'LYX',
+                pages: 297,
+                genre: 'Roman',
+                titleType: 'Trilogie',
+                bookType: 'eBook',
+            },
+            {
+                title: 'Mogul -  Wenn du mich berührst',
+                author: 'Katy Evans',
+                isbnNumber: 9783736310186,
+                price: 9.99,
+                publicationYear: 2019,
+                publisher: 'LYX',
+                pages: 281,
+                genre: 'Roman',
+                titleType: 'Trilogie',
+                bookType: 'eBook',
+            },
+            {
+                title: 'Gone Girl',
+                author: 'Gillian Flynn',
+                isbnNumber: 9783596188789,
+                price: 10.99,
+                publicationYear: 2014,
+                publisher: 'Fischer Taschenbuch Verlag',
+                pages: 592,
+                genre: 'Thriller',
+                titleType: 'Einzelband',
+                bookType: 'Taschenbuch',
+            },
+            {
+                title: 'Die Physiker',
+                author: 'Friedrich Dürrenmatt',
+                isbnNumber: 9783596188789,
+                price: 9,
+                publicationYear: 1988,
+                publisher: 'Diogenes',
+                pages: 96,
+                genre: 'Lektüre',
+                titleType: 'Einzelband',
+                bookType: 'Taschenbuch',
+            },
+            {
+                title: 'Die neuen Leiden des jungen W.',
+                author: 'Ulrich Plenzdorf',
+                isbnNumber: 9783518368008,
+                price: 6,
+                publicationYear: 1976,
+                publisher: 'Suhrkamp',
+                pages: 160,
+                genre: 'Lektüre',
+                titleType: 'Einzelband',
+                bookType: 'Taschenbuch',
+            },
+        ];
+
+        // bücher kommen vom backend aus der datenbank und werden als json übergeben
+
+        const displayResults = (filteredItems) => {
+            const resultsElement = document.getElementById('results');
+
+            resultsElement.innerHTML = '';
+
+            if (filteredItems.length === 0) {
+                resultsElement.innerHTML = '<p>Keine ergebnisse gefunden</p>';
+            } else {
+                filteredItems.forEach(result => {
+                    const divElement = document.createElement('li');
+                    divElement.textContent = result.title;
+                    resultsElement.appendChild(divElement);
+                });
+            }
+        };
+
+        // const searchItems = (searchTerm) => {
+        //     const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+        //     const filteredItems = items.filter(item => {
+        //         return item.title.toLowerCase().includes(lowerCaseSearchTerm);
+        //     });
+
+        //     displayResults(filteredItems);
+        // }
+
+        function search(key, value) {
+            let found = books.filter((book) => {
+                if (typeof books[0][key] === 'string') {
+                    return book.hasOwnProperty(key) && book[key].includes(value);
+                } else if (typeof books[0][key] === 'number') {
+                    return key !== 'price' ? book[key] === value : book[key] <= value;
+                }
+            });
+            return found;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (event) => {
+            const searchTerm = event.target.value;
+
+            const results = search("title", searchTerm);
+            displayResults(results);
+        });
+    </script>
+
+</body>
+
+</html>
