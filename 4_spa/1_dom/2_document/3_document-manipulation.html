@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .active {
+            color: tomato;
+        }
+
+        #page {
+            background: cyan;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="title">Seitentitel</h2>
+
+        <h3 id="subtitle">Untertitel <span>Test</span></h3>
+
+        <p class="lorem">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, quaerat!
+        </p>
+
+        <p class="lorem">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis tempore debitis non voluptatibus commodi a tempora adipisci inventore natus magni.
+        </p>
+
+        <ul id="list">
+           <li class = "item testClass">1. Eintrag</li>
+           <li class = "item">2. Eintrag</li>
+           <li class = "item">3. Eintrag</li>
+        </ul >
+    </div>
+
+    <script>
+        // elemente selektieren wir am besten am anfang unseres codes
+        const containerElement = document.querySelector('.container'); // Das container element
+        const titleElement = document.getElementById('title'); // die H2 mit der id "title"
+        const loremElements = document.getElementsByClassName('lorem'); // die beidem "lorem" paragraphen
+        const subTitleElement = document.querySelector('#subtitle > span'); // den subtitle
+        const allListItems = document.querySelectorAll('#list > li.item'); // die listeneinträge
+
+        /** 
+         * element.style; 
+         * @description Das style objekt bietet uns die möglichkeit den CSS-style von elementen auszugeben oder abzuändern.
+         * WICHTIG: in JavaScript schreiben wir css regeln, die wir mit bindestrich aus css kennen (zb. text-align) in camelCase (textAlign)
+         * @returns { object }
+         */
+
+        // styles werden in JS anders geschrieben:
+        // - border-radius = borderRadius
+        // - padding-top = paddingTop
+        // - text-align = textAlign
+
+        // MERKE: wenn wir css gewohnt sind, können wir die css option schrieben wie wir sie kennen, sehen wir dann einen bindestrich, wissen wir, der bindestrich kommt weg, und der nächste buchstabe wird groß geschrieben - und ändern dies dann so ab.
+
+        // jedes element besitzt ein objekt names .style;
+        console.log(titleElement.style);
+        titleElement.style.textAlign = 'center';
+        // equivalent zu: #title { text-align: center; };
+
+        titleElement.style.background = "tomato";
+        titleElement.style.padding = "1rem";
+        titleElement.style.color = "#ffffff";
+
+        // wie wir sehen, werden alle werte als string übergeben, außerdem sehen wir, das wir alle styles als inline-styles anlegen.
+
+        containerElement.style.border = "1px solid blue"; // .container { border: 1px solid blue; };
+        containerElement.style.padding = "1rem"; // .container { padding: 1rem; };
+
+        /**
+         * Element.innerText;
+         * @description Mit der property Element.innerText; können wir den text innerhalb eines HTM elementes zurückgeben oder ändern.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText
+         * @returns { string }
+         */
+        // mit dem getter können wir uns den text ausgeben lassen:
+        console.log('text des ersten lorem elements:', loremElements[0].innerText);
+
+        // mit dem setter können wir den text auch verändern:
+        loremElements[0].innerText = "Ich bin anderer text!";
+
+        // mit .innerText; können wir nur textbasierend arbeiten, und nicht html einfügen:
+        loremElements[1].innerText = '<h1>Ich bin anderer inhalt</h1>';
+
+        /**
+         * Element.innerHTML;
+         * @description Mit der property Element.innerHTML; können wir den html-inhalt eines elements zurückgeben oder verändern.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+         * @params { stgring } text
+         * @returns { object }
+         */
+        subTitleElement.innerHTML = '<i>Hallo Welt</i>';
+
+        /**
+         * Element.classList;
+         * @description mit Element.classList; können wir uns alle klassen eines elements ausgeben lassen, weitere klassen hinzufügen, oder entfernen.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+         * returns { array | DomTokenList }
+         */
+
+        // eine liste aller klassen die das element besitzt:
+        console.log(allListItems[0].classList);
+
+        // wir können mit .classList.add(); eine klasse hinzufügen:
+        allListItems[0].classList.add('active');
+        console.log(allListItems[0].classList);
+
+        // wir löschen eine klasse aus der liste des elements:
+        allListItems[0].classList.remove('item');
+        console.log(allListItems[0].classList);
+
+        /**
+         * Element.id
+         * @description mit Element.id können wir die id eines elementes ausgeben oder ändern
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/id
+         * returns { string }
+         */
+        console.log(containerElement.id); // Hat keine id, ergo bekommen wir "empty string"
+        console.log(titleElement.id);
+
+        // wenn wir der property .id; einen wert übergeben, überschreiben wir die vorherige ID des elementes, sollte das element keine id haben, bekommt es durch diese änderung eine.
+        containerElement.id = "page";
+        console.log(containerElement.id);
+    </script>
+    
+</body>
+</html>
