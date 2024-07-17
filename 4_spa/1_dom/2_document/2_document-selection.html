@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h2 id="title"><i>Seitentitel</i></h2>
+
+        <h3 id="subtitle">Untertitel <span>Test</span> <span>Test2</span></h3>
+
+        <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni alias quia quis nisi delectus reprehenderit et doloremque eum blanditiis minus neque sequi rem cum repellat deleniti repellendus, in minima aperiam.</p>
+
+        <div class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta est odit repellat at nesciunt eveniet ullam earum esse.</div>
+
+        <ul id="list">
+            <li class="item">1. Eintrag</li>
+            <li class="item">2. Eintrag</li>
+            <li class="item">3. Eintrag</li>
+        </ul>
+    </div>
+
+    <script>
+        /**
+         * document.getElementById();
+         * @description Selektiert ein element per html/css id.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+         * @param { string } selector - die id des gesuchten elementes
+         * returns { object | DOMNode }
+         */ 
+        const titleElement = document.getElementById('title');
+        console.log(titleElement);
+        // element.innerText; gibt uns eine schnittstelle zum text inhalt des jeweiligen elementes.
+        console.log(titleElement.innerText);
+        // element.innerHTML; gibt uns eine schnittstelle zum kompletten HTML inhalt des jeweiligen elementes.
+        console.log(titleElement.innerHTML);
+
+        // const subtitleElement = document.getElementById('subtitle');
+
+        // console.log(subtitleElement.innerHTML);
+        // subtitleElement.innerHTML = '<b>Käsekuchen</b>';
+        // console.log(subtitleElement.innerHTML);
+
+        const listElement = document.getElementById('list');
+        console.log(listElement);
+
+        /**
+         * document.getElementsByClassName();
+         * @description Selektiert alle elemente einer klasse
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName
+         * @param { string } className - name der klasse
+         * @returns { array (des types HTMLCollection mit DOMNodes) }
+         */
+        const loremElements = document.getElementsByClassName('lorem');
+        console.log(loremElements);
+
+        loremElements[0].innerText = 'Ich wurde verändert...';
+        loremElements[1].innerHTML = '<h1 class="test">Hallo Welt</h1>';
+
+        /**
+         * document.querySelector();
+         * @description gibt das erste element zurück, das auf die gesuchte eingabe zutrifft.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+         * @param { string } selector - der gesuchte selector kann elementtypen, klassen oder id's beinhalten
+         * @returns { object | DOMNode }
+         */
+        const subtitleElement = document.querySelector('#subtitle > span');
+        console.log(subtitleElement.innerHTML);
+
+        /**
+         * document.querySelectorAll();
+         * @description gibt eine liste mit allen elementen zurück, die auf den gesuchten selektor zutriffen.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+         * @param { string } selector - der gesuchte selector kann aus elementtypen, klassen oder id's bestehen.
+         * @returns { array | NodeList }
+         */
+        const allListItems = document.querySelectorAll('#list li.item');
+        console.log(allListItems);
+        console.log(allListItems[1].innerText);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livecoding-beispiel</title>
+</head>
+<body>
+
+    <script>
+        /**
+         * document;
+         * @description Das document; objekt gibt den inhalt des HTML dokumentes zurück.
+         */
+        console.log(document);
+
+        // Der <head> des dokumentes, als sogenannte DOM NODE (ein element baum in html)
+        console.log('head:', document.head);
+
+        // Der titel der aktuellen html datei /webseite
+        console.log('title:', document.title);
+
+        // document.title; gibt den titel der seite aus, wie er im "head" der html datei hinterlegt ist, durch den setter von document.title; können wir den titel der seite auch innerhalb unseres codes ändern:
+        document.title = 'Dies ist ein anderer Titel!';
+
+        // wenn der titel verändert wurde, können wir uns den veränderten titel auch ausgeben:
+        console.log('neuer titel:', document.title);
+
+        // auch im head ist der titel jetzt anders:
+        console.log(document.head);
+
+        // document; ist ein kind von window;, es ist allerdings auch ohne den namespace "window" ansprechbar.
+        console.log(window.document);
+    </script>
+    
+</body>
+</html>
