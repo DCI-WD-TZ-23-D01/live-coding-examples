@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #beispiel {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Hier befindet sich unser "before" element (devor) -->
+
+    <p id="beispiel">Hallo Welt</p>
+
+    <!-- Hier befindet sich unser "after" element (danach) -->
+
+    <footer>Hier ist ein Footer!</footer>
+
+    <script>
+        // in meiner code-convention: "[klasse|id|typ]Element" als benennung für DOM variablen.
+        const beispielElement = document.getElementById('beispiel');
+        const footerElement = document.querySelector('footer');
+
+        /**
+         * ChildNode.before();
+         * @description Diese methode fügt ein element über dem aktuell selektierten element ein
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/before
+         * @param { object } - das einzufügende Element.
+         */
+        const beforeElement = document.createElement('p'); // <p></p>
+        beforeElement.innerText = 'Dieses element befindet sich vor unserem beispielElement'; // <p>Dieses...</p>
+        beispielElement.before(beforeElement);
+
+        /**
+         * ChildNode.after();
+         * @description Diese methode fügt ein element unter/nach dem selektierten element ein
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after
+         * @param { object } - das einzufügende element
+         */
+        const afterElement = document.createElement('p'); // <p></p>
+        afterElement.innerText = 'Dieses element befindet sich nach unserem beispieleElement'; // <p>Dieses...</p>
+
+        // Wir sprechen .after(); an unserem selektierten element an, um das neue element direkt nach dem selektieren element einzufügen.
+        beispielElement.after(afterElement);
+
+        /**
+         * ChildNode.replaceWith();
+         * @description diese methode ersetzt das aktuell selektierte element mit einem anderen
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+         * param { object } - das einzufügende element
+         */
+        console.log(beispielElement);
+        const newElement = document.createElement('h1'); // <h1></h1>
+        newElement.id = 'beispiel'; // <h1 id="beispiel"></h1>
+        newElement.innerText = 'Dies hier ersetzt unser aktuell element'; // <h1 id="beispiel">Dies hier...</h1>
+        console.log(newElement);
+
+        // wir ersetzen das selektiere element mit unserem neuen:
+        beispielElement.replaceWith(newElement);
+
+        /**
+         * ChildNode.remove();
+         * @description Diese methode löscht das selektierte element
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove
+         */
+        footerElement.remove();
+
+        // wenn wir ein ersetztes element löschen oder verändern wollen, müssen wir es neu selektieren, da das original element, das in der variable gespeichert ist, nicht mehr existiert.
+        const neuesBeispielElement = document.getElementById('beispiel');
+
+        // wenn wir das ersetzte element selektiert haben, können wir mit ihm arbeiten, wie gewohnt:
+        neuesBeispielElement.remove();
+    </script>
+
+</body>
+</html>
