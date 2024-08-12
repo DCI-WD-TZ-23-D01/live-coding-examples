@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event Einführung</title>
+  <!-- Alternativ zu script-Tag am Ende von body. Hier im Head mit defer-Attribut -->
   <script src="events.js" defer></script>
+  <style>
+    .mousemove {
+      width: 80%;
+      height: 200px;
+      background-color: orange;
+    }
+
+    .mouseenter-leave {
+      width: 80%;
+      height: 200px;
+      background-color: green;
+    }
+
+    .verschieben-demo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: red;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
   <h1 id="site-title">Event Einführung</h1>
-  <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, tenetur earum fuga ullam a animi quod quam. Aperiam, at autem? Dolorum repellendus molestias blanditiis, accusantium magni adipisci tempore nam? Ullam?</p>
+  <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, tenetur earum fuga ullam a animi quod
+    quam. Aperiam, at autem? Dolorum repellendus molestias blanditiis, accusantium magni adipisci tempore nam? Ullam?
+  </p>
+  <button class="increment">Counter + 1</button>
+  <button class="remove-increment">Stop</button>
+  <p class="counter">0</p>
+  <h2>mousemove Demo</h2>
+  <section class="mousemove"></section>
+  <h2>mouseenter und mouseleave Demo</h2>
+  <section class="mouseenter-leave"></section>
+  <h2>Keyboard/Tastatur Event Demo</h2>
+  <ul class="keyboard-event"></ul>
+  <h2>Keyboard Demo mit Verschieben</h2>
+  <h3>Im folgenden Input auf die Pfeiltaste Rechts oder Links klicken</h3>
+  <input type="text" name="Keyboard" id="keyboard">
+  <section class="verschieben-demo"></section>
   <!-- <script src="events.js"></script> -->
 </body>
+
 </html>
