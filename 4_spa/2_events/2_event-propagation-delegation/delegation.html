@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    ul {
+      border: 2px solid gray;
+      border-radius: 5px;
+      list-style: none;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      margin: 10px auto;
+      background-color: white;
+      gap: 10px;
+    }
+
+    li {
+      border: 2px solid gray;
+      width: 80%;
+      background-color: white;
+      padding: 4px;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Event Delegation Demo mit Memo List</h1>
+  <h2>Event Delegation ist die Technik, die auf die Mechanik Event Propagation basiert.</h2>
+  <h2>Unten habe ich mehrere li in einem ul. Ich möchte programmieren, dass das jeweilige li gelöscht wird, wenn man auf es klickt. Statt allen einzelnen li Event Listener zu geben, gebe ich nur dem ul EINEN Event Listener. Mit <code>event.target</code> kann ich auf das jeweilige Element zugreifen, worauf ich unmittelbar geklickt habe</h2>
+
+  <ul>
+    <li>Mittagsessen kochen</li>
+    <li>Einkaufen</li>
+    <li>Spülen</li>
+  </ul>
+
+  <script src="delegation.js"></script>
+</body>
+
+</html>

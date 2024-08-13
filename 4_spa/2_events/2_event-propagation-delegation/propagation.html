@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Propagation</title>
+  <style>
+    div {
+      padding: 20px;
+      border: 2px solid gray;
+      text-align: center;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Event Propagation</h1>
+  <h2>Mit Event Propagation wird die Mechanik bezeichnet, wie das Event vom Element, wo es unmittelbar stattgefunden hat, zu seinem Elternelement usw. weitergegeben wird. Wie eine Luftblase von unten nach oben "Bubbling"</h2>
+  <h2>Es geht auch in die andere Richtung, das bezeichnet man als "Capturing". Das wird in der Praxis nur selten benutzt</h2>
+  <h2>Die meisten Events bubblen (es gibt manche, die es nicht tun, z.B. submit)</h2>
+  <div id="d1">
+    1
+    <div id="d2">
+      2
+      <div id="d3">
+        3
+        <div id="d4">4</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="propagation.js"></script>
+</body>
+</html>

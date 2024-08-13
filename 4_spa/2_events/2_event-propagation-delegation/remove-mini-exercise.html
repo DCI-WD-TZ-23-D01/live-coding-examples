@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Miniaufgabe zu Event Delegation und remove</h1>
+  <h2>Wenn man auf einen p in section klickt, soll der p entfernt werden.</h2>
+  <h2>Ihr sollt mit Event Delegation arbeiten, d.h. ihr sollt nur einen einzigen Event Listener an section hinzufügen</h2>
+
+  <section>
+    <h3>Web Development</h3>
+    <p>Introduction to HTML: HTML stands for HyperText Markup Language. It is the standard language for creating web pages.</p>
+    <p>Understanding CSS: CSS stands for Cascading Style Sheets. It describes how HTML elements are to be displayed on screen.</p>
+    <p>Getting Started with JavaScript: JavaScript is a programming language that allows you to implement complex features on web pages.</p>
+    <p>Web Development Tools: There are various tools available for web development such as text editors, version control systems, and more.</p>
+  </section>
+
+  <script>
+    const section = document.querySelector('section');
+    section.addEventListener('click', event => {
+      if (event.target.matches('p')) {
+        event.target.remove();
+      }
+    })
+  </script>
+</body>
+</html>
