@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="eventListenerVarianten.js" defer></script>
+  <title>Document</title>
+</head>
+<body>
+  <h1>Verschiedene Möglichkeiten, Event-Listener hinzuzufügen</h1>
+
+  <h2>Möglichkeit 1: Direkt in HTML als Attribut. Ihr sollt diese Variante NIE benutzen!</h2>
+  <p onclick="this.style.color='red'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ipsa consequatur ratione iure accusantium quidem sed dolores, animi quisquam. Eius aspernatur ex voluptatibus accusamus labore, ipsam illo modi dicta ullam.</p>
+
+  <h2>Möglichkeit 2: Als DOM-Elementeigenschaft hinzufügen. Diese Variante ist ok, aber ihr sollt sie trotzdem nicht benutzen, weil die dritte Variante besser ist</h2>
+  <p id="dom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, quo? Nobis fugiat, sit excepturi a expedita quia temporibus, vel rem quae pariatur libero neque, voluptas animi ipsum aperiam quo? Unde!</p>
+
+  <h2>Möglichkeit 3: Mit <code>element.addEventListener</code>. Das hat mehrere Vorteile:</h2>
+  <ul>
+    <li id="mehrere-listeners">Man kann einem Element zum selben Event mehrere Listeners hinzufügen. Das werdet ihr bei euren Übungen und kleineren Projekten eher nicht machen. Aber bei größeren Projekten kann es praktisch sein</li>
+    <li id="einmal">element.addEventListener kann ein optionales drittes Argument nehmen, mit dem man 3 Sachen einstellen kann. Eine davon ist <code>{ once: true }</code>. Damit wird der Event Listener nur einmal aufgerufen und danach entfernt (man müsste dann nicht selber mit removeEventListener arbeiten)</li>
+    <li>Man kann mit benutzerdefinierten Events arbeiten (eine fortgeschrittene Programmiertechnik, kein Teil des Lehrplans)</li>
+  </ul>
+</body>
+</html>
