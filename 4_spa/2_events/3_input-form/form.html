@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="form.js" defer></script>
+  <title>Document</title>
+  <style>
+    form>div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 60%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Form Event Demo</h1>
+  <form action="">
+    <div>
+      <label for="name">Benutzername: </label>
+      <input type="text" name="benutzername" id="benutzername">
+    </div>
+    <div>
+      <label for="password">Passwort: </label>
+      <input type="password" name="password" id="password">
+    </div>
+    <button>Absenden!</button>
+  </form>
+  <p id="abgeschickt"></p>
+</body>
+
+</html>
