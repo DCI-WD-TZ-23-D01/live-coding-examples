@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="listeUndSo"></ul>
+
+    <script>
+        // wir haben eine object array mit büchern
+        const books = [
+            {
+                title: "Käse",
+                description: "ich hab inhalt",
+            },
+            {
+                title: "dings",
+                description: "ich hab anderen inhalt",
+            },
+            {
+                title: "wuhuuu",
+                description: "abcdggjrgf",
+            }
+        ];
+
+        // wir selektieren die liste
+        const listElement = document.getElementById('listeUndSo');
+
+        // wir gehen durch jeden bucheintrag durch
+        books.forEach(book => {
+
+            // wir erstellen für jeden eintrag eine LI
+            const newListEntry = document.createElement('li');
+
+            // wir erstellen die kind elemente für die LI
+            const newHeaderElement = document.createElement('h2');
+            const newPElement = document.createElement('p');
+
+            // wir bearbeiten die jeweiligen elemente und fügen unsere gewünschten einstellungen hinzu:
+            newHeaderElement.innerText = book.title;
+            newPElement.innerText = book.description;
+
+            // wir fügen die klassen hinzu:
+            newHeaderElement.classList.add('book-title');
+            newPElement.classList.add('book-description');
+
+            // wir fügen die elemente an das neue listenelement an:
+            newListEntry.append(newHeaderElement);
+            newListEntry.append(newPElement);
+
+            // wir fügen das fertige listenelement an unsere bestehende liste an:
+            listElement.append(newListEntry);
+        });
+
+    </script>
+
+</body>
+
+</html>
