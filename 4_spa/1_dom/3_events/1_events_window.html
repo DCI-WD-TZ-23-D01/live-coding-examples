@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Events</h1>
+
+    <p>
+        Es gibt zwei wege für den eventListener: .addEventListener(); und den parameter .on...;
+    </p>
+
+    <script>
+        // Weg 1:
+        // element.addEventListener('click', function(event));
+
+        // Weg 2:
+        // element.onclick = function(event);
+
+        // Weg 2 als arrow function:
+        // element.onclick = (event) => {};
+    </script>
+
+    <h2>Window</h2>
+
+    <section>
+        <h3>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event">
+                Window.onload;
+            </a>
+        </h3>
+
+        <p>
+            Dieses event führt einen callback aus, wenn das browserfenster fertig geladen hat. Also wenn alle resourcen der angezeigten html datei heruntergeladen wurden.
+        </p>
+
+        <ul>
+            <li><code>window.addEventListener('load', (event) => {});</code></li>
+            <li><code>window.onload = (event) => {}</code></li>
+        </ul>
+
+        <script>
+            window.onload = (event) => {
+                console.log('.onload; - diese seite wurde fertig geladen', event);
+            }
+        </script>
+    </section>
+
+    <b>weitere .on... events:</b>
+
+    <ul>
+        <li><code>element.onclick = (event) => {}</code></li>
+        <li><code>element.onmouseover = (event) => {}</code></li>
+        <li><code>element.onmouseout = (event) => {}</code></li>
+        <li><code>element.onmousedown = (event) => {}</code></li>
+        <li><code>element.onmouseup = (event) => {}</code></li>
+        <li><code>element.onmousemove = (event) => {}</code></li>
+        <li><code>element.onkeydown = (event) => {}</code></li>
+        <li><code>element.onkeyup = (event) => {}</code></li>
+        <li><code>element.onfocus = (event) => {}</code></li>
+        <li><code>element.onsubmit = (event) => {}</code></li>
+        <li><code>element.onblur = (event) => {}</code></li>
+        <li><code>element.onchange = (event) => {}</code></li>
+        <li><code>element.oninput = (event) => {}</code></li>
+        <li><code>window.onload = (event) => {}</code></li>
+        <li><code>window.unload = (event) => {}</code></li>
+        <li><code>window.resize = (event) => {}</code></li>
+    </ul>
+
+    <p>
+        um die kurzen event befehle zu nutzen, müssen wir uns eigentlich nur merken, das wir dem event des .addEventListeners(); ein on voransetzen, also zum beispiel wird aus .addEventListener('click', () => {}) - .onclick = () => {};
+    </p>
+
+    <p>
+        In react nutzen wir überwiegend diese kurzform, dort wird allerdings nach dem on der erste buchstabe groß geschrieben, aus onchange, wird also zum beispiel onChange.
+    </p>
+
+</body>
+</html>
