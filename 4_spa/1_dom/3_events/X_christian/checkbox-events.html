@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Events, Teil x+2</title>
+  </head>
+  <body>
+    <h1>Radiobuttons und Checkboxen</h1>
+
+    <form action="">
+      <h2>Ich mag diese Tiere</h2>
+      <input type="checkbox" name="hund" id="hund" />
+      <label for="hund">Hund</label>
+      <input type="checkbox" name="katze" id="katze" />
+      <label for="katze">Katze</label>
+      <input type="checkbox" name="maus" id="maus" />
+      <label for="maus">Maus</label>
+      <input type="checkbox" name="pony" id="pony" />
+      <label for="pony">Pony</label>
+    </form>
+
+    <script>
+      const hundElement = document.querySelector('#hund');
+      hundElement.onchange = () => {
+        console.log('Hund:', hundElement.checked);
+        console.log('Katze:', katzeElement.checked);
+      };
+
+      const katzeElement = document.querySelector('#katze');
+      katzeElement.onchange = () => {
+        console.log('Hund:', hundElement.checked);
+        console.log('Katze:', katzeElement.checked);
+      };
+    </script>
+  </body>
+</html>

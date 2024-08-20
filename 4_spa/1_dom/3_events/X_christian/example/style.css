@@ -1,0 +1,93 @@
+@import url(https://fonts.bunny.net/css?family=arvo:400,400i,700);
+
+:root {
+  font-size: 18px;
+}
+* {
+  box-sizing: border-box;
+  font-family: 'Arvo', serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #a7c161;
+  display: flex;
+  justify-content: center;
+}
+form {
+  width: 720px;
+  padding: 1rem;
+  /* display: flex;
+  flex-direction: column; */
+}
+fieldset {
+  padding: 0;
+  border: 0;
+  margin-bottom: 1rem;
+}
+label {
+  font-weight: bold;
+}
+label[for='titel'],
+label[for='rezept'] {
+  width: 6ch;
+  display: inline-block;
+}
+#titel {
+  width: 100%;
+  margin-left: 0;
+}
+input[type='radio'] + label,
+input[type='checkbox'] + label {
+  font-weight: normal;
+}
+button {
+  font-size: 1rem;
+}
+input,
+textarea {
+  font-size: 1rem;
+  padding: 0.25rem;
+  background-color: #ffffffcc;
+  border: 0;
+  margin-left: 0.67rem;
+}
+textarea {
+  height: 6rem;
+  width: 100%;
+  margin-left: 0;
+}
+main {
+  border-top: 4px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.card {
+  flex-basis: 30%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  background-color: hsl(218, 63%, 90%);
+}
+
+.card h2 {
+  margin: 0;
+}
+
+.card span {
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #cc1b00;
+  color: white;
+  font-weight: bold;
+}
+span.vegan {
+  background-color: hsl(128, 100%, 33%);
+}

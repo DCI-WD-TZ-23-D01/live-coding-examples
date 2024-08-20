@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Events, Teil x+2</title>
+  </head>
+  <body>
+    <h1>Radiobuttons und Checkboxen</h1>
+
+    <form action="">
+      <input
+        type="radio"
+        name="darkmode"
+        id="darkmode-an"
+        value="darkmode an"
+      />
+      <label for="darkmode-an">an</label>
+      <input
+        type="radio"
+        name="darkmode"
+        id="darkmode-aus"
+        value="darkmode aus"
+      />
+      <label for="darkmode-aus">aus</label>
+    </form>
+
+    <script>
+      const radioDarkAnElement = document.querySelector('#darkmode-an');
+      radioDarkAnElement.onchange = (e) => {
+        console.log('Darkmode An!');
+        console.log(radioDarkAnElement.checked);
+        console.log(radioDarkAusElement.checked);
+        document.body.style.backgroundColor = 'black';
+        document.body.style.color = 'white';
+      };
+
+      const radioDarkAusElement = document.querySelector('#darkmode-aus');
+      radioDarkAusElement.onchange = (e) => {
+        console.log('Darkmode Aus!');
+        console.log(radioDarkAnElement.checked);
+        console.log(radioDarkAusElement.checked);
+        document.body.style.backgroundColor = 'white';
+        document.body.style.color = 'black';
+      };
+    </script>
+  </body>
+</html>
