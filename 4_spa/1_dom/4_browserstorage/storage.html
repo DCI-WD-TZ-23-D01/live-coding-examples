@@ -83,13 +83,45 @@
         // localStorage
         //                      Schlüsselname
         localStorage.removeItem('testZahl');
-        localStorage.removeItem('testBool');
+        // localStorage.removeItem('testBool');
 
         // sessionStorage
         sessionStorage.removeItem('geheimerToken');
 
-        
+        /**
+         * @property Storage.length
+         * @description gibt die anzahl an inhalten zurück, die auf der aktuellen seite im Storage objekt gespeichert sind
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage/length
+         * returns { number }
+         */
+        console.log('Storage.length:')
+        console.log('localStorage:', localStorage.length); // Die menge an einträgen in der localStorage
+        console.log('sessionStorage:', sessionStorage.length); // Die menge an einträgen in der sessionStorage
 
+        /**
+         * @method Storage.key();
+         * @description gibt uns den namen des schlüssels an position N zurück
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage/key
+         * returns { string }
+         */
+        console.log(localStorage.key(2));
+
+        // wir holen uns beispielsweise alle keys mit einem for loop:
+        for (let i = 0; i < localStorage.length; i++) {
+            console.log(`Key an der position [${i}]:`, localStorage.key(i));
+        }
+
+        /** 
+         * @method Storage.clear();
+         * @description löscht alle einträge des jeweiligen Storage objektes (localStorage oder sessionStorage) und leert damit sozusagen die lokale browserdatenbank. 
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear
+         */
+
+        // localStorage:
+        localStorage.clear();
+
+        // sessionStorage:
+        sessionStorage.clear();
     </script>
 
 </body>

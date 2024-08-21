@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="darkModeButton">DarkMode</button>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis unde nam eligendi officia nemo eveniet odit
+        ipsa quaerat voluptas. Voluptas adipisci praesentium dicta corporis suscipit vitae tempore quos dolore nulla!
+    </p>
+
+    <script>
+        // wir holen uns den darkmode button
+        const darkModeButtonElement = document.getElementById('darkModeButton');
+
+        const setDarkMode = (state) => {
+            document.body.style.background = state ? '#000000' : '#FFFFFF';
+            document.body.style.color = state ? '#FFFFFF' : '#000000';
+
+            localStorage.setItem('darkMode', state);
+        }
+
+        darkModeButtonElement.onclick = (e) => {
+            const currentDarkModeSetting = JSON.parse(localStorage.getItem('darkMode'));
+
+            setDarkMode(!currentDarkModeSetting);
+        }
+
+        const storedDarkModeSetting = JSON.parse(localStorage.getItem('darkMode'));
+        
+        if(storedDarkModeSetting === null) {
+            setDarkMode(false);
+        } else {
+            setDarkMode(storedDarkModeSetting);
+        }
+
+    </script>
+
+</body>
+
+</html>
