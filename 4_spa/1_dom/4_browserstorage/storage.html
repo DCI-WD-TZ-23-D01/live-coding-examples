@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Browser-Storage</h1>
+
+    <p>
+        Zum speichern von daten der aktuellen webseite im browser können wir die localStorage und die sessionStorage
+        verwenden. Der unterschied zwischen diesen beiden arten der lokalen datenspeicherung ist, das die localstorage
+        nicht abläuft, das bedeutet, die daten werden beibehalten, bei jedem browserstrart, und jedem aufrufen einer
+        webseite innerhalb des gespeicherten hosts. Bei der sessionStorage wiederrum, werden die daten jedesmal
+        gelöscht, wenn der browser oder das browserfenster geschlossen werden. In beiden fällen können wir in purem text
+        bis zu 5 MB speichern.
+    </p>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage">
+        Link zum MDN artikel über das Storage objekt
+    </a>
+
+    <script>
+        /**
+         * @method Storage.setItem();
+         * @description Fügt der gewählten storage einen eintrag hinzu, basierend auf KEY/VALUE paaren als datentyp string.
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem
+         */
+
+        // localStorage und sessionStorage sind in der dom global verfügbar, wir müssen also nichts importieren.
+
+        // ERSTELLEN VON EINTRÄGEN
+
+        // localStorage:
+        //SCHLÜSSEL,  WERT
+        localStorage.setItem('darkMode', 'true'); // strings können wir einfach in die storage übertragen
+        localStorage.setItem('testZahl', 23); // zahlen und booleans werden automatisch umgewandelt in einen string
+        localStorage.setItem('testBool', false);
+
+        // wenn wir ein objekt in der storage speichern wollen, dann müssen wir es vorher mit JSON.stringify(); in einen string umwandeln, da sonst der inhalt von der Storage nicht gelesen werden kann.
+        localStorage.setItem('testObject', JSON.stringify({ firstName: 'Max', lastName: 'Mustermann' }));
+
+        // sessionStorage
+        sessionStorage.setItem('geheimerToken', 'abcdefghi');
+        sessionStorage.setItem('testObject', JSON.stringify({ firstName: 'Max', lastName: 'Mustermann' }));
+
+        // LESEN VON EINTRÄGEN
+
+        /**
+         * @method Storage.getItem();
+         * @description gibt uns den wert eines schlüssels in der Storage zurück
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem
+         * returns { string }
+         */
+        // localStorage
+        //                               Schlüsselname
+        console.log(localStorage.getItem('darkMode'));
+
+        const user = JSON.parse(localStorage.getItem('testObject')); // um ein objekt aus der Storage für unseren code lesbar zu laden, müssen wir es vorher wieder mit JSON.parse(); in ein JavaScript objekt umwandeln.
+        console.log(user);
+
+        // sessionStorage
+        console.log(sessionStorage.getItem('geheimerToken'));
+
+        // ÄNDERN VON EINTRÄGEN
+
+        // um einen eintrag zu verändern, überschreiben wir einfach den wert, des schlüssels den wir vorher ausgewählt haben
+        localStorage.setItem('darkMode', 'false');
+        localStorage.setItem('testZahl', 28493854535);
+
+        // LÖSCHEN VON EINTRÄGEN
+
+        /**
+         * @method Storage.removeItem();
+         * @description löscht einen eintrag in der Storage, anhand des Schlüsselnamens
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage/removeItem
+         */
+
+        // localStorage
+        //                      Schlüsselname
+        localStorage.removeItem('testZahl');
+        localStorage.removeItem('testBool');
+
+        // sessionStorage
+        sessionStorage.removeItem('geheimerToken');
+
+        
+
+    </script>
+
+</body>
+
+</html>
