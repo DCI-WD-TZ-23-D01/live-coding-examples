@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Async</h1>
+
+    <h2>JSON</h2>
+
+    <h3>Externes JSON laden</h3>
+
+    <p>
+        Ein besseres prinzip, wenn wir daten von außerhalb unserer applikation laden, zum beispiel vom dateisystem, oder von einer API, ist es, das wir die daten asynchron laden, das bedeutet, das wir darauf warten, das die daten geladen werden, und sie erst dann ausgewertet werden. Wenn wir dies nicht tun, würde der code weiterlaufen, aber auch versuchen unsere daten auszuwerten, obwohl sie noch garnicht übertragen wurden.
+    </p>
+
+    <!-- wir erstellen eine liste für die userdaten, und blenden sie default aus, damit sie nicht leer angezeigt wird, bevor die daten geladen werden. -->
+    <ul id="userinfo" style="display: none;">
+        <li>name: <span id="username"></span></li>
+        <li>alter: <span id="userage"></span></li>
+        <li>city <span id="usercity"></span></li>
+    </ul>
+
+    <!-- wir erstellen einen loadingIndicator, um darzustellen, das die daten geladen werden, während der user wartet, damit er weiss, das etwas passiert. -->
+    <div id="loadingIndicator">Lade Daten...</div>
+
+    <!-- wir erstellen eine sektion um fehlermeldungen anzuzeigen. -->
+    <p id="error" style="color: tomato;"></p>
+
+    <script>
+        // wir holen uns die elemente
+        const usernameElement = document.getElementById('username');
+        const userageElement = document.getElementById('userage');
+        const usercityElement = document.getElementById('usercity');
+        const errorElement = document.getElementById('error');
+        const userinfoElement = document.getElementById('userinfo');
+        const loadingIndicatorElement = document.getElementById('loadingIndicator');
+
+        // um unsere JSON datei zu laden, nutzen wir in unserem einfachen beispiel FETCH, in produktion würden wir Axios mit async/await nutzen, allerdings werden wir uns damit später noch beschäftigen.
+
+        // fetch wird wie folgt benutzt, wir schreiben fetch, gefolgt von klammern, in diesen klammern geben wir an, wo sich unser ziel, das wir laden wollen, befindet.
+        fetch('./beispiel.json')
+
+        // dann geben wir mit .then() an, das wir etwas mit der geladenen datei machen wollen, was wir bei fetch, im ersten schritt machen, ist, die heruntergeladene datei in json umzuwandeln. In unser then schreiben wir ein callback mit der antwort (response).
+        .then(response => {
+
+            // zum überprüfen, geben wir die antwort einmal in der konsole aus
+            console.log(response);
+
+            // anhand der antwort können wir ausgeben, ob der fetch geklappt hat.
+            if(response.ok) {
+                console.log("ES HAT FUNKTIONIERT!");
+            } else {
+                console.log("ES HAT NICHT FUNKTIONIERT :(");
+            }
+
+            // wir wandeln unsere daten aus der antwort mit .json(); in ein objekt um und RETURNEN sie.
+            return response.json();
+        })
+
+        // nachdem wir die daten bekommen und umgewandelt haben, können wir jetzt mit ihnen arbeiten, da sich die antwort jetzt als objekt nutzen lässt. meist nennen wir dieses objekt "data"
+        .then(data => {
+
+            // unsere daten existieren bei .then() mit fetch NUR innerhalb dieses codeblocks, wir müssen also alles was wir tun wollen, hier erledigen.
+            console.log(data);
+            
+            // wir füllen die daten, aus der json datei in unsere html ein, und nutzen dafür den .innerText, der elemente, die wir dafür vorgesehen haben.
+            usernameElement.innerText = data.name;
+            userageElement.innerText = data.age;
+            usercityElement.innerText = data.city;
+
+            // wir blenden das userInfoElement ein, und den loadingIndicator aus, da wir die daten bekommen haben, und dem user jetzt anzeigen können.
+            userinfoElement.style.display = "block";
+            loadingIndicatorElement.style.display = "none";
+        })
+
+        // um fehler abzufangen, gibt es anstelle von .then(), am ende von unserem method chain, die methode .catch(); Diese wird nur dann aufgerufen, wenn ein fehler beim laden passiert, und gibt uns die möglichkeit, diesen fehler zu behandeln, OHNE das die applikation dabei abstürzt.
+        .catch(error => {
+            // wir geben UNS den fehler in der konsole aus, den user interessiert der originalfehler nicht...
+            console.log(error);
+            // console.log();
+
+            // ...wir blenden stattdessen eine lesbare fehlermeldung für den user ein, mit der er etwas anfangen kann.
+            loadingIndicatorElement.style.display = "none";
+            errorElement.innerText = "Das Laden der Datei hat nicht funktioniert!";
+        });
+
+        // wir haben an dieser stelle unser method chaining in mehrere zeilen geschrieben, damit wir es besser kommentieren können, theoretisch steht hier folgender code (zusammengefasst)
+        // fetch([ziel]).then(response => response.json()).then(data => [hier wird verarbeitet]).catch(error => console.error(error));
+    </script>
+    
+</body>
+</html>
