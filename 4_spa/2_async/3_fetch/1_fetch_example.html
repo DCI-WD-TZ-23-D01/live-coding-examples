@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Async</h1>
+
+    <h2>Fetch</h2>
+
+    <h3>Api</h3>
+    
+    <ul id="posts" style="display: none;"></ul>
+    
+    <div id="loading">Loading...</div>
+
+    <script>
+        const postsElement = document.getElementById('posts');
+        const loadingElement = document.getElementById('loading');
+
+        // wir geben die url, der wir die anfrage schicken in eine variable ein. Dies ist nicht unbedingt nötig, da wir die adresse auch direkt ins fetch schreiben können aber es sieht ordentlicher aus.
+        const url = "https://jsonplaceholder.typicode.com/posts";
+
+        // mit fetch können wir anfragen an API's senden:
+        fetch(url).then(response => {
+            // wir wandeln die eingetroffene antwort mit json um, und geben sie weiter:
+            return response.json();
+
+            // Achtung:
+            // obwohl die methode .json(); darauf schließen lässt, das sie etwas in JSON umwandelt, ist diese methode dazu da, aus JSON Daten ein javascript objekt zu erstellen.
+        }).then(data => {
+            console.log(data);
+
+            // da wir mehrere einträge haben, und eine liste füllen wollen, loopen wir die einträge in die liste: (IN REACT hätten wir hier MAP nutzen müssen)
+            data.forEach(post => {
+                // wir erstellen eine LI, eine H3 und ein P element.
+                const newListItem = document.createElement('LI');
+                const newTitleElement = document.createElement('H3');
+                const newBodyElement = document.createElement('P');
+
+                // wir befüllen die elemente mit daten:
+                newTitleElement.innerText = post.title;
+                newBodyElement.innerText = post.body;
+
+                // jetzt fügen wir sie zusammen und dann der liste hinzu:
+                newListItem.append(newTitleElement, newBodyElement);
+                postsElement.append(newListItem);
+            });
+
+            // erst am ende, blenden wir den loading-indicator aus:
+            postsElement.style.display = "block";
+            loadingElement.style.display = "none";
+        }).catch(err => console.log(err));
+    </script>
+
+</body>
+
+</html>
