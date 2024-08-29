@@ -43,6 +43,8 @@
         // wir geben unsere url für die api an.
         const url = "https://httpbin.org/post";
 
+        // HTTPBIN ist ein entwicklertool mit dem man online api anbindungen testen/faken kann.
+
         // wir erstellen ein objekt mit den daten, die wir gerne per post methode an den server senden wollen.
         const data = {
             firstName: "Max",
@@ -64,9 +66,9 @@
                 body: JSON.stringify(data) // wir nehmen unser datenobjekt, und senden es umgewandelt als string, mit dem body an den server.
             }
         ).then(response => {
-            return response.json();
+            return response.json(); // das umwandeln des READABLESTREAMS aus der api antwort
         }).then(data => {
-            console.log(data);
+            console.log(data.json); // die ausgabe der daten aus der umgewandelten api antwort
         })
     </script>
 

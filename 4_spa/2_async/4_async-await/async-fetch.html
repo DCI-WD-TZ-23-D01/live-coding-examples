@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Async</h1>
+
+    <h2>async/await vs promises</h2>
+
+    <script>
+        const url = "https://jsonplaceholder.typicode.com/todos/1";
+
+        // wir schreiben den fetch befehl, und fügen die url hinzu, dann fügen wir mehrere .then(); methoden ein, und eine catch(); methode.
+        fetch(url)
+            .then(response => {
+                // es macht am anfang immer sinn, sich die antwort per console.log(); ausgeben zu lassen:
+                console.log("antwort: promise", response);
+
+                // hier müssen wir die übergebenen daten umwandeln:
+                return response.json();
+            })
+            .then(data => {
+                // hier können wir auf unsere daten zugreifen
+                console.log("daten: promise", data);
+            })
+            .catch(err => {
+                // hier können wir einen fehler ausgeben
+                console.log("fehler: promise", err);
+            });
+
+        // fetch(); ist auch mit async/await nutzbar:
+        const fetchRequest = async () => {
+            try {
+                //  wir holen uns die daten
+                const data = await fetch(url);
+
+                // wir geben die antwort aus:
+                console.log("antwort async/await:", data);
+
+                // wir wandeln die daten um
+                const jsonData = await data.json();
+
+                // wir geben die daten aus
+                console.log("daten: async/await", jsonData);
+            } catch (error) {
+                console.log("fehler: async/await", error)
+            }
+        }
+
+        fetchRequest();
+    </script>
+
+</body>
+
+</html>

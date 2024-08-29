@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Async</h1>
+
+    <h2>async/await</h2>
+
+    <p>
+        async/await ist eine neuere methode asynchronen code zu schreiben, der in ES6 javascript hinzugefügt wurde. Zwar
+        ist async/await eigentlich nur ein wrapper um callbacks und promises herum, aber es macht den code einfacher zu
+        schreiben, und verhält sich konfortabler. Da wir hier keine tausend callbacks, .then();'s oder andere dinge
+        brauchen.
+    </p>
+
+    <script>
+        // LOGIK:
+
+        /*
+                Promise/then
+        Scope:  nur der sogenannte promise chain ist asynchron
+        Logik:  mehrere promises nutzen Promise.all();
+        Error:  .catch();
+
+                async/await
+        Scope:  die komplette funktion ist asynchron
+        Logik:  mehrere promises können mit einfachen variablen erstellt werden
+        Error:  try {} catch(err) {}
+        */
+    </script>
+
+    <script>
+        // Ein beispiel
+
+        // userdaten
+        const users = [
+            {
+                firstName: "Max",
+                lastName: "Mustermann",
+                age: 25
+            },
+            {
+                firstName: "James",
+                lastName: "Bond",
+                age: 43
+            }
+        ];
+
+        const getUsers = async () => {
+
+            // console.time(); gibt uns die möglichkeit eine zeit in der konsole zu messen, die zeit wird zwischen dem aufruf von console.time(); und dem aufruf von console.timeEnd(); gemessen.
+            console.time("getUsers")
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.timeEnd("getUsers");
+                    resolve(users);
+                }, 1000);
+            })
+        }
+
+        const addUser = (user) => {
+            console.time("addUser");
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    users.push(user)
+
+                    console.timeEnd("addUser");
+                    resolve();
+                }, 2000);
+            })
+        }
+
+        // wenn wir eine asynchrone funktion schreiben wollen, benötigen wir das keyword "async"
+        // bei einer arrow function schreiben wir async vor die parameterübergabe:
+        // const beispielFunktion = async () => {}
+        //
+        // bei einer standardfunktion schreiben wir async vor die deklaration:
+        // async function beispielFunction () {}
+
+        const runUserDB = async () => {
+
+            // eine asynchrone function hat keine eigene catch logik, weswegen wir einen try/catch block benötigen, in den wir unsere datenabfrage schreiben
+
+            // im try block wird VERSUCHT unsere asynchrone funktion auszuführen
+            try {
+                // wenn wir eine asynchrone funktion haben, und daten abrufen wollen, nutzen wir das schlüsselwort "await", um mitzuteilen, das wir auf die daten warten.
+                await addUser({
+                    firstName: "Michael",
+                    lastName: "Knight",
+                    age: 35
+                });
+
+                const allUsers = await getUsers();
+                console.log("alle user", allUsers);
+
+                // im catch block geben wir an, was passieren soll, wenn ein fehler auftritt:
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        runUserDB();
+
+        /**
+         * Aus Promise.resolve("Hello World");
+         * 
+         * wird
+         * 
+         * async function greet() {
+         *  return "Hello World";
+         * }
+         * 
+         * aus einer größeren abfrage wird:
+         * 
+         * async function user () {
+         *  return user;
+         * }
+         * 
+         * async function greetUser () {
+         *  try {
+         *   const userName = await user();
+         * 
+         *   console.log("Hallo " + userName);
+         *  } catch(error) {
+         *   console.log(error);
+         *  }
+         * }
+         */
+    </script>
+
+</body>
+
+</html>
