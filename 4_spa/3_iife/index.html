@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>IIFE (Immediatly Invoked Function Expressions)</h1>
+
+    <h2>Was ist eine IIFE?</h2>
+
+    <p>
+        Eine <strong>Immediatly Invoked Function Expression (IIFE)</strong> ist eine JavaScript-Funktion, die sofort
+        nach ihrer definition ausgeführt wird.
+    </p>
+
+    <p>
+        Das besondere an einer IIFE ist, dass sie nicht erst aufgerufen werden muss, sondern direkt nach ihrer
+        definition ausgeführt wird.
+    </p>
+
+    <h2>IIFE Syntax</h2>
+
+    <p>
+        Eine IIFE wird definiert, indem wir eine anonyme funktion (eine funktion ohne namen) in klammern einschließen
+        und diese direkt danach ausführen.
+    </p>
+
+    <b>Beispielcode</b>
+
+    <script>
+        (function () {
+            // code innerhalb der IIFE
+            console.log("Wird sofort ausgeführt");
+        })();
+
+        // arrow function:
+        (() => {
+            console.log("Wird sofort ausgeführt");
+        })();
+
+        // (() => { ... })();
+    </script>
+
+    <p>
+        In unserem beispiel haben wir eine anonyme funktion innerhalb von Klammern, Direkt nach der schließklammer folgt
+        ein weiteres paar klammern, das die funktion sofort ausführt, Das ergebnis ist, dass der code innerhalb der
+        funktion sofort ausgeführt wird, sobald er definiert ist.
+    </p>
+
+    <h2>Warum IIFE verwenden?</h2>
+
+    <p>
+        IIFE's sind besonders nützlich, wenn wir sicherstellen wollen. dass variablen und funktionen nicht in den
+        globalen namensraum gelangen. Das bedeutet, dass die variablen und funktionen, die innerhalb einer IIFE
+        definiert sind, nur innerhalb dieser existieren und nicht außerhalb davon zugänglich sind.
+    </p>
+
+    <p>
+        Das hilft, sogenannte "verschmutzung des globalen namensraums" zu vermeiden, bei der variablen ungewollt global
+        verfügbar sind, und möglicherweise andere teile der anwendung beinflussen.
+    </p>
+
+    <b>Beispielcode</b>
+
+    <script>
+        (function () {
+            // wir erstellen eine variable innerhalb der IIFE:
+            var iifeVariable = "Ich bin nur innerhalb der IIFE sichtbar";
+            console.log(iifeVariable);
+        })();
+
+        // versuchen wir, die variable außerhalb aufzurufen
+        console.log(iifeVariable);
+    </script>
+
+    <p>
+        In diesem beispiel haben wir eine variable innerhalb der IIFE definiert. Innerhalb der IIFE können wir auch auf
+        diese zugreifen und sie verwenden, aber außerhalb der IIFE ist dies nicht möglich.
+        Der versuch, außerhalb der IIFE auf diese variable zuzugreifen, ergibt "undefined", da die variable für den
+        code, dort nicht existiert, dabei ist egal, ob es ein LET, CONST oder VAR ist.
+    </p>
+
+    <h2>Parameter in IIFE's</h2>
+
+    <p>
+        Wie bei normalen funktionen können wir auch einer IIFE parameter übergeben. Dies ermöglicht uns, der IIFE
+        externe werte zuzuführen.
+    </p>
+
+    <b>Beispielcode</b>
+
+    <script>
+        (function (message) {
+            console.log(message);
+        })("Ich bin eine Nachricht");
+
+        /*
+            aus:
+            const testFunktion = (wert) => {};
+            testFunktion("Testwert");
+
+            wird:
+            ((wert) => {})("Testwert");
+        */
+    </script>
+
+    <p>
+        Wir übergeben die parameter in die klammer am ende der IIFE, da dies die selbe klammer ist, wie bei funktionen,
+        wenn wir sie aufrufen und dort ja auch die parameter übergeben.
+    </p>
+
+    <h2>Rückgabewerte aus einer IIFE</h2>
+
+    <p>
+        IIFEs können auch werte zurückgeben, genau wie normale funktionen. Diese rückgabewerte können dann wie jede
+        andere Variable weiterverwendet werden.
+    </p>
+
+    <b>Beispielcode</b>
+
+    <script>
+        const result = (function () {
+            const a = 5;
+            const b = 10;
+
+            return a + b;
+        })();
+
+        console.log(result);
+    </script>
+
+    <h2>Async/Await</h2>
+
+    <p>
+        Sehr nützlich sind IIFE's bei der nutzung von ASYNC/AWAIT, da wir die awaits in eine asynchrone funktion
+        schreiben müssen, und sie hier dann direkt in einer IIFE anlegen könnten.
+    </p>
+
+    <b>Beispielcode</b>
+
+    <script>
+        (async () => {
+            const result = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+            const data = await result.json();
+
+            // wir können hier jetzt mit unserer antwort arbeiten:
+            console.log(data);
+        })();
+    </script>
+
+</body>
+
+</html>

@@ -37,7 +37,7 @@
         // fetch(); ist auch mit async/await nutzbar:
         const fetchRequest = async () => {
             try {
-                //  wir holen uns die daten
+                // wir holen uns die daten
                 const data = await fetch(url);
 
                 // wir geben die antwort aus:
@@ -49,7 +49,7 @@
                 // wir geben die daten aus
                 console.log("daten: async/await", jsonData);
             } catch (error) {
-                console.log("fehler: async/await", error)
+                console.log("fehler: async/await", error);
             }
         }
 
