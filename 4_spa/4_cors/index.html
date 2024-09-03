@@ -7,7 +7,135 @@
 </head>
 <body>
 
+    <h1>CORS (CROSS-ORIGIN RESOURCE SHARING)</h1>
     
-    
+    <b>Ursprungsübergreifende Ressourcenfreigabe</b>
+
+    <h2>Was ist CORS?</h2>
+
+    <p>
+        CORS steht für <strong>Cross-Origin Resource Sharing</strong>. Es ist ein sicherheitsmechanismus, dn webbrowser verwenden, um zu kontrollieren, wie webanwendungen ressourcen von anderen ursprüngen (also anderen domains) anfragen dürfen.
+    </p>
+
+    <p>
+        Das bedeutet, wenn unsere webanwendung versucht, daten von einer anderen domain als der eigenen abzurufen, entscheidet CORS ob das erlaubt ist, oder nicht.
+    </p>
+
+    <p>
+        Zuerst müssen wir verstehen, was ein "ursprung" (Origin) ist. EIn ursprung besteht aus drei teilen:
+    </p>
+
+    <ul>
+        <li>Protokoll: "http" oder "https"</li>
+        <li>Domain: z.b.: example.com</li>
+        <li>Port: z.b.: 80 HTTP pder 443 bei HTTPS</li>
+    </ul>
+
+    <p>
+        Wenn zwei urls nicht exakt das selbe protokoll, die selbe domain und denselben port haben, gelten sie als unterschiedliche ursprünge. CORS sorgt dafür, dass eine anwendung, die auf einem ursprung läuft, nicht einfach daten von eine anderen ursprung abrufen kann, ohne dass dies ausdrücklich erlaubt ist.
+    </p>
+
+    <h2>Warum gibt es CORS?</h2>
+
+    <p>
+        CORS existiert, um die sicherheit von webanwendungen zu erhöhen. Stellen wir uns vor, wir sind auf einer webseite eingeloggt, die sensible daten wie bankinformationen enthält. OHNE CORS könnte eine böswillige webseite versuchen, im hintergrund auf diese daten zuzugreifen, indem sie anfragen an die BANK-API sendet. CORS verhindert dies, indem es sicherstellt, das solche anfragen nur von zugelassenen ursprüngen durchgeführt werden dürfen.
+    </p>
+
+    <p>
+        Wenn eine webanwendung versucht, eine anfrage an einen anderen ursprung zu senden, prüft der browser zunächst, ob die zeilseite (der server) diese art von anfrage erlaubt. Dies geschieht durch sogenannte HTTP-header, die vom server gesendet werden.
+    </p>
+
+    <h2>Was ist ein HTTP-Header?</h2>
+
+    <p>
+        Bevor wir weiter mit CORS machen, sollten wir kurz klarstellen was HTTP-Header sind. HTTP-Header sind kleine Informationsblöcke, die mit jeder anfrage (request) und mit jeder antwort (response) im web ausgetauscht werden. Sie enthalten wichtige informationen über die anfrage oder die antwort, wie zum beispiel:
+    </p>
+
+    <ul>
+        <li>
+            Content-Type: Welcher typ von daten gesendet oder empfangen wird (z.b. HTML, TEXT, JSON)
+        </li>
+        <li>
+            Authorization: Informationen zur authentifizierung, falls notwendig (username/password, BEARER TOKEN)
+        </li>
+        <li>
+            Access-Control-Allow-Origin: Ein header, der angibt, welcher ursprung auf die ressource zugreifen darf (Dieser ist besonders wichtig für CORS)
+        </li>
+    </ul>
+
+    <p>
+        Diese header werden automatisch vom browser un dem server verarbeitet, um sicherzustellen, dass anfragen korrekt und sicher sind. Wenn wir später mehr über backend-entwicklung lernen, werden wir sehen, wie man diese header manuell setzen kann.
+    </p>
+
+    <h2>Ein beispiel für CORS</h2>
+
+    <p>
+        Nehmen wir an, wir haben eine webanwendung, die daten von einer API abrufen möchte. Wenn diese API auf einem anderen ursprung liegt, (z.b api.example.com) als unsere anwendung (z.b. meine-app.de), dann greift CORS ein.
+    </p>
+
+    <p>
+        Angenommen wir haben folgenden code in unserer anwendung:
+    </p>
+
+    <pre>
+        <code>
+            fetch('httos://api.example.com/data')
+            .then(response => response.json)
+            .then(data => console.log(data))
+            .catch(err => console.error(err));
+        </code>
+    </pre>
+
+    <p>
+        Wenn die API unter https://api.example.com CORS nicht richtig konfiguratiert hat, wird der browser die anfrage blockieren, und eine fehlermeldung in der konsole anzeigen. Der grund dafür ist, dass unsere anwendung unter https://meine-app.de läuft, während die api auf api.example.com liegt - es sind also 2 verschiedene ursprünge.
+    </p>
+
+    <h2>Was passiert wenn CORS fehlschlägt?</h2>
+
+    <p>
+        Wenn CORS fehlschlägt, blockiert der browser die anfrage, und eine fehlermeldung erscheint in der entwicklerkonsole, des browsers. EIne typische fehlermeldung sieht etwa so aus:
+    </p>
+
+    <pre>
+        <code style="color: red;">
+            Access to fetch at 'https://api.example.com/data' from origin 'https://meine-app.de' has been blocked by CORS policy: 
+            No 'Access-Control-Allow-Origin' header is present on the requested resource.
+        </code>
+    </pre>
+
+    <p>
+        Diese meldung besagt, dass die api keine erlaubnis gegeben hat, dass unsere anwendung auf diese ressource zugreifen darf. Der grund dafür ist, dass der "Access-Control-Allow-Origin"-header fehlt, oder nicht den ursprung unserer anwendung erlaubt.
+    </p>
+
+    <h2>Wie kann man CORS-Probleme lösen?</h2>
+
+    <p>
+        Um ein CORS-problem zu lösen, muss die API, also der SERVER, von dem die Daten angefordert werden, korrekt konfiguriert sein, dies geschieht durch das setzen der richtigen cors header, damit der browser weiß, dass anfragen von einer bestimmten domain erlaubt sind.
+    </p>
+
+    <p>
+        Ein typischer header, der gesetzt werden müsste, wäre hier:
+    </p>
+
+    <pre><code>'Access-Control-Allow-Origin': 'https://meine-app.de'</code></pre>
+
+    <p>
+        Dieser header teilt dem browser mit, dass anfragen von 'https://meine-app.de' erlaubt sind. Es ist auch möglich, <b>*</b> zu verwenden, um anfragen von allen ursprüngen zuzulassen, aber dies ist aus sicherheitsgründen oft nicht ratsam.
+    </p>
+
+    <p>
+        Wichtig ist, dass diese header vom Server gesetzt werden müssen, der die API bereitstellt, Als FRONTEND-ENTWICKELER haben wir oft keine kontrolle darüber, und müssen mit dem backend-team zusammenarbeiten, um sicherzustellen, dass die CORS-Header richtig gesetzt sind.
+    </p>
+
+    <h2>CORS und Backend</h2>
+
+    <p>
+        Da wir bisher noch nicht viel über backend gesprochen haben, ist es wichtig zu verstehen, dass CORS hauptsächlich SERVERSEITIG gehandhabt wird, Der server entscheidet, welche ursprünge auf seine Ressourcen zugreifen dürfen, und setzt die entsprechenden header, um dies zu ermöglichen.
+    </p>
+
+    <p>
+        Wenn wir später mehr mit backend-entwicklung zutun haben, werden wir verstehen, wie man diese header setzt und konfiguriert, um CORS korrekt zu handhaben. Inzwischen ist es gut zu wisen das CORS existiert und wie es sich auf unsere webanwendungen auswirkt.
+    </p>
+
 </body>
 </html>
