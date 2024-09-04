@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo {
+            border: 1px solid #ccc;
+            background: #ddd;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Wiederholung: DOM</h1>
+
+    <h2>Event Delegation</h2>
+
+    <p>
+        Event Delegation ermöglicht es, einen event-listener an einem übergeordneten element anzuhängen und zu nutzen, dass event von den untergeordneten elementen zum übergeordneten element "hochzublubbern", dies ist besonders nützlich bei dynamisch erzeugten elementen.
+    </p>
+
+    <p>Zum testen erstellen wir eine liste mit verschiedenen einträgen</p>
+
+    <div class="demo">
+        <ul id="delegation-list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+    <button id="add-item-to-delegation-list">Neues item hinzufügen</button>
+
+    <script>
+        // wir holen uns das listenelement und den button
+        const delegationListElement = document.getElementById('delegation-list');
+        const delegationListButton = document.getElementById('add-item-to-delegation-list');
+
+        // wir hängen das click event an das listen element an, in die anonyme funktion hinter dem event listener übergeben wir, was passieren soll, wenn das event ausgelöst wurde:
+        delegationListElement.onclick = (event) => {
+            // wir prüfen ob eine LI geklickt wurde, um zu sagen "wenn das element eine LI ist, dann sag uns was wir angeklickt haben!" - so haben wir das event EINMAL angelegt, und geben die ausgabe des events, an das kind element weiter, wenn dieses mit dem klick berührt wurde.
+            if(event.target.tagName === "LI") { // ELEMENTTYPEN schreiben wir immer groß.
+                // wir geben zum test ein alert fenster, mit dem textihalt des elementes aus:
+                console.log('GEKLICKT:', event.target);
+            }
+        }
+
+        // wir wollen mit dem click event des buttons neue elemente in die liste hinzufügen:
+        delegationListButton.onclick = (event) => {
+
+            // wir erstellen ein neues element, eine LI, um damit neue einträge zu erstellen:
+            const newListItemElement = document.createElement('LI');
+
+            // mit der property .innerText oder .textContent füllen wir neuen inhalt in das element ein:
+            newListItemElement.innerText = `Item ${delegationListElement.childElementCount + 1}`;
+            // mit .childElementCount bekommen wir die anzahl von kindern innerhalb eines elements.
+
+            delegationListElement.append(newListItemElement);
+        }        
+    </script>
+
+    <h2>Event Propagation (Capture & Bubble)</h2>
+
+    <p>
+        Events propagieren im DOM in zwei phasen, "Capture" (von oben nach unten) und "Bubble" (von unten nach oben). Standardmäßig verwenden wir die Bubble-Phase, können aber auch explizit die Capture-phase angeben.
+    </p>
+
+    <div class="demo">
+        <div id="outer-div" style="padding: 20px; background: lightgray;">
+            Outer Div
+            <div id="middle-div" style="padding: 20px; background: darkgray;">
+                Middle Div
+                <div id="inner-div" style="padding: 20px; background: gray;">
+                    Inner Div
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // wir können dem evwent listener direkt an unsere elemente anfügen, wir machen dies hier, um schneller und effizienter an unsere einzelnen elemente zu kommen. Wenn wit den capture phasen arbeiten wollen MÜSSEN wir .addEventListener(); nutzen, da die on-Methoden diese funktion nicht unterstützen.
+        document.getElementById('outer-div').addEventListener('click', () => {
+            alert('Outer Div geklickt');
+        }, true); // capture phase
+        document.getElementById('middle-div').addEventListener('click', () => {
+            alert('Middle Div geklickt');
+        }, false); // bubble phase
+        document.getElementById('inner-div').addEventListener('click', () => {
+            alert('Inner Div geklickt');
+        }, false); // bubble phase
+    </script>
+
+    <p>
+        Wenn wir den optionalen parameter des .addEventListener();'s auf 'true' setzen, aktivieren wir damit die "Capture-Phase", der default wert ist "false", wir müssen ihn also nicht extra angeben, wenn wir nicht wollen - dieser aktiviert die "Bubble-Phase".
+    </p>
+
+    <h2>.stopPropagation();</h2>
+
+    <p>
+        Mit .stopPropagation(); können wir das event bubbling oder das durchlaufen der capture phase unterbrechen. Dies ist nützlich, wenn wir sicherstellen wollen, dass ein event nur auf ein bestimmtes element reagiert, und nicht weiter durch die dom-baum-ebenen blubbert.
+    </p>
+
+    <div class="demo" id="propagationBeispiel">
+        <button id="stop-propagation-button">Klick mich! (stop propagation aktiv)</button>
+    </div>
+    
+    <script>
+        document.getElementById('propagationBeispiel').addEventListener('click', (event) => {
+            alert('Box geklickt');
+        });
+        
+        document.getElementById('stop-propagation-button').addEventListener('click', (event) => {
+            // durch das setzen von .stopPropagation(); sorgen wir dafür, das dass element unter dem geklickten element, sein event NICHT abfeuern wird.
+            event.stopPropagation();
+
+            alert("Button geklickt");
+        })
+    </script>
+
+    <h2>.preventDefault();</h2>
+
+    <p>
+        mit .preventDefault(); können wir das standardverhalten eines elements verhindern.
+        Dies ist oft nützlich bei formularen oder links, wenn wir verhindern wollen, dass eine seite neu geladen wird oder zu einer anderen url navigiert wird.
+    </p>
+
+    <div class="demo">
+        <a href="https://www.example.com">Gehe zu Example.com (kein preventDefault();)</a>
+        <br>
+        <a href="https://www.example.com" id="prevent-link">Gehe zu Example.com (mit preventDefault();)</a>
+    </div>
+
+    <script>
+        document.getElementById('prevent-link').addEventListener('click', (event) => {
+            // wir fügen .preventDefault(); hinzu, um zu verhindern, dass unser Anchor die neue seite öffnet.
+            event.preventDefault();
+
+            // wir zeigen ein fenster an, das sagt was wir wollen, anstelle der ausführung der links
+            // alert('Link geklickt, aber standardverhalten verhindert!');
+
+            // wir hacken den planeten und senden den user woanders hin.
+            window.location.href = "https://www.heise.de";
+        });
+    </script>
+
+    <h2>.appendChild();</h2>
+
+    <p>
+        .appendChild(); fügt ein neues kind-element zu einem elternelement hinzu. Dieses neue element kann entweder aus einem vorhandenen element stammen, oder dynamisch erstellt werden.
+    </p>
+    
+    <div class="demo">
+        <div id="append-div">
+            <!-- <p>neues P element</p> -->
+        </div>
+    </div>
+
+    <button id="append-button">Element hinzufügen</button>
+
+    <script>
+        // wir holen uns den button:
+        const appendButtonElement = document.getElementById('append-button');
+
+        // wir fügen onclick dem button element hinzu:
+        appendButtonElement.onclick = () => {
+            // wir erstellen ein neues P element:
+            const newElement = document.createElement('P');
+
+            // wir füllen den .textContent oder den .innerText ein:
+            newElement.textContent = 'neues P element';
+
+            // <p>neues P element</p>
+
+            // wir holen uns das div, und nutzen .appendChild(); um den neuen inhalt hinzuzufügen.
+            document.getElementById('append-div').appendChild(newElement);
+        }
+    </script>
+
+    <h2>.removeChild();</h2>
+
+    <p>
+        .removeChild(); entfernt ein vorhandenes kind-element von seinem eltern-element.
+    </p>
+
+    <p>
+        Wir erstellen eine liste, aus der wir einträge löschen wollen.
+    </p>
+
+    <div class="demo">
+        <ul id="remove-list">
+            <li>Task 1 <button class="remove-button">Löschen</button></li>
+            <li>Task 2 <button class="remove-button">Löschen</button></li>
+            <li>Task 3 <button class="remove-button">Löschen</button></li>
+        </ul>
+    </div>
+
+    <script>
+        // wir können, anstelle das wir eine liste haben, in der wir unsere elemente delegieren, auch direkt für alle inhalte events anlegen, DIES IST NICHT BESONDERS PERFORMANT (!!!), wenn es mehrere hundert, oder tausende von einträgen gibt, aber es ist möglich, und eine schnelle möglicheit, events zu erstellen. Man kann den code ja später auch noch überarbeiten.
+
+        // wir holen uns alle remove-buttons:
+        const removeButtons = document.querySelectorAll('.remove-button');
+
+        // wir gehen durch die liste der buttons, und fügen jedem button ein onclick event hinzu:
+        removeButtons.forEach(button => {
+
+            // wir übergeben'event' an das onclick event, im 'event' objekt befinden sich wie schon erwähnt, viele wichtige informationen zum event und dem jeweiligen element. Meist benötigen wir es, um zu definieren, was mit dem jeweiligen ziel passiert.
+            button.onclick = (event) => {
+
+                // dadurch das wir vom event aus, das elternelement des angewählten buttons ansteuern wollen, sind wir in der lage, das LI element zu löschen:
+                const li = event.target.parentElement; // das elternelement des buttons ist die LI
+                const ul = li.parentElement; // das elternelement der LI ist die UL
+                
+                // wir löschen das ausgewählte kind aus der liste.
+                ul.removeChild(li);
+            }
+        });
+    </script>
+
+    <h2>Kombination von verschiedenen DOM methodiken</h2>
+
+    <p>
+        Wenn wir das gerade gelernte verbinden, sind wir in der lage eine rudimentäre TODO liste zu erstellen, bei der wir elemente hinzufügen und löschen können.
+    </p>
+
+    <div class="demo">
+        <input type="text" id="new-task" placeholder="Neue Aufgabe">
+        <button id="add-task">Aufgabe hinzufügen</button>
+        <ul id="task-list">
+            <!-- 
+                <li>
+                    text... <button>löschen</button>                    
+                </li>
+            -->
+        </ul>
+    </div>
+
+    <script>
+        // wir holen uns den button und die liste als elemente
+        const addTaskButtonElement = document.getElementById('add-task');
+        const newTaskInputElement = document.getElementById('new-task');
+        const taskListElement = document.getElementById('task-list');
+
+        // wir legen ein .onclick; event auf den button
+        addTaskButtonElement.onclick = (event) => {
+
+            // wir holen uns den wert, der in das input element eingegeben wurde
+            const taskText = newTaskInputElement.value;
+
+            // wir prüfen ob taskText inhalt hat
+            if(taskText) {
+
+                // wir erstellen ein listeneintrag element
+                const li = document.createElement('LI');
+
+                // wir fügen den wert von taskText dem textinhalt der LI hinzu:
+                li.textContent = taskText;
+
+                // wir erstellen eine button zum löschen des eintrags:
+                const removeButton = document.createElement('BUTTON');
+
+                // wir geben dem button etwas text:
+                removeButton.textContent = 'Löschen';
+                removeButton.style.marginLeft = "16px";
+
+                // wir fügen den remove button der LI hinzu:
+                li.appendChild(removeButton);
+
+                // wir fügen die LI der liste hinzu:
+                taskListElement.appendChild(li);
+
+                // damit der wert von vorher nicht immernoch in dem input element steht, löschen wir diesen am ende des events raus:
+                newTaskInputElement.value = "";
+            }
+        }
+
+        // wir erstellen ein event für das klicken auf die liste
+        taskListElement.onclick = (event) => {
+            
+            // wir prüfen ob beim klicken ein BUTTON getroffen wurde:
+            if(event.target.tagName === "BUTTON") {
+
+                // wir holen uns die li, anhand des eltenrelements des buttons
+                const li = event.target.parentElement;
+
+                // wir löschen die LI, indem wir das elternelement aufrufen, und das selektierte kind löschen.
+                li.parentElement.removeChild(li);
+            }
+        }
+    </script>
+
+</body>
+</html>
