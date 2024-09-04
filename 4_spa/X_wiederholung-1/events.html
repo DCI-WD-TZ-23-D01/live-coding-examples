@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .demo {
+            border: 1px solid #ccc;
+            background: #ddd;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            background: tomato;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Wiederholung: Events in JavaScript</h1>
+
+    <p>
+        Events sind aktionen oder vorkommnisse, die auf reiner webseite oder einer anwendung stattfinden, dazu gehören beispielsweise dinge wie klicks auf buttons, das drücken von tasten auf der tastatur, oder das bewegen des mauszeigers über elemente. Wir können auf diese events reagieren, indem wir event listener hinzufügen, die dafür da sind "darauf zu warten, oder zu hören", das ein event abgefeuert wird.
+    </p>
+
+    <h2>Die .on-Methoden</h2>
+
+    <p>
+        Eine der einfachsten methoden um events zu handhaben, ist die verwendung der '.on-methoden', wie .onclick();, .onmouseover(); oder .onkeydown();. Diese methoden sind direkt mit einem dom element verknüpft und erlauben es uns, einem event eine funktion zuzuweisen.
+    </p>
+
+    <div class="demo">
+        <button id="on-click-beispiel">Klick mich (onclick)</button>
+    </div>
+
+    <script>
+        // wir holen uns das element...
+        const onClickButtonElement = document.getElementById('on-click-beispiel');
+
+        // ...und fügen das .onclick(); hinzu, um dem code zu sagen, was passieren soll, wenn das event abgefeuert wird:
+        onClickButtonElement.onclick = () => {
+            alert('Ich wurde geklickt!');
+        }
+    </script>
+
+    <h2>Die .addEventListener(); Methode</h2>
+
+    <p>
+        Die '.addEventListener();' methode bieter eine flexible möglichkeit, events zu handhaben. Sie ermöglicht es uns, mehrere event-listener für das selbe event hinzuzufügen und bietet zusätzliche optionen, wie z.b. das steuern der event propagation.
+    </p>
+
+    <div class="demo">
+        <button id="add-event-listener-beispiel">Klick mich (addEventListener)</button>
+    </div>
+
+    <script>
+        // wir holen uns das button element...
+        const addEventListenerButtonElement = document.getElementById('add-event-listener-beispiel');
+
+        // ... und fügen einen event listener für das 'click' event hinzu:
+        addEventListenerButtonElement.addEventListener('click', () => {
+            alert('Ich wurde geklickt!');
+        });
+
+        // wir fügen einen zweiten event listener für das selbe event hinzu:
+        addEventListenerButtonElement.addEventListener('click', () => {
+            alert('Auch ich wurde getriggert');
+        });
+    </script>
+
+    <p>
+        Wenn wir mehrere events des selben typen einem element zuweisen, werden die events beim abfeuern, in der reihenfolge ausgelöst, in der sie im code hinterlegt sind.
+    </p>
+
+    <b>Zusammenfassung der unterschiede zwischen den '.on' und 'addEventListener' methoden:</b>
+    
+    <ul>
+        <li><b>.on-Methode</b>: Einfach zu verwenden, aber überschreiben vorherige event-listener, man kann also pro event nur einen listener verwenden.</li>
+        <li><b>.addEventListener();</b>: Ermöglicht das hinzufügen mehrerer event-listener für das selbe event, bietet mehr kontrolle über die event-propagation und unterstützt optionen wie 'capture' und 'once'.</li>
+    </ul>
+
+    <h2>Maus-Events</h2>
+
+    <p>
+        Es gibt viele maus-events, wie 'click', 'mouseover' oder 'mouseout', die uns ermöglichen, auf mausaktionen des benutzers zu reagieren. Wir werden uns jetzt aber nur mit 'mousover' und 'mouseout' beschäftigen.
+    </p>
+
+    <div class="demo">
+        <div id="beispiel-box" style="width: 200px; height: 200px; border: 1px solid black"></div>
+    </div>
+
+    <script>
+        // wir holen uns die box...
+        const beispielBoxElement = document.getElementById('beispiel-box');
+
+        // um sauberer zu arbeiten, hinterlegen wir den ursprungstextinhalt der box, in einer variable
+        const beispielBoxInhalt = "Ich reagiere auf die Maus!";
+
+        // und weisen vor dem code mit den events (also am anfang) der box, den text als inhalt zu,
+        beispielBoxElement.innerText = beispielBoxInhalt;
+
+        // wir nutzen .onmouseover, um das element hervorzuheben, wenn die maus darüber fährt:
+        beispielBoxElement.onmouseover = () => {
+
+            // wir fügen der box eine klasse hinzu
+            beispielBoxElement.classList.add('highlight');
+
+            // wir ändern den text innerhalb der box:
+            beispielBoxElement.innerText = 'Die maus ist über mir';
+        }
+
+        // wir nutzen .onmouseout, um unsere änderungen zurückzusetzen / oder zu verändern
+        beispielBoxElement.onmouseout = () => {
+            // wir entfernen die klasse, die die styleänderung beinhaltet.
+            beispielBoxElement.classList.remove('highlight');
+
+            // wir ändern den text zurück, zu dem, wie er vorher definiert war.
+            beispielBoxElement.innerText = beispielBoxInhalt;
+        }
+    </script>
+
+    <h2>Tastatur-Events</h2>
+
+    <p>
+        Mit tastatur-events wie 'keydown', 'keyup' und 'keypress' (RIP) können wir auf tastenanschläge des benutzers reagieren, wir werden uns hier 'keydown' näher ansehen.
+    </p>
+
+    <div class="demo">
+        <input type="text" id="keyboard-input" placeholder="Tasten drücken!">
+        <p id="key-output"></p>
+    </div>
+
+    <script>
+        // wir holen uns das eingabefeld element und das ausgabe element, in dem wir die gedrückten tasten anzeigen wollen:
+        const inputElement = document.getElementById('keyboard-input');
+        const keyOutputElement = document.getElementById('key-output');
+
+        // mit .onkeydown reagieren wir auf jede taste, die gedrückt wird, während das eingabefeld fokussiert ist.
+        inputElement.onkeydown = (event) => {
+            // das event objekt beinhaltet eine menge an informationen über das aktuelle event, das ausgelöst und übergeben wird, event.key gibt die taste aus, die gedrückt wurde.
+            keyOutputElement.innerText = `Gedrückte taste: ${event.key}`
+        }        
+    </script>
+
+    <h2>Event-Objekt</h2>
+
+    <p>
+        Wenn ein event listener ausgelöst wird, erhält die zugehörige funktion optional ein event objekt als argument. Dieses objekt enthält informationen über das event, wie zum beispiel das ziel-element, den event-typ und viele weitere details.
+    </p>
+
+    <div class="demo">
+        <button id="event-object-button">Klick mich (event objekt)</button>
+    </div>
+
+    <script>
+        // wir holen uns den button
+        const eventObjectButtonElement = document.getElementById('event-object-button');
+
+        // wir fügen einen event listener hinzu, der das event objekt ausgibt:
+        eventObjectButtonElement.addEventListener('click', (event) => {
+            // wir geben das komplette event objekt aus:
+            console.log('Event-Objekt', event);
+
+            // wir lassen uns den event typ, und das angeklickte element ausgeben:
+            alert(`Event-Typ ${event.type}. Ziel: ${event.target.tagName}`);
+        });
+    </script>
+
+</body>
+</html>
