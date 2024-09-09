@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Single Page Applications</h1>
+
+    <p>
+        Zu allererst ist es wichtig zu wissen, das wir alle bereits regelmäßig SPA's, also single page applicationsbenutzen, oder mit ihnen im täglichen leben oft arbeiten.
+    </p>
+
+    <p>
+        Einige beispiele für SPA's sind:
+    </p>
+
+    <ul>
+        <li>Metas Facebook</li>
+        <li>Metas Instagram</li>
+        <li>X</li>
+        <li>Metas WhatsApp</li>
+        <li>Microsofts VSCode</li>
+        <li>Alphabets Google Maps</li>
+        <li>Alphabets Goole Mail</li>
+        <li>Alphabets Goole Search</li>
+        <li>Alphabets google Meets</li>
+        <li>Alphabets Youtube</li>
+        <li>Microsoft GitHub</li>
+        <li>DnDBeyond</li>
+        <li>PayPal</li>
+        <li>Snapchat</li>
+        <li>Netflix</li>
+        <li>Slack</li>
+        <li>Lieferando</li>
+        <li>AirBnB</li>
+    </ul>
+
+    <p>
+        All diese anbieter nutzen SPA's damit ihre services einfacher zu erweitern, managen und konfortabel zu nutzen sind.
+    </p>
+
+    <h2>Was ist eine Single Page Application</h2>
+
+    <p>
+        Single Page applications sind einzelne Seiten in komponenten, die viele informationen liefern können, und spezifische inhalte aktualisieren, ohne die seite zu wechseln oder neu laden zu müssen.
+    </p>
+
+    <p>
+        Wie wir an dem beispiel von Youtube gesehen haben, sehen wir das sich außer des hauptinhaltes nichts ändert, das menu bleibt gleich, und die seite wird nicht neu geladen. Also werden hier nur spezifische inhalte aktualisiert.
+    </p>
+
+    <h2>SPA Architektur</h2>
+
+    <p>
+        Die SPA ist eine webanwendung, oder "webseite", die mit dem benutzer interagiert, indem sie aktuelle inhalte dynamisch umschreibt, anstall neue seiten vom server zu laden.
+    </p>
+
+    <p>
+        Dieser ansatz minimiert die unterbrechung der benutzererfahrung zwischen den aufeinanderfolgenden seiten, so das die anwendung sich mehr wie eine desktopanwendung also ein "computerprogramm" im klassischen sinne verhält, weswegen es logisch ist, und WEB-ENTWICKLER und nicht WEB-DESIGNER zu nennen.
+    </p>
+
+    <p>
+        Auf den meisten webseiten gibt es viele, sich wiederholende inhalte, einige davon bleiben immer gleich, egal wo der benutzer sich hinbewegt, zum beispiel der header, der footer, die navigationsleiste, und so weiter, allgemein bleiben viele elemente im layout gleich.
+    </p>
+    
+    <p>
+        SPAs machen sich die wiederholung von elementen, songenannten komponenten zu nutze, indem man diese anlegt und immer wiederverwenden kann.
+    </p>
+
+    <p>
+        Bei traditionellen multi-page applications würden wir bei jeder seite die wir anfragen, immer die ganze seite mit allen inhalten geliefert bekommen.
+    </p>
+
+    <iframe src="https://giphy.com/embed/8F9sWWRDqbcpKoqoz3" width="480" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/8F9sWWRDqbcpKoqoz3">via GIPHY</a></p>
+
+    <p>
+        bei SPAs hingegen, bekommt unser browser eine bauanleitung, wie er die seite zusammen setzen soll, und wo sich was wiederholt, oder benutzt wird, un dann alles zusammenzufügen.
+    </p>
+
+    <iframe src="https://giphy.com/embed/52FwconEHyJH73EuFt" width="480" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/52FwconEHyJH73EuFt">via GIPHY</a></p>
+
+    <p>
+        Die geschwindigkeit der SPA kommt dadurch zu stande, das ab diesem zeitpunkt, nur noch einzelne informationen ausgetauscht werden müssen, aber keine webseite mit ALL ihren daten mehr komplett heruntergeladen werden muss, während bei der klassischen webseite jetzt immernoch bei jeder anfrage, die seite mit allen inhalten neu geladen werden muss.
+    </p>
+
+    <iframe src="https://giphy.com/embed/Xpj7yINzSulzLa8Oq7" width="480" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Xpj7yINzSulzLa8Oq7">via GIPHY</a></p>
+
+    <p>
+        Da bei SPA's die aufgabe des zusammensetzens der webseite auf seiten des browsers liegt, kann der in halt dynamisch neu geschrieben werden, anstelle komplett neu geladen werden zu müssen.
+    </p>
+
+    <iframe src="https://giphy.com/embed/KWQVAfIlg5LXQm87cg" width="480" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/KWQVAfIlg5LXQm87cg">via GIPHY</a></p>
+
+    <p>
+        Anstelle das wir die seite immer neu laden, sehen wir also nur die neuen ersetzen inhalte.
+    </p>
+
+    <img src="https://eww-wp.s3.ap-south-1.amazonaws.com/wp-content/uploads/2020/02/13142441/single-page-web-apps.jpg" alt="">
+
+    <p>
+        Gerade im JavaScript bereich sind SPA's beliebt weil man schnell und einfach komplette webseiten oder web-applikationen erschaffen, und diese dann wie eine desktop applikation nutzen kann.
+    </p>
+
+    <p>
+        Es gibt verschiedene frameworks zum erstellen von SPA's, wie zum beispiel Angular, Vue, Svelte, am bekanntesten und meist benutzt ist React, das von Facebook entwickelt wurde. Von react gibt es inzwischen auch ein paar abspaltungen, die sehr bekannt sind, wie NextJS, eine abwandlung von React mit datei-basierten routing, und Preact, einem 3KB großen react klon. In unserem kurs nutzen wir React in der version 18.
+    </p>
+
+    <p>Eine liste mit aktuellen front-end frameworks: <a href="https://2023.stateofjs.com/en-US/libraries/front-end-frameworks/">StateOfJS</a></p>
+
+    <h2>Das konzept MVC</h2>
+
+    <p>
+        MVC steht für Model-View-Controller, eine spezielle struktur für web applikationen, in der die applikation in 3 unterschiedliche elemente aufgeteilt wird, die voneinander getrennt entwickelt werden können.
+    </p>
+
+    <img src="https://miro.medium.com/max/875/0*A2NPgocJSjAa2YNe.png" alt="">
+
+    <ul>
+        <li>
+            Controller: Die steuerung der applikation, hier sitzt die programmlogik, die die daten und die sichtbare webseite verbindet
+        </li>
+        <li>
+            Model: die datenanbindung, die mit dem controller verbunden ist, um daten auszutauschen
+        </li>
+        <li>
+            View: die darstellung der daten auf der html seite, die über den controller zum benutzer kommt.
+        </li>
+    </ul>
+
+    <p>
+        Der vorteil dieser flexiblen art der programmierung, liegt in der einfachen wiederholbarkeit und wartung. Im team ist es auch einfacher an MVC's zu arbeiten, wenn jeder seinen bestimmten aufgabenbereich hat. Allerdings ist das setup um eine MVC aufzubauen komplizierter als eine normale HTML webseite, und man ist abhängig von modulen anderer entwickler.
+    </p>
+
+    
+
+</body>
+</html>
