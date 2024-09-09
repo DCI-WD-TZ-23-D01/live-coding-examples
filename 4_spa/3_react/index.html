@@ -134,6 +134,87 @@
         Der vorteil dieser flexiblen art der programmierung, liegt in der einfachen wiederholbarkeit und wartung. Im team ist es auch einfacher an MVC's zu arbeiten, wenn jeder seinen bestimmten aufgabenbereich hat. Allerdings ist das setup um eine MVC aufzubauen komplizierter als eine normale HTML webseite, und man ist abhängig von modulen anderer entwickler.
     </p>
 
+    <h2>Was ist React?</h2>
+
+    <p>
+        React it eine JavaScript framework bibliothek von Facebook (Meta). Genau wie bootstrap von X (Twitter) kommt, hat facebook also mit react einen großen einfluss auf das gehabt, was wir als modernes web kennen.
+    </p>
+
+    <p>
+        React wurde entwickelt um interaktive benutzeroberflächen zu erstellen. Der hauptvorteil von React ist, dass man sehr einfach verschiedene views oder einzelne kleine teile, genannt komponenten, erstellen kann, die auf anfrage einfach mit neuen daten geupdated werden können. Jeder komponent ist in der lage, seine eigenen daten und strukturen zu managen, weswegen man sie fantastisch zu komplexen benutzeroberflächen zusammenfügen kann.
+    </p>
+
+    <p>
+        Da die applikationen aus einzelnen komponenten bestehen, kan man sie vorneinander getrennt updaten oder warten, ohne die gesuchte stelle auf tausenden zeilen HTML oder JavaScript suchen zu müssen.
+    </p>
+
+    <p>
+        React hat eine sogenannte state und prop verwaltung, das sind 2 wichtige konzepte die wir lernen müssen:
+    </p>
+
+    <ul>
+        <li>Props oder properties sind eigenschaften, die von außen an komponenten übergeben werden um die funktionalität zu erweitern, diese properties können innerhalb des komponenten verwendet werden. Das ist vergleichbar mit parametern, die wir an eine funktion übergeben.</li>
+        <li>States sind eigentschaften die innerhalb eines komponenten sind, um einfluss auf den zustand des views haben zu können. Diese states müssen auf spezielle art und weise gesetzt, genutzt und verändert werden, damit sie in echtzeit dynamisch verwendet werden können. DIes ist auch der grund, wieso react, react heißt, denn wenn sich ein state innerhalb einer komponente verändert, wird automatich die renderfunktion aufgerufen, was dazu führt, das die neuen daten direkt angezeigt werden, es wird also auf einen "state change" ... reagiert, "reacted</li>
+    </ul>
+
+    <p>
+        React arbeitet außerdem mit sogenannten Hooks, dies sind die states der verschiedenen lebensphasen eines komponenten, wie zum beispiel der zeitpunkt, des ladens des komponenten, den wir damit direkt managen könnne, außerdem gibt es hooks, die wir direkt einspeisen können, um dynamisch den view zu verändern.
+    </p>
+
+    <a href="https://react.dev/">React-Webseite</a>
+
+    <h2>Fangen wir an mit react.</h2>
+
+    <p>
+        Die einfachste und schnellste möglichkeit, eine react applikation zu erstellen, ist die verwendung des tools Vite. Vite ist ein modernes build-tool, das extrem schnell ist und vor allem für kleinere bis mittelgroße projekte sehr gut geeignet ist. Es bietet eine bessere performance und entwicklungsumgebung als "create-react-app" (CRA), das als vorgänger genutzt wurde, um react applikationen zu erstellen.
+    </p>
+
+    <a href="https://vitejs.dev">Vite-Webseite</a>
+
+    <p>
+        Um eine neue React-applikation mit vite zu erstellen, navigieren wir in den gewünschten ordner und gebenb den folgenden befehl ein <code>npm create vite@latest</code>
+    </p>
+
+    <p>
+        Wir sollten darauf achten projektnamen klein zu schreiben, und keine leerzeichen zu verwenden.
+    </p>
+
+    <p>
+        Vite wird uns dann nach einigen informatione fragen, hier wählen wir das gewünschte framework aus (in unserem fall react) und die programmiersprache (JavaScript)
+    </p>
+
+    <p>
+        Wollen wir den prozess vereinfachen, können wir den namen des projektes, sowie den framework auch direkt im CLI angeben. Dazu schreiben wir <code>npm create vite@latest app-name -- --template react</code>
+    </p>
+
+    <p>
+        Nachdem die grundstrutkur erstellt wurde, wechseln wir in den neu erstellten ordner, und installieren die benötigten node module, mit dem befehl <code>npm install</code>.
+    </p>
+
+    <p>
+        Sobald die installation abgeschlossen ist, starten wir den entwicklerserver mit <code>npm run dev</code>. Vite startet einen schnellen live server, der die anwendung sofort im browser anzeigt.
+    </p>
+
+    <p>
+        Jede änderung, die wir an unserer applikation vornehmen (zb. in der App.jsx datei), wird dank vite's Hot Module Reload (HMR) sofort im browser reflektiert, ohne das die seite neu geladen werden muss.
+    </p>
+
+    <h2>Struktur des Projektes</h2>
+
+    <p>
+        Vite erstellt eine ordner struktur, die minimal und optimiert ist. Die wihtigstens dateien befinden sich im <code>/src</code> odner:
+    </p>
+
+    <ul>
+        <li><code>main.jsx</code>: Dies ist der einstiegspunkt der applikation, hier wird react in die HTML datei per DOM eingebunden</li>
+        <li><code>App.jsx</code>: hier befindet sich unsere hauptkomponente, die die basis der Applikation bildet.</li>
+        <li><code>index.css</code>: Enthält das grundelegende styling</li>
+    </ul>
+
+    <p>
+        Der Ordner <code>public</code> enthält statische dateien wie favicons oder andere bilder.
+    </p>
+
     
 
 </body>
