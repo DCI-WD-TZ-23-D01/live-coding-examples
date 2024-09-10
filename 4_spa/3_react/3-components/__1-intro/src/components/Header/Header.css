@@ -1,0 +1,13 @@
+/* wir erstellen eine hauptklasse, für den komponenten */
+.Header {
+    background: red;
+    padding: 20px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Header p {
+    background: yellow;
+}
