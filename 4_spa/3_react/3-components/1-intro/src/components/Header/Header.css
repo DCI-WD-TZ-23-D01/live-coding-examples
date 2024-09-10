@@ -1,0 +1,10 @@
+.Header {
+    background: red;
+    padding: 2rem;
+}
+
+.Header p {
+    font-size: 4rem;
+    background: black;
+    color: white;
+}
