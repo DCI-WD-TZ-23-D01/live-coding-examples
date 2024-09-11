@@ -1,9 +1,11 @@
 import { Header } from './components';
+import Pingu from './assets/pingu.jpeg';
 
 function App() {
   return (
     <>
       <h1>Komponenten</h1>
+
 
       <p>
         Wenn wir komponenten erstellen, gibt es eine bestimmte konvention wie wir diese erstellen, verschiedene andere tutorials mögen dies anders machen, aber ich zeige euch wie ich es in produktion gelernt habe.

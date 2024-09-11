@@ -8,11 +8,16 @@ import {
   Page 
 } from './components';
 
+import Pingu from './assets/pingu.jpeg';
+
 // Der komponent wird als funktion angelegt, und in PascalCase geschrieben.
 function App() {
 
   return (
     <>
+
+    <img src={Pingu} alt="" />
+
     {/* Wir nutzen den komponenten, indem wir ihn mit html-mäßigen pfeilen einfügen */}
       <Header/>
 
