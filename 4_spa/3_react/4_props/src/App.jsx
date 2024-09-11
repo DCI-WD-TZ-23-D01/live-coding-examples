@@ -1,9 +1,11 @@
 import reactLogo from './assets/react.svg'; // <=== so machen wir das, mit dem direkten link
 import viteLogo from '/vite.svg'; // <=== das ist nicht der beste weg
 
-import { 
+import {
   Header,
-  Page
+  Page,
+  Footer,
+  List
 } from './components';
 
 function App() {
@@ -38,8 +40,8 @@ function App() {
       {/* equivalent zu Header({ title: "Hallo Welt" }); */}
 
       {/* bei mehreren props ist es übersichtlicher, sie untereiannder zu schreiben */}
-      <Header 
-        title="Hallo Welt" 
+      <Header
+        title="Hallo Welt"
         subTitle="Ich bin der Subtitle!"
       />
 
@@ -49,6 +51,43 @@ function App() {
         bild={reactLogo}
         studentsList={students}
       />
+
+      <List color="purple">
+        {
+          students.map((student, i) => (
+            <li key={i}>{student}</li>
+          ))
+        }
+      </List>
+
+      <List>
+        {
+          [1, 2, 3, 4, 5].map((num, i) => (
+            <li key={i}>{num}</li>
+          ))
+        }
+      </List>
+
+      <Footer color="tomato" size={4}>
+        {/* Die kinder vom footer werden mit children IN den footer übergeben. */}
+        <p>HALLO</p>
+      </Footer>
+
+      <Footer color="red">
+        {/* Die kinder vom footer werden mit children IN den footer übergeben. */}
+        <p>JUHU</p>
+      </Footer>
+
+      <Footer color="lightblue">
+        {/* Die kinder vom footer werden mit children IN den footer übergeben. */}
+        <p>Irgendwas anderes</p>
+      </Footer>
+
+      <Footer>
+        meinen text
+      </Footer>
+
+      <p>meinen text</p>
     </>
   );
 }
