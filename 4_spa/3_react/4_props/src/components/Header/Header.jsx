@@ -1,6 +1,7 @@
 import './Header.css';
 
 // um props an unseren komponenten zu übergeben, können wir in unserer parameterübergabe ein konfigurationsobjekt übergeben, in das wir die props hineinschreiben
+
 export const Header = ({
     title = "Beispieltitel", // wir können unseren props default-werte zuweisen
     subTitle,

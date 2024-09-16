@@ -87,7 +87,9 @@ function App() {
         meinen text
       </Footer>
 
-      <p>meinen text</p>
+      <p>
+        meinen text
+      </p>
     </>
   );
 }

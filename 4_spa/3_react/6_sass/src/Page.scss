@@ -1,0 +1,30 @@
+// in scss können wir unseren komponenten als nesting darstellen, was die wartbarkeit und übersichtlichtkeit deutlich erhöht:
+.Page {
+    border: 1px solid red;
+
+    p {
+        color: cyan;
+    }
+
+    &__section {
+        background: lightgrey;
+
+        p {
+            color: grey;
+        }
+    }
+}
+
+// in css sähe das ganze so aus:
+.Page {
+    border: 1px solid red;
+}
+.Page > p {
+    color: cyan;
+}
+.Page > .Page__section {
+    background: lightgray;
+}
+.Page > .Page__section > p {
+    color: grey;
+}
