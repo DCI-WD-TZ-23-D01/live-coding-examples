@@ -13,7 +13,7 @@ function App() {
     console.log("Ich werde bei jeder änderung ausgeführt!");
   });
 
-  // useEffect der beim laden der komponente ausgeführt wird wird
+  // useEffect der nur einmal beim laden der komponente ausgeführt wird
   useEffect(() => {
     console.log("Ich werde ausführt wenn der komponent geladen wurde!");
   }, []);

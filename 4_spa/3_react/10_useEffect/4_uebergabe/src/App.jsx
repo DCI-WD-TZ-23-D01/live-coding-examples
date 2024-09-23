@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     setGesamtWert(counter1 + counter2);
-  }, [counter1, counter2]);
+  }, [counter1, counter2]); // wenn counter1 ODER counter2 sich verändern
 
   return (
     <>
