@@ -19,6 +19,13 @@ export const NachObenBeiAenderung = ({
         onDatenSchicken(count);
     }, [count]); // jedes mal wenn count sich verändert, wird das callback abgeschickt
 
+    useEffect(() => {
+        // wenn wir solche checks wie den folgenden machen, machen wir das nur in einem useEffect, DAMIT der check nicht bei JEDER änderung durchgeführt wird, sondern NUR wenn sich der wert verändert, auf den wir prüfen.
+        if(count > 25) {
+            console.log("ICH WURDE AUSGELÖST");
+        }
+    }, [count]);
+
     return (
         <>
             <h2>Callback auf änderung</h2>
