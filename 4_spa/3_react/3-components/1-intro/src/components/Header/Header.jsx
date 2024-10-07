@@ -8,9 +8,8 @@ export const Header = () => {
     return(
         // wir weisen dem oberen element unserer komponente die klasse mit dem komponentennamen zu:
         <div className='Header'>
-            Ich bin der Header.
 
-            <p>blubb</p>
+            <p>DUDEN</p>
         </div>
     )
 };
