@@ -72,3 +72,23 @@ export const DarkmodeButton = () => {
     return <button onClick={handleClick}>Toggle Darkmode</button>
 }
 ```
+
+
+## Beispiel: User Context
+
+Szenario: Eine Liste von Usern ist gegeben. Wir möchten einen User selektieren und speichern, so dass andere Komponenten die Daten des Users verwenden können.
+
+Zum Beispiel: Wenn ein User eingeloggt wird, dann wird der User im Kontext gespeichert, damit andere Komponenten auf die Daten des Users zugreifen können.
+
+## Fazit
+
+Wir brauchen `useContext`:
+
+- Um komplexes Prop-Drilling zu vermeiden
+- Einen **globalen** Zustand für die Applikation speichern
+
+Wir verwenden den `useContext`:
+
+1. `createContext`
+2. `<Context.Provider />` + `useState`
+3. `useContext(Context)`
