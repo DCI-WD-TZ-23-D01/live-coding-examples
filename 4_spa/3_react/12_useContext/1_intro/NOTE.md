@@ -54,7 +54,7 @@ export const App = () => {
 > Komponente stellen Daten bereit, das sind die Provider.
 > Andere Komponenten verarbeiten die Daten, das sind die Consumer
 
-1. Das Zugreifen des Kontextes mit `useContext`
+3. Das Zugreifen des Kontextes mit `useContext`
 
 ```jsx
 import { useContext } from "react"
