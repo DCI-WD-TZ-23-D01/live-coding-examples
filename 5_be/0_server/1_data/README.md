@@ -52,6 +52,6 @@ curl http://localhost:3000/guess  -d '{ "num": 1 }' -H "Content-Type: applicatio
 
 #### Postman
 
-- Host schreiben, z.B. `http://localhost:3000/guess`
+- URL schreiben, z.B. `http://localhost:3000/guess`
 - Methode auf POST setzen
 - Im `body` auf `raw` klicken und im Dropdown `JSON` auswählen
