@@ -70,3 +70,10 @@ writeFileSync(filename, content, encoding) // synchrone
 
 > Falls die Datei bereits existiert, wird der vorherige Inhalt ÜBERSCHRIEBEN.
 > Wenn die Datei nicht vorhanden, wird diese Datei vorher erstellt
+
+## Zusammenfassung
+
+- Mit NodeJS erweitert sich die Möglichkeit was für Programme man implementieren kann.  
+  - NodeJs biete viele Werkzeuge an für die Programmierung
+- Die Programmierung eines Servers ist NUR ein Anwendugsgebiet von NodeJS
+- CLI-Anwendungen (Command Line Interface)
