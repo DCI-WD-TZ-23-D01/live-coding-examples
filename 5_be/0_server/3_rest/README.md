@@ -25,6 +25,15 @@ Die Erwähnung der Methode ist essentiell, damit eine klare Kommunikation nach a
 
 Diese Methoden werden einer Kombination von dynamischen Pfaden und einen Body gebaut.
 
+### params vs body
+
+| `body`                      | `params`                 |
+| --------------------------- | ------------------------ |
+| komplexe Anfragen           | einfache Anfragen        |
+| No Cache                    | Cache (GET)              |
+| POST/PUT                    | GET/PUT                  |
+| Ineffizienter, weil parsing | Verarbeitung effizienter |
+
 ## Dynamische Routen
 
 Ähnlich wie bei `react-router-dom` können wir dynamische Routen mit einem Platzhalter definieren.
