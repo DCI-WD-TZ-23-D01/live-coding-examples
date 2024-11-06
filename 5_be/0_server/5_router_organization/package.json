@@ -1,0 +1,16 @@
+{
+  "name": "5_router_organization",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "In einem wachsenden Projekt bilden sich mehrere Ressourcen, die organisiert werden müssen.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
