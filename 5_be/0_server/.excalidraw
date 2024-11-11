@@ -1063,8 +1063,8 @@
     },
     {
       "type": "text",
-      "version": 156,
-      "versionNonce": 1107562901,
+      "version": 157,
+      "versionNonce": 618985347,
       "isDeleted": false,
       "id": "v01X2bhCFz7s3Cn244VQ6",
       "fillStyle": "solid",
@@ -1084,7 +1084,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560292,
+      "updated": 1731311594614,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -1095,7 +1095,7 @@
       "containerId": null,
       "originalText": "Frontend",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     },
     {
       "type": "arrow",
@@ -2567,8 +2567,8 @@
     },
     {
       "type": "text",
-      "version": 110,
-      "versionNonce": 1563377211,
+      "version": 111,
+      "versionNonce": 1101690413,
       "isDeleted": false,
       "id": "w9kRYu8jg0-g7KCW0qD_L",
       "fillStyle": "solid",
@@ -2588,7 +2588,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560292,
+      "updated": 1731311594614,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2599,7 +2599,7 @@
       "containerId": null,
       "originalText": "Internet/API",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     },
     {
       "type": "arrow",
@@ -2689,8 +2689,8 @@
     },
     {
       "type": "text",
-      "version": 73,
-      "versionNonce": 1058477813,
+      "version": 74,
+      "versionNonce": 1560350499,
       "isDeleted": false,
       "id": "NUpvJguOJOp4jDHUmGA9Y",
       "fillStyle": "solid",
@@ -2710,7 +2710,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560293,
+      "updated": 1731311594614,
       "link": null,
       "locked": false,
       "fontSize": 55.353125,
@@ -2721,12 +2721,12 @@
       "containerId": null,
       "originalText": "Früher",
       "lineHeight": 1.25,
-      "baseline": 48
+      "baseline": 49
     },
     {
       "type": "text",
-      "version": 94,
-      "versionNonce": 851558107,
+      "version": 95,
+      "versionNonce": 984950925,
       "isDeleted": false,
       "id": "56f8r47Xel11GbPJtW95b",
       "fillStyle": "solid",
@@ -2746,7 +2746,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560293,
+      "updated": 1731311594614,
       "link": null,
       "locked": false,
       "fontSize": 55.353125,
@@ -2757,12 +2757,12 @@
       "containerId": null,
       "originalText": "Heute",
       "lineHeight": 1.25,
-      "baseline": 48
+      "baseline": 49
     },
     {
       "type": "text",
-      "version": 57,
-      "versionNonce": 576876629,
+      "version": 58,
+      "versionNonce": 1425617603,
       "isDeleted": false,
       "id": "M1u2oLEwQReLpoBOFswLK",
       "fillStyle": "solid",
@@ -2782,7 +2782,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560293,
+      "updated": 1731311594614,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2793,12 +2793,12 @@
       "containerId": null,
       "originalText": "Frontend",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     },
     {
       "type": "text",
-      "version": 35,
-      "versionNonce": 2138778491,
+      "version": 36,
+      "versionNonce": 2021297901,
       "isDeleted": false,
       "id": "fUa_lnicskIUrkX5g4CMR",
       "fillStyle": "solid",
@@ -2818,7 +2818,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560293,
+      "updated": 1731311594615,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2829,7 +2829,7 @@
       "containerId": null,
       "originalText": "Backend",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     },
     {
       "type": "rectangle",
@@ -2913,8 +2913,8 @@
     },
     {
       "type": "text",
-      "version": 10,
-      "versionNonce": 700161461,
+      "version": 11,
+      "versionNonce": 1298915939,
       "isDeleted": false,
       "id": "EmG-6nunMa83HtUGejUrl",
       "fillStyle": "solid",
@@ -2934,7 +2934,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560294,
+      "updated": 1731311594615,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2945,7 +2945,7 @@
       "containerId": null,
       "originalText": "Server",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     },
     {
       "type": "rectangle",
@@ -2991,8 +2991,8 @@
     },
     {
       "type": "text",
-      "version": 62,
-      "versionNonce": 396231707,
+      "version": 63,
+      "versionNonce": 2038704461,
       "isDeleted": false,
       "id": "k2b6AP2jQFYALLWPnji02",
       "fillStyle": "solid",
@@ -3012,7 +3012,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560294,
+      "updated": 1731311594615,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -3023,7 +3023,7 @@
       "containerId": null,
       "originalText": "Datenbank",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     },
     {
       "type": "arrow",
@@ -3183,8 +3183,8 @@
     },
     {
       "type": "text",
-      "version": 190,
-      "versionNonce": 1011359509,
+      "version": 191,
+      "versionNonce": 1864867331,
       "isDeleted": false,
       "id": "aVDrReuLPXXrmuvDpjXQO",
       "fillStyle": "solid",
@@ -3209,7 +3209,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1730882560295,
+      "updated": 1731311594615,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -3220,7 +3220,7 @@
       "containerId": null,
       "originalText": "Geschäftslogik\n- Wie verarbeitet wir die Daten",
       "lineHeight": 1.25,
-      "baseline": 43
+      "baseline": 42
     },
     {
       "type": "arrow",
@@ -3276,8 +3276,8 @@
     },
     {
       "type": "text",
-      "version": 92,
-      "versionNonce": 589088955,
+      "version": 93,
+      "versionNonce": 791377837,
       "isDeleted": false,
       "id": "atOJcZxkBYE-y093yRSd0",
       "fillStyle": "solid",
@@ -3302,7 +3302,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1730882560295,
+      "updated": 1731311594615,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -3313,7 +3313,7 @@
       "containerId": null,
       "originalText": "Was haben wir für Daten",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     },
     {
       "type": "arrow",
@@ -3465,8 +3465,8 @@
     },
     {
       "type": "text",
-      "version": 95,
-      "versionNonce": 1081963637,
+      "version": 96,
+      "versionNonce": 1160439203,
       "isDeleted": false,
       "id": "HJxPbNbt0rrwWSDmT_kSV",
       "fillStyle": "solid",
@@ -3486,7 +3486,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560295,
+      "updated": 1731311594615,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -3497,12 +3497,12 @@
       "containerId": null,
       "originalText": "Memory/Temporäre Speicher",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     },
     {
       "type": "text",
-      "version": 55,
-      "versionNonce": 664402267,
+      "version": 56,
+      "versionNonce": 597293581,
       "isDeleted": false,
       "id": "YRvyySxHx-0DvUNEuJ9I_",
       "fillStyle": "solid",
@@ -3522,7 +3522,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730882560295,
+      "updated": 1731311594615,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -3533,7 +3533,7 @@
       "containerId": null,
       "originalText": "Context",
       "lineHeight": 1.25,
-      "baseline": 18
+      "baseline": 17
     }
   ],
   "appState": {
