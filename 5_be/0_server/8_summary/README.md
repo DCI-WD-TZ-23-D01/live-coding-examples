@@ -375,5 +375,7 @@ Mit `dotenv` lassen sich die Umgebungsvariablen in die Applikation laden.
 ```js
 import dotenv from "dotenv"
 dotenv.config() // dotenv sucht nach einer .env und lädt die Variablen in das Program ein
+
+process.env.PORT // Zugriff auf die Umgebungvariablen
 ```
 
