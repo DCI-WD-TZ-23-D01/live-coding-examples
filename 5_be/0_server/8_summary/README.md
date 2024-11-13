@@ -145,3 +145,235 @@ Die Schnittstelle für die Aussenwelt ist auf HTTP aufgebaut. Der Server definie
 - `GET /appointment/:id`: Diese Schnittstelle gibt Informationen über EIN Termin zurück.
 - `PUT /appointment/:id`: Diese Schnittstelle aktualisiert ein Termin.
 
+## Middleware
+
+Middleware ist eine Funktion die zwischen Empfang und Antwort eine Anfrage verarbeitet wird.
+
+Anfrage -> Middleware -> ... -> Handler (Antwort)
+
+Aufgaben:
+
+- Änderungen am Request/Response Objekt
+- Ein frühzeitige Antwort
+- Die nächste Funktion aufzurufen
+
+### Anatomy einer Middleware
+
+`request`, `response`, `next`
+
+- `request`: Die HTTP Anfrage, die verarbeitet wird
+- `response`: Die HTTP Antwort, die geschickt wird
+- `next`: Welche die nächste Middleware in der Kette aufruft
+
+```js
+import express from "express"
+
+const app = express()
+
+// Middleware global registriert
+app.use((req, res, next) => {
+    console.log("First Middleware called")
+    next()
+})
+
+app.get("/", (req, res) => res.send("Hello"))
+
+app.listen(3000, () => console.log("Server läuft auf http://localhost:3000"))
+```
+
+- Eine Middleware kann global mit `app.use` registriert werden
+- Eine Middleware kann direkt nur für eine Route definiert werden
+
+    ```js
+    app.get("/", 
+        // Middleware
+        (req, res, next) => {
+            console.log("Middleware called only for this route")
+            next() // Sehr wichtig: Damit die nächste Funktion aufgerufen wird
+        }, 
+        (req, res) => {
+            res.send("Final call")
+        }
+    )
+    ```
+
+## Router
+
+Denn in einer wachsenden Applikation ist es vorteilhaft den Code für die Routen aufzuteilen.
+
+> **Problem:**
+> Wenn Routen NUR in einer Datei definiert werden, dann wird die Datei unübersichtlich
+
+**Lösung:**
+Trennen der Routen in einzelne Dateien
+
+Anstatt, dass alle Routen direkt in den Server (`app`) registriert werden. Werden die Routen über einen Router registriert, welcher dann im Server registriert wird.
+
+```js
+import express from "express"
+
+const app = express()
+
+app.get("/appointment", (req, res) => res.send("GET /appointment"))
+
+app.get("/appointment/:id", (req, res) => res.send("GET /appointment/:id"))
+
+app.post("/appointment", (req, res) => res.send("POST /appointment"))
+
+app.put("/appointment/:id", (req, res) => res.send("PUT /appointment/:id"))
+
+app.delete("/appointment/:id", (req, res) => res.send("DELETE /appointment/:id"))
+
+```
+
+Hier wurden die Routen direkt in unseren Server registriert.
+Doch langfristig wird das unübersichtlich.
+
+`routes/appointment.js`
+
+```js
+import {Router} from "express"
+
+export const appointmentRouter = Router()
+
+appointmentRouter.get("/", (req, res) => res.send("GET /appointment"))
+
+appointmentRouter.get("/:id", (req, res) => res.send("GET /appointment/:id"))
+
+appointmentRouter.post("/", (req, res) => res.send("POST /appointment"))
+
+appointmentRouter.put("/:id", (req, res) => res.send("PUT /appointment/:id"))
+
+appointmentRouter.delete("/:id", (req, res) => res.send("DELETE /appointment/:id"))
+```
+
+`server.js`
+
+```js
+import express from "express"
+import { appointmentRouter } from "./routes/appointment.js"
+
+const app = express()
+
+app.use("/appointment", appointmentRouter)
+
+app.listen(3000, () => console.log("Server läuft auf http://localhost:3000"))
+```
+
+## Error Handling
+
+Wie reagieren der Server auf bestimmte Fehler?
+
+Es gibt einen allgemeinen Standard, wie das Internet Status miteinander kommuniziert.
+
+### HTTP Status Codes
+
+**Success**: 200 - 299
+
+- 200: Successful
+- 201: Created
+- 204: Successful, no content response
+
+**Redirect**: 300 - 399
+
+- 301: Moved permanently
+
+**Client Error**: 400 - 499
+
+- 400: Bad Request
+- 401: Unauthorized (Authentifizierung)
+- 403: Forbidden (Autorisierung)
+- 404: Not found
+
+**Server Error**: 500 - 599
+
+- 500: Internal Server Error
+- 504: Gateway Timeout
+
+```js
+import express from "express"
+
+const app = express()
+app.use(express.json())
+
+app.post("/" () => {
+    const id = req.body.id
+    if(!id) {
+        return res.status(404).json({error: "Id not found"}) // Komplette Antwort auf die Anfrage
+    }
+
+    // ... (Business Logik)
+
+    return res.sendStatus(200)
+})
+
+app.listen(3000, () => console.log("Server läuft auf http://localhost:3000"))
+```
+
+### Error Middleware
+
+Die Error Middleware wird verwendet, um alle Fehler in einer Anfrage abzufangen und benutzerdefiniert zurückgegeben.
+
+#### Anatonmy der Error Middleware
+
+Zusätzlich zu einer normalen Middleware, hat die Error Middleware einen weiteren `error` Parameter:
+
+`error`, `request`, `response`, `next`
+
+- `error`: Der entstandene Fehler
+- `request`: Die HTTP Anfrage, die verarbeitet wird
+- `response`: Die HTTP Antwort, die geschickt wird
+- `next`: Welche die nächste Middleware in der Kette aufruft
+
+#### Verwendung der Error-Middleware
+
+```js
+import express from "express"
+
+const app = express()
+
+app.get("/", (req, res, next) => {
+    try {
+        res.json({ success: true, result: "Hello" })
+    } catch(e) {
+        next(e) // Nur über die next-Funktion wird die Error-Middleware aufgerufen
+    }
+})
+
+// Wichtig: Die Middleware muss zum Schluss definiert werden
+app.use((error, request, response, next) => {
+    return res.status(500).json({ success: false, error: error })
+})
+
+app.listen(3000, () => console.log("Server läuft auf http://localhost:3000"))
+```
+
+## Umgebungsvariablen
+
+Durch den Einsatz von Umgebungsvariablen kann ein Programm abhängig von der Umgebung konfiguriert werden.
+Beispiel:
+
+- Alice benutzt Port 3000 für die Entwicklung und setzt die Umgebungsvariable `PORT` auf 3000
+- Bob benutzt Port 8080 für die Entwicklung und setzt die Umgebungsvariable `PORT` auf 8080
+  - Grund: Bob hat einen anderen Server auf Port 3000 laufen
+
+Umgebungsvariablen können auch genutzt werden, um sensible Daten in den Code einzufügen.
+Denn ist es nachteilhaft, sensible Daten im Sourcecode zu lassen.
+
+> Sensible Daten: Passwörter, Zugangsdaten, API Keys, etc
+
+### `dotenv`
+
+Mit `dotenv` lassen sich die Umgebungsvariablen in die Applikation laden.
+
+#### Installation
+
+`npm i dotenv`
+
+#### Verwendung
+
+```js
+import dotenv from "dotenv"
+dotenv.config() // dotenv sucht nach einer .env und lädt die Variablen in das Program ein
+```
+
