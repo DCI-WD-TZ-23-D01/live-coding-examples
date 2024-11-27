@@ -2,7 +2,7 @@ import mongoose, { model } from "mongoose";
 
 // mongoose ermöglicht für uns, die Daten zu strukturieren und zu validieren
 // Blaupause beschreibt die Struktur unseren Objektes
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true, // Dieses Attribut MUSS bei der Erstellung des Objektes vorhanden sein
