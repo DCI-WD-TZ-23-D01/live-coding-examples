@@ -1,0 +1,20 @@
+{
+  "name": "4_basic_api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "In einem Server ist Express verantwortlich für die Bereitstellung der Schnittstellen. Mongoose ist verantwortlich für die Verarbeitung mit der Datenbank (MongoDB).",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "seed": "node src/utils/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3"
+  }
+}
