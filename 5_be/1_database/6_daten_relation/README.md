@@ -1,89 +1,31 @@
-# Schema Wiederholung
+# Relationen
 
-Modellierung von dem folgenden Objekt:
+## Many-To-Many
 
-- `author`
-  - `required`
-  - `String`
-  - `minLength` > 1
-- `title`
-  - `required`
-  - `String`
-  - `minLength` > 1
-- `isbn`
-  - `required`
-  - `unique`
-  - `String`
-  - `minLength` >= 10
-  - `maxLength` <= 13
-- `genres`
-  - `[String]`
-- `languages`
-  - `[String]`
-- `rewards`
-  - `[String]`
-- `cover` (Bild-URL)
-  - `String`
-  - `default` (Platzhalter)
-- `metadata`
-  - `Subdocument`
-    - `bookTypes`
-      - `["e-book", "hard-cover", "soft-cover", "pocket"]`
-    - `price`
-      - `Number`
+Model A hat ein oder mehrere Modelle B.
+Model B hat ein oder mehrere von Modelle A.
 
-```js
-const metadataSchema = new Schema(
-  {
-    bookType: {
-      type: String,
-      enum: ["ebook", "hardcover", "softcover", "pocket"],
-    },
-    price: Number,
-  },
-  { _id: false }
-);
+**Beispiel:**
 
-const bookSchema = new Schema({
-  author: {
-    required: true,
-    type: String,
-    minLength: 1,
-  },
-  title: {
-    required: true,
-    type: String,
-    minLength: 1,
-  },
-  isbn: {
-    required: true,
-    type: String,
-    unique: true,
-    minLength: 10,
-    maxLength: 13,
-  },
-  genres: [String],
-  languages: [String],
-  rewards: [String],
-  cover: {
-    type: String,
-    default: "https://placehold.co/600x400", // Per Default ein Platzhalterbild einbauen
-  },
-  metadata: [metadataSchema],
-});
-```
+Ein Buch hat ein oder mehrere Genre.
+Ein Genre hat ein oder mehrere Bücher.
 
-```js
-export const Book = model("book", bookSchema);
-```
+## Many-To-One / One-To-Many
 
-`Book`:
+Model A hat ein oder mehrere Modelle B.
+Model B hat nur ein Model A.
 
-- Verwendung im Code, bessere Erkennung des Models
-- Konvention
+**Beispiel**:
 
-`"book"`
+Ein Gebäude hat ein oder mehrere Zimmer.
+Ein oder mehrere Zimmer haben nur ein Gebäude.
 
-- Name der Collection in MongoDB
-- Mongoose sucht automatisch die Pluralform des Namens
-- setzt den Namen in Kleinbuchstaben
+## One-To-One
+
+Model A hat ein Model B.
+Model B hat ein Model A.
+
+**Beispiel:**
+
+Ein Buch hat eine ISBN.
+Ein ISBN gehört zu einem Buch.

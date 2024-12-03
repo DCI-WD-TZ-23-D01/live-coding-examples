@@ -4,7 +4,7 @@ const metadataSchema = new Schema(
   {
     bookType: {
       type: String,
-      enum: ["ebook", "hardcover", "softcover", "pocket"],
+      enum: ["Ebook", "Hardcover", "Softcover", "Paperback", "Audiobook"],
     },
     price: Number,
   },
@@ -26,8 +26,8 @@ const bookSchema = new Schema({
     required: true,
     type: String,
     unique: true,
-    minLength: 10,
-    maxLength: 13,
+    minLength: 13,
+    maxLength: 17,
   },
   genres: [String],
   languages: [String],
