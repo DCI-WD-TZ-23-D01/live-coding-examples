@@ -38,7 +38,7 @@ const eventSchema = new Schema(
         },
         date: {
           type: Date,
-          default: Date.now,
+          default: Date.now, // add default
         },
       },
     ],
