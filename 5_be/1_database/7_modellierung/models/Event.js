@@ -1,4 +1,6 @@
 import { model, Schema } from "mongoose";
+import { Organizer } from "./Organizer";
+import { Attendee } from "./Attendee";
 
 const locationSchema = new Schema(
   {
@@ -26,6 +28,10 @@ const eventSchema = new Schema(
     },
     organizerId: {
       ref: Organizer,
+      type: Schema.Types.ObjectId,
+    },
+    attendees: {
+      ref: Attendee,
       type: Schema.Types.ObjectId,
     },
   },
