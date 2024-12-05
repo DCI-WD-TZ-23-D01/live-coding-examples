@@ -30,9 +30,12 @@ const eventSchema = new Schema(
       ref: Organizer,
       type: Schema.Types.ObjectId,
     },
-    attendees: {
-      ref: Attendee,
-      type: Schema.Types.ObjectId,
+    signups: {
+      attendee: {
+        ref: Attendee,
+        type: Schema.Types.ObjectId,
+      },
+      date: Date,
     },
   },
   { timestamps: true }
