@@ -36,8 +36,10 @@ const eventSchema = new Schema(
           ref: Attendee,
           type: Schema.Types.ObjectId,
         },
-        date: Date,
-        default: Date.now,
+        date: {
+          type: Date,
+          default: Date.now,
+        },
       },
     ],
   },
