@@ -37,6 +37,7 @@ const eventSchema = new Schema(
           type: Schema.Types.ObjectId,
         },
         date: Date,
+        default: Date.now,
       },
     ],
   },
