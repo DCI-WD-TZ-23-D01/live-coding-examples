@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import { Event } from "./Event";
 
 const attendeeSchema = new Schema({
   firstName: {
@@ -19,7 +18,7 @@ const attendeeSchema = new Schema({
   events: [
     {
       type: Schema.Types.ObjectId,
-      ref: Event,
+      ref: "event",
     },
   ],
 });
