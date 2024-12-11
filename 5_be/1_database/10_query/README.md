@@ -48,6 +48,8 @@ Frontend <- { produkte } Backend
 }
 ```
 
+`$options: "i"` ignoriert Groß- und Kleinschreibung, was die Suche erweitert.
+
 Beispiel mit `mongoose`. Es werden alle Dokumente gesucht, wo `dish` im `name` vorkommt.
 
 ## Pagination
