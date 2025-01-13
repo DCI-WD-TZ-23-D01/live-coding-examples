@@ -1,4 +1,4 @@
-# Zusammenfassung
+# Zusammenfassung Backend
 
 ## Intro
 
@@ -81,7 +81,7 @@ Ein wichtiger Aspekt in der Programmierung ist die Möglichkeit mit externen Dat
 
 ### Wie tun wir das?
 
-Man kann mit dem `fs` Modul von NodsJS mit Dateien arbeiten.
+Man kann mit dem `fs` (Filesystem) Modul von NodsJS mit Dateien arbeiten.
 
 #### `readFileSync`
 
@@ -224,6 +224,7 @@ app.put("/appointment/:id", (req, res) => res.send("PUT /appointment/:id"))
 
 app.delete("/appointment/:id", (req, res) => res.send("DELETE /appointment/:id"))
 
+app.listen(3000, () => console.log("Server läuft auf http://localhost:3000"))
 ```
 
 Hier wurden die Routen direkt in unseren Server registriert.
