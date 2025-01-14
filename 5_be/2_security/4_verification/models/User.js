@@ -44,6 +44,7 @@ userSchema.methods.toJSON = function () {
   return obj;
 };
 
+// mongoose definiert verschiedene Events, wo man eine Callback-Funktion hinzufügen kann
 userSchema.pre("save", function () {
   this.password = bcrypt.hashSync(this.password);
 });
