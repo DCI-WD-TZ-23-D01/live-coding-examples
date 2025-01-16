@@ -19,7 +19,8 @@ export function createToken(payload) {
  * @param {string} token
  */
 export function verifyToken(token) {
-  // verify überprüft, ob der Token die richtige Signatur hat und noch nicht abgelaufen ist
+  // verify überprüft, ob der Token die richtige Signatur hat
+  // und ob der Token abgelaufen ist
   const payload = jwt.verify(token, process.env.JWT_SECRET);
   return payload;
 }
