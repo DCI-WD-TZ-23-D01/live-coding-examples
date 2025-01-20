@@ -1,0 +1,23 @@
+# Review
+
+- Verifikation
+  - Mail: Resend, SendGrid
+- Hashing
+  - Anwendung:
+    - Passwörter-Hashing
+    - JWT
+  - sha256, sha512
+  - One-Way
+- Encryption (Verschlüsselung)
+  - Caesar-Verschlüsselung
+  - Umkehrbar
+  - AES (Advanced Encryption Standard)
+- Authentifizierung mit JWT (jot)
+  - Token basierend
+  - Token = Header.Payload.Signatur
+    - Payload ist ein kleiner Speicher, mit dem Daten zwischen dem Clienten und Server ausgetauscht werden können
+    - Header: Metadata Informationen
+      - Token-Typ
+      - Hashing-Algorithmus
+    - Signatur:
+      - Hash = Header + Payload + Secret
