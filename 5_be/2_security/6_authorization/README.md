@@ -36,3 +36,16 @@ const f = add // valider Code
 f(1,1) === add(1,1) // Funktionen sind besondere Objekte
 const result = add(1,1) // valider Code
 ```
+
+## Summary
+
+- API Endpunkt mit Middleware absichern
+  - Authentifizierung: Prüfen nach einem JWT
+  - Autorisierung: Prüfen die richtigen Berechtigungen
+- Middleware mit HOC (higher-order function) konstruieren
+  - Funktion, die Middleware-Funktion zurückgibt
+- Autorisierung:
+  - Rollenbasiert: allgemeine Ansatz
+  - Berechtigungsbasierte: granulare Ansatz
+  - Mix: beide Ansätz miteinander verwendet
+    - Ein Benutzer viele Rollen und viele Berechtigungen hat
