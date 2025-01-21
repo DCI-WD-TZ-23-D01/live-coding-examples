@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="login">
+      <h2>Login</h2>
+      <label for="username">Username:</label>
+      <input id="username" type="text" /><br /><br />
+      <label for="password">Password:</label>
+      <input id="password" type="password" /><br /><br />
+      <button>Login</button>
+    </div>
+
+    <div id="logout">
+      <h2>You are logged in as <span id="current"></span></h2>
+      <button>Logout</button>
+
+      <h3>Todo List</h3>
+
+      <ul></ul>
+    </div>
+
+    <script>
+      const currentUser = localStorage.getItem("username");
+
+      if (currentUser) {
+        initializeLoggedInView();
+      } else {
+        initializeLoggedOutView();
+      }
+
+      async function initializeLoggedInView() {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("current").textContent = currentUser;
+
+        document
+          .querySelector("#logout button")
+          .addEventListener("click", () => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("username");
+            location.reload();
+          });
+
+        try {
+          const opts = {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          };
+          const response = await fetch("http://localhost:3000/todos", opts);
+          const todos = await response.json();
+          const todoList = document.querySelector("ul");
+
+          todoList.innerHTML = todos.reduce((html, todo) => {
+            return `${html}<li>${todo.text} <button id="${todo._id}">Delete</button></li>`;
+          }, "");
+        } catch (error) {
+          localStorage.removeItem("username");
+          localStorage.removeItem("token");
+          alert("Error fetching TODOs. Please log in again and retry.");
+          location.reload();
+        }
+
+        // If someone clicks on the delete button, delete the TODO
+        document.querySelector("ul").addEventListener("click", (e) => {
+          if (e.target.tagName !== "BUTTON") {
+            return;
+          }
+
+          const opts = {
+            method: "DELETE",
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          };
+
+          fetch(`http://localhost:3000/todos/${e.target.id}`, opts)
+            .then((res) => {
+              // Muss eingebaut werden, da JS 4xx status codes nicht als Netzwerkfehler ansieht
+              if (res.status === 403) throw new Error();
+              e.target.parentElement.remove();
+            })
+            .catch(() =>
+              alert("Error deleting TODO. Are you allowed to delete TODOs?")
+            );
+        });
+      }
+
+      async function initializeLoggedOutView() {
+        document.getElementById("logout").style.display = "none";
+        document
+          .querySelector("#login button")
+          .addEventListener("click", async () => {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const opts = {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ username, password }),
+            };
+
+            const response = await fetch("http://localhost:3000/login", opts);
+            const data = await response.json();
+            if (data.token) {
+              localStorage.setItem("token", data.token);
+              localStorage.setItem("username", username);
+              location.reload();
+            } else {
+              alert("Invalid username or password");
+            }
+          });
+      }
+    </script>
+  </body>
+</html>
