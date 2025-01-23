@@ -6,6 +6,9 @@ export async function authorizeJwt(req, res, next) {
     // Hier wird der Cookie gesucht und geprüft
     const token = req.cookies.jwt;
     const payload = verifyJwt(token); // Wirfst einen Fehler
+    if (!payload && !payload.id) {
+      return res.sendStatus(401);
+    }
     const user = await User.findById(payload.id);
     if (!user) {
       return res.sendStatus(401);
